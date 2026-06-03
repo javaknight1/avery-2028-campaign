@@ -1,0 +1,13 @@
+{
+  "name": "rob-avery-2028",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A Future Worth Building — a for-fun, animation-heavy parody 2028 campaign site. Static, zero-build.",
+  "scripts": {
+    "dev": "npx --yes serve@14 . -l 5173",
+    "start": "npm run dev",
+    "deploy": "wrangler pages deploy . --project-name=rob-avery-2028"
+  },
+  "keywords": ["campaign", "static-site", "cloudflare-pages", "parody"],
+  "license": "MIT"
+}

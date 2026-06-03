@@ -1,0 +1,6 @@
+# Cloudflare Pages configuration
+# The site is fully static and needs no build step, so the build output
+# directory is the project root itself.
+name = "rob-avery-2028"
+pages_build_output_dir = "."
+compatibility_date = "2026-01-01"
