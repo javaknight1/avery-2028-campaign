@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#061629" />
+  <title>Tax Lab — Build Your Own Tax Plan — Avery for President 2028</title>
+  <meta name="description" content="Design your own federal income-tax brackets and see the estimated revenue in real time — then compare it to current law. An interactive, educational tool. (Parody.)" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/tax.css" />
+</head>
+<body data-page="tax">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal>Interactive · Income Tax</span>
+        <h1 data-reveal>The Tax Lab</h1>
+        <p data-reveal>
+          Politicians set the brackets and hand you the bill. Here you do the setting.
+          Design your own federal <strong>income-tax</strong> brackets, watch the estimated
+          revenue update live, and compare it head-to-head with current law.
+        </p>
+      </div>
+    </section>
+
+    <section class="section bg-paper">
+      <div class="container">
+        <div class="lab">
+          <!-- EDITOR -->
+          <div class="panel" data-reveal>
+            <h3>Build your brackets</h3>
+            <p class="hint">Set a marginal rate for each band of taxable income. Edit a rate or threshold and everything on the right recalculates instantly.</p>
+
+            <div class="presets" id="presets" aria-label="Starting points"></div>
+
+            <div class="ded-row">
+              <label for="deduction">Standard deduction</label>
+              <div class="ded-input">
+                <span>$</span>
+                <input type="text" inputmode="numeric" id="deduction" value="14,600" aria-label="Standard deduction in dollars" />
+              </div>
+              <span class="hint" style="margin:0">Income below this is tax-free.</span>
+            </div>
+
+            <div class="bracket-table" id="bracketTable">
+              <div class="bracket-head">
+                <span>Taxable income from</span>
+                <span>up to</span>
+                <span>Rate %</span>
+                <span></span>
+              </div>
+              <div id="bracketRows"></div>
+            </div>
+
+            <div class="editor-actions">
+              <button class="btn btn--navy btn-sm" id="addBracket">+ Add bracket</button>
+              <button class="btn btn--ghost btn-sm" id="resetBtn">Reset to current law</button>
+            </div>
+            <p class="warn" id="warn" role="status" aria-live="polite"></p>
+          </div>
+
+          <!-- RESULTS -->
+          <div class="panel sticky-results" data-reveal>
+            <div class="result-hero">
+              <div class="lbl">Estimated annual revenue · your plan</div>
+              <div class="big" id="revYou">$0</div>
+              <div class="delta flat" id="delta">vs. current law</div>
+            </div>
+
+            <div class="compare-bars" id="compareBars">
+              <div class="cbar"><i>Your plan</i><span class="track"><span class="fill you" id="barYou" style="width:0"></span></span><span class="val" id="valYou">—</span></div>
+              <div class="cbar"><i>Current law</i><span class="track"><span class="fill cur" id="barCur" style="width:0"></span></span><span class="val" id="valCur">—</span></div>
+            </div>
+
+            <div class="chart-card">
+              <h4>Marginal rate by income</h4>
+              <p class="hint">Your schedule vs. current law.</p>
+              <svg class="chart" id="chartRates" viewBox="0 0 520 240" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Marginal tax rate by income"></svg>
+              <div class="legend">
+                <span><i style="background:var(--red)"></i> Your plan</span>
+                <span><i style="background:var(--navy)"></i> Current law</span>
+              </div>
+            </div>
+
+            <div class="chart-card">
+              <h4>What households actually pay</h4>
+              <p class="hint">Effective tax rate (tax ÷ income) at sample incomes.</p>
+              <table class="eff-table" id="effTable">
+                <thead><tr><th>Income</th><th>Current</th><th>Your plan</th></tr></thead>
+                <tbody></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- METHODOLOGY -->
+        <details class="method">
+          <summary>How this estimate works (and what it doesn't do)</summary>
+          <p>This is a simplified, educational model — not an official revenue score. Here's exactly what it does:</p>
+          <ul>
+            <li>It starts from an approximate <strong>IRS-SOI-style distribution</strong> of U.S. tax returns grouped by income, with a representative number of returns and average income in each band.</li>
+            <li>For each band it subtracts your standard deduction to get taxable income, applies your marginal brackets, multiplies by the number of returns in that band, and sums it all up.</li>
+            <li>A single <strong>calibration factor</strong> is tuned so the model's <em>current-law</em> output equals real-world collections (about $2.2&nbsp;trillion in individual income tax). The same factor is applied to your plan, so the comparison is apples-to-apples. That factor stands in for credits, itemized deductions, joint filing, and tax avoidance the model can't see directly.</li>
+          </ul>
+          <p><strong>Known simplifications:</strong> it models a single-filer-equivalent schedule, treats each income band by its average (so it slightly smooths progressivity within a band), and assumes behavior doesn't change when rates change (no "people will earn/shelter differently" effects). Very large rate changes are therefore rougher estimates. It covers <strong>individual income tax only</strong> — for now.</p>
+        </details>
+
+        <!-- FUTURE SOURCES -->
+        <div class="center" style="max-width:680px;margin-top:46px">
+          <span class="eyebrow" data-reveal>Roadmap</span>
+          <h2 class="section-title" data-reveal>More revenue sources, coming soon</h2>
+          <p class="section-lead" data-reveal>Income tax is the start. The plan is to let you model the whole federal revenue picture.</p>
+        </div>
+        <div class="future-note" data-reveal>
+          <div><b>Income tax</b>Live now ✓</div>
+          <div><b class="soon">Capital gains</b><span class="soon">Coming soon</span></div>
+          <div><b class="soon">Corporate tax</b><span class="soon">Coming soon</span></div>
+          <div><b class="soon">Payroll</b><span class="soon">Coming soon</span></div>
+          <div><b class="soon">Estate &amp; other</b><span class="soon">Coming soon</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-navy">
+      <div class="container center" style="max-width:640px">
+        <h2 class="section-title" data-reveal>Like building things?</h2>
+        <p class="section-lead" data-reveal>So do we. That's the whole campaign. Join us — and tell us what to add to the Tax Lab next.</p>
+        <div data-reveal style="margin-top:8px"><a href="get-involved.html" class="btn btn--gold btn--lg">Get Involved <span class="arrow">→</span></a></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="data/income-distribution.js" defer></script>
+  <script src="scripts/components.js" defer></script>
+  <script src="scripts/tax.js" defer></script>
+</body>
+</html>

@@ -3,410 +3,149 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="theme-color" content="#070b1a" />
-  <title>Rob Avery 2028 — A Future Worth Building</title>
-  <meta name="description" content="Rob Avery for President 2028. A Future Worth Building — a bold, optimistic plan for technology, jobs, climate, and opportunity. (A for-fun parody campaign site.)" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Rob Avery 2028 — A Future Worth Building" />
-  <meta property="og:description" content="A bold, optimistic plan for the next chapter of America. (Parody.)" />
+  <meta name="theme-color" content="#061629" />
+  <title>Rob Avery for President 2028 — A Future Worth Building</title>
+  <meta name="description" content="Rob Avery for President 2028. A Future Worth Building — a clear, plain-language plan for technology, jobs, climate, education, and health. (A for-fun parody campaign site.)" />
+  <meta property="og:title" content="Rob Avery for President 2028" />
+  <meta property="og:description" content="A Future Worth Building. (Parody.)" />
   <meta property="og:type" content="website" />
-
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/main.css" />
 </head>
-<body>
-  <!-- Cursor glow -->
-  <div class="cursor-glow" id="cursorGlow" aria-hidden="true"></div>
+<body data-page="home">
+  <div id="site-header"></div>
 
-  <!-- Scroll progress -->
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
-
-  <!-- Animated background layers -->
-  <div class="bg-aurora" aria-hidden="true">
-    <span class="blob blob-1"></span>
-    <span class="blob blob-2"></span>
-    <span class="blob blob-3"></span>
-  </div>
-  <canvas id="particles" class="bg-particles" aria-hidden="true"></canvas>
-  <div class="bg-grid" aria-hidden="true"></div>
-
-  <!-- Navigation -->
-  <header class="nav" id="nav">
-    <a href="#top" class="brand" aria-label="Rob Avery 2028 home">
-      <span class="brand-mark" aria-hidden="true">
-        <svg viewBox="0 0 32 32" width="32" height="32"><use href="#logo" /></svg>
-      </span>
-      <span class="brand-text">AVERY<span class="brand-year">'28</span></span>
-    </a>
-    <nav class="nav-links" id="navLinks" aria-label="Primary">
-      <a href="#vision">Vision</a>
-      <a href="#pillars">Policies</a>
-      <a href="#plan">The Plan</a>
-      <a href="#roadmap">Roadmap</a>
-      <a href="#about">Meet Rob</a>
-      <a href="#join" class="nav-cta">Join Us</a>
-    </nav>
-    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
-      <span></span><span></span><span></span>
-    </button>
-  </header>
-
-  <main id="top">
+  <main>
     <!-- HERO -->
-    <section class="hero" id="hero">
-      <div class="hero-inner">
-        <p class="eyebrow reveal" data-reveal>
-          <span class="pulse-dot"></span> Officially (un)official · 2028
-        </p>
-        <h1 class="hero-title">
-          <span class="line" data-words>A Future</span>
-          <span class="line gradient-text" data-words>Worth Building.</span>
-        </h1>
-        <p class="hero-sub reveal" data-reveal>
-          Rob Avery for President. A serious plan, a little audacity, and the
-          conviction that the best version of tomorrow is something we
-          <em>build</em> — together.
-        </p>
-        <p class="hero-typed reveal" data-reveal>
-          We will <span id="typed" class="typed"></span><span class="caret">|</span>
-        </p>
-        <div class="hero-cta reveal" data-reveal>
-          <a href="#join" class="btn btn-primary" data-confetti>Join the Movement</a>
-          <a href="#pillars" class="btn btn-ghost">See the Policies <span class="arrow">↓</span></a>
-        </div>
-      </div>
-      <a href="#vision" class="scroll-hint" aria-label="Scroll down">
-        <span class="mouse"><span class="wheel"></span></span>
-        <span>scroll</span>
-      </a>
-    </section>
-
-    <!-- VISION / STATS -->
-    <section class="section vision" id="vision">
-      <div class="container">
-        <h2 class="section-title reveal" data-reveal>The vision, in numbers</h2>
-        <p class="section-lead reveal" data-reveal>
-          Big goals deserve big targets. Here's what a single, focused term looks like.
-        </p>
-        <div class="stats">
-          <div class="stat reveal" data-reveal>
-            <span class="stat-num" data-count="50" data-suffix="">0</span>
-            <span class="stat-label">states with gigabit internet by 2030</span>
-          </div>
-          <div class="stat reveal" data-reveal>
-            <span class="stat-num" data-count="10" data-suffix="M">0</span>
-            <span class="stat-label">new clean-energy & infrastructure jobs</span>
-          </div>
-          <div class="stat reveal" data-reveal>
-            <span class="stat-num" data-count="100" data-suffix="%">0</span>
-            <span class="stat-label">of public R&D made open by default</span>
-          </div>
-          <div class="stat reveal" data-reveal>
-            <span class="stat-num" data-count="1" data-prefix="$" data-suffix="T">0</span>
-            <span class="stat-label">future-fund for science & moonshots</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PILLARS / POLICIES -->
-    <section class="section pillars" id="pillars">
-      <div class="container">
-        <h2 class="section-title reveal" data-reveal>Four pillars</h2>
-        <p class="section-lead reveal" data-reveal>
-          Click a pillar to expand the details. Every plank is built to ship —
-          measurable, funded, and on a clock.
-        </p>
-        <div class="pillar-grid">
-
-          <article class="pillar tilt reveal" data-reveal data-accent="cyan">
-            <div class="pillar-head">
-              <span class="pillar-icon">⚡</span>
-              <h3>Technology &amp; Innovation</h3>
-            </div>
-            <p class="pillar-tagline">Build the future in America, openly.</p>
-            <ul class="pillar-list">
-              <li>Gigabit broadband to all 50 states as public infrastructure.</li>
-              <li>A public, audited "AI Bill of Rights" — your data, your call.</li>
-              <li>Open-by-default: publicly funded research is publicly owned.</li>
-              <li>A $1T Future Fund for science, space, and hard moonshots.</li>
-            </ul>
-            <button class="pillar-more" aria-expanded="false">More <span>+</span></button>
-          </article>
-
-          <article class="pillar tilt reveal" data-reveal data-accent="gold">
-            <div class="pillar-head">
-              <span class="pillar-icon">💼</span>
-              <h3>Economy &amp; Jobs</h3>
-            </div>
-            <p class="pillar-tagline">Work that pays. A life you can afford.</p>
-            <ul class="pillar-list">
-              <li>A "build it here" tax credit for small manufacturers.</li>
-              <li>Portable benefits that follow the worker, not the job.</li>
-              <li>Housing: 5 million new homes via a YIMBY federal partnership.</li>
-              <li>Zero-fee small-business starter accounts at the Postal Bank.</li>
-            </ul>
-            <button class="pillar-more" aria-expanded="false">More <span>+</span></button>
-          </article>
-
-          <article class="pillar tilt reveal" data-reveal data-accent="green">
-            <div class="pillar-head">
-              <span class="pillar-icon">🌱</span>
-              <h3>Climate &amp; Energy</h3>
-            </div>
-            <p class="pillar-tagline">Clean power, cheaper bills, real jobs.</p>
-            <ul class="pillar-list">
-              <li>A clean grid by 2035 — nuclear, solar, wind, and storage.</li>
-              <li>A National Grid Corps to modernize transmission lines.</li>
-              <li>Heat-pump &amp; weatherization rebates for every household.</li>
-              <li>Restore 100M acres and plant a billion native trees.</li>
-            </ul>
-            <button class="pillar-more" aria-expanded="false">More <span>+</span></button>
-          </article>
-
-          <article class="pillar tilt reveal" data-reveal data-accent="violet">
-            <div class="pillar-head">
-              <span class="pillar-icon">🎓</span>
-              <h3>Education &amp; Health</h3>
-            </div>
-            <p class="pillar-tagline">Learn for free. Heal without fear.</p>
-            <ul class="pillar-list">
-              <li>Tuition-free community &amp; technical college, nationwide.</li>
-              <li>Cap insulin and inhalers at $5; cap out-of-pocket care.</li>
-              <li>A teacher pay floor that beats the local cost of living.</li>
-              <li>Universal pre-K and after-school as a public service.</li>
-            </ul>
-            <button class="pillar-more" aria-expanded="false">More <span>+</span></button>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- THE PLAN / DEEP DIVE -->
-    <section class="section plan" id="plan">
-      <div class="container">
-        <h2 class="section-title reveal" data-reveal>The plan, plainly</h2>
-        <p class="section-lead reveal" data-reveal>
-          No 600-page mystery. Three commitments, written so you can hold us to them.
-        </p>
-        <div class="plan-cards">
-          <div class="plan-card reveal" data-reveal>
-            <span class="plan-num">01</span>
-            <h3>Make it, here.</h3>
-            <p>
-              Re-shore the industries that matter — chips, batteries, medicine,
-              steel — with credits tied to good wages and clean plants. If it's
-              critical, we should be able to build it.
-            </p>
-          </div>
-          <div class="plan-card reveal" data-reveal>
-            <span class="plan-num">02</span>
-            <h3>Lower the cost of a good life.</h3>
-            <p>
-              Housing, childcare, healthcare, and energy are the four bills that
-              break families. We bring each one down with supply, competition,
-              and hard caps where markets fail.
-            </p>
-          </div>
-          <div class="plan-card reveal" data-reveal>
-            <span class="plan-num">03</span>
-            <h3>Invest in what's next.</h3>
-            <p>
-              Fund the science, train the workers, and lay the wires. The
-              countries that build the future get to live in it first. We intend
-              to be first.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ENDORSEMENTS MARQUEE -->
-    <section class="section endorse" id="endorse" aria-label="What people are saying">
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <span class="quote">“Finally, a plan I can read in one sitting.”</span>
-          <span class="dot">●</span>
-          <span class="quote">“Ambitious, but it actually adds up.”</span>
-          <span class="dot">●</span>
-          <span class="quote">“He fixed my Wi-Fi AND my zoning board.”</span>
-          <span class="dot">●</span>
-          <span class="quote">“A future worth building? Sign me up.”</span>
-          <span class="dot">●</span>
-          <span class="quote">“The grid guy. We love the grid guy.”</span>
-          <span class="dot">●</span>
-        </div>
-        <div class="marquee-track" aria-hidden="true">
-          <span class="quote">“Finally, a plan I can read in one sitting.”</span>
-          <span class="dot">●</span>
-          <span class="quote">“Ambitious, but it actually adds up.”</span>
-          <span class="dot">●</span>
-          <span class="quote">“He fixed my Wi-Fi AND my zoning board.”</span>
-          <span class="dot">●</span>
-          <span class="quote">“A future worth building? Sign me up.”</span>
-          <span class="dot">●</span>
-          <span class="quote">“The grid guy. We love the grid guy.”</span>
-          <span class="dot">●</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ROADMAP -->
-    <section class="section roadmap" id="roadmap">
-      <div class="container">
-        <h2 class="section-title reveal" data-reveal>Roadmap to 2028 &amp; beyond</h2>
-        <p class="section-lead reveal" data-reveal>
-          A campaign is a promise with a calendar attached.
-        </p>
-        <ol class="timeline">
-          <li class="t-item reveal" data-reveal>
-            <span class="t-dot"></span>
-            <span class="t-year">2026</span>
-            <h3>Listen &amp; build the platform</h3>
-            <p>A 50-state listening tour. Policy drafted in the open, on GitHub.</p>
-          </li>
-          <li class="t-item reveal" data-reveal>
-            <span class="t-dot"></span>
-            <span class="t-year">2027</span>
-            <h3>The campaign begins</h3>
-            <p>Town halls in every congressional district. No idea too small.</p>
-          </li>
-          <li class="t-item reveal" data-reveal>
-            <span class="t-dot"></span>
-            <span class="t-year">2028</span>
-            <h3>Election Day</h3>
-            <p>Turnout like it's the future — because it is.</p>
-          </li>
-          <li class="t-item reveal" data-reveal>
-            <span class="t-dot"></span>
-            <span class="t-year">Day 1</span>
-            <h3>Ship the first 10 things</h3>
-            <p>A signed, public 100-day plan. Scoreboard live on this very site.</p>
-          </li>
-        </ol>
-      </div>
-    </section>
-
-    <!-- ABOUT -->
-    <section class="section about" id="about">
-      <div class="container about-grid">
-        <div class="about-photo reveal" data-reveal aria-hidden="true">
-          <div class="avatar">
-            <svg viewBox="0 0 200 200" width="100%" height="100%"><use href="#avatar" /></svg>
-          </div>
-          <span class="about-badge">Rob Avery</span>
-        </div>
-        <div class="about-copy">
-          <h2 class="section-title reveal" data-reveal>Meet Rob</h2>
-          <p class="reveal" data-reveal>
-            Builder, optimist, and recovering tab-hoarder. Rob spent his career
-            shipping things that had to actually work — and got tired of watching
-            the country settle for things that don't.
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <span class="hero-kicker" data-reveal>★ Avery for President · 2028</span>
+          <h1 data-reveal>A Future<br><span class="red">Worth Building</span></h1>
+          <p class="hero-sub" data-reveal>
+            Rob Avery is running for President with a simple promise: treat governing
+            like a serious engineering problem. Set the goal, fund it, measure it,
+            and tell the truth about what's working.
           </p>
-          <p class="reveal" data-reveal>
-            His pitch is simple: treat government like a serious engineering
-            problem. Define the goal, fund it, measure it, and tell the truth
-            about what's working. Optimism, with receipts.
-          </p>
-          <blockquote class="reveal" data-reveal>
-            “I don't want to manage the decline. I want to build the next thing —
-            and I want you in the room when we do.”
-          </blockquote>
-          <a href="#join" class="btn btn-primary" data-confetti>Help build it</a>
+          <div class="hero-cta" data-reveal>
+            <a href="get-involved.html" class="btn btn--lg">Join the Campaign <span class="arrow">→</span></a>
+            <a href="issues.html" class="btn btn--ghost-light btn--lg">Read the Issues</a>
+          </div>
+        </div>
+        <div class="hero-portrait" data-reveal>
+          <img src="assets/rob.svg" alt="Portrait of candidate Rob Avery" width="640" height="800" />
+          <span class="tag">Rob Avery</span>
         </div>
       </div>
     </section>
 
-    <!-- JOIN -->
-    <section class="section join" id="join">
-      <div class="container join-card reveal" data-reveal>
-        <h2 class="section-title">Join the movement</h2>
-        <p class="section-lead">
-          Add your name. We'll send the occasional update — no spam, no doom,
-          just the plan and how to help.
-        </p>
-        <form class="join-form" id="joinForm" novalidate>
-          <div class="field">
-            <input type="text" id="name" name="name" placeholder=" " required autocomplete="name" />
-            <label for="name">Your name</label>
+    <!-- MESSAGE / QUOTE -->
+    <section class="section--tight quote-band">
+      <div class="container">
+        <blockquote data-reveal>
+          "I don't want to manage the decline. I want to build the next thing —
+          and I want you in the room when we do."
+        </blockquote>
+        <cite data-reveal>— Rob Avery</cite>
+      </div>
+    </section>
+
+    <!-- TOP ISSUES -->
+    <section class="section bg-paper">
+      <div class="container">
+        <div class="center" style="max-width:680px">
+          <span class="eyebrow" data-reveal>Where Rob Stands</span>
+          <h2 class="section-title" data-reveal>Four priorities, one plan</h2>
+          <p class="section-lead" data-reveal>Every plank is built to ship — measurable, funded, and on a clock. Click through for the full detail, the hard questions, and where each party stands.</p>
+        </div>
+        <div class="card-grid" style="margin-top:46px">
+          <a class="card" href="issues.html#technology" data-reveal>
+            <span class="ic">⚡</span>
+            <h3>Technology</h3>
+            <p>Gigabit for all 50 states, a public AI Bill of Rights, and open-by-default research.</p>
+            <span class="more">Read the plan →</span>
+          </a>
+          <a class="card" href="issues.html#economy" data-reveal>
+            <span class="ic">💼</span>
+            <h3>Economy &amp; Jobs</h3>
+            <p>Re-shore critical industries, build 5 million homes, and lower the cost of a good life.</p>
+            <span class="more">Read the plan →</span>
+          </a>
+          <a class="card" href="issues.html#climate" data-reveal>
+            <span class="ic">🌱</span>
+            <h3>Climate &amp; Energy</h3>
+            <p>A clean, reliable grid by 2035 — cheaper bills and millions of good jobs.</p>
+            <span class="more">Read the plan →</span>
+          </a>
+          <a class="card" href="issues.html#education" data-reveal>
+            <span class="ic">🎓</span>
+            <h3>Education &amp; Health</h3>
+            <p>Free community &amp; technical college, capped medicine prices, universal pre-K.</p>
+            <span class="more">Read the plan →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="section bg-navy">
+      <div class="container">
+        <div class="center" style="max-width:620px">
+          <span class="eyebrow" data-reveal>The Goal</span>
+          <h2 class="section-title" data-reveal>One focused term</h2>
+        </div>
+        <div class="stats" style="margin-top:46px">
+          <div data-reveal><span class="stat-num" data-count="50">0</span><span class="stat-label">states with gigabit internet by 2030</span></div>
+          <div data-reveal><span class="stat-num" data-count="10" data-suffix="M">0</span><span class="stat-label">new clean-energy &amp; infrastructure jobs</span></div>
+          <div data-reveal><span class="stat-num" data-count="5" data-suffix="M">0</span><span class="stat-label">new homes through a federal-local partnership</span></div>
+          <div data-reveal><span class="stat-num" data-count="100" data-suffix="%">0</span><span class="stat-label">of public R&amp;D made open by default</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAX LAB FEATURE -->
+    <section class="section bg-paper">
+      <div class="container">
+        <div class="feature" data-reveal>
+          <div>
+            <span class="eyebrow" style="color:var(--gold)">New · Interactive</span>
+            <h2 class="section-title">Don't just read the tax plan.<br>Build your own.</h2>
+            <p>
+              Politicians set the brackets and hand you the bill. The <strong>Tax Lab</strong>
+              flips it: design your own federal income-tax brackets, watch the estimated
+              revenue update live, and compare it head-to-head with current law.
+            </p>
+            <a href="tax-lab.html" class="btn btn--gold btn--lg">Open the Tax Lab <span class="arrow">→</span></a>
           </div>
-          <div class="field">
-            <input type="email" id="email" name="email" placeholder=" " required autocomplete="email" />
-            <label for="email">Email address</label>
+          <div class="feature-visual" aria-hidden="true">
+            <div class="feature-bar"><i>You</i><span class="track"><span class="fill" style="width:86%"></span></span><span>$2.4T</span></div>
+            <div class="feature-bar"><i>Current</i><span class="track"><span class="fill" style="width:78%;animation-delay:.15s"></span></span><span>$2.2T</span></div>
+            <div class="feature-bar"><i>Flat 15%</i><span class="track"><span class="fill" style="width:60%;animation-delay:.3s"></span></span><span>$1.7T</span></div>
           </div>
-          <div class="field field-wide">
-            <input type="text" id="zip" name="zip" placeholder=" " inputmode="numeric" autocomplete="postal-code" />
-            <label for="zip">ZIP (optional)</label>
-          </div>
-          <button type="submit" class="btn btn-primary btn-block" id="joinSubmit">
-            I'm in →
-          </button>
-          <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
-        </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- SIGNUP -->
+    <section class="section bg-paper" style="padding-top:0">
+      <div class="container">
+        <div class="signup" data-reveal>
+          <h2 class="section-title">Join the movement</h2>
+          <p>Add your name for the occasional update — just the plan and how to help. No spam, no doom.</p>
+          <form class="signup-form" data-signup novalidate>
+            <input type="email" name="email" placeholder="Your email address" aria-label="Email address" required />
+            <button type="submit" class="btn btn--gold">I'm In <span class="arrow">→</span></button>
+            <p class="form-note" role="status" aria-live="polite" style="flex-basis:100%"></p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-brand">
-        <span class="brand-mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="28" height="28"><use href="#logo" /></svg>
-        </span>
-        <div>
-          <strong>Rob Avery 2028</strong>
-          <span>A Future Worth Building</span>
-        </div>
-      </div>
-      <nav class="footer-links" aria-label="Footer">
-        <a href="#vision">Vision</a>
-        <a href="#pillars">Policies</a>
-        <a href="#roadmap">Roadmap</a>
-        <a href="#about">Meet Rob</a>
-        <a href="#join">Join</a>
-      </nav>
-      <p class="disclaimer">
-        🛈 This is a <strong>fictional, for-fun parody</strong> campaign site.
-        It is not a real political campaign, is not affiliated with any candidate,
-        committee, or party, and is not soliciting votes or donations. Built for
-        creativity and a good time. © 2028 — but really {now}.
-      </p>
-    </div>
-  </footer>
-
-  <!-- Inline SVG defs (logo + avatar) -->
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-    <defs>
-      <linearGradient id="logoGrad" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="#3ee6ff" />
-        <stop offset="100%" stop-color="#7c5cff" />
-      </linearGradient>
-      <symbol id="logo" viewBox="0 0 32 32">
-        <rect x="1" y="1" width="30" height="30" rx="9" fill="url(#logoGrad)" />
-        <path d="M9 23 L16 8 L23 23 M11.6 18 H20.4" stroke="#070b1a" stroke-width="2.6"
-              stroke-linecap="round" stroke-linejoin="round" fill="none" />
-      </symbol>
-      <symbol id="avatar" viewBox="0 0 200 200">
-        <defs>
-          <linearGradient id="avBg" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stop-color="#13224a" />
-            <stop offset="100%" stop-color="#0a1330" />
-          </linearGradient>
-        </defs>
-        <rect width="200" height="200" fill="url(#avBg)" />
-        <circle cx="100" cy="78" r="34" fill="#3ee6ff" opacity="0.92" />
-        <path d="M40 170 q60 -56 120 0" fill="#7c5cff" opacity="0.92" />
-        <circle cx="100" cy="100" r="96" fill="none" stroke="#3ee6ff" stroke-width="2" opacity="0.25" />
-      </symbol>
-    </defs>
-  </svg>
-
-  <script src="scripts/main.js" defer></script>
+  <div id="site-footer"></div>
+  <script src="scripts/components.js" defer></script>
 </body>
 </html>

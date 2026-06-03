@@ -3,38 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lost the trail — Rob Avery 2028</title>
+  <title>Page not found — Avery for President 2028</title>
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
   <style>
-    :root { --cyan:#3ee6ff; --violet:#7c5cff; }
-    * { margin:0; box-sizing:border-box; }
-    body {
-      min-height:100svh; display:grid; place-items:center; text-align:center;
-      background:#070b1a; color:#eaf0ff; font-family:"Inter",system-ui,sans-serif; padding:24px;
-      overflow:hidden;
-    }
-    .wrap { position:relative; z-index:1; }
-    h1 {
-      font-family:"Space Grotesk"; font-size:clamp(5rem,22vw,12rem); line-height:1; letter-spacing:-4px;
-      background:linear-gradient(120deg,var(--cyan),var(--violet)); -webkit-background-clip:text;
-      background-clip:text; color:transparent; animation:pop .7s cubic-bezier(.22,1,.36,1);
-    }
-    p { color:#9fb0d8; font-size:1.15rem; margin:10px 0 28px; }
-    a {
-      display:inline-block; padding:14px 28px; border-radius:999px; font-weight:600; color:#06122b;
-      background:linear-gradient(120deg,var(--cyan),var(--violet)); text-decoration:none;
-      box-shadow:0 10px 30px rgba(62,230,255,.3); transition:transform .25s ease;
-    }
-    a:hover { transform:translateY(-3px); }
-    .glow {
-      position:fixed; width:60vw; height:60vw; border-radius:50%; filter:blur(80px);
-      background:radial-gradient(circle,var(--violet),transparent 60%); opacity:.4;
-      top:50%; left:50%; transform:translate(-50%,-50%); z-index:0; animation:breathe 6s ease-in-out infinite;
-    }
-    @keyframes pop { from { opacity:0; transform:scale(.8); } }
-    @keyframes breathe { 50% { transform:translate(-50%,-50%) scale(1.15); } }
+    :root{ --navy:#0b2545; --navy-deep:#061629; --red:#c8102e; --gold:#f4b740; }
+    *{ margin:0; box-sizing:border-box; }
+    body{ min-height:100svh; display:grid; place-items:center; text-align:center; padding:24px;
+      background:var(--navy-deep); color:#fff; font-family:"Source Sans 3",system-ui,sans-serif; overflow:hidden; }
+    .glow{ position:fixed; inset:0; z-index:0; opacity:.5;
+      background:radial-gradient(800px 400px at 80% -10%,rgba(42,109,244,.35),transparent 60%),
+                 radial-gradient(700px 400px at 10% 110%,rgba(200,16,46,.3),transparent 60%); }
+    .wrap{ position:relative; z-index:1; }
+    h1{ font-family:"Oswald"; font-weight:700; font-size:clamp(5rem,22vw,11rem); line-height:1;
+      color:var(--gold); letter-spacing:2px; animation:pop .6s cubic-bezier(.22,1,.36,1); }
+    p{ color:#c3d2e8; font-size:1.15rem; margin:6px 0 28px; }
+    a{ display:inline-block; padding:14px 28px; border-radius:8px; font-family:"Oswald"; text-transform:uppercase;
+      letter-spacing:1px; color:#fff; background:var(--red); text-decoration:none;
+      box-shadow:0 10px 28px rgba(200,16,46,.35); transition:transform .2s ease; }
+    a:hover{ transform:translateY(-3px); }
+    @keyframes pop{ from{ opacity:0; transform:scale(.85);} }
   </style>
 </head>
 <body>

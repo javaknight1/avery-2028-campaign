@@ -11,5 +11,8 @@
 /scripts/*
   Cache-Control: public, max-age=86400
 
+/data/*
+  Cache-Control: public, max-age=86400
+
 /assets/*
   Cache-Control: public, max-age=604800

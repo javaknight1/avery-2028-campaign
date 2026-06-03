@@ -1,93 +1,117 @@
-# Rob Avery 2028 — *A Future Worth Building*
+# Rob Avery for President 2028 — *A Future Worth Building*
 
-A polished, animation-heavy **single-page campaign site** for a fictional 2028
-presidential run. Built as a zero-build static site that drops straight onto
-**Cloudflare Pages**.
+A multi-page, official-style **campaign website** for a fictional 2028
+presidential run — including an interactive **Tax Lab** that lets visitors
+design their own federal income-tax brackets and see the revenue. Built as a
+zero-build static site that drops straight onto **Cloudflare Pages**.
 
 > ⚠️ **This is a parody / for-fun project.** It is not a real political
-> campaign, is not affiliated with any candidate, committee, or party, and is
-> not soliciting votes or donations.
+> campaign and is not affiliated with, endorsed by, or operated for any real
+> candidate, committee, party, or government body. No votes, money, or
+> volunteers are actually solicited or collected. Policy numbers and the Tax
+> Lab are simplified illustrations, not official estimates.
 
 ---
 
-## ✨ What's inside
+## 🗺️ Pages
 
-- **Animated hero** — split-word headline reveal, gradient shimmer, a rotating
-  typewriter of promises, and a confetti-firing CTA.
-- **Living background** — drifting aurora blobs, a connected-particle canvas
-  field, and a masked grid.
-- **Scroll choreography** — progress bar, sticky glass nav, scroll-spy, and
-  `IntersectionObserver` reveal animations with stagger.
-- **Animated stat counters** that count up when they enter the viewport.
-- **Four policy pillars** (Tech, Economy, Climate, Education/Health) with
-  pointer-tracked glow and expandable detail.
-- **The Plan**, an **endorsement marquee**, a **roadmap timeline**, a **Meet Rob**
-  bio, and a **Join** form with floating labels + a celebratory (demo-only) submit.
-- Fully **responsive**, with a `prefers-reduced-motion` path that calms every
-  animation.
+| Page | File | What's on it |
+|------|------|--------------|
+| **Home** | `index.html` | Hero, message, top issues, goals, Tax Lab promo, signup |
+| **Meet Rob** | `about.html` | Candidate bio, values, the road to 2028 |
+| **Issues** | `issues.html` | Full detail on all 4 policy areas — each its own section with the plan, how it works, **common questions & concerns**, and **what Republicans / Democrats / Independents say** |
+| **Tax Lab** | `tax-lab.html` | Interactive: build your own income-tax brackets, see estimated revenue, compare to current law |
+| **Get Involved** | `get-involved.html` | Volunteer form, events, parody donate, signup |
+| **404** | `404.html` | Styled not-found page |
 
-No frameworks, no build step — just HTML, CSS, and vanilla JS.
+The header and footer are defined once in `scripts/components.js` and injected
+into every page, so the navigation never drifts out of sync.
+
+## 🧮 The Tax Lab
+
+`tax-lab.html` + `scripts/tax.js` + `data/income-distribution.js`
+
+Design any set of marginal federal **income-tax** brackets and a standard
+deduction; the estimated annual revenue updates live and is compared, head to
+head, with current law.
+
+**How the estimate works**
+- Starts from an approximate **IRS-SOI-style distribution** of U.S. returns by
+  income (`data/income-distribution.js`): number of returns and average income
+  per band.
+- For each band: subtracts the deduction, applies your marginal brackets,
+  multiplies by the number of returns, and sums.
+- A single **calibration factor** is tuned so the model's *current-law* output
+  equals real-world collections (~$2.2T individual income tax). The same factor
+  is applied to your plan, making the comparison apples-to-apples. It stands in
+  for credits, itemized deductions, joint filing, and avoidance.
+
+**Deliberately scoped to income tax for now.** The data model and engine are
+structured so additional revenue sources (capital gains, corporate, payroll,
+estate) can be added as new modules later — see the "coming soon" roadmap on
+the page.
+
+> The numbers are intentionally approximate and clearly labeled as educational.
+> To make them more precise, refine the bins in `data/income-distribution.js`
+> with the latest IRS SOI data and adjust `ACTUAL_CURRENT_REVENUE`.
 
 ## 📁 Structure
 
 ```
 rob-avery-2028/
-├── index.html          # all content / markup
-├── 404.html            # styled not-found page
-├── styles/main.css     # all styling + animations
-├── scripts/main.js     # all interaction (canvas, reveals, confetti, form…)
-├── assets/favicon.svg  # logo / favicon
-├── _headers            # Cloudflare Pages caching + security headers
-├── wrangler.toml       # Cloudflare Pages config
-└── package.json        # dev server + deploy scripts
+├── index.html  about.html  issues.html  tax-lab.html  get-involved.html  404.html
+├── styles/
+│   ├── main.css      # shared site styles (campaign look)
+│   ├── issues.css    # issues-page layout (TOC, Q&A, "across the aisle")
+│   └── tax.css       # Tax Lab UI + charts
+├── scripts/
+│   ├── components.js # shared header/footer + nav, reveals, counters, signup
+│   ├── issues.js     # Q&A accordion + sticky TOC scroll-spy
+│   └── tax.js        # Tax Lab engine, live UI, SVG charts
+├── data/
+│   └── income-distribution.js  # IRS-SOI-style data + current brackets
+├── assets/           # favicon + candidate portrait (SVG placeholders)
+├── _headers          # Cloudflare Pages caching + security headers
+├── wrangler.toml     # Cloudflare Pages config
+└── package.json      # dev server + deploy scripts
 ```
 
-## 🧪 Run locally
+No frameworks, no build step — HTML, CSS, and vanilla JS.
 
-Any static server works. The simplest:
+## 🧪 Run locally
 
 ```bash
 npm run dev          # serves at http://localhost:5173
 ```
 
-(That just runs `npx serve .` — or use `python3 -m http.server 5173`, or open
-`index.html` directly.)
+(or `python3 -m http.server 5173`). Use a server rather than opening files
+directly so the shared scripts load over HTTP.
 
 ## 🚀 Deploy to Cloudflare Pages
 
-You need a (free) Cloudflare account. Two ways:
-
-### Option A — Direct upload with Wrangler (fastest)
+### Option A — Direct upload with Wrangler
 
 ```bash
-# one-time login
-npx wrangler login
-
-# deploy the current folder
-npm run deploy
-# └─ runs: wrangler pages deploy . --project-name=rob-avery-2028
+npx wrangler login      # one-time
+npm run deploy          # wrangler pages deploy . --project-name=rob-avery-2028
 ```
 
-Wrangler prints a `*.pages.dev` URL when it finishes. Re-run anytime to
-publish updates.
+### Option B — Connect a Git repo (auto-deploy on push)
 
-### Option B — Connect the Git repo (auto-deploy on push)
-
-1. Push this repo to GitHub/GitLab.
+1. Push to GitHub/GitLab.
 2. Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to Git**.
-3. Pick the repo. When asked for build settings:
-   - **Framework preset:** `None`
-   - **Build command:** *(leave blank)*
-   - **Build output directory:** `/` (the repo root)
-4. **Save and Deploy.** Every push to the main branch redeploys automatically.
+3. Build settings: **Framework preset** `None`, **Build command** blank,
+   **Build output directory** `/`.
+4. **Save and Deploy** — every push to main redeploys.
 
 ## 🎨 Make it yours
 
-- **Slogan / copy:** edit `index.html`.
-- **Colors:** tweak the CSS variables at the top of `styles/main.css`
-  (`--cyan`, `--violet`, `--gold`, `--green`).
-- **Policy detail text:** the `extras` object in `scripts/main.js`.
-- **Typewriter promises:** the `phrases` array in `scripts/main.js`.
+- **Colors / fonts:** CSS variables at the top of `styles/main.css`.
+- **Policy content:** `issues.html` (each `<section class="policy">`).
+- **Tax model & data:** `data/income-distribution.js`.
+- **Candidate photo:** replace `assets/rob.svg` with a real image (update the
+  `<img src>` on `index.html` and `about.html`).
+- **Nav / footer:** edit once in `scripts/components.js`.
 
 ## License
 

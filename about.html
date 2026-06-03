@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#061629" />
+  <title>Meet Rob Avery — Avery for President 2028</title>
+  <meta name="description" content="Meet Rob Avery — builder, optimist, and candidate for President in 2028. His story, his values, and why he's running. (Parody.)" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    .about-grid { display:grid; grid-template-columns: 0.85fr 1.15fr; gap:48px; align-items:start; }
+    .about-photo { position:relative; border-radius:18px; overflow:hidden; box-shadow:var(--shadow); position:sticky; top:120px; }
+    .about-photo .tag { position:absolute; left:16px; bottom:16px; background:var(--red); color:#fff; font-family:"Oswald"; text-transform:uppercase; letter-spacing:1px; padding:8px 16px; border-radius:7px; }
+    .prose p { margin-bottom:18px; font-size:1.08rem; }
+    .prose h2 { margin:34px 0 12px; font-size:1.7rem; color:var(--navy); }
+    .pull { border-left:4px solid var(--red); padding:6px 0 6px 22px; margin:26px 0; font-family:"Oswald"; font-size:1.5rem; line-height:1.3; color:var(--navy); }
+    .values { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; margin-top:14px; }
+    .value { background:var(--white); border:1px solid var(--line); border-radius:var(--r); padding:22px; box-shadow:var(--shadow-sm); }
+    .value h3 { font-size:1.1rem; text-transform:uppercase; color:var(--red); margin-bottom:6px; }
+    .value p { color:var(--muted); font-size:0.98rem; }
+    .timeline { list-style:none; border-left:2px solid var(--line); margin-top:10px; padding-left:26px; }
+    .timeline li { position:relative; padding-bottom:24px; }
+    .timeline li::before { content:""; position:absolute; left:-33px; top:4px; width:14px; height:14px; border-radius:50%; background:var(--white); border:3px solid var(--red); }
+    .timeline b { font-family:"Oswald"; color:var(--navy); display:block; letter-spacing:0.5px; }
+    @media (max-width:900px){ .about-grid{ grid-template-columns:1fr; } .about-photo{ position:static; max-width:380px; } }
+  </style>
+</head>
+<body data-page="about">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal>About the Candidate</span>
+        <h1 data-reveal>Meet Rob Avery</h1>
+        <p data-reveal>Builder. Optimist. Recovering tab-hoarder. Running for President because the country deserves a government that actually ships.</p>
+      </div>
+    </section>
+
+    <section class="section bg-paper">
+      <div class="container about-grid">
+        <div class="about-photo" data-reveal>
+          <img src="assets/rob.svg" alt="Portrait of Rob Avery" width="640" height="800" />
+          <span class="tag">Rob Avery</span>
+        </div>
+        <div class="prose">
+          <div data-reveal>
+            <p><strong>Rob Avery spent his career shipping things that had to actually work.</strong> Not slide decks, not press releases — working systems, with deadlines, where "good enough in theory" gets you fired. Somewhere along the way he got tired of watching the country settle for things that don't work, defended by people who'll never have to use them.</p>
+            <p>His pitch is almost boring in its simplicity: <em>treat government like a serious engineering problem.</em> Define the goal in plain language. Fund it honestly. Measure it in public. And when something isn't working, say so and fix it — instead of declaring victory and moving on.</p>
+          </div>
+
+          <p class="pull" data-reveal>"Optimism, with receipts. We can have nice things — if we're willing to build them and count them."</p>
+
+          <div data-reveal>
+            <h2>Why he's running</h2>
+            <p>Because the gap between what we <em>can</em> build and what we actually build has never been wider. We can wire a continent, clean a grid, cure diseases, and put a roof over every family — and yet too often we choose paralysis, blame, and decline. Rob thinks that's a choice. He'd like to make a different one.</p>
+            <p>He's running an unusual campaign: policy drafted in the open, costs shown honestly, and tools — like the <a href="tax-lab.html">Tax Lab</a> on this very site — that let you check the math yourself instead of taking anyone's word for it.</p>
+
+            <h2>What he believes</h2>
+          </div>
+          <div class="values">
+            <div class="value" data-reveal><h3>Build</h3><p>The future is something you make, not something you wait for. Bias toward action.</p></div>
+            <div class="value" data-reveal><h3>Honesty</h3><p>Show the costs, the trade-offs, and the scoreboard. No 600-page mysteries.</p></div>
+            <div class="value" data-reveal><h3>Dignity</h3><p>A good life — housing, health, a fair shot — should be within reach of anyone who works for it.</p></div>
+            <div class="value" data-reveal><h3>Stewardship</h3><p>Leave the country, the climate, and the institutions stronger than we found them.</p></div>
+          </div>
+
+          <div data-reveal>
+            <h2>The road here</h2>
+            <ul class="timeline">
+              <li><b>2026 — Listen</b>A 50-state listening tour. Policy drafted in the open, line by line.</li>
+              <li><b>2027 — Build the platform</b>Town halls in every congressional district. No idea too small to test.</li>
+              <li><b>2028 — Make the case</b>A campaign about what we'll build, costed in public, on a clock.</li>
+              <li><b>Day One — Ship</b>A signed, public 100-day plan with a live scoreboard.</li>
+            </ul>
+          </div>
+
+          <div data-reveal style="margin-top:34px">
+            <a href="issues.html" class="btn btn--lg">See the Issues <span class="arrow">→</span></a>
+            <a href="get-involved.html" class="btn btn--ghost btn--lg" style="margin-left:8px">Get Involved</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="scripts/components.js" defer></script>
+</body>
+</html>
