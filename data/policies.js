@@ -1121,20 +1121,20 @@ window.PLATFORM = {
   // Illustrative current fiscal facts ($B unless noted).
   fiscal: { deficitToday: 1800, debtToday: 36000, interestRate: 0.03 },
 
-  // Average annual federal budget balance as a share of GDP, by president
-  // (illustrative, ~last 50 years; negative = deficit, positive = surplus).
+  // Average annual federal deficit (−) or surplus (+) by president, in BILLIONS
+  // of nominal dollars (illustrative, ~last 50 years). `key` → portrait file.
   presidents: [
-    { name: "Ford", years: "1974–77", bal: -2.6 },
-    { name: "Carter", years: "1977–81", bal: -2.4 },
-    { name: "Reagan", years: "1981–89", bal: -4.3 },
-    { name: "Bush Sr.", years: "1989–93", bal: -4.3 },
-    { name: "Clinton", years: "1993–2001", bal: 0.1 },
-    { name: "Bush Jr.", years: "2001–09", bal: -3.4 },
-    { name: "Obama", years: "2009–17", bal: -5.3 },
-    { name: "Trump", years: "2017–21", bal: -6.3 },
-    { name: "Biden", years: "2021–25", bal: -6.7 },
-    { name: "Trump 2.0", years: "2025–29", bal: -6.5 },
-    { name: "Avery", years: "2029–", bal: 1.0, soon: true },
+    { name: "Ford", years: "1974–77", dollars: -60, party: "R", key: "ford" },
+    { name: "Carter", years: "1977–81", dollars: -60, party: "D", key: "carter" },
+    { name: "Reagan", years: "1981–89", dollars: -185, party: "R", key: "reagan" },
+    { name: "Bush Sr.", years: "1989–93", dollars: -290, party: "R", key: "bushsr" },
+    { name: "Clinton", years: "1993–2001", dollars: 20, party: "D", key: "clinton" },
+    { name: "Bush Jr.", years: "2001–09", dollars: -400, party: "R", key: "bushjr" },
+    { name: "Obama", years: "2009–17", dollars: -1100, party: "D", key: "obama" },
+    { name: "Trump", years: "2017–21", dollars: -1700, party: "R", key: "trump" },
+    { name: "Biden", years: "2021–25", dollars: -1800, party: "D", key: "biden" },
+    { name: "Trump 2.0", years: "2025–29", dollars: -1900, party: "R", key: "trump" },
+    { name: "Avery", years: "2029–", dollars: 278, party: "I", key: "avery", soon: true },
   ],
 
   /* ---------------- Humanity Score breakdown (pie chart) ----------------

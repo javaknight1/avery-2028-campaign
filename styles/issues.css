@@ -379,7 +379,7 @@
 .amort-table td:first-child { color: var(--ink); }
 .amort-table td small { color: var(--muted); margin-left: 6px; font-size: 0.8rem; }
 .amort-table td.num { font-family: "Oswald"; font-weight: 600; color: var(--navy); white-space: nowrap; }
-.amort-table td.int { color: var(--blue); }
+.amort-table td.int { color: var(--red); }
 .amort-table td.prin { color: #1f7a4d; }
 .amort-table tfoot td { background: var(--paper); font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.4px; border-top: 2px solid var(--navy); border-bottom: 0; }
 .amort-note { max-width: 760px; margin: 14px auto 0; text-align: center; font-size: 0.85rem; color: var(--muted); font-style: italic; }

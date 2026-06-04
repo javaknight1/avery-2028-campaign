@@ -87,10 +87,6 @@
     const pts = [{ x: 0, d: DEBT0 }].concat(rows.map((r) => ({ x: r.year, d: r.end })));
     const line = pts.map((p, i) => (i ? "L" : "M") + sx(p.x).toFixed(1) + "," + sy(p.d).toFixed(1)).join(" ");
     const area = line + ` L ${sx(xMax).toFixed(1)},${sy(0).toFixed(1)} L ${sx(0).toFixed(1)},${sy(0).toFixed(1)} Z`;
-    // annual interest line, scaled to its own max for visibility
-    const intMax = rows[0].interest;
-    const syi = (v) => padT + (1 - v / intMax) * plotH;
-    const intLine = rows.map((r, i) => (i ? "L" : "M") + sx(r.year).toFixed(1) + "," + syi(r.interest).toFixed(1)).join(" ");
 
     let grid = "";
     for (let g = 0; g <= 4; g++) {
@@ -111,14 +107,12 @@
       ${grid}${xlab}
       <path d="${area}" fill="url(#debtFill)" stroke="none"/>
       <path d="${line}" fill="none" stroke="#c8102e" stroke-width="2.6" stroke-linejoin="round"/>
-      <path d="${intLine}" fill="none" stroke="#2a6df4" stroke-width="2" stroke-dasharray="5 4"/>
     </svg>`;
 
     // amortization table — every 5 years + the payoff year
     const picks = rows.filter((r) => r.year === 1 || r.year % 5 === 0 || r.year === PAYOFF);
     const trows = picks.map((r) => `<tr>
       <td>${YEAR + r.year - 1}<small>yr ${r.year}</small></td>
-      <td class="num">${money(r.interest + r.principal)}</td>
       <td class="num int">${money(r.interest)}</td>
       <td class="num prin">${money(r.principal)}</td>
       <td class="num">${money(Math.max(0, r.end))}</td>
@@ -128,67 +122,77 @@
       <div class="center" style="max-width:740px">
         <span class="eyebrow" data-reveal>The burndown</span>
         <h2 class="section-title" data-reveal>Watch the debt burn down</h2>
-        <p class="section-lead" data-reveal>The red area is the national debt shrinking to zero; the dashed blue line is the annual interest bill falling as we go. The curve steepens because every dollar of principal retired means less interest next year.</p>
+        <p class="section-lead" data-reveal>The national debt, shrinking to zero. The curve starts gentle — early on, most of our debt-service money still goes to interest — then steepens as the debt (and its interest bill) shrink and more of every dollar retires principal.</p>
       </div>
       <div class="burndown-card" data-reveal>
         ${svg}
         <div class="legend">
-          <span><i style="background:var(--red)"></i> Debt remaining</span>
-          <span><i style="background:var(--blue)"></i> Annual interest (declining)</span>
+          <span><i style="background:var(--red)"></i> National debt remaining</span>
         </div>
       </div>
 
-      <h3 class="amort-title" data-reveal>Amortization — every 5 years</h3>
+      <div class="center" style="max-width:780px">
+        <h3 class="amort-title" data-reveal>How the surplus pays it down</h3>
+        <p class="section-lead" data-reveal style="margin-inline:auto">Every year our revenue covers program costs <em>and</em> the interest on the debt — with a <strong>surplus left over</strong>. That surplus goes straight to principal. As the debt shrinks, the interest bill shrinks, so the surplus grows and the payoff <em>accelerates</em>. For 50 years it ran the other way: revenue fell short of costs + interest, and the debt grew.</p>
+      </div>
       <div class="amort-wrap" data-reveal>
         <table class="amort-table">
-          <thead><tr><th>Year</th><th class="num">Debt service</th><th class="num">To interest</th><th class="num">To principal</th><th class="num">Debt remaining</th></tr></thead>
+          <thead><tr><th>Year</th><th class="num">Interest that year</th><th class="num">Surplus → debt</th><th class="num">Debt remaining</th></tr></thead>
           <tbody>${trows}</tbody>
-          <tfoot><tr><td>Totals over ${PAYOFF} yrs</td><td class="num">${money(totalInterest + DEBT0)}</td><td class="num int">${money(totalInterest)}</td><td class="num prin">${money(DEBT0)}</td><td class="num">$0</td></tr></tfoot>
+          <tfoot><tr><td>Totals over ${PAYOFF} yrs</td><td class="num int">${money(totalInterest)}</td><td class="num prin">${money(DEBT0)}</td><td class="num">$0</td></tr></tfoot>
         </table>
       </div>
-      <p class="amort-note" data-reveal>Each year we put a steady <strong>${money(SERVICE)}</strong> toward the debt. Early on most is interest; by the end almost all of it retires principal. All figures are simplified, illustrative estimates at a 3% interest rate — real rates, growth, and a rising surplus would change the pace.</p>`;
+      <p class="amort-note" data-reveal>Watch the two middle columns trade places: interest (what we owe the past) falls every year, while the surplus going to principal (what frees the future) climbs — from <strong>${money(SURPLUS)}</strong> in year one to nearly triple that near the end. Illustrative at a 3% interest rate; faster growth or a bigger surplus would pay it off sooner.</p>`;
   })();
 
-  /* ---- presidents: deficit/surplus track record ---- */
+  /* ---- presidents: deficit/surplus track record (dollars, with portraits) ---- */
   (function renderPresidents() {
     const el = document.getElementById("deficitPrez");
     if (!el || !P.presidents) return;
     const data = P.presidents;
-    const W = 860, H = 380, padL = 46, padR = 18, padT = 28, padB = 74;
+    const W = 900, H = 432, padL = 60, padR = 18, padT = 24, padB = 106;
     const plotW = W - padL - padR, plotH = H - padT - padB;
-    const top = 2, bot = -8;
+    const top = 500, bot = -2100; // $B
     const y = (v) => padT + ((top - v) / (top - bot)) * plotH;
-    const zero = y(0), slot = plotW / data.length, bw = slot * 0.56;
+    const zero = y(0), slot = plotW / data.length, bw = slot * 0.5;
+    const fy = H - padB + 22; // face-circle centre
+    const ring = (p) => (p === "D" ? "#2a6df4" : p === "I" ? "#f4b740" : "#c8102e");
+    const sMoney = (v) => (v < 0 ? "−" : v > 0 ? "+" : "") + money(Math.abs(v));
 
     let grid = "";
-    for (let g = top; g >= bot; g -= 2) {
+    for (let g = top; g >= bot; g -= 500) {
       const yy = y(g);
       grid += `<line x1="${padL}" y1="${yy.toFixed(1)}" x2="${W - padR}" y2="${yy.toFixed(1)}" stroke="${g === 0 ? "#0b2545" : "#e2e8f2"}" stroke-width="${g === 0 ? 1.5 : 1}"/>`;
-      grid += `<text x="${padL - 6}" y="${(yy + 3).toFixed(1)}" text-anchor="end" font-size="10" fill="#5a6b86" font-family="Oswald">${g > 0 ? "+" : ""}${g}%</text>`;
+      grid += `<text x="${padL - 8}" y="${(yy + 3).toFixed(1)}" text-anchor="end" font-size="10" fill="#5a6b86" font-family="Oswald">${g === 0 ? "$0" : sMoney(g)}</text>`;
     }
-    let bars = "";
+    let defs = "", bars = "";
     data.forEach((d, i) => {
-      const cx = padL + slot * i + slot / 2, x = cx - bw / 2, yv = y(d.bal);
-      const barY = d.bal >= 0 ? yv : zero, barH = Math.abs(yv - zero);
-      const color = d.bal >= 0 ? "#1f7a4d" : "#c8102e";
+      const cx = padL + slot * i + slot / 2, x = cx - bw / 2, yv = y(d.dollars);
+      const barY = d.dollars >= 0 ? yv : zero, barH = Math.abs(yv - zero);
+      const color = d.dollars >= 0 ? "#1f7a4d" : "#c8102e";
       if (d.soon) {
         bars += `<rect x="${x.toFixed(1)}" y="${barY.toFixed(1)}" width="${bw.toFixed(1)}" height="${barH.toFixed(1)}" rx="3" fill="rgba(31,122,77,0.15)" stroke="#1f7a4d" stroke-width="2" stroke-dasharray="5 4"/>`;
-        bars += `<text x="${cx.toFixed(1)}" y="${(barY - 18).toFixed(1)}" text-anchor="middle" font-size="9" fill="#1f7a4d" font-family="Oswald">+${d.bal}%</text>`;
-        bars += `<text x="${cx.toFixed(1)}" y="${(barY - 7).toFixed(1)}" text-anchor="middle" font-size="8" fill="#1f7a4d" font-family="Oswald" font-weight="700">SOON</text>`;
+        bars += `<text x="${cx.toFixed(1)}" y="${(barY - 19).toFixed(1)}" text-anchor="middle" font-size="9" fill="#1f7a4d" font-family="Oswald">${sMoney(d.dollars)}</text>`;
+        bars += `<text x="${cx.toFixed(1)}" y="${(barY - 8).toFixed(1)}" text-anchor="middle" font-size="8" fill="#1f7a4d" font-family="Oswald" font-weight="700">SOON</text>`;
       } else {
         bars += `<rect x="${x.toFixed(1)}" y="${barY.toFixed(1)}" width="${bw.toFixed(1)}" height="${barH.toFixed(1)}" rx="3" fill="${color}"/>`;
-        const lblY = d.bal >= 0 ? barY - 7 : barY + barH + 12;
-        bars += `<text x="${cx.toFixed(1)}" y="${lblY.toFixed(1)}" text-anchor="middle" font-size="9" fill="${color}" font-family="Oswald">${d.bal > 0 ? "+" : ""}${d.bal}%</text>`;
+        const lblY = d.dollars >= 0 ? barY - 7 : barY + barH + 12;
+        bars += `<text x="${cx.toFixed(1)}" y="${lblY.toFixed(1)}" text-anchor="middle" font-size="9" fill="${color}" font-family="Oswald">${sMoney(d.dollars)}</text>`;
       }
-      bars += `<text x="${cx.toFixed(1)}" y="${(H - padB + 20).toFixed(1)}" text-anchor="middle" font-size="9.5" fill="#11203a" font-family="Oswald" font-weight="600">${esc(d.name)}</text>`;
-      bars += `<text x="${cx.toFixed(1)}" y="${(H - padB + 33).toFixed(1)}" text-anchor="middle" font-size="8" fill="#5a6b86">${esc(d.years)}</text>`;
+      // portrait in a circle
+      const img = d.key === "avery" ? "assets/rob.svg" : `assets/presidents/${d.key}.jpg`;
+      defs += `<clipPath id="pc${i}"><circle cx="${cx.toFixed(1)}" cy="${fy}" r="15"/></clipPath>`;
+      bars += `<image href="${img}" x="${(cx - 15).toFixed(1)}" y="${fy - 15}" width="30" height="30" clip-path="url(#pc${i})" preserveAspectRatio="xMidYMid slice"/>`;
+      bars += `<circle cx="${cx.toFixed(1)}" cy="${fy}" r="15" fill="none" stroke="${ring(d.party)}" stroke-width="2"/>`;
+      bars += `<text x="${cx.toFixed(1)}" y="${(H - padB + 52).toFixed(1)}" text-anchor="middle" font-size="9.5" fill="#11203a" font-family="Oswald" font-weight="600">${esc(d.name)}</text>`;
+      bars += `<text x="${cx.toFixed(1)}" y="${(H - padB + 64).toFixed(1)}" text-anchor="middle" font-size="8" fill="#5a6b86">${esc(d.years)}</text>`;
     });
-    const svg = `<svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Average annual deficit or surplus by president, share of GDP">${grid}${bars}</svg>`;
+    const svg = `<svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Average annual deficit or surplus by president, in dollars"><defs>${defs}</defs>${grid}${bars}</svg>`;
     el.innerHTML = `
-      <div class="center" style="max-width:780px">
+      <div class="center" style="max-width:800px">
         <span class="eyebrow" data-reveal>The track record</span>
         <h2 class="section-title" data-reveal>How presidents stack up</h2>
-        <p class="section-lead" data-reveal>Average annual federal deficit or surplus during each presidency, as a share of GDP. For 50 years almost everyone has run deficits — only Clinton came near balance. Ours, dotted, is the promise: a real surplus.</p>
+        <p class="section-lead" data-reveal>Average annual federal deficit or surplus during each presidency, in actual dollars. For 50 years almost everyone has run deficits — only Clinton came near balance, and they've ballooned lately. Ours, dotted, is the promise: a real surplus.</p>
       </div>
       <div class="burndown-card" data-reveal>${svg}
         <div class="legend">
@@ -197,7 +201,7 @@
           <span><i style="border:2px dashed #1f7a4d;background:none;height:11px;width:14px;border-radius:2px"></i> Avery (coming soon)</span>
         </div>
       </div>
-      <p class="amort-note" data-reveal>Rounded, illustrative averages over each term (negative = deficit). Avery's bar is a projection from this platform's surplus, shown dotted until it's real.</p>`;
+      <p class="amort-note" data-reveal>Rounded, illustrative nominal-dollar averages over each term (not inflation-adjusted, so recent deficits loom largest). Portraits are public-domain official portraits; Avery's bar is a projection from this platform's surplus.</p>`;
   })();
 
   /* ---- reveal ---- */
