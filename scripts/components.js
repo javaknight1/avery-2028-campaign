@@ -67,10 +67,11 @@
         </div>
         <div class="footer-col">
           <h4>The Issues</h4>
-          <a href="issues.html#technology">Technology</a>
-          <a href="issues.html#economy">Economy &amp; Jobs</a>
-          <a href="issues.html#climate">Climate &amp; Energy</a>
-          <a href="issues.html#education">Education &amp; Health</a>
+          <a href="issues.html#cat-care">Care &amp; Opportunity</a>
+          <a href="issues.html#cat-democracy">Democracy &amp; Rights</a>
+          <a href="issues.html#cat-economy">Economy &amp; Workers</a>
+          <a href="issues.html#cat-future">Building the Future</a>
+          <a href="issues.html#budget">The Honest Budget</a>
         </div>
         <div class="footer-col">
           <h4>Tools</h4>
