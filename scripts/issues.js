@@ -14,10 +14,28 @@
   const bucket = (p) => (p.costType === "revenue" ? "revenue" : "spending");
   const THEMES = P.themes || [{ id: "care", name: "Care" }];
 
+  // For the visual cost meter: scale every bar against the biggest line in the
+  // platform, and translate the figure into a per-household equivalent so the
+  // jump from billions to trillions is actually conceivable.
+  const HOUSEHOLDS = 131_000_000;
+  const MAXCOST = Math.max(...P.policies.map((p) => Math.abs(p.cost)), 1);
+  function perHousehold(billions) {
+    const v = Math.round((Math.abs(billions) * 1e9) / HOUSEHOLDS);
+    return v < 1 ? "under $1" : "$" + v.toLocaleString("en-US");
+  }
   function costBadge(p) {
-    if (p.costType === "revenue") return `<span class="cost-badge rev">+${money(p.cost)}/yr<small>revenue</small></span>`;
-    if (p.costType === "neutral") return `<span class="cost-badge neutral">≈ $0<small>no net cost</small></span>`;
-    return `<span class="cost-badge spend">${money(p.cost)}/yr<small>cost</small></span>`;
+    const type = p.costType === "revenue" ? "rev" : (p.costType === "neutral" ? "neutral" : "spend");
+    const fig = p.costType === "neutral" ? "≈ $0" : (p.costType === "revenue" ? "+" : "") + money(p.cost);
+    const kind = p.costType === "revenue" ? "revenue / yr" : (p.costType === "neutral" ? "no net cost" : "cost / yr");
+    const pct = p.costType === "neutral" ? 0 : Math.max(2.5, (Math.abs(p.cost) / MAXCOST) * 100);
+    const eq = p.costType === "neutral"
+      ? "adds no net federal cost"
+      : `≈ ${perHousehold(p.cost)} per U.S. household${p.costType === "revenue" ? " raised" : ""}`;
+    return `<div class="cost-meter ${type}" title="${money(Math.abs(p.cost))} ÷ ~131 million U.S. households — a way to picture the scale (it's funded progressively, not split evenly).">
+      <div class="cm-head"><span class="cm-fig">${fig}</span><span class="cm-kind">${kind}</span></div>
+      <div class="cm-bar" aria-hidden="true"><span class="cm-fill" style="width:${pct.toFixed(1)}%"></span></div>
+      <div class="cm-eq">${eq}</div>
+    </div>`;
   }
   function aisleCol(cls, name, items) {
     const list = (items || []).map((it) =>
