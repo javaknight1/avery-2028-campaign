@@ -30,7 +30,7 @@
     return t;
   }
 
-  const FIRST_HOME_BREAK = 1800;     // illustrative annual property-tax relief
+  const PRIMARY_HOME_BREAK = 1800;   // illustrative annual property-tax relief on your primary residence
   const SECOND_HOME_RATE = 0.01;     // surtax per additional home, on value
 
   function compute() {
@@ -45,7 +45,6 @@
     const housing = $("af-housing").value;
     const homeVal = num("af-homeval");
     const extra = Math.max(0, Math.round(num("af-extrahomes")));
-    const firstTime = $("af-firsttime").checked;
     const wage = num("af-wage");
     const networth = num("af-networth");
 
@@ -75,16 +74,19 @@
     // 4) student-debt relief (illustrative annual benefit)
     if (debt > 0) items.push({ label: "Student-debt relief", sub: "payments capped, balance forgiven over time", amt: Math.round(debt * 0.05) });
 
-    // 5) housing / property tax
-    if (housing === "own1" && firstTime &&
-        income < (filing === "married" ? 250000 : 150000) && homeVal > 0 && homeVal < 600000) {
-      items.push({ label: "First-home property-tax break", sub: "eligible first-time, primary-residence buyer", amt: FIRST_HOME_BREAK });
-    } else if (housing === "own1" && firstTime) {
-      items.push({ label: "First-home property-tax break", sub: "you'd be over the income/price limits — not eligible", amt: 0 });
+    // 5) housing / property tax — break on your primary home, surtax on the rest
+    const ownsPrimary = housing === "own1" || housing === "ownmulti";
+    if (ownsPrimary) {
+      const eligible = income < (filing === "married" ? 250000 : 150000) && homeVal > 0 && homeVal < 600000;
+      items.push({
+        label: "Primary-home property-tax break",
+        sub: eligible ? "relief on the home you actually live in" : "over the income/home-value limits — not eligible",
+        amt: eligible ? PRIMARY_HOME_BREAK : 0,
+      });
     }
     if (housing === "ownmulti" && extra > 0) {
       const surtax = extra * Math.max(homeVal, 200000) * SECOND_HOME_RATE;
-      items.push({ label: `Second-home surtax (${extra} extra)`, sub: "an extra annual property tax on additional homes", amt: -surtax });
+      items.push({ label: `Surtax on ${extra} additional home${extra > 1 ? "s" : ""}`, sub: "extra annual property tax on homes beyond your primary", amt: -surtax });
     }
 
     // 6) $15 minimum wage raise
@@ -130,7 +132,6 @@
     const h = $("af-housing").value;
     $("wrap-homeval").classList.toggle("me-hidden", h === "rent");
     $("wrap-extra").classList.toggle("me-hidden", h !== "ownmulti");
-    $("wrap-firsttime").classList.toggle("me-hidden", h !== "own1");
   }
 
   const form = $("meForm");

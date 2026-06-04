@@ -108,26 +108,26 @@ window.PLATFORM = {
     {
       id: "housing", cat: "care", icon: "🏠",
       title: "Housing for Everyone", tagline: "A safe, affordable home within reach of every American.",
-      cost: 150, costType: "spend", costNote: "social housing + vouchers + a first-home tax break (partly offset by a surtax on additional homes)",
+      cost: 150, costType: "spend", costNote: "social housing + vouchers + a primary-home tax break (partly offset by a surtax on additional homes)",
       lead: "Housing is the bill that breaks the most families. We attack it from every side: build millions of homes, make rent affordable, end homelessness, and flip a market where some people can't afford a single home while others collect several. A home should be shelter first and an investment second.",
       plan: [
         { b: "Build 5 million homes.", t: "A federal–local partnership that rewards cities for legalizing housing, funds the trades to build it, and unlocks public land for mixed-income development." },
         { b: "A permanent social-housing sector.", t: "Publicly-backed, mixed-income housing that stays affordable forever — not luxury units with a few 'affordable' tokens." },
         { b: "Rent you can afford.", t: "Expand housing vouchers to everyone who qualifies and cap rent increases on federally-backed units." },
-        { b: "A first-home tax break.", t: "Property-tax relief for eligible first-time buyers on their primary residence — under income and home-price limits, so it lifts working families onto the ladder, not investors." },
-        { b: "A surtax on second-and-beyond homes.", t: "An extra annual property tax on each additional home someone owns. When some families can't afford one home while others hold several, we tilt the field back toward people who need a place to live." },
+        { b: "A primary-home tax break.", t: "Property-tax relief on the home you actually live in, for eligible households under income and home-value limits — so keeping your primary residence costs less." },
+        { b: "A surtax on second-and-beyond homes.", t: "An extra annual property tax on every home you own beyond your primary residence. When some families can't afford one home while others hold several, we tilt the field back toward people who need a place to live." },
         { b: "End homelessness with housing first.", t: "Get people housed first, then wrap services around them — the approach proven to work and to save money." },
         { b: "Protect buyers and renters.", t: "Crack down on price-fixing rent algorithms and Wall Street's bulk-buying of family homes." },
       ],
       detail: [
         { h: "Supply is the cure", p: "Rents fall when there are enough homes. The fastest lever is to stop blocking construction — money follows the cities that say yes to housing." },
-        { h: "Flip the housing ladder", p: "We cut property tax for eligible first-time buyers and add a surtax on additional homes — turning housing back into shelter first. The first-home break is income- and price-limited so it reaches working families, while the surtax asks those holding multiple homes to pay more." },
+        { h: "Flip the housing ladder", p: "We cut property tax on your primary residence (for eligible households, under income and value limits) and add a surtax on every home beyond it — turning housing back into shelter first. The break helps the home you live in; the surtax asks those holding extra homes to pay more." },
         { h: "Homelessness is cheaper to solve", p: "A chronically homeless person costs the public far more in ER visits, shelters, and jails than simply providing housing and support." },
       ],
       qa: [
-        { q: "Can Washington really fix local housing?", a: "It can't zone your town — but it can pay towns that build, fund first-home tax breaks, and stop subsidizing those that block. Money follows permits issued, which flips the incentives fast." },
-        { q: "Isn't taxing second homes unfair to people who saved for a vacation home?", a: "Your primary home is fully protected — and first-time buyers get a break. The surtax is a modest extra only on additional properties, aimed at an imbalance where investors and the wealthy hold multiple homes while millions can't afford one." },
-        { q: "Won't building this much cost a fortune?", a: "Most homes are built with private capital unlocked by zoning reform and public land; federal dollars seed social housing and vouchers, and the first-home break is partly offset by the second-home surtax. The cost of doing nothing — rising rents and homelessness — is higher." },
+        { q: "Can Washington really fix local housing?", a: "It can't zone your town — but it can pay towns that build, fund primary-home tax breaks, and stop subsidizing those that block. Money follows permits issued, which flips the incentives fast." },
+        { q: "Isn't taxing second homes unfair to people who saved for a vacation home?", a: "Your primary residence is fully protected — and even gets a break. The surtax is a modest extra only on the homes you own beyond the one you live in, aimed at an imbalance where investors and the wealthy hold multiple homes while millions can't afford one." },
+        { q: "Won't building this much cost a fortune?", a: "Most homes are built with private capital unlocked by zoning reform and public land; federal dollars seed social housing and vouchers, and the primary-home break is partly offset by the second-home surtax. The cost of doing nothing — rising rents and homelessness — is higher." },
       ],
       aisle: {
         rep: [
