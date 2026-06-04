@@ -18,6 +18,7 @@
     { key: "about",   href: "about.html",        label: "Meet Rob" },
     { key: "issues",  href: "issues.html",       label: "Issues" },
     { key: "budget",  href: "budget.html",       label: "Budget" },
+    { key: "deficit", href: "deficit.html",      label: "Deficit" },
     { key: "affect",  href: "affect.html",       label: "Your Impact" },
     { key: "tax",     href: "tax-lab.html",      label: "Tax Lab" },
     { key: "join",    href: "get-involved.html", label: "Get Involved" },

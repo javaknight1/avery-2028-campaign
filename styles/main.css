@@ -108,15 +108,15 @@ img { max-width: 100%; display: block; }
 .brand-text b { display: block; font-size: 1.18rem; letter-spacing: 1px; text-transform: uppercase; }
 .brand-text span { display: block; font-size: 0.66rem; letter-spacing: 2.5px; color: var(--red); text-transform: uppercase; margin-top: 2px; }
 
-.nav-links { display: flex; align-items: center; gap: 4px; }
+.nav-links { display: flex; align-items: center; gap: 2px; }
 .nav-links a {
-  font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.6px; font-size: 0.93rem;
-  color: var(--navy); padding: 9px 14px; border-radius: 7px; position: relative;
+  font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.4px; font-size: 0.9rem;
+  color: var(--navy); padding: 9px 11px; border-radius: 7px; position: relative;
   transition: color 0.2s ease, background 0.2s ease;
 }
 .nav-links a:hover { background: var(--paper); }
 .nav-links a::after {
-  content: ""; position: absolute; left: 14px; right: 14px; bottom: 4px; height: 3px;
+  content: ""; position: absolute; left: 11px; right: 11px; bottom: 4px; height: 3px;
   background: var(--red); border-radius: 3px; transform: scaleX(0); transform-origin: left;
   transition: transform 0.25s var(--ease);
 }
@@ -272,6 +272,9 @@ img { max-width: 100%; display: block; }
   .feature { grid-template-columns: 1fr; }
   .stats { grid-template-columns: repeat(2, 1fr); }
   .footer-top { grid-template-columns: 1fr 1fr; }
+}
+/* nav collapses to a drawer a bit sooner so every top-level page fits on desktop */
+@media (max-width: 1080px) {
   .nav-toggle { display: flex; }
   .nav-links {
     position: fixed; inset: 0 0 0 auto; width: min(330px, 84vw); flex-direction: column;
