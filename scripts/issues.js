@@ -60,6 +60,7 @@
         <p class="policy-lead" data-reveal>${esc(p.lead)}</p>
         ${humanity}
         <div class="policy-block" data-reveal><h3>The Plan</h3><ul class="plan-list">${plan}</ul></div>
+        ${p.timeline ? timelineBlock(p) : ""}
         <div class="policy-block" data-reveal><h3>How it works</h3><div class="detail-grid">${detail}</div></div>
         <div class="policy-block" data-reveal><h3>Common questions &amp; concerns</h3><div class="qa">${qa}</div></div>
         <div class="policy-block" data-reveal><h3>Across the aisle</h3>
@@ -73,6 +74,17 @@
         </div>
       </div>
     </section>`;
+  }
+
+  function timelineBlock(p) {
+    const rows = p.timeline.map((ph) =>
+      `<li class="tl-item">
+        <span class="tl-when">${esc(ph.when)}</span>
+        <div class="tl-card"><h4>${esc(ph.title)}</h4><ul>${ph.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul></div>
+      </li>`).join("");
+    return `<div class="policy-block" data-reveal><h3>The phased rollout</h3>
+      <p class="aisle-intro">Universal healthcare isn't an overnight switch. Here's the year-by-year path, so nobody loses care during the transition.</p>
+      <ol class="timeline-rollout">${rows}</ol></div>`;
   }
 
   function humanityBlock() {

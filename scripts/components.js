@@ -71,8 +71,8 @@
           <h4>The Issues</h4>
           <a href="issues.html#cat-spending">Spending Policies</a>
           <a href="issues.html#cat-revenue">Revenue Policies</a>
-          <a href="budget.html">The Budget &amp; Deficit</a>
-          <a href="tax-lab.html">Tax Lab</a>
+          <a href="budget.html">The Budget</a>
+          <a href="deficit.html">The Deficit &amp; Debt</a>
         </div>
         <div class="footer-col">
           <h4>Tools</h4>

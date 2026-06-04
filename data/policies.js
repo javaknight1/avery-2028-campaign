@@ -31,7 +31,33 @@ window.PLATFORM = {
       id: "healthcare", cat: "care", icon: "🩺",
       title: "Universal Healthcare", tagline: "Health care is a right, not a bill.",
       cost: 1400, costType: "spend", costNote: "net new federal — replaces most premiums, copays & deductibles; total U.S. health spending falls",
-      lead: "Every American gets comprehensive coverage from birth — doctor visits, hospital care, mental health, dental, vision, prescriptions, and long-term care — with no premiums, no deductibles, and no surprise bills. You keep your doctors; you lose the paperwork and the fear.",
+      lead: "Every American gets comprehensive coverage from birth — doctor visits, hospital care, mental health, dental, vision, prescriptions, and long-term care — with no premiums, no deductibles, and no surprise bills. You keep your doctors; you lose the paperwork and the fear. It isn't flipped on overnight — it phases in over a single term so nobody loses care during the switch.",
+      timeline: [
+        { when: "Day One – Year 1", title: "Immediate relief", items: [
+          "Lower the Medicare eligibility age to 60 and auto-enroll the uninsured.",
+          "Cap insulin and inhalers at $5 and begin negotiating drug prices.",
+          "Ban surprise medical bills and the medical-debt collection that bankrupts families.",
+        ] },
+        { when: "Year 2", title: "A public option for everyone", items: [
+          "Open a Medicare-style public plan to every American on the marketplace.",
+          "Add dental, vision, and hearing to Medicare.",
+          "Lower the eligibility age to 55.",
+        ] },
+        { when: "Year 3", title: "Expand coverage & build capacity", items: [
+          "Lower the eligibility age to 45.",
+          "Extend negotiated prices to all prescription drugs.",
+          "Fund clinics, training, and more doctors and nurses so access grows with coverage.",
+        ] },
+        { when: "Year 4", title: "Universal coverage", items: [
+          "Everyone is covered — no premiums, deductibles, or copays for essential care.",
+          "Long-term, maternal, and mental-health care fully included.",
+          "Private supplemental coverage stays legal, and you keep your own doctors.",
+        ] },
+        { when: "Ongoing", title: "Measure & improve", items: [
+          "Publish outcomes and wait times openly, and fix what isn't working.",
+          "Total national health spending falls as administrative waste and inflated prices drop.",
+        ] },
+      ],
       plan: [
         { b: "Medicare for All.", t: "A single public plan covers everyone. Private supplemental coverage stays legal, but nobody needs it for the essentials." },
         { b: "Zero out-of-pocket for essential care.", t: "No premiums, no deductibles, no copays for primary, emergency, maternal, and mental-health care." },
@@ -1109,7 +1135,7 @@ window.PLATFORM = {
     scale: 100,
     slices: [
       {
-        label: "Economic output (GDP)", value: 18, color: "#2a6df4", score: 78,
+        label: "Economic output (GDP)", value: 12, color: "#2a6df4", score: 78,
         note: "Still counts — but as one slice, not the whole pie.",
         metrics: [
           { name: "Real GDP growth", value: "≈2.8% / yr", source: "BEA" },
@@ -1119,7 +1145,7 @@ window.PLATFORM = {
         ],
       },
       {
-        label: "Economic security", value: 14, color: "#c8102e", score: 53,
+        label: "Economic security", value: 11, color: "#c8102e", score: 53,
         note: "Can a family absorb a sudden $400–$1,000 expense?",
         metrics: [
           { name: "Can cover a $400 emergency with cash", value: "≈63%", source: "Federal Reserve (SHED)" },
@@ -1129,7 +1155,7 @@ window.PLATFORM = {
         ],
       },
       {
-        label: "Physical health", value: 13, color: "#46b67a", score: 50,
+        label: "Physical health", value: 10, color: "#46b67a", score: 50,
         note: "Chronic disease, obesity, and healthy years of life.",
         metrics: [
           { name: "Adult obesity rate", value: "≈40%", source: "CDC (NHANES)" },
@@ -1139,7 +1165,7 @@ window.PLATFORM = {
         ],
       },
       {
-        label: "Life expectancy", value: 12, color: "#f4b740", score: 58,
+        label: "Life expectancy", value: 9, color: "#f4b740", score: 58,
         note: "How long Americans live — and how it compares.",
         metrics: [
           { name: "Life expectancy at birth", value: "≈78.4 yrs", source: "CDC (NCHS)" },
@@ -1148,7 +1174,7 @@ window.PLATFORM = {
         ],
       },
       {
-        label: "Mental health", value: 11, color: "#8a5cf6", score: 41,
+        label: "Mental health", value: 9, color: "#8a5cf6", score: 41,
         note: "Depression, suicide, deaths of despair, loneliness.",
         metrics: [
           { name: "Adults with anxiety/depression symptoms", value: "≈32%", source: "CDC / KFF" },
@@ -1158,7 +1184,7 @@ window.PLATFORM = {
         ],
       },
       {
-        label: "Childhood & education", value: 11, color: "#ff8c42", score: 54,
+        label: "Childhood & education", value: 9, color: "#ff8c42", score: 54,
         note: "Early childhood, learning outcomes, kids' odds.",
         metrics: [
           { name: "NAEP reading & math (Nation's Report Card)", value: "near multi-decade lows", source: "NCES" },
@@ -1168,7 +1194,7 @@ window.PLATFORM = {
         ],
       },
       {
-        label: "Affordability", value: 9, color: "#22b8cf", score: 44,
+        label: "Affordability", value: 8, color: "#22b8cf", score: 44,
         note: "Housing, childcare, healthcare, energy vs. income.",
         metrics: [
           { name: "Cost-burdened renters (>30% of income)", value: "≈50%", source: "HUD / Census (ACS)" },
@@ -1178,7 +1204,47 @@ window.PLATFORM = {
         ],
       },
       {
-        label: "Environment", value: 7, color: "#2f9e44", score: 62,
+        label: "Safety", value: 7, color: "#f06595", score: 56,
+        note: "Crime, gun deaths, road safety, and whether people feel safe.",
+        metrics: [
+          { name: "Gun deaths", value: "≈14 / 100,000", source: "CDC" },
+          { name: "Traffic fatalities", value: "≈12.5 / 100,000", source: "NHTSA" },
+          { name: "Violent crime vs. peer nations", value: "elevated", source: "FBI (UCR/NIBRS)" },
+          { name: "Feel safe walking alone at night", value: "≈70%", source: "Gallup" },
+        ],
+      },
+      {
+        label: "Opportunity & mobility", value: 7, color: "#1098ad", score: 46,
+        note: "Can a kid born poor rise? Inequality and the American Dream.",
+        metrics: [
+          { name: "Odds a child born poor reaches the top fifth", value: "≈7.5%", source: "Opportunity Insights" },
+          { name: "Income inequality (Gini)", value: "≈0.49 (high)", source: "U.S. Census" },
+          { name: "Wealth: top 1% vs. bottom 50%", value: "≈31% vs. 3%", source: "Federal Reserve" },
+          { name: "Racial & gender wage gaps", value: "persistent", source: "BLS / Census" },
+        ],
+      },
+      {
+        label: "Work & leisure", value: 6, color: "#f59f00", score: 50,
+        note: "Job quality, hours, paid leave, and work-life balance.",
+        metrics: [
+          { name: "Federally guaranteed paid leave", value: "0 weeks (worst among peers)", source: "U.S. DOL / OECD" },
+          { name: "Average annual hours worked", value: "high vs. peers", source: "OECD" },
+          { name: "Union membership", value: "≈10%", source: "BLS" },
+          { name: "Workers reporting burnout", value: "≈ half", source: "Gallup" },
+        ],
+      },
+      {
+        label: "Life satisfaction", value: 5, color: "#ae3ec9", score: 60,
+        note: "Are people actually thriving — happiness, stress, and meaning?",
+        metrics: [
+          { name: "World Happiness Report rank", value: "≈ mid-teens", source: "Gallup World Poll" },
+          { name: "Adults 'thriving' in life evaluation", value: "≈50%", source: "Gallup" },
+          { name: "Report a lot of daily stress", value: "≈ half", source: "Gallup" },
+          { name: "Sense of meaning & purpose", value: "mixed", source: "Pew / Gallup" },
+        ],
+      },
+      {
+        label: "Environment", value: 4, color: "#2f9e44", score: 62,
         note: "Clean air and water, and a livable climate.",
         metrics: [
           { name: "People in counties with failing air quality", value: "≈1 in 3", source: "American Lung Assoc. / EPA" },
@@ -1188,7 +1254,7 @@ window.PLATFORM = {
         ],
       },
       {
-        label: "Civic trust", value: 5, color: "#e64980", score: 33,
+        label: "Civic trust", value: 3, color: "#e64980", score: 33,
         note: "Trust in each other and in institutions.",
         metrics: [
           { name: "Trust federal gov't to do right most of the time", value: "≈22%", source: "Pew Research" },

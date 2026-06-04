@@ -65,39 +65,13 @@
       </div>`;
   })();
 
-  /* ---- the deficit ---- */
-  (function renderDeficit() {
+  /* ---- the full revenue plan + a pointer to the Deficit page ---- */
+  (function renderPlan() {
     const el = document.getElementById("budgetDeficit");
     if (!el) return;
-    const afterYr1 = DEFICIT_TODAY - SURPLUS;
-    const scaleD = Math.max(DEFICIT_TODAY, SURPLUS, 1);
-
-    // interest-aware payoff: hold debt service steady at (today's interest + our surplus)
-    const service = SURPLUS + DEBT_TODAY * RATE;
-    let D = DEBT_TODAY, years = 0;
-    while (D > 0.5 && years < 400) { const i = D * RATE; D -= Math.min(D, service - i); years++; }
-    const targetYear = new Date().getFullYear() + years;
     const fundRows = FUNDING.map((f) => `<tr><td>${fline(f)}</td><td class="num rev">+${money(f.amt)}</td></tr>`).join("");
-
     el.innerHTML = `
-      <div class="center" style="max-width:760px">
-        <span class="eyebrow" data-reveal>The hard part, head-on</span>
-        <h2 class="section-title" data-reveal>The deficit — and how we solve it</h2>
-        <p class="section-lead" data-reveal>Washington already runs a deficit of about <strong>${money(DEFICIT_TODAY)} a year</strong> on top of a <strong>${money(DEBT_TODAY)} national debt</strong>. Bolting on a big agenda without paying for it would make that worse. So we don't — our plan raises more than it spends, and the surplus goes to work on the debt.</p>
-      </div>
-      <div class="deficit-steps" data-reveal>
-        <div class="dstep"><span class="dnum">1</span><div><h4>Fully fund the agenda — with room to spare</h4><p>New revenue (<strong>${money(TOTAL_REVENUE)}</strong>) beats new spending (<strong>${money(TOTAL_SPEND)}</strong>), so the platform itself runs a <strong>+${money(SURPLUS)}/yr surplus</strong> instead of adding a dollar of new debt.</p></div></div>
-        <div class="dstep"><span class="dnum">2</span><div><h4>Dedicate that surplus to the deficit</h4><p>The +${money(SURPLUS)}/yr goes straight at today's ${money(DEFICIT_TODAY)} deficit — and as the debt falls, the interest bill falls too, freeing up even more.</p></div></div>
-        <div class="dstep"><span class="dnum">3</span><div><h4>Close the rest with growth &amp; lower costs</h4><p>A healthier, better-educated, better-housed workforce widens the tax base; universal healthcare bends the biggest long-term cost curve down; and collecting the tax gap brings in what's already owed — together putting the budget on a path to balance.</p></div></div>
-        <div class="dstep"><span class="dnum">4</span><div><h4>Then pay the debt down</h4><p>Holding our debt-service budget steady — today's interest plus the surplus — clears the entire ${money(DEBT_TODAY)} debt in about <strong>${years} years</strong> (around ${targetYear}).</p></div></div>
-      </div>
-      <div class="deficit-vis" data-reveal>
-        <div class="dv-row"><i>Deficit today</i><span class="track"><span class="fill bad" style="width:${(DEFICIT_TODAY / scaleD * 100).toFixed(1)}%"></span></span><b>${money(DEFICIT_TODAY)}</b></div>
-        <div class="dv-row"><i>Our surplus, applied</i><span class="track"><span class="fill good" style="width:${(SURPLUS / scaleD * 100).toFixed(1)}%"></span></span><b>+${money(SURPLUS)}</b></div>
-        <div class="dv-row"><i>Remaining (year 1)</i><span class="track"><span class="fill mid" style="width:${(afterYr1 / scaleD * 100).toFixed(1)}%"></span></span><b>${money(afterYr1)}</b></div>
-        <div class="dv-note">A fuller, interest-aware burndown of the ${money(DEBT_TODAY)} debt is coming to its own page.</div>
-      </div>
-      <details class="method" data-reveal>
+      <details class="method" data-reveal open>
         <summary>The full revenue plan, line by line</summary>
         <table class="budget-table" style="margin-top:12px"><thead><tr><th>Funding source</th><th class="num">Revenue / yr</th></tr></thead>
           <tbody>${fundRows}</tbody>
@@ -108,7 +82,11 @@
           </tfoot>
         </table>
         <p style="color:var(--muted);font-size:0.9rem;margin-top:12px">All figures are simplified, rounded, illustrative estimates for education — not official budget scores.</p>
-      </details>`;
+      </details>
+      <div class="center" style="margin-top:30px">
+        <p class="section-lead" data-reveal style="margin-inline:auto">That <strong>+${money(SURPLUS)}/yr surplus</strong> goes straight at the national debt. See exactly how fast it pays off — with an interest-aware burndown chart and amortization table.</p>
+        <a href="deficit.html" class="btn btn--navy btn--lg" data-reveal>The Deficit &amp; Debt <span class="arrow">→</span></a>
+      </div>`;
   })();
 
   /* ---- reveal injected nodes ---- */

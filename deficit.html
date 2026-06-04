@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#061629" />
+  <title>The Deficit &amp; Debt — Avery for President 2028</title>
+  <meta name="description" content="How the Avery platform's surplus pays down the national debt — with an interest-aware burndown chart and a full amortization table. (Parody, illustrative.)" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/issues.css" />
+</head>
+<body data-page="deficit">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal>Pay it down</span>
+        <h1 data-reveal>The Deficit &amp; Debt</h1>
+        <p data-reveal>Our plan raises more than it spends — and that surplus goes to work on the national debt. Here's the honest, interest-aware picture of how fast a steady surplus actually pays off $36 trillion.</p>
+      </div>
+    </section>
+
+    <section class="section bg-paper">
+      <div class="container" id="deficitTop"></div>
+    </section>
+
+    <section class="section bg-white bg-rule">
+      <div class="container" id="deficitChart"></div>
+    </section>
+
+    <section class="section bg-navy">
+      <div class="container center" style="max-width:680px">
+        <span class="eyebrow" data-reveal>See the rest</span>
+        <h2 class="section-title" data-reveal>Where the surplus comes from</h2>
+        <p class="section-lead" data-reveal>The surplus is what's left after revenue beats spending. See the full spending-vs-revenue breakdown on the Budget page, or build your own tax brackets in the Tax Lab.</p>
+        <div data-reveal style="margin-top:10px">
+          <a href="budget.html" class="btn btn--gold btn--lg">The Budget <span class="arrow">→</span></a>
+          <a href="tax-lab.html" class="btn btn--ghost-light btn--lg" style="margin-left:8px">Tax Lab</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="data/policies.js" defer></script>
+  <script src="scripts/components.js" defer></script>
+  <script src="scripts/deficit.js" defer></script>
+</body>
+</html>

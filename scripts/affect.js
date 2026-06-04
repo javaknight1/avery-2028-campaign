@@ -68,8 +68,10 @@
       const save = Math.max(0, childcare - 0.07 * income);
       if (save > 0) items.push({ label: "Childcare cap (7% of income)", sub: "the part above the cap is covered", amt: save });
     }
-    // 3b) universal pre-K for young kids (illustrative per-child value)
-    if (kids > 0) items.push({ label: "Universal pre-K & after-school", sub: `${kids} child${kids > 1 ? "ren" : ""} × ~$4,500 of free care`, amt: kids * 4500 });
+    // 3b) universal pre-K for young kids — a free public benefit (value, not cash you paid)
+    if (kids > 0) items.push({ label: "Universal pre-K & after-school", sub: `${kids} child${kids > 1 ? "ren" : ""} × ~$4,500 of free care`, amt: kids * 4500, free: true });
+    // 3c) free trade / community college — a free benefit if someone would use it
+    if ($("af-college") && $("af-college").checked) items.push({ label: "Free trade & community college", sub: "a year's tuition value, debt-free", amt: 7000, free: true });
 
     // 4) student-debt relief (illustrative annual benefit)
     if (debt > 0) items.push({ label: "Student-debt relief", sub: "payments capped, balance forgiven over time", amt: Math.round(debt * 0.05) });
@@ -103,29 +105,50 @@
     return items;
   }
 
+  let MODE = "all"; // "all" = include free benefits; "direct" = direct cash only
+
   function render() {
     const items = compute();
-    const net = items.reduce((s, it) => s + it.amt, 0);
+    const counts = (it) => MODE === "all" || !it.free;
+    const net = items.reduce((s, it) => s + (counts(it) ? it.amt : 0), 0);
+
     const netEl = $("afNet");
     netEl.textContent = signed(net);
     netEl.className = "big " + (net >= 0 ? "gain" : "loss");
-    $("afNetSub").textContent = net >= 0
-      ? "you'd come out ahead by about this much a year"
-      : "this is roughly what it would cost you a year";
+    $("afNetSub").textContent = MODE === "all"
+      ? (net >= 0 ? "ahead per year, counting the free benefits you'd get" : "the yearly cost to you, after free benefits")
+      : (net >= 0 ? "in direct dollars saved/earned per year" : "in direct dollars out of pocket per year");
 
     $("afList").innerHTML = items.map((it) => {
+      const excluded = it.free && MODE === "direct";
       const cls = it.amt > 1 ? "gain" : (it.amt < -1 ? "loss" : "flat");
       const amt = Math.abs(it.amt) < 1 ? "—" : signed(it.amt);
-      return `<div class="me-line">
-        <span class="ml-label">${it.label}<small>${it.sub}</small></span>
+      const tag = it.free ? ` <span class="ml-free-tag">free benefit</span>` : "";
+      return `<div class="me-line${excluded ? " excluded" : ""}">
+        <span class="ml-label">${it.label}${tag}<small>${it.sub}</small></span>
         <span class="ml-amt ${cls}">${amt}</span>
       </div>`;
     }).join("");
 
-    $("afNote").innerHTML = net >= 0
-      ? "Most working and middle-class households come out ahead: the value of guaranteed healthcare, childcare, and education outweighs any tax change. The big bills you pay today (premiums, childcare, loan payments) shrink or disappear."
-      : "Households that owe more here tend to be high earners, owners of multiple homes, or the ultra-wealthy — the groups the revenue plan asks to pay more so everyone else can gain.";
+    const hasFree = items.some((it) => it.free);
+    $("afNote").innerHTML = MODE === "all"
+      ? (net >= 0
+        ? "Most working and middle-class households come out ahead: the bills you pay today (premiums, childcare, loan payments) shrink or vanish, and the value of free public benefits is added on top."
+        : "Households that owe more here tend to be high earners, owners of multiple homes, or the ultra-wealthy — the groups the revenue plan asks to pay more so everyone else gains.")
+      : (hasFree
+        ? "Direct-dollars view: this counts only cash that moves in or out of your pocket. The struck-through 'free benefit' lines (like pre-K or free college) are real value you'd receive, but they're not direct cash, so they're excluded here."
+        : "Direct-dollars view: cash in and out of your pocket only.");
   }
+
+  /* toggle: direct cash vs. including free benefits */
+  const toggle = $("meToggle");
+  if (toggle) toggle.addEventListener("click", (e) => {
+    const b = e.target.closest(".me-tg");
+    if (!b) return;
+    MODE = b.dataset.mode;
+    toggle.querySelectorAll(".me-tg").forEach((x) => x.classList.toggle("active", x === b));
+    render();
+  });
 
   /* ---- show/hide conditional fields ---- */
   function syncFields() {

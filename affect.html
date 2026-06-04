@@ -43,6 +43,12 @@
     .me-line .ml-amt.flat { color: var(--muted); }
     .me-note { margin-top: 16px; font-size: 0.84rem; color: var(--muted); font-style: italic; line-height: 1.6; }
     .me-disc { background: rgba(244,183,64,0.12); border: 1px solid rgba(244,183,64,0.4); border-radius: 12px; padding: 14px 16px; font-size: 0.88rem; color: #7a5600; margin-top: 18px; }
+    .me-toggle { display: flex; gap: 4px; background: var(--paper); border: 1px solid var(--line); border-radius: 999px; padding: 4px; margin-bottom: 16px; }
+    .me-tg { flex: 1; border: 0; background: none; border-radius: 999px; padding: 9px 10px; font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.8rem; color: var(--muted); cursor: pointer; transition: background 0.2s ease, color 0.2s ease; }
+    .me-tg.active { background: var(--navy); color: #fff; }
+    .me-line.excluded { opacity: 0.45; }
+    .me-line.excluded .ml-amt { text-decoration: line-through; }
+    .ml-free-tag { display: inline-block; font-size: 0.64rem; text-transform: uppercase; letter-spacing: 0.5px; color: #1f7a4d; background: rgba(31,122,77,0.12); border-radius: 4px; padding: 1px 6px; margin-left: 6px; vertical-align: middle; }
   </style>
 </head>
 <body data-page="affect">
@@ -105,6 +111,10 @@
                 <label for="af-extrahomes">Homes beyond your primary</label>
                 <input id="af-extrahomes" inputmode="numeric" value="1" />
               </div>
+              <div class="wide me-check">
+                <input type="checkbox" id="af-college" />
+                <label for="af-college">Someone in your household would use free trade / community college</label>
+              </div>
               <div>
                 <label for="af-wage">Hourly wage, if hourly ($)</label>
                 <input id="af-wage" inputmode="numeric" value="" placeholder="e.g. 11" />
@@ -118,6 +128,10 @@
 
           <!-- results -->
           <div class="me-panel me-results" data-reveal>
+            <div class="me-toggle" id="meToggle" role="group" aria-label="What to count">
+              <button type="button" class="me-tg active" data-mode="all">Incl. free benefits</button>
+              <button type="button" class="me-tg" data-mode="direct">Direct $ only</button>
+            </div>
             <div class="me-net">
               <div class="lbl">Your estimated net annual impact</div>
               <div class="big" id="afNet">$0</div>
