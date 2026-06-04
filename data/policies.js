@@ -5,6 +5,9 @@
    cost: annual figure in BILLIONS of dollars (illustrative, educational).
    costType: "spend" | "revenue" | "neutral"
    costNote: short transparency note shown beside the figure.
+
+   aisle: per party, a list of { c: concern, r: our rebuttal }, plus a
+   `response` with Rob's overall take.
    ========================================================= */
 window.PLATFORM = {
   categories: [
@@ -39,9 +42,18 @@ window.PLATFORM = {
         { q: "Will there be long waits?", a: "Americans already wait — and millions simply go without. Funding capacity (more providers, clinics, and training slots) is built into the plan so access expands with coverage." },
       ],
       aisle: {
-        rep: "Worry about cost, taxes, and government control of medicine; prefer market competition, price transparency, and choice. Many support capping drug prices and ending surprise bills.",
-        dem: "Broadly favor universal coverage; the debate is single-payer vs. a public option. Strong support for drug-price negotiation and zero-cost essential care.",
-        ind: "Focused on their own bill and their own doctor. Supportive if it clearly lowers what they pay and lets them keep their providers; wary of disruption.",
+        rep: [
+          { c: "Government-run medicine means worse care and rationing.", r: "Care stays in private hands — your doctors, your hospitals. Government only handles the billing, the way Medicare already does for seniors who love it. We fund added capacity so access grows, not shrinks." },
+          { c: "It's a massive tax increase.", r: "It replaces premiums, deductibles, and copays you already pay. For most families the new tax is smaller than the bills it erases — and we show that math in The Honest Budget." },
+        ],
+        dem: [
+          { c: "Why single-payer instead of a public option?", r: "A public option leaves the same fragmented, expensive system in place. One payer is where the real savings and the real security live — but we phase in via a public option so the transition is gentle." },
+          { c: "Can we actually pass something this big?", r: "We start day one by lowering the Medicare age and auto-enrolling the uninsured — popular, immediate wins that build the system step by step rather than betting everything on one vote." },
+        ],
+        ind: [
+          { c: "Will this disrupt the coverage I already have?", r: "You move to a plan you can never be dropped from, that follows you between jobs, and that covers more than most plans do today — with a four-year phase-in, not an overnight switch." },
+          { c: "Will it really cost me less?", r: "For the typical household, yes — total out-of-pocket plus taxes goes down because we cut the administrative waste and inflated prices that make U.S. care the world's most expensive." },
+        ],
         response: "I'll make you one promise and keep it in public: your total cost of care goes down and your choice of doctor goes up. We phase it in, we measure it, and if a piece isn't working we say so and fix it.",
       },
     },
@@ -70,9 +82,18 @@ window.PLATFORM = {
         { q: "What about current student debt?", a: "We cap payments as a small share of income, forgive remaining balances after a set period, and fix the broken forgiveness programs — while making the debt-free pathways the default going forward." },
       ],
       aisle: {
-        rep: "Champion vocational training, school choice, and local control; like free trades and dual enrollment. Resist broad federal spending and blanket debt cancellation.",
-        dem: "Support universal pre-K, free college, and higher teacher pay; some want free four-year college and full debt cancellation.",
-        ind: "Pragmatic: love early childhood, trades, and a clear path out of high school; want it targeted, local, and paid for.",
+        rep: [
+          { c: "This is federal overreach into local schools.", r: "Curriculum and schools stay 100% locally run. The federal role is purely funding — pre-K, teacher pay, and free trades — with every decision made close to home." },
+          { c: "Free college is a handout that devalues hard work.", r: "We don't do blanket free four-year college. We fund trades, apprenticeships, and community college — the work-focused rungs conservatives have long championed — and tie it to a real plan, not a blank check." },
+        ],
+        dem: [
+          { c: "Why not free four-year college and full debt cancellation?", r: "Free four-year tuition is expensive and regressive — it spends most on those least in need. We target the highest-return rungs and still cap payments and forgive balances for existing borrowers." },
+          { c: "Is the teacher pay floor enough?", r: "It guarantees no teacher earns below a local living wage and targets the districts that struggle most to hire — a floor we can raise as we go, not a ceiling." },
+        ],
+        ind: [
+          { c: "Will this actually prepare kids for jobs?", r: "That's the whole design: every senior graduates with a funded next step — a job, apprenticeship, trade program, or college credit in hand — instead of a diploma and a question mark." },
+          { c: "Can we afford it?", r: "At ~$180B it's modest next to universal healthcare, and trades and community college are the cheapest, highest-ROI education dollars we can spend. The costs are itemized in The Honest Budget." },
+        ],
         response: "This is the rare plan the trades caucus and the teachers' union can both cheer. Free skills, local schools, and a guarantee that no kid graduates without a real next step. It's opportunity conservatives and progressives can sign together.",
       },
     },
@@ -98,9 +119,18 @@ window.PLATFORM = {
         { q: "Won't building this much cost a fortune?", a: "Most homes are built with private capital unlocked by zoning reform and public land; federal dollars seed social housing and vouchers. The cost of doing nothing — rising rents and homelessness — is higher." },
       ],
       aisle: {
-        rep: "Favor cutting zoning red tape and letting builders build; wary of rent caps and large new federal housing programs.",
-        dem: "Back social housing, voucher expansion, and tenant protections; some prioritize public construction over incentives.",
-        ind: "Just want rent and home prices to stop climbing; supportive of whatever measurably increases supply and lowers cost.",
+        rep: [
+          { c: "Rent caps and federal housing programs distort the market.", r: "The core of this is deregulation — cutting the zoning red tape that blocks building. Caps apply only to federally-backed units, and most homes are built by private developers responding to demand." },
+          { c: "Housing is a local issue, not a federal one.", r: "We don't zone your town from D.C. We reward the towns that choose to build and stop subsidizing the ones that block — local control, better incentives." },
+        ],
+        dem: [
+          { c: "Incentives to developers won't reach the poorest.", r: "That's why incentives are paired with a permanent social-housing sector and voucher expansion for everyone who qualifies — supply plus a guaranteed floor, not one or the other." },
+          { c: "Tenant protections need to be stronger.", r: "We crack down on price-fixing rent algorithms and Wall Street home-buying, and cap increases on federally-backed units — and we can build on that as the supply comes online." },
+        ],
+        ind: [
+          { c: "Will my rent or home price actually go down?", r: "Yes — the plan is fundamentally about building enough homes, which is the only thing that durably lowers prices. Vouchers and caps cushion the gap while supply catches up." },
+          { c: "Won't this just be more government waste?", r: "Housing-first is one of the few programs that saves money — a housed person costs far less than the ER, shelter, and jail cycle of homelessness. Results are tracked publicly." },
+        ],
         response: "Deregulate construction like a conservative; guarantee affordability like a progressive. We make it dramatically easier to build, and we make sure enough of what gets built stays within reach of working people.",
       },
     },
@@ -124,9 +154,18 @@ window.PLATFORM = {
         { q: "Who pays for paid leave?", a: "A small payroll insurance contribution shared across all employers and workers, the same model that makes Social Security work — pennies in, real security out." },
       ],
       aisle: {
-        rep: "Increasingly open to pro-family policy and provider choice; prefer tax credits and flexibility over a federal program.",
-        dem: "Strongly support universal childcare, paid leave, and living wages for early educators.",
-        ind: "Feel the cost directly; supportive if it's affordable, flexible, and lets them pick their own provider.",
+        rep: [
+          { c: "Government shouldn't be in the business of raising kids.", r: "It isn't — parents choose the provider, including faith-based and home-based care. The program pays the bill; the family makes every decision." },
+          { c: "A new entitlement is too expensive.", r: "Affordable childcare pays much of itself back by keeping millions of parents in the workforce earning and paying taxes — and provider choice keeps it flexible, not a big new bureaucracy." },
+        ],
+        dem: [
+          { c: "Is the 7% cap low enough for struggling families?", r: "It's free outright for lower-income households, and 7% is the ceiling for everyone else — designed so cost is never the reason a parent can't work or a kid can't get good care." },
+          { c: "Are 12 weeks of leave enough?", r: "It's a guaranteed national floor where today there's none, funded by a Social-Security-style insurance pool — a floor we can extend over time." },
+        ],
+        ind: [
+          { c: "Will I get to pick my own provider?", r: "Always. Funds follow the child across public, private, home-based, and faith-based care — you choose what works for your family." },
+          { c: "How is it funded?", r: "Through a small shared payroll insurance contribution, the same proven model behind Social Security — pennies in for real security out. It's in The Honest Budget." },
+        ],
         response: "This is pro-family and pro-work at the same time. Whether you want parents home with a newborn or back at a job they love, the barrier is the same — cost — and we take it down.",
       },
     },
@@ -152,9 +191,18 @@ window.PLATFORM = {
         { q: "Won't it just cause inflation?", a: "A VAT-funded dividend recycles money rather than printing it, and much of it is spent on goods whose supply we're expanding (housing, energy). We'd phase in and watch prices closely." },
       ],
       aisle: {
-        rep: "Some libertarians like replacing bureaucratic welfare with simple cash; most worry about cost, work incentives, and dependency.",
-        dem: "Split between UBI and targeted benefits/jobs guarantees; many prefer expanding existing programs first.",
-        ind: "Intrigued and skeptical: love the security and simplicity, want hard proof it won't blow up the budget or prices.",
+        rep: [
+          { c: "Free money kills the incentive to work.", r: "Real-world pilots from Alaska to Stockton show people keep working — $12,000 a year is a floor, not a hammock. It rewards risk-taking: starting a business or retraining without gambling the rent." },
+          { c: "It's unaffordable and grows dependency.", r: "It's the priciest plank and we never pretend otherwise. It partly replaces today's tangle of welfare bureaucracy with simple cash, is funded by the automation creating the need, and phases in as the revenue comes online." },
+        ],
+        dem: [
+          { c: "Cash can't replace targeted programs and services.", r: "It doesn't — people keep existing benefits if those help more, so no one is worse off. UBI is a floor underneath the safety net, not a teardown of it." },
+          { c: "Won't a flat payment shortchange those most in need?", r: "Everyone gets the same dividend, but the paired tax overhaul means low- and middle-income families keep all of it tax-free while the top funds it — so the net benefit is steeply progressive." },
+        ],
+        ind: [
+          { c: "Will this blow up the budget or cause inflation?", r: "It's VAT-funded — recycled, not printed — and much of it is spent on housing and energy whose supply we're expanding. We phase in and watch prices and work closely, adjusting if the data demands." },
+          { c: "Is $1,000 even meaningful with no income tax under $250k?", r: "Combined, a typical family keeps their full paycheck and gains $12,000 per adult — a major, tangible raise. The trade-off is honest, and you can model the tax piece yourself in the Tax Lab." },
+        ],
         response: "This is the boldest — and priciest — idea on the platform, so it gets the most honesty. We phase it in, fund it from the automation that creates the need, and measure work and prices every step. If the data says adjust, we adjust.",
       },
     },
@@ -178,9 +226,18 @@ window.PLATFORM = {
         { q: "Will my taxes go up?", a: "Not unless you earn well over $168,000 a year. For ~94% of workers, nothing changes except a bigger check in retirement." },
       ],
       aisle: {
-        rep: "Protective of seniors' benefits but resistant to tax increases; some favor raising the retirement age instead.",
-        dem: "Strongly support expanding benefits and lifting the cap on the wealthy.",
-        ind: "Want the program solvent and benefits protected; lifting the cap polls well across the spectrum.",
+        rep: [
+          { c: "We should raise the retirement age, not taxes.", r: "Raising the retirement age is a benefit cut for everyone who does physical work and can't keep going to 70. Lifting the cap fixes solvency by asking only the highest earners to keep paying like everyone else." },
+          { c: "Any tax hike hurts the economy.", r: "This touches only wages above ~$168k — 94% of workers see no change. It's closing a loophole where a CEO stops paying in February while a nurse pays all year." },
+        ],
+        dem: [
+          { c: "Don't just stabilize it — expand it.", r: "We do both: benefits go up, especially for the lowest-income retirees, with a cost-of-living measure built around what seniors actually buy. Lifting the cap funds the raise." },
+          { c: "Is lifting the cap enough for 75-year solvency?", r: "It closes most of the gap; we restore full long-term solvency so younger workers know it's there for them, without cutting a dime from current retirees." },
+        ],
+        ind: [
+          { c: "Will Social Security even exist when I retire?", r: "Yes — that's the point. Lifting the cap secures it for 75 years so younger workers aren't paying in for a promise that won't be kept." },
+          { c: "Will this raise my taxes?", r: "Only if you earn well over $168,000. For the vast majority, nothing changes except a bigger check in retirement." },
+        ],
         response: "Don't cut the most popular program in America — fund it. Ask the highest earners to pay the same rate everyone else already does, and we can raise benefits and secure the program for our kids in one move.",
       },
     },
@@ -205,9 +262,16 @@ window.PLATFORM = {
         { q: "Is this even possible?", a: "It requires a constitutional amendment, which is hard by design. But term limits are wildly popular across every party — it's exactly the kind of fight worth leading." },
       ],
       aisle: {
-        rep: "Broadly supportive — term limits are a long-standing conservative cause.",
-        dem: "Mixed at the leadership level, but rank-and-file voters strongly support them.",
-        ind: "Overwhelmingly in favor; it's one of the most popular reforms in the country.",
+        rep: [
+          { c: "Term limits hand power to unelected staff and lobbyists.", r: "We pair limits with stronger nonpartisan member staff so expertise sits with the institution, and a hard lobbying cooling-off period so leaving office isn't a payday." },
+        ],
+        dem: [
+          { c: "We'd lose seasoned legislators who get things done.", r: "Twelve years is ample time to master the job, and rotating power back to voters is worth more than a handful of forty-year incumbents. Institutional knowledge lives in professional staff, not lifetime tenure." },
+        ],
+        ind: [
+          { c: "Nice idea, but it'll never pass.", r: "It needs a constitutional amendment — hard by design — but it's one of the few reforms a supermajority of every party already wants. That's exactly the kind of fight worth leading." },
+          { c: "Does the stock-trading ban have teeth?", r: "Yes — it covers members and their families, with real penalties. No more legislating on an industry while quietly trading its stock." },
+        ],
         response: "This is one of the few ideas a supermajority of Americans agree on. The people who'll resist it most are the ones it limits — which tells you exactly why it's needed.",
       },
     },
@@ -231,9 +295,17 @@ window.PLATFORM = {
         { q: "Won't public financing waste tax money?", a: "It's a tiny fraction of the budget — and the return is enormous: policy written for voters instead of donors saves far more than it costs in giveaways prevented." },
       ],
       aisle: {
-        rep: "Skeptical of public financing and of limits framed as speech restrictions; many do support transparency and a stock-trading ban.",
-        dem: "Strongly back overturning Citizens United and small-donor matching.",
-        ind: "Deeply distrust money in politics; reforms here poll well across party lines.",
+        rep: [
+          { c: "Limiting political spending limits free speech.", r: "We protect speech — what ends is the fiction that unlimited corporate money is speech. And we lead with transparency and a stock-trading ban, reforms many conservatives already back." },
+          { c: "Taxpayer-funded campaigns are a waste.", r: "Small-donor matching costs a sliver of the budget and pays for itself many times over by ending the donor giveaways it prevents — policy written for voters, not check-writers." },
+        ],
+        dem: [
+          { c: "An amendment is a long shot — what changes now?", r: "Plenty: small-donor matching, instant dark-money disclosure, and the lobbying and stock-trading bans can pass by statute today, while we fight for the amendment over time." },
+        ],
+        ind: [
+          { c: "Politicians will never vote to defund themselves.", r: "Which is exactly why it has to be a movement, not a favor we ask of incumbents. Small-donor matching lets outsiders who refuse big money actually win and change the math." },
+          { c: "Will this really reduce corruption?", r: "When candidates raise from $20 donors instead of billionaires, they answer to constituents. Full, instant disclosure means you always see who's trying to buy what." },
+        ],
         response: "You can love free markets and still hate a rigged one. Whatever your politics, a government auctioned to the highest bidder doesn't represent you. Let's put it back in the hands of voters.",
       },
     },
@@ -241,27 +313,37 @@ window.PLATFORM = {
       id: "voting", cat: "democracy", icon: "🗳️",
       title: "Voting & Democracy Reform", tagline: "Make it easy to vote and hard to cheat the map.",
       cost: 6, costType: "spend", costNote: "election infrastructure & administration grants",
-      lead: "A strong democracy makes voting simple, secure, and fair. We register every eligible citizen automatically, make Election Day a holiday, end the partisan gerrymanders that let politicians pick their voters, and grant the people of D.C. the representation they pay for.",
+      lead: "A strong democracy makes voting simple, secure, and fair. We register every eligible citizen automatically, make Election Day a holiday, end the partisan gerrymanders that let politicians pick their voters, and finally give the people of D.C. the representation they pay for.",
       plan: [
         { b: "Automatic voter registration.", t: "Every eligible citizen registered automatically, with easy opt-out — secure, accurate rolls and higher turnout." },
         { b: "Election Day holiday.", t: "Make it a national holiday and expand early and mail voting so no one chooses between a shift and a ballot." },
         { b: "End partisan gerrymandering.", t: "Independent redistricting commissions draw fair maps; politicians stop drawing their own districts." },
-        { b: "D.C. statehood.", t: "Over 700,000 taxpaying Americans deserve full representation." },
+        { b: "Real representation for D.C. — via Maryland.", t: "Return the District's residential neighborhoods to Maryland — just as Virginia took its side of D.C. back in 1846 — so 700,000+ taxpaying Americans finally get full voting representation, while the federal core stays the seat of government. No statehood needed." },
         { b: "Secure, auditable elections.", t: "Paper-ballot backups and routine audits in every state, so results are both trusted and verifiable." },
       ],
       detail: [
         { h: "Easy and secure aren't opposites", p: "Modern registration and routine audits make rolls more accurate and results more verifiable at the same time. Access and integrity rise together." },
         { h: "Fair maps", p: "Independent commissions — used successfully in several states — take map-drawing out of incumbents' hands and end the practice of safe seats chosen in back rooms." },
+        { h: "Retrocession, not statehood", p: "Returning residential D.C. to Maryland follows the exact precedent Virginia set in 1846, giving residents full House and Senate representation through an existing state — without creating a new one or adding Senate seats." },
       ],
       qa: [
         { q: "Does this make fraud easier?", a: "No. Automatic registration plus paper backups and audits make elections both more accessible and more secure than today's patchwork — accurate rolls are harder to game, not easier." },
-        { q: "Why D.C. statehood?", a: "Its residents pay federal taxes and serve in the military but have no voting representation in Congress. Statehood simply gives taxpaying citizens the representation everyone else has." },
+        { q: "Statehood for D.C., or something else?", a: "Not statehood — retrocession. We return D.C.'s residential neighborhoods to Maryland, exactly as Virginia reclaimed its portion of the District in 1846, so 700,000+ taxpaying citizens get full congressional representation through an existing state, while the National Mall and federal buildings remain the seat of government." },
       ],
       aisle: {
-        rep: "Emphasize election security and oppose measures they see as federalizing state-run elections or favoring one party (e.g., D.C. statehood).",
-        dem: "Strongly support automatic registration, anti-gerrymandering, and D.C. statehood.",
-        ind: "Hate gerrymandering and barriers to voting; broadly favor making elections both easy and secure.",
-        response: "Here's the deal both sides should take: we make it effortless for every eligible citizen to vote, and rock-solid to verify every result. Access and integrity aren't enemies — a confident democracy delivers both.",
+        rep: [
+          { c: "Federalizing elections invites fraud and overreach.", r: "States still run their elections — we fund paper-ballot backups and routine audits that make results more verifiable, and accurate automatic rolls are harder to game, not easier." },
+          { c: "D.C. statehood is a partisan power grab for two Senate seats.", r: "We agree on statehood — so we don't do it. Retrocession to Maryland gives D.C. residents representation through an existing state, adds no new Senate seats, and follows Virginia's own 1846 precedent." },
+        ],
+        dem: [
+          { c: "Retrocession denies D.C. the statehood it deserves.", r: "The goal is full representation for 700,000+ disenfranchised citizens, and retrocession delivers exactly that — House and Senate votes through Maryland — on a far more achievable, historically grounded path than statehood." },
+          { c: "Will automatic registration and the holiday really boost turnout?", r: "Yes — automatic registration and an Election Day holiday remove the two biggest friction points, and they pair with expanded early and mail voting so no one chooses between a shift and a ballot." },
+        ],
+        ind: [
+          { c: "I want elections both easy and secure — is that possible?", r: "That's the whole design. Automatic accurate rolls and an Election Day holiday make voting easy; paper backups and audits make every result verifiable. The two reinforce each other." },
+          { c: "Won't independent map commissions just be politics in disguise?", r: "They're already working in several states to end gerrymanders drawn in back rooms. Taking the pen away from incumbents is how you get districts that reflect voters, not safe seats." },
+        ],
+        response: "Here's the deal both sides should take: make it effortless for every eligible citizen to vote, rock-solid to verify every result, and end taxation without representation for D.C. the clean way — by giving the land back to Maryland, exactly as Virginia did.",
       },
     },
     {
@@ -284,9 +366,17 @@ window.PLATFORM = {
         { q: "What does the Equality Act actually do?", a: "It updates civil-rights law to clearly bar discrimination based on sexual orientation and gender identity — the same protections that already exist for race, religion, and sex." },
       ],
       aisle: {
-        rep: "Generally favor state-level decisions on abortion and have varied views on the Equality Act; some emphasize religious-liberty protections.",
-        dem: "Strongly support codifying reproductive rights and passing the Equality Act.",
-        ind: "Largely support keeping the government out of personal medical decisions and oppose discrimination.",
+        rep: [
+          { c: "Abortion should be left to the states.", r: "Leaving it to the states means a right that flips with every election and every zip code. We restore a consistent national floor — and it's framed as limiting government power over the most private decision there is." },
+          { c: "The Equality Act threatens religious liberty.", r: "It extends the same anti-discrimination protections that already cover race and religion to sexual orientation and gender identity, while existing religious-liberty law remains in force. Protecting one freedom doesn't erase another." },
+        ],
+        dem: [
+          { c: "Codifying a 'floor' may settle for too little.", r: "A durable federal floor is what stops these rights from vanishing with the next court. It's the foundation to build on, not the ceiling — and far stronger than precedent alone." },
+        ],
+        ind: [
+          { c: "Is this just relitigating the culture war?", r: "It's the opposite — it takes government out of your private life: your body, who you marry, who you are. Most Americans across the spectrum agree those choices shouldn't be the state's to make." },
+          { c: "Why does it need to be federal?", r: "Because rights that depend on which way a court is leaning this year aren't really rights. Writing them into law makes them consistent and durable from state to state." },
+        ],
         response: "Whatever you'd choose for your own family, this is about whether the government gets to choose for everyone else's. I trust people to run their own lives — and I'll defend that freedom in law, not leave it to chance.",
       },
     },
@@ -310,9 +400,17 @@ window.PLATFORM = {
         { q: "Won't ending cash bail release dangerous people?", a: "Risk-based release keeps genuinely dangerous defendants detained while freeing low-risk people who today sit in jail only because they're poor. It targets danger, not poverty." },
       ],
       aisle: {
-        rep: "Prioritize public safety and back the blue; many support cannabis federalism, expungement, and reentry, but resist measures seen as anti-police.",
-        dem: "Support accountability, ending cash bail, legalization, and prevention investment.",
-        ind: "Want both safety and fairness; favor accountability and treatment over pure incarceration.",
+        rep: [
+          { c: "This sounds like 'defund the police' and soft-on-crime.", r: "The opposite — we fund police with better training, standards, and support, and add mental-health responders so cops aren't sent to every crisis. Prevention and reentry cut crime more than incarceration alone." },
+          { c: "Ending cash bail puts dangerous people on the street.", r: "Risk-based release detains genuinely dangerous defendants while freeing low-risk people who today sit in jail only because they're poor. It targets danger, not poverty." },
+        ],
+        dem: [
+          { c: "Accountability needs more teeth than a registry.", r: "The national misconduct registry stops bad officers from quietly moving departments, paired with binding use-of-force standards and real consequences — enforcement, not just a list." },
+        ],
+        ind: [
+          { c: "Will this make my community less safe?", r: "Safer — it invests in violence interruption, treatment, and reentry, the things proven to cut repeat crime, while keeping dangerous people detained. Safety and fairness aren't a trade-off." },
+          { c: "Why legalize cannabis federally?", r: "It's already legal in much of the country; ending the federal conflict lets us regulate it and clear records that needlessly block jobs and housing for things no longer crimes." },
+        ],
         response: "Backing good cops and demanding accountability for bad ones is the same position. We give police the training and support to do a hard job right — and we stop jailing people for being poor or for something now legal in half the country.",
       },
     },
@@ -336,13 +434,20 @@ window.PLATFORM = {
         { q: "What about the border?", a: "A humane system is also an orderly one: technology, enough judges to decide cases quickly, and fast asylum rulings replace the chaos of endless backlogs." },
       ],
       aisle: {
-        rep: "Prioritize border security and enforcement first; divided on citizenship, though many support legal status for Dreamers.",
-        dem: "Support a path to citizenship, Dreamer protections, and a humane system.",
-        ind: "Want both a secure border and a workable legal system; frustrated by decades of gridlock.",
+        rep: [
+          { c: "Secure the border first — no amnesty.", r: "Security is built in: technology and enough judges to decide cases fast, which creates real order. The earned path requires background checks, taxes, and time — not a free pass — and applies to people already here." },
+          { c: "More immigration costs taxpayers.", r: "Reform is a net fiscal positive in most analyses — bringing workers into the tax base and letting employers hire legally grows the economy and shrinks deficits over time." },
+        ],
+        dem: [
+          { c: "Enforcement focus could harm vulnerable migrants.", r: "Humane and orderly go together here — we end family separation, speed up fair asylum decisions, and treat people with dignity. Order comes from capacity, not cruelty." },
+        ],
+        ind: [
+          { c: "Both parties have failed at this for decades — why now?", r: "Because we tie the two halves together: a genuinely secure, well-staffed border and a usable legal system. Each side gets its priority, which is the only deal that's ever broken the gridlock." },
+          { c: "Is a path to citizenship fair to legal immigrants?", r: "We also clear the legal backlogs and expand visas, so the legal route finally works too. The earned path is conditional on background checks, taxes, and time — playing by rules, not skipping them." },
+        ],
         response: "Secure and humane aren't opposites — a functioning system delivers both. We fund an orderly border and we give the people who've built lives here a way to earn their place. The only thing the broken status quo serves is the next campaign ad.",
       },
     },
-
     {
       id: "communities", cat: "democracy", icon: "🪶",
       title: "Restoration & Community Investment", tagline: "Keep our promises to the people this country has wronged.",
@@ -366,9 +471,17 @@ window.PLATFORM = {
         { q: "How do you keep it from being wasted?", a: "By routing investment through the communities themselves with transparent reporting and a public scoreboard — the same accountability we apply to every plank. Self-governance plus open books." },
       ],
       aisle: {
-        rep: "Skeptical of race-based programs and reparations; some support tribal sovereignty, treaty obligations, and Puerto Rican self-determination, and prefer universal, opportunity-based approaches like baby bonds.",
-        dem: "Support closing the racial wealth gap, honoring treaties, and studying reparations; many back baby bonds and Puerto Rico/D.C. equity.",
-        ind: "Want fairness and results over symbolism; respond to keeping legal promises (treaties) and to opportunity tools that help any poor child.",
+        rep: [
+          { c: "Race-based programs and reparations are divisive and unfair.", r: "The biggest piece — baby bonds — is need-based and reaches poor kids of every background. The rest is honoring legal treaties and trust obligations the U.S. signed: keeping our word, not assigning blame." },
+          { c: "This is a blank check that'll be wasted.", r: "It's routed through the communities themselves with transparent reporting and a public scoreboard — the same accountability every plank gets. Self-governance plus open books, not a check into a void." },
+        ],
+        dem: [
+          { c: "Will this actually deliver, or just study the problem?", r: "It funds concrete action now — IHS, infrastructure, baby bonds, Puerto Rico's grid — while the commission examines specific harms. Investment first, with honest study running alongside, not instead." },
+        ],
+        ind: [
+          { c: "Isn't this just symbolic guilt politics?", r: "It's the opposite of symbolic — clean water on reservations, a rebuilt grid in Puerto Rico, a nest egg for poor kids. Measurable investments with measurable results, not a speech." },
+          { c: "Why does the federal government owe these specific groups?", r: "Because it made specific legal promises — treaties are the supreme law of the land — and broke them, and because the harms compound into wealth gaps we can measure today. Keeping your word is just integrity." },
+        ],
         response: "This isn't about guilt — it's about keeping our word and closing gaps we can measure. We honor the treaties we signed, we invest in places we hurt, and we give every poor kid in America a real stake. Designed with these communities, reported in the open, judged by results.",
       },
     },
@@ -393,9 +506,17 @@ window.PLATFORM = {
         { q: "Can small businesses handle it?", a: "The phase-in is gradual and predictable, and higher wages reduce turnover and boost local spending — much of which flows right back to those same small businesses." },
       ],
       aisle: {
-        rep: "Worry about small-business costs and job losses, especially in low-cost regions; some prefer state-set wages.",
-        dem: "Strongly support $15 and indexing; many now push higher.",
-        ind: "Broadly support a raise; the question is how high and how fast.",
+        rep: [
+          { c: "$15 will kill jobs and crush small businesses.", r: "Decades of state and city increases show modest-to-negligible job effects, and a multi-year phase-in lets businesses plan. Higher pay also cuts costly turnover and pumps spending into local shops." },
+          { c: "Wages should be set by states, not Washington.", r: "States can always go higher, and many have. But a national floor of $7.25 — poverty pay since 2009 — fails workers in every state; a baseline doesn't stop anyone from doing more." },
+        ],
+        dem: [
+          { c: "$15 isn't enough anymore in high-cost areas.", r: "That's why we index it to inflation so it never freezes again, and states and cities can set higher local minimums. $15 is the national floor, not the limit." },
+        ],
+        ind: [
+          { c: "Won't this just raise prices?", r: "Studies find small price effects far outweighed by the raise for 20+ million workers — and taxpayers stop subsidizing employers whose workers need food stamps to get by. The cost shifts to those who can afford it." },
+          { c: "How fast does it happen?", r: "Gradually and predictably over several years, so businesses adjust in stride rather than absorbing a shock overnight." },
+        ],
         response: "Nobody working full-time in the richest country on earth should live in poverty. We phase it in so businesses can plan, we index it so we never have this fight again, and we watch the data the whole way.",
       },
     },
@@ -419,9 +540,16 @@ window.PLATFORM = {
         { q: "What about gig workers?", a: "Portable benefits and tighter rules on misclassification give gig and contract workers real protections without ending the flexibility many of them value." },
       ],
       aisle: {
-        rep: "Favor 'right to work' and worry about union influence and business costs; some support portable benefits and anti-misclassification rules.",
-        dem: "Strongly support the PRO Act, sectoral bargaining, and stronger labor enforcement.",
-        ind: "Sympathetic to workers' leverage but wary of strikes and red tape; like portable benefits.",
+        rep: [
+          { c: "This tramples 'right to work' and burdens employers.", r: "Workers still choose whether to organize — we just stop employers from rigging that choice with intimidation. Sectoral standards also protect good employers from being undercut by exploitative ones." },
+        ],
+        dem: [
+          { c: "Does this go far enough to rebuild unions?", r: "The PRO Act plus sectoral bargaining is the most significant pro-labor package in generations — it ends union-busting tactics and lets whole industries lift standards at once, not shop by shop." },
+        ],
+        ind: [
+          { c: "Will more union power mean more strikes and red tape?", r: "Sectoral bargaining actually reduces shop-by-shop conflict by setting fair industry-wide standards, and portable benefits help workers without locking anyone into bureaucracy." },
+          { c: "What's in it for gig and contract workers?", r: "Portable benefits that follow you between gigs, plus a crackdown on bogus 'contractor' labels — real protections without giving up the flexibility many gig workers value." },
+        ],
         response: "A strong middle class was built on workers who could bargain. We're not against business — we're against a rigged game. Give workers real leverage and the gains of this economy start reaching the people who produce them.",
       },
     },
@@ -445,9 +573,17 @@ window.PLATFORM = {
         { q: "Is a wealth tax even constitutional?", a: "It's debated, and we're prepared to defend it in court and to pair it with airtight income-and-gains reforms that achieve much of the same fairness if needed." },
       ],
       aisle: {
-        rep: "Oppose wealth taxes as anti-growth and hard to administer; favor lower rates and broad bases. Some back closing specific loopholes.",
-        dem: "Strongly support wealth taxes, higher top rates, and loophole closure.",
-        ind: "Broadly support making the ultra-wealthy pay more, especially closing loopholes that feel like cheating.",
+        rep: [
+          { c: "Wealth taxes are anti-growth and the rich will flee.", r: "We pair it with an exit tax and serious enforcement, and back it up with income-and-gains reforms that achieve the same fairness if courts balk. Where other countries failed, it was weak enforcement and easy escape hatches — we close them." },
+          { c: "Punishing success discourages investment.", r: "This isn't about success — it's about ending special deals (carried interest, stepped-up basis) that let the top pay a lower rate than their own employees. Most investment is untouched; only extreme fortunes over $50M are." },
+        ],
+        dem: [
+          { c: "Will it really raise enough to matter?", r: "Combined with higher top rates, closing loopholes, and funding the IRS to collect what's owed, it raises hundreds of billions a year — a core pillar of how we fund the platform, all shown in The Honest Budget." },
+        ],
+        ind: [
+          { c: "Won't this somehow land on me?", r: "No — the wealth tax hits only households worth over $50 million, far less than 1%. Under the paired overhaul, most people's income tax goes to zero. You can model it yourself in the Tax Lab." },
+          { c: "Can the IRS actually collect it?", r: "Yes, if we fund enforcement on the wealthiest — every dollar spent there returns several in taxes already legally owed but currently uncollected." },
+        ],
         response: "This isn't about punishing success — it's about ending the special deals that let the top opt out of the system everyone else funds automatically. Try it yourself in the Tax Lab: it's how we pay for a fairer floor without taxing the middle class.",
       },
     },
@@ -471,9 +607,16 @@ window.PLATFORM = {
         { q: "How do you even measure it?", a: "Through automation-linked productivity and labor-displacement metrics at large firms — admittedly a new and evolving tool, which we'd design carefully and transparently." },
       ],
       aisle: {
-        rep: "Skeptical of taxing technology and wary of slowing U.S. AI leadership; some share concern about job displacement.",
-        dem: "Interested in capturing automation gains for workers and pairing it with retraining.",
-        ind: "Anxious about AI taking jobs; open to making the companies that profit help fund the transition.",
+        rep: [
+          { c: "Taxing AI will hand the lead to China.", r: "It's narrowly aimed at large-scale labor displacement, not research or startups, so the cutting edge keeps moving. Shared prosperity is what keeps rapid change politically survivable — backlash and bans are the real threat to U.S. leadership." },
+        ],
+        dem: [
+          { c: "Will it actually capture the automation windfall?", r: "It taxes the productivity gains where labor is displaced at scale and routes the money straight to the dividend and retraining — sharing the upside with the workers whose jobs changed." },
+        ],
+        ind: [
+          { c: "Is taxing AI even practical to measure?", r: "It's a new tool and we say so — built on automation-linked productivity and displacement metrics at large firms, designed transparently and refined as we learn, not pretended to be simple." },
+          { c: "Won't companies just pass the cost to me?", r: "It targets the firms reaping huge automation profits, and the revenue flows back to households as the dividend and free retraining — so the net effect for workers is a cushion, not a cost." },
+        ],
         response: "I'm not anti-AI — I'm pro-worker. This technology is going to mint trillions. The only question is whether those gains lift everyone or pool at the very top. An AI tax makes sure the people whose jobs change aren't left to fend for themselves.",
       },
     },
@@ -496,9 +639,16 @@ window.PLATFORM = {
         { q: "Won't trading just move overseas?", a: "It's designed to apply to U.S.-linked transactions, and similar taxes operate abroad without exchanges fleeing. The set rate keeps the U.S. competitive." },
       ],
       aisle: {
-        rep: "Generally oppose new taxes on investing and worry about market liquidity.",
-        dem: "Many support an FTT to curb speculation and fund priorities.",
-        ind: "Like the idea of Wall Street paying a small tax that barely touches regular savers.",
+        rep: [
+          { c: "A trading tax hurts liquidity and markets.", r: "At a fraction of a percent the effect on healthy investing is tiny — it mainly trims the microsecond churn that adds risk without value. The UK and EU run versions without their exchanges collapsing." },
+        ],
+        dem: [
+          { c: "Set too low, it won't raise much.", r: "Because trading volume is enormous, even a sliver of a percent raises tens of billions a year, while keeping the rate low enough that ordinary savers never feel it." },
+        ],
+        ind: [
+          { c: "Will this nick my 401(k)?", r: "Almost not at all — a buy-and-hold investor trades rarely, so the lifetime cost is pennies. The burden falls on high-frequency traders making millions of trades a day." },
+          { c: "Won't trading just flee overseas?", r: "It applies to U.S.-linked transactions and is set at a competitive rate. Other major markets already have one and didn't lose their exchanges." },
+        ],
         response: "If you're saving for retirement, you'll never feel this. If you're running microsecond trading algorithms by the million, you will — a little. That's the right trade: a tiny brake on the casino that funds real things for real people.",
       },
     },
@@ -526,9 +676,17 @@ window.PLATFORM = {
         { q: "Is this about global warming or not?", a: "It works either way. If you care about climate, great. If you only care about cheap, secure, American-made energy, this delivers that too — same buildout, same jobs, same lower bills." },
       ],
       aisle: {
-        rep: "Strongly favor energy independence, nuclear, and faster permitting; resist mandates and oppose banning fossil fuels outright.",
-        dem: "Support the clean-grid target, jobs guarantee, and home rebates; some are wary of nuclear.",
-        ind: "Care most about reliable, affordable power and not being hostage to foreign oil.",
+        rep: [
+          { c: "Climate mandates kill fossil-fuel jobs and raise costs.", r: "We don't ban fossil fuels — we out-build them with cheaper clean power, and we site the new jobs in energy communities with wage guarantees. The frame is energy independence and lower bills, not mandates." },
+          { c: "Renewables are unreliable.", r: "Exactly why this is all-of-the-above: firm nuclear and geothermal plus storage back up solar and wind so the grid is more reliable, not less. We keep the lights on by design." },
+        ],
+        dem: [
+          { c: "Nuclear is dangerous and a distraction from renewables.", r: "Modern reactors are clean, dense, and run 24/7, with rigorous safety review — a serious decarbonization plan can't ban the largest source of firm clean power. It complements renewables, it doesn't replace them." },
+        ],
+        ind: [
+          { c: "Will my energy bills actually go down?", r: "Yes — clean power is now the cheapest electricity ever built, more transmission cuts congestion costs, and heat-pump and weatherization rebates lower your monthly bill right away." },
+          { c: "Is this affordable and reliable, or ideological?", r: "It's deliberately pragmatic — reliability and low cost are the top design constraints, and energy independence means an oil shock abroad can't wreck your budget at home." },
+        ],
         response: "This is the issue where left and right want the same thing and pretend they don't. The right wants energy independence and nuclear; the left wants clean power and jobs. That's one bill. We build everything clean, keep the lights on, cut the cost, and never let an oil shock abroad wreck a family budget here.",
       },
     },
@@ -555,9 +713,16 @@ window.PLATFORM = {
         { q: "Who actually rides it?", a: "Commuters, business travelers, tourists, families, and the car-free — the same people who pack high-speed lines in Japan, France, Spain, and China every single day." },
       ],
       aisle: {
-        rep: "Skeptical of big federal rail spending and cost overruns; some support it for freight, security, and rural connectivity.",
-        dem: "Support high-speed rail for climate, jobs, and connectivity.",
-        ind: "Love the idea of fast, cheap, relaxing travel and saving on a car; want it actually delivered on time and budget.",
+        rep: [
+          { c: "Federal rail is a boondoggle that always runs over budget.", r: "We control cost with proven Japanese and European designs, standardized construction, and streamlined permitting, phased corridor by corridor — and it also serves freight, rural connectivity, and national security." },
+        ],
+        dem: [
+          { c: "Will it actually get built this time?", r: "We build where density makes rail win first — the Northeast, California, Texas Triangle — using off-the-shelf foreign designs instead of reinventing the wheel, so corridors open in years, not decades of redesign." },
+        ],
+        ind: [
+          { c: "$2 trillion is a staggering amount of money.", r: "It's a decade-long capital program, not a single check, with returns — growth, tourism, a car payment saved per family, revived towns — that compound for a century, like the interstate highways did." },
+          { c: "Is America really suited to trains?", r: "For the busy corridors, absolutely — they beat flying door-to-door once you count the airport and security. We build where it wins and connect outward, rather than laying track across empty desert." },
+        ],
         response: "Every other major nation has this and Americans are stuck in traffic and TSA lines. It's a national-greatness project: connect our cities, revive our small towns, save families a car payment, and give the world one more reason to visit. Expensive, yes — and worth it for a hundred years.",
       },
     },
@@ -582,9 +747,16 @@ window.PLATFORM = {
         { q: "Does this replace GDP?", a: "No — GDP stays, as one component. The point is to stop treating it as the only measure of success and to put human outcomes on the same dashboard, weighted to reflect what a good life actually requires." },
       ],
       aisle: {
-        rep: "Wary of replacing a hard economic number with a 'softer' index that could be politicized; open to transparency and better data.",
-        dem: "Supportive of wellbeing metrics beyond GDP and of steering policy toward human outcomes.",
-        ind: "Intuitively get that GDP up while life feels worse is a real problem; like a clear, honest national scoreboard.",
+        rep: [
+          { c: "A 'wellbeing' index is soft and easy to politicize.", r: "It's built from existing, rigorous statistics — life expectancy, health, childhood outcomes — published transparently so anyone can audit the math. GDP stays right alongside it; we're adding a gauge, not hiding one." },
+        ],
+        dem: [
+          { c: "Will a single number really change how we govern?", r: "What gets measured gets managed. Making agencies report how they move the score, and publishing it next to GDP, shifts the whole conversation from how companies are doing to how people are." },
+        ],
+        ind: [
+          { c: "Is this just a feel-good gimmick?", r: "It's a practical dashboard — the same idea as a credit score, but for the nation's wellbeing — that forces policy to aim at outcomes people actually feel, not just output that flatters a quarterly report." },
+          { c: "Who decides what goes in it and how it's weighted?", r: "An independent statistical agency, with the formula and data fully public so it can be debated and audited — not set behind closed doors by whoever's in power." },
+        ],
         response: "You can't fix what you refuse to measure. We've run America on a number that tracks how companies are doing and called it national success. Let's keep that number — and finally put one next to it that tracks how people are doing.",
       },
     },
@@ -608,9 +780,16 @@ window.PLATFORM = {
         { q: "Do these laws even work?", a: "Background checks and red-flag laws are associated with fewer gun deaths where they're enforced; community violence-interruption programs have strong evidence behind them too." },
       ],
       aisle: {
-        rep: "Protective of Second Amendment rights; many gun owners support background checks and safe storage but oppose bans and registries.",
-        dem: "Support background checks, red-flag laws, and limits on certain weapons.",
-        ind: "Want commonsense safety steps without infringing lawful ownership.",
+        rep: [
+          { c: "This is a slippery slope to confiscation and registries.", r: "It's not — no bans, no registry. Background checks and safe storage are backed by most gun owners themselves, and red-flag laws include due process. We protect lawful ownership while keeping guns from dangerous people." },
+        ],
+        dem: [
+          { c: "Background checks don't go far enough.", r: "They're the highest-impact, most achievable step — backed by huge bipartisan majorities — and they come with red-flag laws, safe storage, and the violence-prevention funding that saves the most lives on the ground." },
+        ],
+        ind: [
+          { c: "Can we do anything without trampling the Second Amendment?", r: "Yes — every step here (checks, due-process red-flag laws, safe storage) respects lawful ownership. It's the responsibility that comes with the right, like a license and insurance come with driving." },
+          { c: "Do these laws actually reduce violence?", r: "Where enforced, background checks and red-flag laws are linked to fewer gun deaths, and community violence-interruption programs have strong evidence behind them — so we fund the research and the programs both." },
+        ],
         response: "I'm not interested in the culture war — I'm interested in fewer dead kids. The steps here are the ones most gun owners already back: keep weapons from dangerous people, store them safely, and respect everyone else's right to own one.",
       },
     },
@@ -634,9 +813,16 @@ window.PLATFORM = {
         { q: "Is this anti-business?", a: "It's pro-market and pro-small-business. Monopolies are the enemy of free markets — we're defending competition, not attacking success." },
       ],
       aisle: {
-        rep: "A growing faction supports reining in Big Tech (especially over speech and gatekeeping); traditional wing favors lighter regulation.",
-        dem: "Support aggressive antitrust enforcement and Big Tech accountability.",
-        ind: "Frustrated by high prices and few choices; broadly favor more competition.",
+        rep: [
+          { c: "Government shouldn't pick winners by breaking up firms.", r: "Enforcing existing antitrust law against illegal monopolies isn't picking winners — it's refereeing a fair market. Monopolies are the enemy of free enterprise; competition is what lets the next great firm rise." },
+        ],
+        dem: [
+          { c: "Will enforcement actually stand up to Big Tech's lawyers?", r: "We fund the antitrust agencies to match them and use laws already on the books, so cases are built to win — and it pays for itself many times over in lower prices for consumers." },
+        ],
+        ind: [
+          { c: "Will this really lower the prices I pay?", r: "That's the whole point — monopoly is a hidden tax in higher prices and worse service. More competition is the cheapest consumer protection there is, and it gives startups a real shot." },
+          { c: "Is this an attack on successful American companies?", r: "No — it's pro-market and pro-small-business. We're defending competition against firms that got big by crushing it, not punishing anyone for building a great product." },
+        ],
         response: "Left and right have found a strange agreement: these companies have gotten too powerful. Enforcing the laws we already have means lower prices, more choices, and a fair shot for the next great American startup.",
       },
     },
@@ -662,9 +848,16 @@ window.PLATFORM = {
         { q: "Isn't a bigger fund just money sitting idle?", a: "It's insurance for the whole country. A pre-funded reserve plus mitigation spending costs far less over time than scrambling for emergency cash and rebuilding the same vulnerable structures over and over." },
       ],
       aisle: {
-        rep: "Support disaster relief and resilient infrastructure; prefer state and local control and worry about waste and dependency.",
-        dem: "Support a stronger federal response, climate resilience, and prioritizing vulnerable communities.",
-        ind: "Want help to arrive fast and fairly when catastrophe strikes, with the money spent wisely.",
+        rep: [
+          { c: "More federal disaster money breeds waste and dependency.", r: "The biggest spend here is prevention, which returns several dollars for every one — the opposite of waste. We pre-fund a reserve so aid is ready, and rebuild stronger so we're not paying for the same disaster twice." },
+        ],
+        dem: [
+          { c: "Will the most vulnerable really come first?", r: "Yes — 'help those in greatest need first' is written into how relief is delivered, not left to chance or to whoever has the best lawyers, because disasters hit hardest where people can least recover." },
+        ],
+        ind: [
+          { c: "Isn't a big standing fund just money sitting idle?", r: "It's national insurance — a pre-funded reserve means help arrives the day after, not the month after, and costs far less over time than scrambling for emergency cash and rebuilding the same vulnerable structures repeatedly." },
+          { c: "Will help actually reach my community fast?", r: "That's the design — a funded reserve plus less red tape means aid flows immediately and equally, with a promise that no region is left out because it's small, poor, or off-camera." },
+        ],
         response: "This is the most basic thing a country owes its people: when catastrophe hits, we show up — fast, prepared, and for everyone, starting with those who can least absorb the blow. We pay a little to prevent, so we pay far less to recover, and nobody gets left behind.",
       },
     },

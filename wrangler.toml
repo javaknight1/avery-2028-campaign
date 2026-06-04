@@ -1,6 +1,13 @@
-# Cloudflare Pages configuration
-# The site is fully static and needs no build step, so the build output
-# directory is the project root itself.
-name = "rob-avery-2028"
-pages_build_output_dir = "."
+# Cloudflare deployment config.
+#
+# This is a fully static site. Cloudflare's Git build runs `npx wrangler deploy`,
+# which serves the files below via Cloudflare's static-asset hosting — no Worker
+# script or build step required. `directory = "."` serves the repo root; the
+# `.assetsignore` file keeps repo/config files out of what's published.
+name = "avery-2028-campaign"
 compatibility_date = "2026-01-01"
+
+[assets]
+directory = "."
+# Serve our styled 404.html for unknown paths.
+not_found_handling = "404-page"

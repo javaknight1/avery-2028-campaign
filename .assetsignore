@@ -1,0 +1,12 @@
+# Files that should NOT be published as part of the static site.
+# (gitignore syntax; read by Cloudflare static-asset upload)
+.git
+.gitignore
+.assetsignore
+.wrangler
+node_modules
+package.json
+wrangler.toml
+README.md
+*.log
+.DS_Store

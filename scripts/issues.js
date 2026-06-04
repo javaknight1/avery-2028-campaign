@@ -16,6 +16,18 @@
     if (p.costType === "neutral") return `<span class="cost-badge neutral">≈ $0<small>no net cost</small></span>`;
     return `<span class="cost-badge spend">${money(p.cost)}/yr<small>cost</small></span>`;
   }
+  function costShort(p) {
+    if (p.costType === "revenue") return `<span class="revenue">+${money(p.cost)}</span>`;
+    if (p.costType === "neutral") return `<span class="neutral">≈ $0</span>`;
+    return `<span class="spend">${money(p.cost)}</span>`;
+  }
+
+  /* ---- one party's concerns + rebuttals ---- */
+  function aisleCol(cls, name, items) {
+    const list = (items || []).map((it) =>
+      `<li><p class="concern">${esc(it.c)}</p><p class="rebuttal"><b>Our answer:</b> ${esc(it.r)}</p></li>`).join("");
+    return `<div class="aisle-col ${cls}"><h4>${name}</h4><ul class="concern-list">${list}</ul></div>`;
+  }
 
   /* ---- render one policy ---- */
   function policyHTML(p) {
@@ -38,10 +50,11 @@
         <div class="policy-block" data-reveal><h3>How it works</h3><div class="detail-grid">${detail}</div></div>
         <div class="policy-block" data-reveal><h3>Common questions &amp; concerns</h3><div class="qa">${qa}</div></div>
         <div class="policy-block" data-reveal><h3>Across the aisle</h3>
+          <p class="aisle-intro">The most common concerns from each side — and our honest answer to each.</p>
           <div class="aisle">
-            <div class="aisle-col rep"><h4>Republicans</h4><span class="label">Typical view</span><p>${esc(p.aisle.rep)}</p></div>
-            <div class="aisle-col dem"><h4>Democrats</h4><span class="label">Typical view</span><p>${esc(p.aisle.dem)}</p></div>
-            <div class="aisle-col ind"><h4>Independents</h4><span class="label">Typical view</span><p>${esc(p.aisle.ind)}</p></div>
+            ${aisleCol("rep", "Republicans", p.aisle.rep)}
+            ${aisleCol("dem", "Democrats", p.aisle.dem)}
+            ${aisleCol("ind", "Independents", p.aisle.ind)}
           </div>
           <div class="aisle-response"><h4>Rob's take</h4><p>${esc(p.aisle.response)}</p></div>
         </div>
@@ -73,10 +86,38 @@
   });
   root.innerHTML = html;
 
+  /* ---- Summary table (all policies at a glance) ---- */
+  renderSummary();
+  function renderSummary() {
+    const el = document.getElementById("summaryRoot");
+    if (!el) return;
+    const catName = Object.fromEntries(P.categories.map((c) => [c.id, c.name]));
+    const rows = P.policies.map((p) =>
+      `<tr>
+        <td class="sum-policy"><a href="#${p.id}"><span class="sum-ic">${p.icon}</span> ${esc(p.title)}</a>
+          <span class="sum-tag">${esc(p.tagline)}</span></td>
+        <td class="sum-cat">${esc(catName[p.cat])}</td>
+        <td class="sum-cost">${costShort(p)}</td>
+      </tr>`).join("");
+    el.innerHTML = `
+      <div class="center" style="max-width:700px">
+        <span class="eyebrow" data-reveal>At a glance</span>
+        <h2 class="section-title" data-reveal>The whole platform, on one page</h2>
+        <p class="section-lead" data-reveal>${P.policies.length} policies, each with a transparent price tag. Click any row to jump to the full plan, the questions, and where each party stands.</p>
+      </div>
+      <div class="summary-wrap" data-reveal>
+        <table class="summary-table">
+          <thead><tr><th>Policy</th><th>Section</th><th class="sum-cost">Cost / yr</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>`;
+  }
+
   /* ---- TOC ---- */
   const toc = document.getElementById("toc");
-  toc.innerHTML = P.categories.map((c) =>
-    `<a href="#cat-${c.id}" data-target="cat-${c.id}">${esc(c.name)}</a>`).join("") +
+  toc.innerHTML = `<a href="#summary" data-target="summary">📋 Summary</a>` +
+    P.categories.map((c) =>
+      `<a href="#cat-${c.id}" data-target="cat-${c.id}">${esc(c.name)}</a>`).join("") +
     `<a href="#budget" data-target="budget">💸 The Budget</a>`;
 
   /* ---- Humanity pie ---- */
@@ -115,7 +156,7 @@
   /* ---- TOC scroll-spy ---- */
   const tocLinks = [...toc.querySelectorAll("a")];
   const map = new Map(tocLinks.map((a) => [a.dataset.target, a]));
-  const anchors = [...document.querySelectorAll(".cat-header[id], #budget")];
+  const anchors = [...document.querySelectorAll("#summary, .cat-header[id], #budget")];
   if ("IntersectionObserver" in window && anchors.length) {
     const spy = new IntersectionObserver((entries) => {
       entries.forEach((en) => {

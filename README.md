@@ -97,22 +97,31 @@ npm run dev          # serves at http://localhost:5173
 (or `python3 -m http.server 5173`). Use a server rather than opening files
 directly so the shared scripts load over HTTP.
 
-## 🚀 Deploy to Cloudflare Pages
+## 🚀 Deploy to Cloudflare
 
-### Option A — Direct upload with Wrangler
+This repo is configured for **Cloudflare static-asset hosting** via `wrangler.toml`
+(`[assets] directory = "."`). The `.assetsignore` file keeps repo/config files out
+of what's published.
+
+### Connected Git repo (auto-deploy on push)
+
+When you connect this repo to a Cloudflare **Worker** (Workers & Pages → Create →
+Import a repository), the build runs `npx wrangler deploy`, which uploads the static
+files and serves them. No build command or framework preset is needed — every push
+to `main` redeploys.
+
+> If your project was set up to run `wrangler deploy` (the default for the Git
+> integration), the `[assets]` block above is what makes that command succeed for a
+> static site. If instead you configured a classic **Pages** project, set the deploy
+> command to `npx wrangler pages deploy .` (Framework preset `None`, build command
+> blank, output dir `/`).
+
+### Manual deploy with Wrangler
 
 ```bash
 npx wrangler login      # one-time
-npm run deploy          # wrangler pages deploy . --project-name=rob-avery-2028
+npm run deploy          # wrangler deploy
 ```
-
-### Option B — Connect a Git repo (auto-deploy on push)
-
-1. Push to GitHub/GitLab.
-2. Cloudflare dashboard → **Workers & Pages → Create → Pages → Connect to Git**.
-3. Build settings: **Framework preset** `None`, **Build command** blank,
-   **Build output directory** `/`.
-4. **Save and Deploy** — every push to main redeploys.
 
 ## 🎨 Make it yours
 
