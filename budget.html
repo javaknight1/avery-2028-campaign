@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#061629" />
+  <title>The Budget &amp; Deficit — Avery for President 2028</title>
+  <meta name="description" content="How the Avery platform pays for itself: spending vs. revenue, a surplus, and a clear plan to solve the national deficit. Every figure shown openly. (Parody.)" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/issues.css" />
+</head>
+<body data-page="budget">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal>Total Transparency</span>
+        <h1 data-reveal>The Budget &amp; Deficit</h1>
+        <p data-reveal>Most campaigns hide this page. We lead with it. Here's exactly what the platform spends, exactly how we pay for it, and how the surplus tackles the national debt — every number in the open and clearly labeled illustrative.</p>
+      </div>
+    </section>
+
+    <section class="section bg-paper">
+      <div class="container" id="budgetSummary"></div>
+    </section>
+
+    <section class="section budget" id="budgetDeficit-sec">
+      <div class="container" id="budgetDeficit"></div>
+    </section>
+
+    <section class="section bg-navy">
+      <div class="container center" style="max-width:680px">
+        <span class="eyebrow" data-reveal>Check the math yourself</span>
+        <h2 class="section-title" data-reveal>Don't take our word for it</h2>
+        <p class="section-lead" data-reveal>Build your own federal income-tax brackets in the Tax Lab, or read the full detail behind every policy on the Issues page.</p>
+        <div data-reveal style="margin-top:10px">
+          <a href="tax-lab.html" class="btn btn--gold btn--lg">Open the Tax Lab <span class="arrow">→</span></a>
+          <a href="issues.html" class="btn btn--ghost-light btn--lg" style="margin-left:8px">The Issues</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="data/policies.js" defer></script>
+  <script src="scripts/components.js" defer></script>
+  <script src="scripts/budget.js" defer></script>
+</body>
+</html>

@@ -19,23 +19,25 @@ zero-build static site that drops straight onto **Cloudflare Pages**.
 |------|------|--------------|
 | **Home** | `index.html` | Hero, message, top issues, goals, Tax Lab promo, signup |
 | **Meet Rob** | `about.html` | Candidate bio, values, the road to 2028 |
-| **Issues** | `issues.html` | The full **24-policy platform**, rendered from `data/policies.js`. Each policy has a plan, how-it-works, **common questions & concerns**, **what Republicans / Democrats / Independents say**, and a **transparent cost badge**. Includes the **Humanity Score** pie chart and **The Honest Budget** (auto-totaled from the data) |
-| **Tax Lab** | `tax-lab.html` | Interactive: build your own income-tax brackets, see estimated revenue, compare to current law. Includes the **★ Avery plan** preset ($0 income tax under $250k) |
+| **Issues** | `issues.html` | The full platform, rendered from `data/policies.js` and grouped into **Spending Policies** and **Revenue Policies**. Each policy has a plan, how-it-works, **common questions & concerns**, a per-party **concern → rebuttal** list, and a **transparent cost badge**. Includes the interactive **Humanity Score** (with metrics, sources, and today's date) and a **fixed slide panel** that highlights the issue you're currently reading |
+| **Budget** | `budget.html` | **The Budget & Deficit**: split spending/revenue tables, the surplus, a plan to solve the national deficit, and a calc of **how long the surplus takes to pay off the whole debt** |
+| **Tax Lab** | `tax-lab.html` | Interactive: build your own income-tax brackets, see estimated revenue, compare to current law. Includes the **★ Avery plan** preset (higher top rates) |
 | **Get Involved** | `get-involved.html` | Volunteer form, events, parody donate, signup |
 | **404** | `404.html` | Styled not-found page |
 
 The header and footer are defined once in `scripts/components.js` and injected
 into every page, so the navigation never drifts out of sync.
 
-## 🏛️ The platform & "The Honest Budget"
+## 🏛️ The platform & the budget
 
-All 24 policies live in **`data/policies.js`** as a single source of truth
-(title, plan, how-it-works, Q&A, cross-party views, and a cost). The Issues page
-renders every section from that file — and the same data auto-generates **The
-Honest Budget**, which totals the cost of every plank, lists the identified
-funding, and shows the remaining gap. Add, edit, or re-cost a policy in one place
-and both the section and the budget update. The **Humanity Score** donut chart is
-driven by `humanityScore` in the same file.
+Every policy lives in **`data/policies.js`** as a single source of truth (title,
+plan, how-it-works, Q&A, cross-party concern→rebuttal pairs, and a cost), and is
+grouped into **Spending** or **Revenue** by its `costType`. The Issues page renders
+every section from that file (`scripts/issues.js`); the **Budget** page
+(`scripts/budget.js`) totals spending vs. revenue, shows the surplus, and lays out
+how it tackles the deficit and debt. The **Humanity Score** donut + metrics table
+are driven by `humanityScore` in the same data file. Numbers are simplified and
+illustrative throughout.
 
 ## 🧮 The Tax Lab
 

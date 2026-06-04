@@ -10,11 +10,11 @@
    `response` with Rob's overall take.
    ========================================================= */
 window.PLATFORM = {
+  // Two top-level buckets. Each policy is grouped by its costType:
+  //   revenue → "Revenue Policies",  everything else → "Spending Policies".
   categories: [
-    { id: "care",      name: "Care & Opportunity", blurb: "The floor every family stands on — health, learning, housing, and income." },
-    { id: "democracy", name: "Democracy & Rights",  blurb: "Make the government answer to people, and protect the rights of every one of them." },
-    { id: "economy",   name: "Economy & Workers",   blurb: "Reward work, rebalance power, and ask the biggest winners to pay their share." },
-    { id: "future",    name: "Building the Future",  blurb: "The big, generational projects — energy, transit, and a better measure of how we're doing." },
+    { id: "spending", name: "Spending Policies", blurb: "What we'd invest in — healthcare, housing, education, energy, and more — and what each one costs." },
+    { id: "revenue",  name: "Revenue Policies",  blurb: "How we'd pay for it: the taxes that bring in more than the spending costs, with a surplus left for the deficit." },
   ],
 
   policies: [
@@ -167,43 +167,6 @@ window.PLATFORM = {
           { c: "How is it funded?", r: "Through a small shared payroll insurance contribution, the same proven model behind Social Security — pennies in for real security out. It's in The Honest Budget." },
         ],
         response: "This is pro-family and pro-work at the same time. Whether you want parents home with a newborn or back at a job they love, the barrier is the same — cost — and we take it down.",
-      },
-    },
-    {
-      id: "ubi", cat: "care", icon: "💵",
-      title: "Universal Basic Income", tagline: "A floor no American falls beneath.",
-      cost: 3000, costType: "spend", costNote: "$1,000/mo per adult; partly offsets existing programs; paired with a tax overhaul where incomes under $250k owe no federal income tax",
-      lead: "Every American adult gets $1,000 a month, no strings attached — a stable floor under a fast-changing economy. As automation and AI reshape work, a dividend gives people the security to retrain, start a business, care for family, or simply not live one emergency from ruin. It comes with a tax overhaul: if you earn under $250,000, you pay no federal income tax at all.",
-      plan: [
-        { b: "$1,000 a month, every adult.", t: "Universal and unconditional — a dividend on being a citizen of a wealthy nation, not a means-tested benefit with a cliff." },
-        { b: "No income tax under $250,000.", t: "Rebuild the income tax so the vast majority of Americans owe nothing, and the dividend lands on top of their full paycheck." },
-        { b: "Stack it sensibly.", t: "People keep existing benefits or take the dividend, whichever helps more — no one is made worse off." },
-        { b: "Fund it broadly.", t: "Paid for with a value-added tax, the AI tax, the financial-transaction tax, and higher rates on the very top — sources tied to the automation creating the need." },
-      ],
-      detail: [
-        { h: "Why universal, not means-tested", p: "Universal payments have no benefit cliffs, no humiliating paperwork, and near-zero fraud. Everyone gets it; the tax code claws it back from those who don't need it." },
-        { h: "The honest price", p: "This is the single most expensive plank — roughly $3 trillion a year. We don't hide that. The funding mix and the trade-offs are laid out in full in The Honest Budget, and it phases in over time." },
-        { h: "Why now", p: "AI is poised to displace millions of jobs while concentrating the gains. A dividend shares the upside of automation with the people whose work made it possible." },
-      ],
-      qa: [
-        { q: "Won't people stop working?", a: "Pilots from Alaska to Stockton show people mostly keep working — and use the stability to find better jobs, start businesses, or go back to school. $12,000 a year is a floor, not a hammock." },
-        { q: "Isn't this wildly expensive?", a: "Yes — it's the costliest plank by far, and we say so plainly. It's funded by a VAT, the AI and transaction taxes, and top-end rates, and it's phased in. Use the Tax Lab to see the trade-offs yourself." },
-        { q: "Won't it just cause inflation?", a: "A VAT-funded dividend recycles money rather than printing it, and much of it is spent on goods whose supply we're expanding (housing, energy). We'd phase in and watch prices closely." },
-      ],
-      aisle: {
-        rep: [
-          { c: "Free money kills the incentive to work.", r: "Real-world pilots from Alaska to Stockton show people keep working — $12,000 a year is a floor, not a hammock. It rewards risk-taking: starting a business or retraining without gambling the rent." },
-          { c: "It's unaffordable and grows dependency.", r: "It's the priciest plank and we never pretend otherwise. It partly replaces today's tangle of welfare bureaucracy with simple cash, is funded by the automation creating the need, and phases in as the revenue comes online." },
-        ],
-        dem: [
-          { c: "Cash can't replace targeted programs and services.", r: "It doesn't — people keep existing benefits if those help more, so no one is worse off. UBI is a floor underneath the safety net, not a teardown of it." },
-          { c: "Won't a flat payment shortchange those most in need?", r: "Everyone gets the same dividend, but the paired tax overhaul means low- and middle-income families keep all of it tax-free while the top funds it — so the net benefit is steeply progressive." },
-        ],
-        ind: [
-          { c: "Will this blow up the budget or cause inflation?", r: "It's VAT-funded — recycled, not printed — and much of it is spent on housing and energy whose supply we're expanding. We phase in and watch prices and work closely, adjusting if the data demands." },
-          { c: "Is $1,000 even meaningful with no income tax under $250k?", r: "Combined, a typical family keeps their full paycheck and gains $12,000 per adult — a major, tangible raise. The trade-off is honest, and you can model the tax piece yourself in the Tax Lab." },
-        ],
-        response: "This is the boldest — and priciest — idea on the platform, so it gets the most honesty. We phase it in, fund it from the automation that creates the need, and measure work and prices every step. If the data says adjust, we adjust.",
       },
     },
     {
@@ -565,7 +528,7 @@ window.PLATFORM = {
         { b: "Fund the IRS to collect it.", t: "Properly fund enforcement on the wealthiest — every dollar returns several in uncollected taxes owed." },
       ],
       detail: [
-        { h: "Who it hits", p: "The wealth tax touches only households worth more than $50 million — far less than 1%. Everyone else sees no new tax here; many see their income tax disappear under the UBI overhaul." },
+        { h: "Who it hits", p: "The wealth tax touches only households worth more than $50 million — far less than 1%. Everyone else sees no new tax here at all; this is squarely aimed at the very top." },
         { h: "Why fairness matters", p: "When the very top opts out, everyone else pays more or gets less. Asking extreme wealth to contribute funds the things — health, housing, education — that let the next fortune get built." },
       ],
       qa: [
@@ -590,17 +553,17 @@ window.PLATFORM = {
     {
       id: "ai-tax", cat: "economy", icon: "🤖",
       title: "The AI Tax", tagline: "If a robot takes the job, it should help fund the future.",
-      cost: 150, costType: "revenue", costNote: "tax on automation/AI that displaces labor; funds the dividend & retraining",
+      cost: 150, costType: "revenue", costNote: "tax on automation/AI that displaces labor; funds worker retraining & transition",
       lead: "AI is going to create staggering wealth — and concentrate it in very few hands while displacing millions of workers. When a company automates a job away, the productivity gain shouldn't flow only to shareholders. An AI tax shares the upside of automation with the workers and communities it disrupts.",
       plan: [
         { b: "Tax automation gains.", t: "A tax on the productivity windfall from large-scale AI and automation that displaces labor." },
-        { b: "Fund the transition.", t: "Direct the revenue to the UBI dividend and to free retraining for displaced workers." },
+        { b: "Fund the transition.", t: "Direct the revenue to displaced workers — free retraining, trade education, and transition support." },
         { b: "Keep AI accountable.", t: "Pair it with the AI Bill of Rights — the right to know when AI decides about you, and to appeal to a human." },
         { b: "Don't punish small builders.", t: "Aim it at large-scale labor-displacing deployment, not startups or everyday software." },
       ],
       detail: [
         { h: "Why tax AI", p: "We tax payroll but not the machines replacing it, which quietly pushes companies to automate purely for the tax break. An AI tax levels that distortion and shares the gains." },
-        { h: "Where the money goes", p: "Straight into the things that help people ride the transition — the dividend, retraining, and trade education — so automation lifts everyone, not just shareholders." },
+        { h: "Where the money goes", p: "Straight into the things that help people ride the transition — free retraining, trade education, and worker support — so automation lifts everyone, not just shareholders." },
       ],
       qa: [
         { q: "Won't this slow down innovation?", a: "It's targeted at large-scale labor displacement, not research or small builders, and the revenue funds the workforce that keeps the economy strong. Shared prosperity is what makes rapid change politically survivable." },
@@ -611,11 +574,11 @@ window.PLATFORM = {
           { c: "Taxing AI will hand the lead to China.", r: "It's narrowly aimed at large-scale labor displacement, not research or startups, so the cutting edge keeps moving. Shared prosperity is what keeps rapid change politically survivable — backlash and bans are the real threat to U.S. leadership." },
         ],
         dem: [
-          { c: "Will it actually capture the automation windfall?", r: "It taxes the productivity gains where labor is displaced at scale and routes the money straight to the dividend and retraining — sharing the upside with the workers whose jobs changed." },
+          { c: "Will it actually capture the automation windfall?", r: "It taxes the productivity gains where labor is displaced at scale and routes the money straight to retraining and worker transition — sharing the upside with the workers whose jobs changed." },
         ],
         ind: [
           { c: "Is taxing AI even practical to measure?", r: "It's a new tool and we say so — built on automation-linked productivity and displacement metrics at large firms, designed transparently and refined as we learn, not pretended to be simple." },
-          { c: "Won't companies just pass the cost to me?", r: "It targets the firms reaping huge automation profits, and the revenue flows back to households as the dividend and free retraining — so the net effect for workers is a cushion, not a cost." },
+          { c: "Won't companies just pass the cost to me?", r: "It targets the firms reaping huge automation profits, and the revenue flows back to workers as free retraining and transition support — so the net effect for workers is a cushion, not a cost." },
         ],
         response: "I'm not anti-AI — I'm pro-worker. This technology is going to mint trillions. The only question is whether those gains lift everyone or pool at the very top. An AI tax makes sure the people whose jobs change aren't left to fend for themselves.",
       },
@@ -631,7 +594,7 @@ window.PLATFORM = {
         { b: "Protect everyday savers.", t: "The impact on a long-term 401(k) or index investor is negligible; the burden falls on rapid-fire trading." },
       ],
       detail: [
-        { h: "Tiny rate, real revenue", p: "Because the volume of financial trading is enormous, even a sliver of a percent raises tens of billions a year — money that funds the dividend, schools, or health." },
+        { h: "Tiny rate, real revenue", p: "Because the volume of financial trading is enormous, even a sliver of a percent raises tens of billions a year — money that funds schools, health, or the deficit." },
         { h: "Already proven", p: "Versions exist in the UK, EU markets, and elsewhere without wrecking those exchanges — a well-tested, well-understood tool." },
       ],
       qa: [
@@ -864,19 +827,108 @@ window.PLATFORM = {
 
   ],
 
-  /* ---------------- Humanity Score breakdown (pie chart) ---------------- */
+  /* ---------------- Humanity Score breakdown (pie chart) ----------------
+     Each dimension carries:
+       value  — its weight in the score (all weights sum to 100 = the pie)
+       score  — how America is doing on it right now, 0–100 (illustrative)
+       metrics — the specific, real statistics we'd track, with current
+                 values and the agency we'd source each one from.
+     The overall Humanity Score is the weighted average of the dimension
+     scores. Figures are recent, rounded, and illustrative — educational,
+     not an official index.
+  ---------------------------------------------------------------------- */
   humanityScore: {
-    value: 100, // illustrative composite, 0–100 scale shown as a "score"
+    scale: 100,
     slices: [
-      { label: "Economic output (GDP)", value: 18, color: "#2a6df4", note: "Still counts — but as one slice, not the whole pie." },
-      { label: "Economic security", value: 14, color: "#c8102e", note: "Can a family absorb a $1,000 emergency? Debt, savings, income stability." },
-      { label: "Physical health", value: 13, color: "#46b67a", note: "Chronic disease, obesity, access to care, healthy years of life." },
-      { label: "Life expectancy", value: 12, color: "#f4b740", note: "How long Americans actually live — and how that's trending." },
-      { label: "Mental health", value: 11, color: "#8a5cf6", note: "Depression, anxiety, suicide, deaths of despair, loneliness." },
-      { label: "Childhood & education", value: 11, color: "#ff8c42", note: "Early childhood, learning outcomes, and kids' odds of a good life." },
-      { label: "Affordability", value: 9, color: "#22b8cf", note: "Housing, childcare, healthcare, and energy as a share of income." },
-      { label: "Environment", value: 7, color: "#2f9e44", note: "Clean air and water, and a stable climate to live in." },
-      { label: "Civic trust", value: 5, color: "#e64980", note: "Trust in each other and in institutions — the glue of a society." },
+      {
+        label: "Economic output (GDP)", value: 18, color: "#2a6df4", score: 78,
+        note: "Still counts — but as one slice, not the whole pie.",
+        metrics: [
+          { name: "Real GDP growth", value: "≈2.8% / yr", source: "BEA" },
+          { name: "GDP per capita", value: "≈$86,000", source: "BEA / World Bank" },
+          { name: "Median household income", value: "≈$81,000", source: "U.S. Census" },
+          { name: "Labor productivity growth", value: "≈1.9% / yr", source: "BLS" },
+        ],
+      },
+      {
+        label: "Economic security", value: 14, color: "#c8102e", score: 53,
+        note: "Can a family absorb a sudden $400–$1,000 expense?",
+        metrics: [
+          { name: "Can cover a $400 emergency with cash", value: "≈63%", source: "Federal Reserve (SHED)" },
+          { name: "Supplemental Poverty Measure", value: "≈12.4%", source: "U.S. Census (SPM)" },
+          { name: "Adults with no retirement savings", value: "≈28%", source: "Federal Reserve (SHED)" },
+          { name: "Household debt-to-income ratio", value: "elevated", source: "Federal Reserve" },
+        ],
+      },
+      {
+        label: "Physical health", value: 13, color: "#46b67a", score: 50,
+        note: "Chronic disease, obesity, and healthy years of life.",
+        metrics: [
+          { name: "Adult obesity rate", value: "≈40%", source: "CDC (NHANES)" },
+          { name: "Adults living with a chronic disease", value: "≈60%", source: "CDC" },
+          { name: "Infant mortality", value: "≈5.6 / 1,000 births", source: "CDC (NCHS)" },
+          { name: "Healthy life expectancy", value: "≈66 yrs", source: "IHME / WHO" },
+        ],
+      },
+      {
+        label: "Life expectancy", value: 12, color: "#f4b740", score: 58,
+        note: "How long Americans live — and how it compares.",
+        metrics: [
+          { name: "Life expectancy at birth", value: "≈78.4 yrs", source: "CDC (NCHS)" },
+          { name: "Gap vs. peer-nation average", value: "≈4 yrs below", source: "OECD" },
+          { name: "Trend since 2019", value: "roughly flat", source: "CDC (NCHS)" },
+        ],
+      },
+      {
+        label: "Mental health", value: 11, color: "#8a5cf6", score: 41,
+        note: "Depression, suicide, deaths of despair, loneliness.",
+        metrics: [
+          { name: "Adults with anxiety/depression symptoms", value: "≈32%", source: "CDC / KFF" },
+          { name: "Suicide rate", value: "≈14.2 / 100,000", source: "CDC" },
+          { name: "Annual drug-overdose deaths", value: "≈100,000", source: "CDC (NCHS)" },
+          { name: "Adults reporting loneliness", value: "≈1 in 3", source: "U.S. Surgeon General / Gallup" },
+        ],
+      },
+      {
+        label: "Childhood & education", value: 11, color: "#ff8c42", score: 54,
+        note: "Early childhood, learning outcomes, kids' odds.",
+        metrics: [
+          { name: "NAEP reading & math (Nation's Report Card)", value: "near multi-decade lows", source: "NCES" },
+          { name: "High-school graduation rate", value: "≈87%", source: "NCES" },
+          { name: "Child poverty (SPM)", value: "≈13%", source: "U.S. Census" },
+          { name: "PISA math ranking", value: "middle of the OECD", source: "OECD" },
+        ],
+      },
+      {
+        label: "Affordability", value: 9, color: "#22b8cf", score: 44,
+        note: "Housing, childcare, healthcare, energy vs. income.",
+        metrics: [
+          { name: "Cost-burdened renters (>30% of income)", value: "≈50%", source: "HUD / Census (ACS)" },
+          { name: "Infant childcare vs. rent", value: "costs more than rent in most states", source: "U.S. Dept. of Labor" },
+          { name: "Adults with medical debt", value: "≈1 in 12", source: "KFF" },
+          { name: "Housing affordability index", value: "near record lows", source: "NAR / Atlanta Fed" },
+        ],
+      },
+      {
+        label: "Environment", value: 7, color: "#2f9e44", score: 62,
+        note: "Clean air and water, and a livable climate.",
+        metrics: [
+          { name: "People in counties with failing air quality", value: "≈1 in 3", source: "American Lung Assoc. / EPA" },
+          { name: "Water systems meeting safety standards", value: "≈92%", source: "EPA" },
+          { name: "CO₂ emissions per capita", value: "declining", source: "EIA / EPA" },
+          { name: "Major disaster declarations / yr", value: "rising", source: "FEMA / NOAA" },
+        ],
+      },
+      {
+        label: "Civic trust", value: 5, color: "#e64980", score: 33,
+        note: "Trust in each other and in institutions.",
+        metrics: [
+          { name: "Trust federal gov't to do right most of the time", value: "≈22%", source: "Pew Research" },
+          { name: "Say most people can be trusted", value: "≈30%", source: "GSS (NORC)" },
+          { name: "Voter turnout (last presidential)", value: "≈66%", source: "Census / U.S. Elections Project" },
+          { name: "Confidence in major institutions", value: "near record lows", source: "Gallup" },
+        ],
+      },
     ],
   },
 };

@@ -17,6 +17,7 @@
     { key: "home",    href: "index.html",        label: "Home" },
     { key: "about",   href: "about.html",        label: "Meet Rob" },
     { key: "issues",  href: "issues.html",       label: "Issues" },
+    { key: "budget",  href: "budget.html",       label: "Budget" },
     { key: "tax",     href: "tax-lab.html",      label: "Tax Lab" },
     { key: "join",    href: "get-involved.html", label: "Get Involved" },
   ];
@@ -67,11 +68,10 @@
         </div>
         <div class="footer-col">
           <h4>The Issues</h4>
-          <a href="issues.html#cat-care">Care &amp; Opportunity</a>
-          <a href="issues.html#cat-democracy">Democracy &amp; Rights</a>
-          <a href="issues.html#cat-economy">Economy &amp; Workers</a>
-          <a href="issues.html#cat-future">Building the Future</a>
-          <a href="issues.html#budget">The Honest Budget</a>
+          <a href="issues.html#cat-spending">Spending Policies</a>
+          <a href="issues.html#cat-revenue">Revenue Policies</a>
+          <a href="budget.html">The Budget &amp; Deficit</a>
+          <a href="tax-lab.html">Tax Lab</a>
         </div>
         <div class="footer-col">
           <h4>Tools</h4>

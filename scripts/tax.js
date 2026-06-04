@@ -48,9 +48,10 @@
   /* ---------- presets ---------- */
   const PRESETS = [
     { name: "Current law", ded: 14600, brackets: D.CURRENT_BRACKETS.map((b) => ({ ...b })) },
-    { name: "★ Avery plan · $0 under $250k", ded: 0, brackets: [
-      { min: 0, rate: 0 }, { min: 250000, rate: 25 }, { min: 500000, rate: 35 },
-      { min: 1000000, rate: 45 }, { min: 10000000, rate: 50 },
+    { name: "★ Avery plan · higher top rates", ded: 14600, brackets: [
+      { min: 0, rate: 10 }, { min: 11600, rate: 12 }, { min: 47150, rate: 22 },
+      { min: 100525, rate: 24 }, { min: 191950, rate: 32 }, { min: 400000, rate: 42 },
+      { min: 1000000, rate: 45 }, { min: 5000000, rate: 50 },
     ] },
     { name: "Flat 15%", ded: 14600, brackets: [{ min: 0, rate: 15 }] },
     { name: "Flat 20% · big deduction", ded: 40000, brackets: [{ min: 0, rate: 20 }] },
