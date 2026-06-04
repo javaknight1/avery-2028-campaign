@@ -127,32 +127,32 @@
       return `<a class="rail-sec" href="#cat-${cat.id}">${esc(cat.name)}</a>${themes}`;
     }).join("");
 
-    const wrap = document.createElement("div");
-    wrap.innerHTML = `
-      <aside class="issue-rail" id="issueRail" aria-label="Issues contents">
-        <div class="rail-top"><strong>Contents</strong><button class="rail-close" id="railClose" aria-label="Close">×</button></div>
-        <nav class="rail-list" id="railList">${navItems}</nav>
-      </aside>
+    // the <aside id="issueRail"> already lives in the page layout — just fill it
+    const list = document.getElementById("railList");
+    if (list) list.innerHTML = navItems;
+
+    // drawer controls for small screens
+    const extra = document.createElement("div");
+    extra.innerHTML = `
       <div class="rail-backdrop" id="railBackdrop" aria-hidden="true"></div>
       <button class="rail-fab" id="railFab" aria-expanded="false" aria-controls="issueRail">
         <span class="rf-ic">☰</span><span class="rf-label"><small>You're viewing</small><b id="railCurrent">The Issues</b></span>
       </button>`;
-    while (wrap.firstChild) document.body.appendChild(wrap.firstChild);
+    while (extra.firstChild) document.body.appendChild(extra.firstChild);
 
-    const rail = document.getElementById("issueRail");
     const fab = document.getElementById("railFab");
     const backdrop = document.getElementById("railBackdrop");
-    const list = document.getElementById("railList");
     const current = document.getElementById("railCurrent");
     const setOpen = (open) => { document.body.classList.toggle("rail-open", open); fab.setAttribute("aria-expanded", String(open)); };
     fab.addEventListener("click", () => setOpen(!document.body.classList.contains("rail-open")));
-    document.getElementById("railClose").addEventListener("click", () => setOpen(false));
+    const closeBtn = document.getElementById("railClose");
+    if (closeBtn) closeBtn.addEventListener("click", () => setOpen(false));
     backdrop.addEventListener("click", () => setOpen(false));
-    list.addEventListener("click", (e) => { if (e.target.closest("a")) setOpen(false); });
+    if (list) list.addEventListener("click", (e) => { if (e.target.closest("a")) setOpen(false); });
     addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
 
     // highlight the policy currently in view
-    const railLinks = new Map([...list.querySelectorAll("a[data-rail]")].map((a) => [a.dataset.rail, a]));
+    const railLinks = new Map([...(list ? list.querySelectorAll("a[data-rail]") : [])].map((a) => [a.dataset.rail, a]));
     const policies = [...document.querySelectorAll(".policy[id]")];
     if ("IntersectionObserver" in window && policies.length) {
       let activeId = null;
@@ -170,13 +170,6 @@
         if (pol && current) current.textContent = pol.title;
       }, { rootMargin: "-12% 0px -72% 0px", threshold: 0 });
       policies.forEach((s) => spy.observe(s));
-    }
-
-    // on desktop, fade the fixed sidebar out once the footer comes into view
-    const footer = document.querySelector(".site-footer");
-    if (footer && "IntersectionObserver" in window) {
-      const fio = new IntersectionObserver((en) => en.forEach((x) => rail.classList.toggle("at-footer", x.isIntersecting)), { threshold: 0 });
-      fio.observe(footer);
     }
   }
 

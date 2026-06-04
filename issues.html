@@ -32,8 +32,14 @@
       </div>
     </noscript>
 
-    <!-- policies render here (grouped: Spending, then Revenue) -->
-    <div id="issuesRoot"></div>
+    <!-- flowing table-of-contents + content -->
+    <div class="issues-layout">
+      <aside class="issue-rail" id="issueRail" aria-label="Table of contents">
+        <div class="rail-top"><strong>Contents</strong><button class="rail-close" id="railClose" aria-label="Close">×</button></div>
+        <nav class="rail-list" id="railList"></nav>
+      </aside>
+      <div class="issues-content" id="issuesRoot"></div>
+    </div>
 
     <!-- CTA -->
     <section class="section bg-navy">

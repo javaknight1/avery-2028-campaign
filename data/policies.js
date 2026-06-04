@@ -226,6 +226,7 @@ window.PLATFORM = {
         { b: "12 years in each chamber.", t: "A cap of roughly six terms in the House and two in the Senate, via constitutional amendment." },
         { b: "Ban congressional stock trading.", t: "Members and their families can't trade individual stocks while in office — no profiting from insider knowledge." },
         { b: "Cooling-off before lobbying.", t: "A multi-year ban on cashing out into lobbying the moment you leave office." },
+        { b: "A salary tied to the people they serve.", t: "A member of Congress earns the average cost of living in the district or state they represent — so their pay tracks their constituents' reality, not a Washington bubble, giving them a direct stake in everyone's cost of living." },
       ],
       detail: [
         { h: "Why an amendment", p: "The Supreme Court has ruled Congress can't impose its own term limits by statute, so it takes a constitutional amendment — a high bar we'll fight to clear." },
@@ -530,12 +531,12 @@ window.PLATFORM = {
     {
       id: "tax-rich", cat: "economy", icon: "💰",
       title: "Tax the Ultra-Rich", tagline: "The biggest winners should pay their fair share.",
-      cost: 500, costType: "revenue", costNote: "wealth tax on fortunes over $10B (billionaires) + higher top rates + closing loopholes",
+      cost: 1000, costType: "revenue", costNote: "wealth tax over $10B + higher income-tax rates over $400k (specific loopholes are closed by their own policies below)",
       lead: "It's not fair that a billionaire can pay a lower effective tax rate than a nurse. We tax extreme wealth, raise rates at the very top, and close the loopholes that let the richest avoid tax the rest of us pay automatically — funding the platform and rebalancing an economy tilted toward the top.",
       plan: [
         { b: "A billionaire wealth tax over $10 billion.", t: "A modest annual tax on the handful of fortunes above $10B — a few hundred households — while everyone else pays nothing new." },
         { b: "Tax investment like work.", t: "End the loophole that taxes capital gains far below wages, so investors don't pay lower rates than their employees." },
-        { b: "Close the loopholes.", t: "End the carried-interest and stepped-up-basis tricks and the offshore games that let the rich opt out." },
+        { b: "Close the loopholes — by name.", t: "End the specific dodges — carried interest, stepped-up basis & 'buy, borrow, die', and like-kind exchanges — each with its own dedicated plan in this section." },
         { b: "Fund the IRS to collect it.", t: "Properly fund enforcement on the wealthiest — every dollar returns several in uncollected taxes owed." },
       ],
       detail: [
@@ -626,6 +627,176 @@ window.PLATFORM = {
           { c: "Won't trading just flee overseas?", r: "It applies to U.S.-linked transactions and is set at a competitive rate. Other major markets already have one and didn't lose their exchanges." },
         ],
         response: "If you're saving for retirement, you'll never feel this. If you're running microsecond trading algorithms by the million, you will — a little. That's the right trade: a tiny brake on the casino that funds real things for real people.",
+      },
+    },
+
+    /* ---- Loopholes, each closed by name ---- */
+    {
+      id: "carried-interest", cat: "economy", icon: "🎩",
+      title: "Close the Carried-Interest Loophole", tagline: "Pay for managing money is income — tax it like income.",
+      cost: 20, costType: "revenue", costNote: "tax carried interest as ordinary income, not capital gains",
+      lead: "Private-equity and hedge-fund managers are paid a slice of their clients' profits — 'carried interest' — for managing other people's money. Through a quirk of the tax code, that paycheck is taxed as long-term capital gains (about 20%) instead of ordinary income (up to 37%). It's the most famous loophole in America, defended by almost no one, and still open.",
+      plan: [
+        { b: "Tax it as the income it is.", t: "Carried interest gets taxed at ordinary income rates, the same as a salary, a bonus, or a plumber's wages." },
+        { b: "No more re-labeling pay as 'gains'.", t: "Close the workarounds (holding-period tricks, fee waivers) that let managers keep dressing up wages as investment returns." },
+        { b: "Protect actual investment.", t: "A manager's own money, genuinely at risk, is still taxed as investment — only the fee for managing others' money changes." },
+      ],
+      detail: [
+        { h: "What the loophole is", p: "Fund managers typically charge '2 and 20' — a 2% management fee plus 20% of profits. That 20% is compensation for a service, but the code treats it as if the manager had invested and earned capital gains, taxing it at roughly half the wage rate." },
+        { h: "Who it benefits", p: "A very small number of the highest-paid people in finance. Closing it doesn't touch your 401(k), your home sale, or a normal investor's gains." },
+        { h: "Bipartisan in name only", p: "Presidents and candidates of both parties have promised to end it for two decades. It survives because the people it benefits are very good at lobbying — not because it's defensible." },
+      ],
+      qa: [
+        { q: "Isn't carried interest just investment gains?", a: "No — it's a fee. The manager generally didn't put up the capital; they're paid a share of someone else's gains for managing the fund. Genuine personal investment stays taxed as investment." },
+        { q: "Won't this dry up investment funds?", a: "The underlying investments are unaffected; only how the manager's fee is taxed changes. Funds raised capital fine in the decades before the loophole grew, and will after." },
+      ],
+      aisle: {
+        rep: [
+          { c: "This is a tax hike on capital and investment.", r: "It's a hike on a paycheck mislabeled as capital. The manager's own at-risk money still gets investment treatment — we just stop letting a service fee masquerade as a capital gain." },
+        ],
+        dem: [
+          { c: "Why not go further on fund taxation?", r: "This is the cleanest, most agreed-upon fix — start by ending the indefensible loophole, then debate the rest. It pairs with higher top rates and the wealth tax for the bigger picture." },
+        ],
+        ind: [
+          { c: "Does this affect my retirement or home sale?", r: "Not at all. It touches only fund managers' performance fees — your 401(k), index funds, and home-sale gains are completely untouched." },
+          { c: "If everyone agrees, why isn't it done?", r: "Because a small, wealthy, well-lobbied group benefits enormously. That's exactly the kind of special deal this campaign exists to end." },
+        ],
+        response: "Both parties have promised to kill this for twenty years and it's still here. That tells you everything about who Washington works for. We treat a manager's paycheck like everyone else's paycheck — full stop.",
+      },
+    },
+    {
+      id: "stepped-up-basis", cat: "economy", icon: "🪜",
+      title: "End Stepped-Up Basis & 'Buy, Borrow, Die'", tagline: "The trick that lets fortunes go untaxed for generations.",
+      cost: 60, costType: "revenue", costNote: "tax unrealized gains at death above a large exemption; close the borrowing loophole",
+      lead: "Here's how the very wealthy legally avoid income tax for life: buy assets that grow, borrow against them tax-free to spend (loans aren't income), and die — at which point 'stepped-up basis' resets the assets' value for heirs, erasing every dollar of lifetime gains. The gains are never taxed, by anyone. We close the loop, while fully protecting ordinary families.",
+      plan: [
+        { b: "Tax gains at death — above a big exemption.", t: "Unrealized gains are taxed when passed on, but only above a generous exemption (think $5M individual / $10M per couple) so family homes, farms, and small businesses are untouched." },
+        { b: "End 'buy, borrow, die'.", t: "Treat very large loans borrowed against appreciated assets as a taxable event, so the ultra-wealthy can't live tax-free on debt forever." },
+        { b: "Protect heirs of ordinary estates.", t: "The vast majority of inheritances fall under the exemption and owe nothing new; this targets only the largest fortunes." },
+      ],
+      detail: [
+        { h: "What stepped-up basis is", p: "If you buy stock at $1M and it's worth $50M when you die, your heirs' 'cost basis' is reset to $50M. They can sell immediately and owe $0 in capital-gains tax — the $49M of gains vanishes from the tax base entirely." },
+        { h: "How 'buy, borrow, die' works", p: "Rather than sell (and owe tax), billionaires borrow against their assets at low rates to fund their lifestyle — loans aren't taxable income. They never sell, never pay income tax, and stepped-up basis wipes the slate at death." },
+        { h: "Family farms and homes are safe", p: "The large exemption, plus special rules letting heirs pay over time on illiquid assets like farms and businesses, means this hits only the very top — not the inheritances most families ever see." },
+      ],
+      qa: [
+        { q: "Is this a 'death tax' on my inheritance?", a: "No. It's capital-gains tax on gains that were never taxed once — and only above a multi-million-dollar exemption. Ordinary inheritances owe nothing new; most estates are far below the threshold." },
+        { q: "Will this force the sale of family farms?", a: "No. Farms, ranches, and family businesses get a generous exemption and the option to pay any tax gradually, so heirs keep operating them. The loophole we're closing is the one the ultra-wealthy use to pass billions tax-free." },
+      ],
+      aisle: {
+        rep: [
+          { c: "This is a death tax that hurts family farms.", r: "It's the opposite of a blanket death tax — it has a large exemption and farm/business protections, so families keep their land. It targets only billion-dollar fortunes escaping all income tax via the step-up." },
+          { c: "Taxing unrealized gains is wrong.", r: "These gains get realized — heirs sell tax-free today. We simply tax them once, at death, above a high exemption, instead of letting them escape forever. Property tax already taxes unrealized value every year." },
+        ],
+        dem: [
+          { c: "Will the wealthy just find another dodge?", r: "That's why we close 'buy, borrow, die' alongside the step-up — taxing large asset-backed loans removes the main escape hatch. Enforcement funding (in the tax-gap plan) backs it up." },
+        ],
+        ind: [
+          { c: "Does this touch my house or 401(k) when I pass it on?", r: "No — the exemption is in the millions, so a typical home or retirement account passes to your kids with no new tax. This is squarely aimed at the largest fortunes." },
+          { c: "Is it really that big a loophole?", r: "It's one of the biggest. Hundreds of billions in gains escape tax at death every year. Closing it is how the ultra-wealthy finally pay income tax like everyone else." },
+        ],
+        response: "A nurse pays tax on every paycheck. A billionaire can buy, borrow against, and pass on assets and never pay income tax at all. We end that — with a big exemption so your family's home and farm are never touched, and the bill lands only at the very top.",
+      },
+    },
+    {
+      id: "like-kind", cat: "economy", icon: "🔁",
+      title: "Cap the Like-Kind (1031) Loophole", tagline: "Stop letting real-estate gains defer forever.",
+      cost: 20, costType: "revenue", costNote: "cap 'like-kind exchange' deferral so property gains can't roll untaxed indefinitely",
+      lead: "A 'like-kind exchange' (Section 1031) lets a real-estate investor sell a property, roll the gain into another property, and defer the capital-gains tax — then do it again, and again, forever. Stack it with stepped-up basis at death and the gains are never taxed at all. Built a century ago for farmers swapping a horse for a plow, it's now a giant shelter for real-estate fortunes.",
+      plan: [
+        { b: "Cap the deferral.", t: "Limit 1031 tax deferral to a reasonable amount per year (e.g., $500,000 of gains), so endless tax-free rolling stops." },
+        { b: "Keep it for real businesses.", t: "Genuine small-business and farm exchanges within the cap are protected; the cap bites only on the largest investors." },
+        { b: "Close the stack.", t: "Paired with ending stepped-up basis, gains that were merely deferred finally get taxed instead of vanishing at death." },
+      ],
+      detail: [
+        { h: "What the loophole is", p: "Sell a building at a $10M gain, buy another 'like-kind' property, and you owe $0 tax now — the gain is deferred. Repeat indefinitely and you can build a real-estate empire while never paying capital-gains tax." },
+        { h: "How it stacks with the step-up", p: "Defer with 1031 your whole life, then die: stepped-up basis erases the deferred gains entirely. The two loopholes together let real-estate fortunes escape capital-gains tax permanently." },
+        { h: "Why cap, not abolish", p: "Real farmers and small landlords use modest exchanges legitimately. A generous annual cap protects them while shutting down the nine-figure version." },
+      ],
+      qa: [
+        { q: "Won't this hurt small real-estate investors?", a: "No — the cap is set high enough that ordinary exchanges by farmers and small landlords are unaffected. It only limits the largest investors rolling enormous gains tax-free." },
+        { q: "Isn't deferral fair since they reinvest?", a: "Reinvestment is fine — but deferral has become permanent avoidance when paired with the death step-up. A cap keeps reasonable reinvestment while ending the forever-tax-free version." },
+      ],
+      aisle: {
+        rep: [
+          { c: "This discourages real-estate investment.", r: "Investment continues — only the unlimited, permanent tax deferral is capped, and small/family exchanges are protected. We're closing a forever-shelter, not taxing ordinary deals." },
+        ],
+        dem: [
+          { c: "Why cap instead of repeal?", r: "A cap protects genuine small-business and farm exchanges while ending the nine-figure abuse — the targeted fix that raises real money without hitting Main Street." },
+        ],
+        ind: [
+          { c: "Does this affect me selling a rental?", r: "Almost certainly not — the cap is set well above a typical exchange. It targets the large investors using 1031 to defer millions in gains indefinitely." },
+          { c: "How much does it raise?", r: "On its own, modest — but closing it removes a key piece of the stack that lets real-estate fortunes avoid capital-gains tax entirely, which is worth far more than the line item." },
+        ],
+        response: "A rule meant for farmers swapping equipment became a forever tax shelter for real-estate empires. We keep it working for small business and farms, and we cap the version that lets billion-dollar gains roll untaxed until they vanish at death.",
+      },
+    },
+    {
+      id: "corporate", cat: "economy", icon: "🏢",
+      title: "Corporate Tax Reform", tagline: "No trillion-dollar company should pay $0.",
+      cost: 450, costType: "revenue", costNote: "moderate rate increase + a 15% minimum on book profits + a global minimum tax",
+      lead: "Some of the most profitable corporations on earth pay little or no federal income tax, using deductions, credits, and offshore accounting to zero out their bill. We set a fair corporate rate, a minimum tax so no giant company pays nothing, and a global minimum that ends the race to tax havens.",
+      plan: [
+        { b: "A fairer corporate rate.", t: "Set the corporate rate at a competitive but real level (around 28%) — below where it sat for most of modern history." },
+        { b: "A 15% minimum on book profits.", t: "If a company reports billions in profit to shareholders, it can't report $0 to the IRS — a floor so the biggest firms always pay something." },
+        { b: "A global minimum tax.", t: "Adopt the 21% global minimum so profits can't be shifted to havens, ending the race to the bottom most countries have already joined." },
+        { b: "Reward building here.", t: "Keep credits for real domestic investment, R&D, and clean manufacturing — we tax accounting games, not factories." },
+      ],
+      detail: [
+        { h: "How profit shifting works", p: "Multinationals book profits in low-tax havens — a patent 'owned' in Ireland, a logo licensed from Bermuda — so U.S. earnings show up untaxed overseas. A global minimum tax makes that pointless." },
+        { h: "Why a book-income minimum", p: "Companies keep two scorecards: big profits for investors, tiny profits for the IRS. A minimum tax on the profits they brag about to Wall Street closes that gap." },
+        { h: "Still competitive", p: "A ~28% rate with a global minimum keeps the U.S. in line with peers while ending the giveaways — and rewards firms that actually build and hire here." },
+      ],
+      qa: [
+        { q: "Won't corporations just pass this to consumers or leave?", a: "The global minimum tax is designed so leaving doesn't help — havens stop working. Most studies find a large share of corporate tax falls on shareholders, who are disproportionately wealthy, not on everyday consumers." },
+        { q: "Isn't this anti-business?", a: "It's pro-fair-competition. Small businesses pay their taxes; it's only the largest multinationals gaming offshore rules that pay near zero. Leveling that helps everyone who plays it straight." },
+      ],
+      aisle: {
+        rep: [
+          { c: "Higher corporate taxes kill jobs and competitiveness.", r: "We keep the rate competitive (~28%, below its historical norm) and protect credits for real investment and hiring. The global minimum tax actually helps U.S. firms by ending the haven advantage their offshore rivals exploit." },
+        ],
+        dem: [
+          { c: "Why not go higher than 28%?", r: "28% plus a book-income minimum and the global minimum raises real money while keeping us competitive. The minimum taxes are what truly stop the $0 bills — and we can revisit the rate as we measure results." },
+        ],
+        ind: [
+          { c: "Will this hit small businesses?", r: "No — small businesses already pay their share. This targets the giant multinationals using offshore accounting to pay near zero, which is exactly the unfairness most people are angry about." },
+          { c: "How do you stop the offshore games?", r: "The global minimum tax (already adopted by much of the world) plus a minimum on book profits make hiding earnings in havens pointless. Pair that with IRS enforcement funding and it sticks." },
+        ],
+        response: "When a company makes record profits and pays nothing while a small shop down the street pays its full share, the system is broken. A fair rate, a minimum so no giant pays zero, and a global floor so havens stop working — that's all this is.",
+      },
+    },
+    {
+      id: "carbon", cat: "economy", icon: "🏭",
+      title: "Carbon Fee on Big Polluters", tagline: "Make pollution pay — and send the money back.",
+      cost: 200, costType: "revenue", costNote: "a rising fee on carbon pollution with a border adjustment; part returned to families",
+      lead: "Right now, polluting the air is free, and everyone else pays for the damage in health and climate costs. A carbon fee charges big emitters for that pollution, steadily cuts emissions, and raises revenue — and a border adjustment means imports pay too, protecting American manufacturers. Part comes back to families so household budgets are held harmless.",
+      plan: [
+        { b: "A fee on carbon pollution.", t: "Charge big emitters a steadily rising fee per ton of carbon, so the cleanest options win on price." },
+        { b: "A border adjustment.", t: "Imports from dirtier economies pay the same fee, so American factories aren't undercut and other countries are pushed to clean up." },
+        { b: "Send money back to families.", t: "Return a share as a rebate so most households — especially lower-income ones — come out even or ahead, even as polluters pay." },
+        { b: "Fund the clean build-out.", t: "Direct the rest into the grid, transmission, and home-energy upgrades from the energy plan, speeding the transition." },
+      ],
+      detail: [
+        { h: "Why a fee works", p: "A clear, rising price on carbon lets every business and household find the cheapest way to cut — far more efficiently than micromanaging from Washington. Economists across the spectrum favor it." },
+        { h: "The border adjustment", p: "Without it, pollution just moves overseas and jobs follow. Charging imports the same fee protects U.S. industry and gives trading partners a reason to clean up too." },
+        { h: "Families held harmless", p: "Because much of the revenue is rebated, most households — especially working families — break even or gain, even though their energy choices get cleaner." },
+      ],
+      qa: [
+        { q: "Won't this raise my gas and energy bills?", a: "Some prices rise, but the rebate is designed so most families — especially lower- and middle-income ones — get back as much or more than they pay. The clean-energy build-out also lowers bills over time." },
+        { q: "Is this just a new tax on me?", a: "It's a fee on polluters, with the money largely returned to people. The point is to charge for the damage pollution does today for free — and hand the proceeds back, not grow government." },
+      ],
+      aisle: {
+        rep: [
+          { c: "A carbon tax raises energy costs and grows government.", r: "It's revenue-returned: much of it goes straight back to households as rebates, not into government. A clear price plus a border adjustment is the market-friendly way to cut emissions — long backed by conservative economists." },
+        ],
+        dem: [
+          { c: "Is a fee enough without mandates?", r: "It pairs with the clean-energy build-out and grid investment, so it's price plus public investment. A rising fee with a border adjustment is one of the most powerful, efficient tools we have." },
+        ],
+        ind: [
+          { c: "Will I actually come out okay?", r: "For most households, yes — the rebate is sized so working families break even or gain. You're rewarded for cleaner choices, not punished for getting to work." },
+          { c: "Won't industry just move overseas?", r: "The border adjustment prevents that — imports pay the same fee, so dirty production abroad gets no advantage, and U.S. factories stay competitive." },
+        ],
+        response: "Pollution isn't free — we all pay for it in asthma, heat, and disaster bills. A carbon fee just puts that cost where it belongs, hands most of the money back to families, and uses the rest to build the clean grid. Make pollution pay, and let people keep the change.",
       },
     },
 
@@ -837,8 +1008,92 @@ window.PLATFORM = {
         response: "This is the most basic thing a country owes its people: when catastrophe hits, we show up — fast, prepared, and for everyone, starting with those who can least absorb the blow. We pay a little to prevent, so we pay far less to recover, and nobody gets left behind.",
       },
     },
+    {
+      id: "data-centers", cat: "future", icon: "🖥️",
+      title: "Rein In Data Centers", tagline: "Lead in AI without sticking families with the bill.",
+      cost: 5, costType: "spend", costNote: "grid oversight, ratepayer protection, and clean-power requirements for large data centers",
+      lead: "AI data centers are exploding across the country — and quietly driving up your electric bill, straining local grids, and guzzling water, often after winning sweetheart tax deals that never deliver the jobs they promised. We want America to lead in AI. But the people who live next to these warehouses shouldn't subsidize them. We regulate data centers so they pay their own way and run clean.",
+      plan: [
+        { b: "Make them pay the true cost.", t: "Large data centers cover the grid capacity and upgrades they require, so their demand doesn't show up as a surcharge on your household bill." },
+        { b: "Power them with new clean energy.", t: "Require big new centers to bring their own clean generation or fund grid build-out, instead of soaking up the existing supply and raising prices for everyone." },
+        { b: "Protect water and communities.", t: "Set water-use and siting standards, and end the tax giveaways that don't deliver real, lasting local jobs." },
+        { b: "Lead in AI, protect workers.", t: "Pair this with the AI Bill of Rights, the AI tax, and free retraining — we win the AI race without sacrificing the workforce or the towns hosting the compute." },
+      ],
+      detail: [
+        { h: "Why your bill is going up", p: "A single large AI campus can use as much power as a small city. When utilities build capacity to serve them and spread the cost across all ratepayers, ordinary households end up subsidizing billion-dollar tech firms." },
+        { h: "The water problem", p: "Many data centers use enormous amounts of water for cooling, straining local supplies — often in already-dry regions. Clear standards keep communities whole." },
+        { h: "Leading responsibly", p: "We don't slow AI down — we make its build-out fair: clean power, honest pricing, and real jobs, so the towns hosting the future actually benefit from it." },
+      ],
+      qa: [
+        { q: "Won't this push AI and data centers overseas?", a: "The U.S. has the talent, capital, and demand to lead regardless; we're just setting fair rules for power and water. Other countries face the same grid limits — running clean and paying your way is becoming the global norm, not a disadvantage." },
+        { q: "Aren't data centers good local jobs?", a: "They create some construction jobs but few permanent ones relative to the subsidies and energy they consume. We keep the investment while ending the giveaways that don't pay off and the costs pushed onto neighbors." },
+      ],
+      aisle: {
+        rep: [
+          { c: "This is heavy-handed regulation that slows U.S. AI leadership.", r: "It's basic fairness: pay for the power you use and don't raise your neighbor's bill. We keep America leading in AI — we just stop subsidizing trillion-dollar firms on the backs of local ratepayers." },
+        ],
+        dem: [
+          { c: "Will this actually protect ratepayers and the climate?", r: "Yes — by making centers fund their own clean power and grid upgrades, household bills are shielded and the build-out adds clean capacity instead of straining the existing grid." },
+        ],
+        ind: [
+          { c: "Why is my power bill suddenly higher?", r: "Often because a nearby data center's demand got spread across everyone's rates. This plan puts that cost back on the company, where it belongs." },
+          { c: "Do we have to choose between AI and affordable energy?", r: "No. We lead in AI and protect your bill by requiring big centers to bring clean power and pay their fair share — both, not either-or." },
+        ],
+        response: "I want America to win the AI race — and I want the family living next to the server farm to not get crushed by the power bill. Those aren't in conflict. Make the data centers pay their way and run clean, and we get the future without selling out the present.",
+      },
+    },
+    {
+      id: "space", cat: "future", icon: "🚀",
+      title: "Invest in Space — for Humanity", tagline: "Lead the next frontier, and lift everyone with it.",
+      cost: 40, costType: "spend", costNote: "boost NASA and basic space science; fund international partnerships",
+      lead: "Space is the next great frontier for science, security, and human inspiration — and it should lift all of humanity, not plant one flag. We invest in NASA and a thriving space sector, and we lead by partnering with our allies to explore together. It's not about America winning. It's about humanity winning — with America out front.",
+      plan: [
+        { b: "Fund the mission.", t: "Boost NASA and basic space science — the Moon, Mars, deep-space exploration, and the telescopes that rewrite what we know." },
+        { b: "Lead with allies, not alone.", t: "Partner with friendly nations on shared missions and standards, pooling talent and cost so humanity goes further, faster — together." },
+        { b: "Bring it back to Earth.", t: "Space research spins off into medicine, materials, weather and climate monitoring, and communications that improve life down here." },
+        { b: "Keep space open and peaceful.", t: "Champion rules that keep orbit and the Moon shared and peaceful, and inspire a new generation into science and engineering." },
+      ],
+      detail: [
+        { h: "Why space pays off", p: "Public space investment returns far more than it costs — GPS, weather forecasting, medical imaging, water filtration, and countless materials began as space programs. It's R&D that compounds for generations." },
+        { h: "Humanity first, together", p: "The biggest goals — a Moon base, Mars, planetary defense — are too big for any one nation. Leading a coalition of allies gets it done and builds trust on Earth in the process." },
+        { h: "Inspiration is an output too", p: "Apollo created a generation of scientists and engineers. A bold, cooperative space program does the same — and the talent it inspires powers every other goal on this platform." },
+      ],
+      qa: [
+        { q: "Why spend on space with so many problems here?", a: "At ~$40B it's a small slice of the budget that pays for itself in technology, jobs, and discovery — and it's dwarfed by the platform's investments in health, housing, and education here at home. We do both." },
+        { q: "Isn't this just a billionaire space race?", a: "We harness private launch where it's cheaper, but the mission — science, exploration, planetary defense, and global cooperation — is public and shared, aimed at humanity's benefit, not any one company's or country's ego." },
+      ],
+      aisle: {
+        rep: [
+          { c: "Space spending is a luxury we can't afford, and we shouldn't share the lead.", r: "It's a high-return investment in technology and security, not a luxury — and leading a coalition of allies makes America stronger, not weaker, while splitting the cost. We're out front; we just don't go it alone." },
+        ],
+        dem: [
+          { c: "Shouldn't this money go to needs on Earth?", r: "It mostly does — this is a small fraction beside the platform's health, housing, and education investments. Space R&D also returns enormous benefits to Earth, from climate monitoring to medicine." },
+        ],
+        ind: [
+          { c: "What do I actually get out of space spending?", r: "More than you'd think — GPS, weather forecasts, medical and materials breakthroughs, good engineering jobs, and the inspiration that pulls kids into science. It's some of the best-returning R&D we do." },
+          { c: "Why work with other countries instead of beating them?", r: "Because the hardest goals are too big to do alone, and cooperation in space builds trust everywhere else. America leads the coalition — humanity shares the win." },
+        ],
+        response: "We will lead in space — not by going it alone, but by bringing our partners with us. The Moon, Mars, the science that protects our planet: these are humanity's goals. America out front, the whole world better for it. That's the kind of leadership worth funding.",
+      },
+    },
 
   ],
+
+  /* ---------------- The revenue plan + fiscal facts (Budget & Deficit pages) ---------------- */
+  funding: [
+    { label: "Tax the ultra-rich — wealth tax + higher top rates", amt: 1000, id: "tax-rich", icon: "💰" },
+    { label: "Health savings recaptured — from Universal Healthcare", amt: 700, id: "healthcare", icon: "🩺" },
+    { label: "Corporate tax reform & global minimum tax", amt: 450, id: "corporate", icon: "🏢" },
+    { label: "Economic growth — a wider tax base from a trained, healthier workforce", amt: 400, id: "education", icon: "🌱" },
+    { label: "Carbon fee on big polluters", amt: 200, id: "carbon", icon: "🏭" },
+    { label: "The AI tax", amt: 150, id: "ai-tax", icon: "🤖" },
+    { label: "The financial-transaction tax", amt: 80, id: "ftt", icon: "📈" },
+    { label: "End stepped-up basis & 'buy, borrow, die'", amt: 60, id: "stepped-up-basis", icon: "🪜" },
+    { label: "Close the carried-interest loophole", amt: 20, id: "carried-interest", icon: "🎩" },
+    { label: "Cap the like-kind (1031) loophole", amt: 20, id: "like-kind", icon: "🔁" },
+  ],
+  // Illustrative current fiscal facts ($B unless noted).
+  fiscal: { deficitToday: 1800, debtToday: 36000, interestRate: 0.03 },
 
   /* ---------------- Humanity Score breakdown (pie chart) ----------------
      Each dimension carries:
