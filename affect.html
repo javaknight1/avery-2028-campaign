@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#061629" />
+  <title>How Does This Affect Me? — Avery for President 2028</title>
+  <meta name="description" content="Enter a few details about your life and see how the Avery platform would affect you — what you'd gain, what you'd lose, and the tax implications. (Parody, illustrative.)" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    .me-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: start; }
+    @media (max-width: 920px) { .me-grid { grid-template-columns: 1fr; } }
+    .me-panel { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 26px; box-shadow: var(--shadow-sm); }
+    .me-panel h3 { font-size: 1.2rem; text-transform: uppercase; color: var(--navy); margin-bottom: 4px; }
+    .me-panel .hint { color: var(--muted); font-size: 0.92rem; margin-bottom: 18px; }
+    .me-form { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .me-form .wide { grid-column: 1 / -1; }
+    .me-form label { display: block; font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.76rem; color: var(--navy); margin-bottom: 5px; }
+    .me-form input, .me-form select { width: 100%; padding: 11px 12px; border: 1px solid var(--line); border-radius: 9px; font-size: 0.98rem; font-family: inherit; background: var(--white); color: var(--ink); }
+    .me-form input:focus, .me-form select:focus { outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(42,109,244,0.12); }
+    .me-check { display: flex; align-items: center; gap: 9px; }
+    .me-check input { width: auto; }
+    .me-check label { margin: 0; text-transform: none; letter-spacing: 0; font-family: "Source Sans 3"; font-size: 0.95rem; color: var(--ink); }
+    .me-hidden { display: none; }
+    .me-results { position: sticky; top: 90px; }
+    @media (max-width: 920px) { .me-results { position: static; } }
+    .me-net { text-align: center; padding: 10px 0 18px; border-bottom: 1px solid var(--line); margin-bottom: 16px; }
+    .me-net .lbl { font-family: "Oswald"; text-transform: uppercase; letter-spacing: 1.5px; font-size: 0.78rem; color: var(--muted); }
+    .me-net .big { font-family: "Oswald"; font-weight: 700; font-size: clamp(2.4rem, 6vw, 3.4rem); line-height: 1.05; }
+    .me-net .big.gain { color: #1f7a4d; }
+    .me-net .big.loss { color: var(--red); }
+    .me-net .sub { color: var(--muted); font-size: 0.9rem; margin-top: 4px; }
+    .me-line { display: grid; grid-template-columns: 1fr auto; gap: 10px; align-items: baseline; padding: 11px 0; border-bottom: 1px dashed var(--line); }
+    .me-line .ml-label { color: var(--ink); font-size: 0.96rem; }
+    .me-line .ml-label small { display: block; color: var(--muted); font-size: 0.82rem; }
+    .me-line .ml-amt { font-family: "Oswald"; font-weight: 600; white-space: nowrap; }
+    .me-line .ml-amt.gain { color: #1f7a4d; }
+    .me-line .ml-amt.loss { color: var(--red); }
+    .me-line .ml-amt.flat { color: var(--muted); }
+    .me-note { margin-top: 16px; font-size: 0.84rem; color: var(--muted); font-style: italic; line-height: 1.6; }
+    .me-disc { background: rgba(244,183,64,0.12); border: 1px solid rgba(244,183,64,0.4); border-radius: 12px; padding: 14px 16px; font-size: 0.88rem; color: #7a5600; margin-top: 18px; }
+  </style>
+</head>
+<body data-page="affect">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal>Make it personal</span>
+        <h1 data-reveal>How does this affect me?</h1>
+        <p data-reveal>Tell us a little about your life, and we'll estimate how the platform — <strong>if every policy passed</strong> — would change your year: what you'd gain, what you'd lose, and the tax bottom line. Nothing is stored or sent; it all runs in your browser.</p>
+      </div>
+    </section>
+
+    <section class="section bg-paper">
+      <div class="container">
+        <div class="me-grid">
+          <!-- form -->
+          <div class="me-panel" data-reveal>
+            <h3>About you</h3>
+            <p class="hint">Rough numbers are fine. Leave anything blank if it doesn't apply.</p>
+            <form class="me-form" id="meForm" novalidate>
+              <div>
+                <label for="af-filing">Filing status</label>
+                <select id="af-filing"><option value="single">Single</option><option value="married">Married</option></select>
+              </div>
+              <div>
+                <label for="af-income">Household income ($/yr)</label>
+                <input id="af-income" inputmode="numeric" value="60,000" />
+              </div>
+              <div>
+                <label for="af-kids">Number of children</label>
+                <input id="af-kids" inputmode="numeric" value="1" />
+              </div>
+              <div>
+                <label for="af-health">You pay for healthcare ($/yr)</label>
+                <input id="af-health" inputmode="numeric" value="6,000" />
+              </div>
+              <div>
+                <label for="af-childcare">Childcare cost ($/yr)</label>
+                <input id="af-childcare" inputmode="numeric" value="9,000" />
+              </div>
+              <div>
+                <label for="af-debt">Student-loan balance ($)</label>
+                <input id="af-debt" inputmode="numeric" value="18,000" />
+              </div>
+              <div class="wide">
+                <label for="af-housing">Housing situation</label>
+                <select id="af-housing">
+                  <option value="rent">I rent</option>
+                  <option value="own1">I own my home (just one)</option>
+                  <option value="ownmulti">I own more than one home</option>
+                </select>
+              </div>
+              <div id="wrap-homeval" class="me-hidden">
+                <label for="af-homeval">Home value ($)</label>
+                <input id="af-homeval" inputmode="numeric" value="350,000" />
+              </div>
+              <div id="wrap-extra" class="me-hidden">
+                <label for="af-extrahomes"># of additional homes</label>
+                <input id="af-extrahomes" inputmode="numeric" value="1" />
+              </div>
+              <div class="wide me-check" id="wrap-firsttime">
+                <input type="checkbox" id="af-firsttime" />
+                <label for="af-firsttime">I'd be a first-time homebuyer</label>
+              </div>
+              <div>
+                <label for="af-wage">Hourly wage, if hourly ($)</label>
+                <input id="af-wage" inputmode="numeric" value="" placeholder="e.g. 11" />
+              </div>
+              <div>
+                <label for="af-networth">Net worth, if ultra-rich ($)</label>
+                <input id="af-networth" inputmode="numeric" value="" placeholder="only matters &gt; $10B" />
+              </div>
+            </form>
+          </div>
+
+          <!-- results -->
+          <div class="me-panel me-results" data-reveal>
+            <div class="me-net">
+              <div class="lbl">Your estimated net annual impact</div>
+              <div class="big" id="afNet">$0</div>
+              <div class="sub" id="afNetSub">if the whole platform passed</div>
+            </div>
+            <div id="afList"></div>
+            <p class="me-note" id="afNote"></p>
+            <div class="me-disc">⚠️ A simplified, illustrative estimate for education — not financial or tax advice. It assumes every policy passes in full and uses rounded, average figures. Your real numbers would depend on the final laws and your full situation.</div>
+          </div>
+        </div>
+
+        <div class="center" style="max-width:640px;margin-top:46px">
+          <p class="section-lead" data-reveal>Curious how the whole thing is paid for? See <a href="budget.html">The Budget &amp; Deficit</a>, or build your own tax brackets in the <a href="tax-lab.html">Tax Lab</a>.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="scripts/components.js" defer></script>
+  <script src="scripts/affect.js" defer></script>
+</body>
+</html>

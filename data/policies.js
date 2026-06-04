@@ -17,6 +17,14 @@ window.PLATFORM = {
     { id: "revenue",  name: "Revenue Policies",  blurb: "How we'd pay for it: the taxes that bring in more than the spending costs, with a surplus left for the deficit." },
   ],
 
+  // Thematic subsections (kept under the two top-level categories via each policy's `cat`).
+  themes: [
+    { id: "care",      name: "Care & Opportunity" },
+    { id: "democracy", name: "Democracy & Rights" },
+    { id: "economy",   name: "Economy & Workers" },
+    { id: "future",    name: "Building the Future" },
+  ],
+
   policies: [
     /* ---------------- CARE & OPPORTUNITY ---------------- */
     {
@@ -100,23 +108,26 @@ window.PLATFORM = {
     {
       id: "housing", cat: "care", icon: "🏠",
       title: "Housing for Everyone", tagline: "A safe, affordable home within reach of every American.",
-      cost: 150, costType: "spend", costNote: "social housing + expanded vouchers + construction & zoning incentives",
-      lead: "Housing is the bill that breaks the most families. We attack it from every side: build millions of homes, make rent affordable, end veteran and family homelessness, and treat a stable home as the foundation everything else is built on.",
+      cost: 150, costType: "spend", costNote: "social housing + vouchers + a first-home tax break (partly offset by a surtax on additional homes)",
+      lead: "Housing is the bill that breaks the most families. We attack it from every side: build millions of homes, make rent affordable, end homelessness, and flip a market where some people can't afford a single home while others collect several. A home should be shelter first and an investment second.",
       plan: [
         { b: "Build 5 million homes.", t: "A federal–local partnership that rewards cities for legalizing housing, funds the trades to build it, and unlocks public land for mixed-income development." },
         { b: "A permanent social-housing sector.", t: "Publicly-backed, mixed-income housing that stays affordable forever — not luxury units with a few 'affordable' tokens." },
         { b: "Rent you can afford.", t: "Expand housing vouchers to everyone who qualifies and cap rent increases on federally-backed units." },
+        { b: "A first-home tax break.", t: "Property-tax relief for eligible first-time buyers on their primary residence — under income and home-price limits, so it lifts working families onto the ladder, not investors." },
+        { b: "A surtax on second-and-beyond homes.", t: "An extra annual property tax on each additional home someone owns. When some families can't afford one home while others hold several, we tilt the field back toward people who need a place to live." },
         { b: "End homelessness with housing first.", t: "Get people housed first, then wrap services around them — the approach proven to work and to save money." },
         { b: "Protect buyers and renters.", t: "Crack down on price-fixing rent algorithms and Wall Street's bulk-buying of family homes." },
       ],
       detail: [
         { h: "Supply is the cure", p: "Rents fall when there are enough homes. The fastest lever is to stop blocking construction — money follows the cities that say yes to housing." },
-        { h: "Why social housing", p: "Permanently-affordable, publicly-backed homes break the cycle where every 'affordable' unit eventually converts to market-rate and the shortage returns." },
+        { h: "Flip the housing ladder", p: "We cut property tax for eligible first-time buyers and add a surtax on additional homes — turning housing back into shelter first. The first-home break is income- and price-limited so it reaches working families, while the surtax asks those holding multiple homes to pay more." },
         { h: "Homelessness is cheaper to solve", p: "A chronically homeless person costs the public far more in ER visits, shelters, and jails than simply providing housing and support." },
       ],
       qa: [
-        { q: "Can Washington really fix local housing?", a: "It can't zone your town — but it can pay towns that build and stop subsidizing those that block. Money follows permits issued, which flips the incentives fast." },
-        { q: "Won't building this much cost a fortune?", a: "Most homes are built with private capital unlocked by zoning reform and public land; federal dollars seed social housing and vouchers. The cost of doing nothing — rising rents and homelessness — is higher." },
+        { q: "Can Washington really fix local housing?", a: "It can't zone your town — but it can pay towns that build, fund first-home tax breaks, and stop subsidizing those that block. Money follows permits issued, which flips the incentives fast." },
+        { q: "Isn't taxing second homes unfair to people who saved for a vacation home?", a: "Your primary home is fully protected — and first-time buyers get a break. The surtax is a modest extra only on additional properties, aimed at an imbalance where investors and the wealthy hold multiple homes while millions can't afford one." },
+        { q: "Won't building this much cost a fortune?", a: "Most homes are built with private capital unlocked by zoning reform and public land; federal dollars seed social housing and vouchers, and the first-home break is partly offset by the second-home surtax. The cost of doing nothing — rising rents and homelessness — is higher." },
       ],
       aisle: {
         rep: [
@@ -519,26 +530,28 @@ window.PLATFORM = {
     {
       id: "tax-rich", cat: "economy", icon: "💰",
       title: "Tax the Ultra-Rich", tagline: "The biggest winners should pay their fair share.",
-      cost: 500, costType: "revenue", costNote: "wealth tax on fortunes over $50M + higher top rates + closing loopholes",
+      cost: 500, costType: "revenue", costNote: "wealth tax on fortunes over $10B (billionaires) + higher top rates + closing loopholes",
       lead: "It's not fair that a billionaire can pay a lower effective tax rate than a nurse. We tax extreme wealth, raise rates at the very top, and close the loopholes that let the richest avoid tax the rest of us pay automatically — funding the platform and rebalancing an economy tilted toward the top.",
       plan: [
-        { b: "A wealth tax over $50 million.", t: "A modest annual tax on fortunes above $50M — affecting a tiny fraction of households while raising hundreds of billions." },
+        { b: "A billionaire wealth tax over $10 billion.", t: "A modest annual tax on the handful of fortunes above $10B — a few hundred households — while everyone else pays nothing new." },
         { b: "Tax investment like work.", t: "End the loophole that taxes capital gains far below wages, so investors don't pay lower rates than their employees." },
         { b: "Close the loopholes.", t: "End the carried-interest and stepped-up-basis tricks and the offshore games that let the rich opt out." },
         { b: "Fund the IRS to collect it.", t: "Properly fund enforcement on the wealthiest — every dollar returns several in uncollected taxes owed." },
       ],
       detail: [
-        { h: "Who it hits", p: "The wealth tax touches only households worth more than $50 million — far less than 1%. Everyone else sees no new tax here at all; this is squarely aimed at the very top." },
+        { h: "Who it hits", p: "The wealth tax touches only fortunes above $10 billion — a few hundred people in the entire country. Everyone else sees no new wealth tax at all; this is squarely aimed at the very top." },
+        { h: "It's just property tax for billionaires", p: "We already tax unrealized wealth every single day — it's called property tax, and a middle-class family pays it on their home, sale or no sale, year after year. A billionaire tax simply applies that same, long-accepted principle to fortunes over $10B — and at a far gentler rate than most people's property tax." },
         { h: "Why fairness matters", p: "When the very top opts out, everyone else pays more or gets less. Asking extreme wealth to contribute funds the things — health, housing, education — that let the next fortune get built." },
       ],
       qa: [
         { q: "Won't the rich just leave or hide it?", a: "That's why this pairs an exit tax and serious enforcement with the rate changes. Other countries' missteps came from weak enforcement and easy escape hatches — we close them." },
-        { q: "Is a wealth tax even constitutional?", a: "It's debated, and we're prepared to defend it in court and to pair it with airtight income-and-gains reforms that achieve much of the same fairness if needed." },
+        { q: "Is a wealth tax even constitutional?", a: "It's debated, but states have taxed wealth (property) for centuries, and we're prepared to defend it in court — and to pair it with airtight income-and-gains reforms that achieve much of the same fairness if needed." },
       ],
       aisle: {
         rep: [
           { c: "Wealth taxes are anti-growth and the rich will flee.", r: "We pair it with an exit tax and serious enforcement, and back it up with income-and-gains reforms that achieve the same fairness if courts balk. Where other countries failed, it was weak enforcement and easy escape hatches — we close them." },
-          { c: "Punishing success discourages investment.", r: "This isn't about success — it's about ending special deals (carried interest, stepped-up basis) that let the top pay a lower rate than their own employees. Most investment is untouched; only extreme fortunes over $50M are." },
+          { c: "You can't tax unrealized gains — it's unfair and unworkable.", r: "We already do, and have for over a century: it's called property tax. Every homeowner pays an annual tax on their home's value whether or not they ever sell. A wealth tax on fortunes over $10B is just that same principle — and far less aggressive than the property tax a typical family already pays every year." },
+          { c: "Punishing success discourages investment.", r: "This isn't about success — it's about ending special deals (carried interest, stepped-up basis) that let the top pay a lower rate than their own employees. Most investment is untouched; only fortunes over $10B are." },
         ],
         dem: [
           { c: "Will it really raise enough to matter?", r: "Combined with higher top rates, closing loopholes, and funding the IRS to collect what's owed, it raises hundreds of billions a year — a core pillar of how we fund the platform, all shown in The Honest Budget." },

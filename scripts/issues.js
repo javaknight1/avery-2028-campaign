@@ -1,8 +1,9 @@
 /* =========================================================
-   Issues page — renders the platform from window.PLATFORM,
-   grouped into Spending Policies and Revenue Policies.
-   Sticky TOC + Q&A accordion + Humanity Score pie +
-   a fixed slide-panel that highlights the current issue.
+   Issues page — renders the platform from window.PLATFORM.
+   Two top categories (Spending / Revenue), each with the
+   original thematic subsections under it. An always-visible
+   lightweight TOC sidebar highlights the current issue
+   (and becomes a drawer on small screens).
    ========================================================= */
 (() => {
   "use strict";
@@ -10,16 +11,14 @@
   if (!P) return;
   const esc = (s) => String(s);
   const money = (b) => (b >= 1000 ? "$" + (b / 1000).toFixed(b % 1000 === 0 ? 0 : 2) + "T" : "$" + b + "B");
-
-  // group every policy into one of the two buckets by its costType
   const bucket = (p) => (p.costType === "revenue" ? "revenue" : "spending");
+  const THEMES = P.themes || [{ id: "care", name: "Care" }];
 
   function costBadge(p) {
     if (p.costType === "revenue") return `<span class="cost-badge rev">+${money(p.cost)}/yr<small>revenue</small></span>`;
     if (p.costType === "neutral") return `<span class="cost-badge neutral">≈ $0<small>no net cost</small></span>`;
     return `<span class="cost-badge spend">${money(p.cost)}/yr<small>cost</small></span>`;
   }
-
   function aisleCol(cls, name, items) {
     const list = (items || []).map((it) =>
       `<li><p class="concern">${esc(it.c)}</p><p class="rebuttal"><b>Our answer:</b> ${esc(it.r)}</p></li>`).join("");
@@ -76,72 +75,70 @@
     </div>`;
   }
 
-  /* ---- render policies, grouped into the two buckets ---- */
+  // themes that actually contain policies in a given bucket, in canonical order
+  const themesIn = (catId) => THEMES.filter((t) => P.policies.some((p) => bucket(p) === catId && p.cat === t.id));
+
+  /* ---- render content: category → theme subsection → policies ---- */
   const root = document.getElementById("issuesRoot");
   let html = "";
   P.categories.forEach((cat, i) => {
-    const inCat = P.policies.filter((p) => bucket(p) === cat.id);
+    const count = P.policies.filter((p) => bucket(p) === cat.id).length;
     html += `<div class="cat-header" id="cat-${cat.id}" data-cat="${cat.id}">
       <div class="container">
-        <span class="cat-kicker" data-reveal>Part ${i + 1} of ${P.categories.length} · ${inCat.length} policies</span>
+        <span class="cat-kicker" data-reveal>Part ${i + 1} of ${P.categories.length} · ${count} policies</span>
         <h2 class="cat-title" data-reveal>${esc(cat.name)}</h2>
         <p data-reveal>${esc(cat.blurb)}</p>
-      </div></div>`;
-    inCat.forEach((p) => { html += policyHTML(p); });
+      </div>
+    </div>`;
+    themesIn(cat.id).forEach((t) => {
+      html += `<div class="theme-header" id="theme-${cat.id}-${t.id}"><div class="container"><h3 data-reveal>${esc(t.name)}</h3></div></div>`;
+      P.policies.filter((p) => bucket(p) === cat.id && p.cat === t.id).forEach((p) => { html += policyHTML(p); });
+    });
   });
   root.innerHTML = html;
 
-  /* ---- sticky TOC ---- */
-  const toc = document.getElementById("toc");
-  toc.innerHTML = P.categories.map((c) =>
-    `<a href="#cat-${c.id}" data-target="cat-${c.id}">${c.id === "revenue" ? "💰" : "🏛️"} ${esc(c.name)}</a>`).join("") +
-    `<a class="toc-ext" href="budget.html">💸 The Budget &amp; Deficit →</a>`;
-
-  /* ---- fixed slide panel (rail) that highlights the current issue ---- */
-  buildRail();
-  function buildRail() {
-    const railItems = P.categories.map((cat) => {
-      const links = P.policies.filter((p) => bucket(p) === cat.id).map((p) =>
-        `<a href="#${p.id}" data-rail="${p.id}"><span class="ri-ic">${p.icon}</span><span class="ri-t">${esc(p.title)}</span></a>`).join("");
-      return `<div class="rail-cat">${esc(cat.name)}</div>${links}`;
+  /* ---- lightweight TOC sidebar (nested) ---- */
+  buildSidebar();
+  function buildSidebar() {
+    const navItems = P.categories.map((cat) => {
+      const themes = themesIn(cat.id).map((t) => {
+        const links = P.policies.filter((p) => bucket(p) === cat.id && p.cat === t.id).map((p) =>
+          `<a href="#${p.id}" data-rail="${p.id}">${esc(p.title)}</a>`).join("");
+        return `<div class="rail-theme">${esc(t.name)}</div>${links}`;
+      }).join("");
+      return `<a class="rail-sec" href="#cat-${cat.id}">${esc(cat.name)}</a>${themes}`;
     }).join("");
 
     const wrap = document.createElement("div");
     wrap.innerHTML = `
+      <aside class="issue-rail" id="issueRail" aria-label="Issues contents">
+        <div class="rail-top"><strong>Contents</strong><button class="rail-close" id="railClose" aria-label="Close">×</button></div>
+        <nav class="rail-list" id="railList">${navItems}</nav>
+      </aside>
+      <div class="rail-backdrop" id="railBackdrop" aria-hidden="true"></div>
       <button class="rail-fab" id="railFab" aria-expanded="false" aria-controls="issueRail">
         <span class="rf-ic">☰</span><span class="rf-label"><small>You're viewing</small><b id="railCurrent">The Issues</b></span>
-      </button>
-      <div class="rail-backdrop" id="railBackdrop" aria-hidden="true"></div>
-      <aside class="issue-rail" id="issueRail" aria-label="Jump to an issue">
-        <div class="rail-top"><strong>The Issues</strong><button class="rail-close" id="railClose" aria-label="Close panel">×</button></div>
-        <nav class="rail-list" id="railList">${railItems}</nav>
-      </aside>`;
+      </button>`;
     while (wrap.firstChild) document.body.appendChild(wrap.firstChild);
 
-    const fab = document.getElementById("railFab");
     const rail = document.getElementById("issueRail");
+    const fab = document.getElementById("railFab");
     const backdrop = document.getElementById("railBackdrop");
-    const close = document.getElementById("railClose");
     const list = document.getElementById("railList");
-
-    const setOpen = (open) => {
-      document.body.classList.toggle("rail-open", open);
-      fab.setAttribute("aria-expanded", String(open));
-    };
+    const current = document.getElementById("railCurrent");
+    const setOpen = (open) => { document.body.classList.toggle("rail-open", open); fab.setAttribute("aria-expanded", String(open)); };
     fab.addEventListener("click", () => setOpen(!document.body.classList.contains("rail-open")));
-    close.addEventListener("click", () => setOpen(false));
+    document.getElementById("railClose").addEventListener("click", () => setOpen(false));
     backdrop.addEventListener("click", () => setOpen(false));
     list.addEventListener("click", (e) => { if (e.target.closest("a")) setOpen(false); });
     addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
 
-    // scroll-spy: highlight the policy currently in view (rail + fab label)
-    const current = document.getElementById("railCurrent");
-    const railLinks = new Map([...list.querySelectorAll("a")].map((a) => [a.dataset.rail, a]));
+    // highlight the policy currently in view
+    const railLinks = new Map([...list.querySelectorAll("a[data-rail]")].map((a) => [a.dataset.rail, a]));
     const policies = [...document.querySelectorAll(".policy[id]")];
     if ("IntersectionObserver" in window && policies.length) {
       let activeId = null;
       const spy = new IntersectionObserver((entries) => {
-        // choose the entry nearest the top of the viewport that is intersecting
         const vis = entries.filter((e) => e.isIntersecting);
         if (!vis.length) return;
         vis.sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top);
@@ -153,12 +150,19 @@
         const pol = P.policies.find((p) => p.id === id);
         if (a) { a.classList.add("active"); a.scrollIntoView({ block: "nearest" }); }
         if (pol && current) current.textContent = pol.title;
-      }, { rootMargin: "-15% 0px -70% 0px", threshold: 0 });
+      }, { rootMargin: "-12% 0px -72% 0px", threshold: 0 });
       policies.forEach((s) => spy.observe(s));
+    }
+
+    // on desktop, fade the fixed sidebar out once the footer comes into view
+    const footer = document.querySelector(".site-footer");
+    if (footer && "IntersectionObserver" in window) {
+      const fio = new IntersectionObserver((en) => en.forEach((x) => rail.classList.toggle("at-footer", x.isIntersecting)), { threshold: 0 });
+      fio.observe(footer);
     }
   }
 
-  /* ---- Q&A accordion (delegated) ---- */
+  /* ---- Q&A accordion ---- */
   root.addEventListener("click", (e) => {
     const q = e.target.closest(".qa-q");
     if (!q) return;
@@ -167,38 +171,21 @@
     q.setAttribute("aria-expanded", String(open));
   });
 
-  /* ---- reveal newly-injected nodes ---- */
+  /* ---- reveal injected nodes ---- */
   const prefersReduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const reveals = [...document.querySelectorAll("[data-reveal]:not(.in)")];
-  if (prefersReduced || !("IntersectionObserver" in window)) {
-    reveals.forEach((el) => el.classList.add("in"));
-  } else {
+  if (prefersReduced || !("IntersectionObserver" in window)) reveals.forEach((el) => el.classList.add("in"));
+  else {
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => { if (en.isIntersecting) { en.target.classList.add("in"); io.unobserve(en.target); } });
     }, { threshold: 0.1, rootMargin: "0px 0px -5% 0px" });
     reveals.forEach((el) => io.observe(el));
   }
 
-  /* ---- TOC scroll-spy (category level) ---- */
-  const tocLinks = [...toc.querySelectorAll("a[data-target]")];
-  const tmap = new Map(tocLinks.map((a) => [a.dataset.target, a]));
-  const cats = [...document.querySelectorAll(".cat-header[id]")];
-  if ("IntersectionObserver" in window && cats.length) {
-    const spy = new IntersectionObserver((entries) => {
-      entries.forEach((en) => {
-        if (!en.isIntersecting) return;
-        tocLinks.forEach((a) => a.classList.remove("active"));
-        const a = tmap.get(en.target.id);
-        if (a) a.classList.add("active");
-      });
-    }, { rootMargin: "-30% 0px -60% 0px", threshold: 0 });
-    cats.forEach((s) => spy.observe(s));
-  }
-
   /* ---- Humanity Score donut ---- */
   drawHumanityPie();
 
-  /* ---- deep-link scroll (content is injected after load) ---- */
+  /* ---- deep-link scroll (content injected after load) ---- */
   if (location.hash && location.hash.length > 1) {
     const target = document.getElementById(decodeURIComponent(location.hash.slice(1)));
     if (target) requestAnimationFrame(() => requestAnimationFrame(() => target.scrollIntoView()));
@@ -216,20 +203,16 @@
     const legend = document.getElementById("humanityLegend");
     if (!svg || !P.humanityScore) return;
     const slices = P.humanityScore.slices;
-
     const overall = Math.round(slices.reduce((s, x) => s + x.value * x.score, 0) / 100);
     const grade = gradeFor(overall);
 
-    const cx = 110, cy = 110, r = 78, sw = 36;
-    const C = 2 * Math.PI * r;
+    const cx = 110, cy = 110, r = 78, sw = 36, C = 2 * Math.PI * r;
     let offset = 0, circles = "";
     slices.forEach((s, i) => {
       const arc = (s.value / 100) * C;
       circles += `<circle class="pie-slice" data-i="${i}" cx="${cx}" cy="${cy}" r="${r}" fill="none"
-        stroke="${s.color}" stroke-width="${sw}"
-        stroke-dasharray="0 ${C.toFixed(2)}" data-arc="${arc.toFixed(2)}"
-        stroke-dashoffset="${(-offset).toFixed(2)}"
-        transform="rotate(-90 ${cx} ${cy})"/>`;
+        stroke="${s.color}" stroke-width="${sw}" stroke-dasharray="0 ${C.toFixed(2)}" data-arc="${arc.toFixed(2)}"
+        stroke-dashoffset="${(-offset).toFixed(2)}" transform="rotate(-90 ${cx} ${cy})"/>`;
       offset += arc;
     });
     svg.innerHTML = circles;

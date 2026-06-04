@@ -18,6 +18,7 @@
     { key: "about",   href: "about.html",        label: "Meet Rob" },
     { key: "issues",  href: "issues.html",       label: "Issues" },
     { key: "budget",  href: "budget.html",       label: "Budget" },
+    { key: "affect",  href: "affect.html",       label: "Your Impact" },
     { key: "tax",     href: "tax-lab.html",      label: "Tax Lab" },
     { key: "join",    href: "get-involved.html", label: "Get Involved" },
   ];
@@ -76,8 +77,8 @@
         <div class="footer-col">
           <h4>Tools</h4>
           <a href="tax-lab.html">Tax Lab</a>
+          <a href="affect.html">How it affects you</a>
           <a href="get-involved.html#volunteer">Volunteer</a>
-          <a href="get-involved.html#events">Events</a>
           <a href="get-involved.html#donate">Donate</a>
         </div>
       </div>
