@@ -165,3 +165,4 @@
     render();
   }
 })();
+/* TEMP TEST */ setTimeout(() => { try { const a=document.getElementById("afNet").textContent; document.querySelector('.me-tg[data-mode="direct"]').click(); const b=document.getElementById("afNet").textContent; const act=document.querySelector('.me-tg[data-mode="direct"]').classList.contains("active"); document.title="TEST "+a+" -> "+b+" active="+act; } catch(e){ document.title="TEST ERR "+e.message; } }, 250);

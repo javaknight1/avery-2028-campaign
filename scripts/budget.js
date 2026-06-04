@@ -65,26 +65,13 @@
       </div>`;
   })();
 
-  /* ---- the full revenue plan + a pointer to the Deficit page ---- */
+  /* ---- pointer to the Deficit page ---- */
   (function renderPlan() {
     const el = document.getElementById("budgetDeficit");
     if (!el) return;
-    const fundRows = FUNDING.map((f) => `<tr><td>${fline(f)}</td><td class="num rev">+${money(f.amt)}</td></tr>`).join("");
     el.innerHTML = `
-      <details class="method" data-reveal open>
-        <summary>The full revenue plan, line by line</summary>
-        <table class="budget-table" style="margin-top:12px"><thead><tr><th>Funding source</th><th class="num">Revenue / yr</th></tr></thead>
-          <tbody>${fundRows}</tbody>
-          <tfoot>
-            <tr><td>Total new revenue</td><td class="num rev">+${money(TOTAL_REVENUE)}</td></tr>
-            <tr><td>Less: total new spending</td><td class="num">−${money(TOTAL_SPEND)}</td></tr>
-            <tr><td><strong>Annual surplus to the deficit</strong></td><td class="num rev"><strong>+${money(SURPLUS)}</strong></td></tr>
-          </tfoot>
-        </table>
-        <p style="color:var(--muted);font-size:0.9rem;margin-top:12px">All figures are simplified, rounded, illustrative estimates for education — not official budget scores.</p>
-      </details>
-      <div class="center" style="margin-top:30px">
-        <p class="section-lead" data-reveal style="margin-inline:auto">That <strong>+${money(SURPLUS)}/yr surplus</strong> goes straight at the national debt. See exactly how fast it pays off — with an interest-aware burndown chart and amortization table.</p>
+      <div class="center" style="max-width:680px">
+        <p class="section-lead" data-reveal style="margin-inline:auto">That <strong>+${money(SURPLUS)}/yr surplus</strong> goes straight at the national debt. See exactly how fast it pays off — with an interest-aware burndown chart, an amortization table, and how we stack up against past presidents.</p>
         <a href="deficit.html" class="btn btn--navy btn--lg" data-reveal>The Deficit &amp; Debt <span class="arrow">→</span></a>
       </div>`;
   })();

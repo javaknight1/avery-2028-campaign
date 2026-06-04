@@ -1121,6 +1121,22 @@ window.PLATFORM = {
   // Illustrative current fiscal facts ($B unless noted).
   fiscal: { deficitToday: 1800, debtToday: 36000, interestRate: 0.03 },
 
+  // Average annual federal budget balance as a share of GDP, by president
+  // (illustrative, ~last 50 years; negative = deficit, positive = surplus).
+  presidents: [
+    { name: "Ford", years: "1974–77", bal: -2.6 },
+    { name: "Carter", years: "1977–81", bal: -2.4 },
+    { name: "Reagan", years: "1981–89", bal: -4.3 },
+    { name: "Bush Sr.", years: "1989–93", bal: -4.3 },
+    { name: "Clinton", years: "1993–2001", bal: 0.1 },
+    { name: "Bush Jr.", years: "2001–09", bal: -3.4 },
+    { name: "Obama", years: "2009–17", bal: -5.3 },
+    { name: "Trump", years: "2017–21", bal: -6.3 },
+    { name: "Biden", years: "2021–25", bal: -6.7 },
+    { name: "Trump 2.0", years: "2025–29", bal: -6.5 },
+    { name: "Avery", years: "2029–", bal: 1.0, soon: true },
+  ],
+
   /* ---------------- Humanity Score breakdown (pie chart) ----------------
      Each dimension carries:
        value  — its weight in the score (all weights sum to 100 = the pie)

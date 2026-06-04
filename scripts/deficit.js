@@ -118,6 +118,7 @@
     const picks = rows.filter((r) => r.year === 1 || r.year % 5 === 0 || r.year === PAYOFF);
     const trows = picks.map((r) => `<tr>
       <td>${YEAR + r.year - 1}<small>yr ${r.year}</small></td>
+      <td class="num">${money(r.interest + r.principal)}</td>
       <td class="num int">${money(r.interest)}</td>
       <td class="num prin">${money(r.principal)}</td>
       <td class="num">${money(Math.max(0, r.end))}</td>
@@ -140,12 +141,63 @@
       <h3 class="amort-title" data-reveal>Amortization — every 5 years</h3>
       <div class="amort-wrap" data-reveal>
         <table class="amort-table">
-          <thead><tr><th>Year</th><th class="num">Interest paid</th><th class="num">To principal</th><th class="num">Debt remaining</th></tr></thead>
+          <thead><tr><th>Year</th><th class="num">Debt service</th><th class="num">To interest</th><th class="num">To principal</th><th class="num">Debt remaining</th></tr></thead>
           <tbody>${trows}</tbody>
-          <tfoot><tr><td>Totals over ${PAYOFF} yrs</td><td class="num int">${money(totalInterest)}</td><td class="num prin">${money(DEBT0)}</td><td class="num">$0</td></tr></tfoot>
+          <tfoot><tr><td>Totals over ${PAYOFF} yrs</td><td class="num">${money(totalInterest + DEBT0)}</td><td class="num int">${money(totalInterest)}</td><td class="num prin">${money(DEBT0)}</td><td class="num">$0</td></tr></tfoot>
         </table>
       </div>
       <p class="amort-note" data-reveal>Each year we put a steady <strong>${money(SERVICE)}</strong> toward the debt. Early on most is interest; by the end almost all of it retires principal. All figures are simplified, illustrative estimates at a 3% interest rate — real rates, growth, and a rising surplus would change the pace.</p>`;
+  })();
+
+  /* ---- presidents: deficit/surplus track record ---- */
+  (function renderPresidents() {
+    const el = document.getElementById("deficitPrez");
+    if (!el || !P.presidents) return;
+    const data = P.presidents;
+    const W = 860, H = 380, padL = 46, padR = 18, padT = 28, padB = 74;
+    const plotW = W - padL - padR, plotH = H - padT - padB;
+    const top = 2, bot = -8;
+    const y = (v) => padT + ((top - v) / (top - bot)) * plotH;
+    const zero = y(0), slot = plotW / data.length, bw = slot * 0.56;
+
+    let grid = "";
+    for (let g = top; g >= bot; g -= 2) {
+      const yy = y(g);
+      grid += `<line x1="${padL}" y1="${yy.toFixed(1)}" x2="${W - padR}" y2="${yy.toFixed(1)}" stroke="${g === 0 ? "#0b2545" : "#e2e8f2"}" stroke-width="${g === 0 ? 1.5 : 1}"/>`;
+      grid += `<text x="${padL - 6}" y="${(yy + 3).toFixed(1)}" text-anchor="end" font-size="10" fill="#5a6b86" font-family="Oswald">${g > 0 ? "+" : ""}${g}%</text>`;
+    }
+    let bars = "";
+    data.forEach((d, i) => {
+      const cx = padL + slot * i + slot / 2, x = cx - bw / 2, yv = y(d.bal);
+      const barY = d.bal >= 0 ? yv : zero, barH = Math.abs(yv - zero);
+      const color = d.bal >= 0 ? "#1f7a4d" : "#c8102e";
+      if (d.soon) {
+        bars += `<rect x="${x.toFixed(1)}" y="${barY.toFixed(1)}" width="${bw.toFixed(1)}" height="${barH.toFixed(1)}" rx="3" fill="rgba(31,122,77,0.15)" stroke="#1f7a4d" stroke-width="2" stroke-dasharray="5 4"/>`;
+        bars += `<text x="${cx.toFixed(1)}" y="${(barY - 18).toFixed(1)}" text-anchor="middle" font-size="9" fill="#1f7a4d" font-family="Oswald">+${d.bal}%</text>`;
+        bars += `<text x="${cx.toFixed(1)}" y="${(barY - 7).toFixed(1)}" text-anchor="middle" font-size="8" fill="#1f7a4d" font-family="Oswald" font-weight="700">SOON</text>`;
+      } else {
+        bars += `<rect x="${x.toFixed(1)}" y="${barY.toFixed(1)}" width="${bw.toFixed(1)}" height="${barH.toFixed(1)}" rx="3" fill="${color}"/>`;
+        const lblY = d.bal >= 0 ? barY - 7 : barY + barH + 12;
+        bars += `<text x="${cx.toFixed(1)}" y="${lblY.toFixed(1)}" text-anchor="middle" font-size="9" fill="${color}" font-family="Oswald">${d.bal > 0 ? "+" : ""}${d.bal}%</text>`;
+      }
+      bars += `<text x="${cx.toFixed(1)}" y="${(H - padB + 20).toFixed(1)}" text-anchor="middle" font-size="9.5" fill="#11203a" font-family="Oswald" font-weight="600">${esc(d.name)}</text>`;
+      bars += `<text x="${cx.toFixed(1)}" y="${(H - padB + 33).toFixed(1)}" text-anchor="middle" font-size="8" fill="#5a6b86">${esc(d.years)}</text>`;
+    });
+    const svg = `<svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Average annual deficit or surplus by president, share of GDP">${grid}${bars}</svg>`;
+    el.innerHTML = `
+      <div class="center" style="max-width:780px">
+        <span class="eyebrow" data-reveal>The track record</span>
+        <h2 class="section-title" data-reveal>How presidents stack up</h2>
+        <p class="section-lead" data-reveal>Average annual federal deficit or surplus during each presidency, as a share of GDP. For 50 years almost everyone has run deficits — only Clinton came near balance. Ours, dotted, is the promise: a real surplus.</p>
+      </div>
+      <div class="burndown-card" data-reveal>${svg}
+        <div class="legend">
+          <span><i style="background:#c8102e"></i> Deficit</span>
+          <span><i style="background:#1f7a4d"></i> Surplus</span>
+          <span><i style="border:2px dashed #1f7a4d;background:none;height:11px;width:14px;border-radius:2px"></i> Avery (coming soon)</span>
+        </div>
+      </div>
+      <p class="amort-note" data-reveal>Rounded, illustrative averages over each term (negative = deficit). Avery's bar is a projection from this platform's surplus, shown dotted until it's real.</p>`;
   })();
 
   /* ---- reveal ---- */

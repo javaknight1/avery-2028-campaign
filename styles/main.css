@@ -296,3 +296,6 @@ img { max-width: 100%; display: block; }
   *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; scroll-behavior: auto !important; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
 }
+
+/* Track bars: the .fill is a <span> (inline) — make it a block so its width/height apply. */
+.track > .fill { display: block; }
