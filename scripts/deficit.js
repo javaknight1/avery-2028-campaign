@@ -77,36 +77,46 @@
     const el = document.getElementById("deficitChart");
     if (!el) return;
 
-    // SVG burndown (debt remaining over time) with annual interest line
-    const W = 760, H = 320, padL = 56, padR = 18, padT = 18, padB = 38;
+    // SVG burndown: debt remaining (left axis) + surplus going to the debt (right axis)
+    const W = 760, H = 320, padL = 56, padR = 56, padT = 18, padB = 38;
     const plotW = W - padL - padR, plotH = H - padT - padB;
-    const xMax = PAYOFF, yMax = DEBT0;
+    const xMax = PAYOFF, yMax = DEBT0, surMax = 1500;
     const sx = (yr) => padL + (yr / xMax) * plotW;
     const sy = (d) => padT + (1 - d / yMax) * plotH;
+    const syR = (v) => padT + (1 - v / surMax) * plotH;
 
     const pts = [{ x: 0, d: DEBT0 }].concat(rows.map((r) => ({ x: r.year, d: r.end })));
     const line = pts.map((p, i) => (i ? "L" : "M") + sx(p.x).toFixed(1) + "," + sy(p.d).toFixed(1)).join(" ");
     const area = line + ` L ${sx(xMax).toFixed(1)},${sy(0).toFixed(1)} L ${sx(0).toFixed(1)},${sy(0).toFixed(1)} Z`;
+    // surplus applied to the debt each year — grows as interest falls
+    const sPts = [{ x: 0, v: SURPLUS }].concat(rows.map((r) => ({ x: r.year, v: SERVICE - r.interest })));
+    const surLine = sPts.map((p, i) => (i ? "L" : "M") + sx(p.x).toFixed(1) + "," + syR(p.v).toFixed(1)).join(" ");
 
     let grid = "";
     for (let g = 0; g <= 4; g++) {
       const dv = (yMax / 4) * g, yy = sy(dv);
       grid += `<line x1="${padL}" y1="${yy.toFixed(1)}" x2="${W - padR}" y2="${yy.toFixed(1)}" stroke="#e2e8f2"/>`;
-      grid += `<text x="${padL - 8}" y="${(yy + 4).toFixed(1)}" text-anchor="end" font-size="10" fill="#5a6b86" font-family="Oswald">$${(dv / 1000).toFixed(0)}T</text>`;
+      grid += `<text x="${padL - 8}" y="${(yy + 4).toFixed(1)}" text-anchor="end" font-size="10" fill="#c8102e" font-family="Oswald">$${(dv / 1000).toFixed(0)}T</text>`;
+    }
+    let rlab = "";
+    for (let s = 0; s <= surMax; s += 500) {
+      const yy = syR(s);
+      rlab += `<text x="${W - padR + 8}" y="${(yy + 4).toFixed(1)}" text-anchor="start" font-size="10" fill="#1f7a4d" font-family="Oswald">${s === 0 ? "$0" : "$" + (s / 1000).toFixed(1) + "T"}</text>`;
     }
     let xlab = "";
     for (let t = 0; t <= xMax; t += 10) {
       xlab += `<text x="${sx(t).toFixed(1)}" y="${H - 12}" text-anchor="middle" font-size="10" fill="#5a6b86" font-family="Oswald">${YEAR + t}</text>`;
     }
-    xlab += `<text x="${sx(xMax).toFixed(1)}" y="${H - 12}" text-anchor="end" font-size="10" fill="#1f7a4d" font-family="Oswald">${TARGET} · $0</text>`;
+    xlab += `<text x="${sx(xMax).toFixed(1)}" y="${H - 12}" text-anchor="end" font-size="10" fill="#1f7a4d" font-family="Oswald">${TARGET}</text>`;
 
-    const svg = `<svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="National debt burning down to zero over ${PAYOFF} years">
+    const svg = `<svg class="chart" viewBox="0 0 ${W} ${H}" preserveAspectRatio="xMidYMid meet" role="img" aria-label="National debt burning down to zero while the annual surplus grows">
       <defs><linearGradient id="debtFill" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0%" stop-color="rgba(200,16,46,0.35)"/><stop offset="100%" stop-color="rgba(200,16,46,0.04)"/>
       </linearGradient></defs>
-      ${grid}${xlab}
+      ${grid}${rlab}${xlab}
       <path d="${area}" fill="url(#debtFill)" stroke="none"/>
       <path d="${line}" fill="none" stroke="#c8102e" stroke-width="2.6" stroke-linejoin="round"/>
+      <path d="${surLine}" fill="none" stroke="#1f7a4d" stroke-width="2.2" stroke-dasharray="6 4" stroke-linejoin="round"/>
     </svg>`;
 
     // amortization table — every 5 years + the payoff year
@@ -122,12 +132,13 @@
       <div class="center" style="max-width:740px">
         <span class="eyebrow" data-reveal>The burndown</span>
         <h2 class="section-title" data-reveal>Watch the debt burn down</h2>
-        <p class="section-lead" data-reveal>The national debt, shrinking to zero. The curve starts gentle — early on, most of our debt-service money still goes to interest — then steepens as the debt (and its interest bill) shrink and more of every dollar retires principal.</p>
+        <p class="section-lead" data-reveal>The red area is the national debt shrinking to zero (left axis). The green dashed line is the surplus we put toward the debt each year (right axis) — it <em>climbs</em> as the interest bill falls, so the payoff keeps speeding up. The two cross on the way to debt-free.</p>
       </div>
       <div class="burndown-card" data-reveal>
         ${svg}
         <div class="legend">
-          <span><i style="background:var(--red)"></i> National debt remaining</span>
+          <span><i style="background:var(--red)"></i> National debt remaining (left)</span>
+          <span><i style="border-top:3px dashed #1f7a4d;background:none;height:0;width:18px"></i> Surplus to the debt that year (right)</span>
         </div>
       </div>
 

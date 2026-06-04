@@ -37,6 +37,27 @@
       <div class="cm-eq">${eq}</div>
     </div>`;
   }
+  function breakdownBlock(p) {
+    const items = (P.breakdowns || {})[p.id];
+    if (!items || !items.length) return "";
+    const max = Math.max(...items.map((it) => Math.abs(it.amt)), 1);
+    const total = items.reduce((s, it) => s + it.amt, 0);
+    const rev = p.costType === "revenue";
+    const rows = items.map((it) => {
+      const off = it.amt < 0;
+      const t = (rev || off) ? "rev" : "spend";
+      const w = (Math.abs(it.amt) / max) * 100;
+      const amtTxt = it.amt === 0 ? "≈ $0" : (off ? "−" : (rev ? "+" : "")) + money(Math.abs(it.amt));
+      return `<li><span class="cb-label">${esc(it.label)}</span><span class="cb-bar"><span class="cb-fill ${t}" style="width:${w.toFixed(0)}%"></span></span><span class="cb-amt ${t}">${amtTxt}</span></li>`;
+    }).join("");
+    const title = rev ? "Where the revenue comes from" : (p.costType === "neutral" ? "Why it's about $0" : "Why it costs this");
+    const sumTxt = rev ? "+" + money(total) : (p.costType === "neutral" ? "about $0 net" : money(Math.abs(total)));
+    return `<div class="policy-block" data-reveal><h3>${title}</h3>
+      <p class="aisle-intro">The headline number above, split into the pieces that drive it — rounded and illustrative.</p>
+      <ul class="cost-breakdown">${rows}</ul>
+      <p class="cb-foot">Adds up to <strong>${sumTxt}</strong> a year.</p></div>`;
+  }
+
   function aisleCol(cls, name, items) {
     const list = (items || []).map((it) =>
       `<li><p class="concern">${esc(it.c)}</p><p class="rebuttal"><b>Our answer:</b> ${esc(it.r)}</p></li>`).join("");
@@ -62,6 +83,7 @@
         <div class="policy-block" data-reveal><h3>The Plan</h3><ul class="plan-list">${plan}</ul></div>
         ${p.timeline ? timelineBlock(p) : ""}
         <div class="policy-block" data-reveal><h3>How it works</h3><div class="detail-grid">${detail}</div></div>
+        ${breakdownBlock(p)}
         <div class="policy-block" data-reveal><h3>Common questions &amp; concerns</h3><div class="qa">${qa}</div></div>
         <div class="policy-block" data-reveal><h3>Across the aisle</h3>
           <p class="aisle-intro">The most common concerns from each side — and our honest answer to each.</p>

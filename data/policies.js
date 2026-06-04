@@ -1137,6 +1137,150 @@ window.PLATFORM = {
     { name: "Avery", years: "2029–", dollars: 278, party: "I", key: "avery", soon: true },
   ],
 
+  // Per-policy cost/revenue breakdown — the single headline number split into the
+  // pieces that drive it ($B/yr). Each list sums to that policy's cost (or, for
+  // revenue policies, its revenue). Illustrative.
+  breakdowns: {
+    healthcare: [
+      { label: "Hospital & physician care, now publicly paid", amt: 800 },
+      { label: "Prescription drugs (after negotiation)", amt: 200 },
+      { label: "Newly covered: dental, vision, hearing, mental & long-term care", amt: 250 },
+      { label: "Expanded capacity — clinics, training, more providers", amt: 90 },
+      { label: "Administration of the single public plan", amt: 60 },
+    ],
+    education: [
+      { label: "Universal pre-K & after-school", amt: 60 },
+      { label: "Free community & technical college + dual enrollment", amt: 55 },
+      { label: "Teacher pay floor (federal top-ups)", amt: 40 },
+      { label: "K–12 modernization & counselors", amt: 25 },
+    ],
+    housing: [
+      { label: "Social-housing construction & operating subsidy", amt: 60 },
+      { label: "Expanded housing vouchers", amt: 55 },
+      { label: "Housing-first homelessness programs", amt: 20 },
+      { label: "First-home property-tax break (net of second-home surtax)", amt: 15 },
+    ],
+    childcare: [
+      { label: "Capped / free childcare subsidies", amt: 180 },
+      { label: "12 weeks paid family & medical leave (insurance pool)", amt: 90 },
+      { label: "Living wage for early educators", amt: 30 },
+    ],
+    "social-security": [
+      { label: "Higher benefits, especially for low-income retirees", amt: 150 },
+      { label: "Fully offset by lifting the ~$168k payroll-tax cap", amt: -150 },
+    ],
+    "term-limits": [
+      { label: "A constitutional amendment + enforcing the stock-trading ban — no real federal outlay", amt: 0 },
+    ],
+    "money-politics": [
+      { label: "Small-donor public matching fund", amt: 9 },
+      { label: "Dark-money disclosure & enforcement", amt: 1 },
+    ],
+    voting: [
+      { label: "Automatic registration & secure election systems", amt: 3 },
+      { label: "Election Day holiday ops, early & mail voting", amt: 2 },
+      { label: "Paper backups & routine audits", amt: 1 },
+    ],
+    rights: [
+      { label: "Clinic & reproductive-care funding", amt: 1.5 },
+      { label: "Enforcement & data-privacy protection", amt: 0.5 },
+    ],
+    justice: [
+      { label: "Reentry & violence-interruption programs", amt: 6 },
+      { label: "Public defense & ending cash-bail systems", amt: 4 },
+      { label: "Mental-health crisis responders", amt: 3 },
+      { label: "Police training, standards & misconduct registry", amt: 2 },
+    ],
+    immigration: [
+      { label: "More immigration judges & courts", amt: 10 },
+      { label: "Processing & system modernization", amt: 8 },
+      { label: "Border technology", amt: 5 },
+      { label: "Integration services", amt: 2 },
+    ],
+    communities: [
+      { label: "Baby bonds — a public nest egg per child", amt: 60 },
+      { label: "Fully fund the Indian Health Service + treaty obligations", amt: 35 },
+      { label: "Reservation infrastructure: water, housing, broadband", amt: 15 },
+      { label: "Puerto Rico & Native Hawaiian investment", amt: 10 },
+    ],
+    "min-wage": [
+      { label: "A wage floor paid by employers — no federal spending, and it lowers public-assistance costs", amt: 0 },
+    ],
+    "worker-power": [
+      { label: "Mostly new labor rules; only modest enforcement funding", amt: 1 },
+    ],
+    energy: [
+      { label: "Grid & transmission modernization (Grid Corps)", amt: 120 },
+      { label: "Home heat-pump & weatherization rebates", amt: 90 },
+      { label: "Clean-energy deployment incentives", amt: 60 },
+      { label: "Clean-energy jobs guarantee & training", amt: 30 },
+    ],
+    rail: [
+      { label: "High-speed line construction (per year of a 10-yr build)", amt: 150 },
+      { label: "Stations & local-transit connections", amt: 30 },
+      { label: "Trains (rolling stock)", amt: 20 },
+    ],
+    "humanity-first": [
+      { label: "A modern statistical agency — staff & data systems", amt: 1.5 },
+      { label: "Publishing the score & independent audits", amt: 0.5 },
+    ],
+    "gun-safety": [
+      { label: "Universal background-check system", amt: 2 },
+      { label: "Community violence-interruption grants", amt: 2 },
+      { label: "Research & red-flag implementation", amt: 1 },
+    ],
+    antitrust: [
+      { label: "Antitrust enforcement staff & litigation at DOJ / FTC", amt: 2 },
+    ],
+    disaster: [
+      { label: "Pre-disaster mitigation grants", amt: 20 },
+      { label: "A larger pre-funded emergency reserve (annualized)", amt: 15 },
+      { label: "Faster relief & rebuild-stronger", amt: 5 },
+    ],
+    "data-centers": [
+      { label: "Grid oversight & ratepayer protection", amt: 2 },
+      { label: "Clean-power & grid-resilience support", amt: 2 },
+      { label: "Water & siting standards enforcement", amt: 1 },
+    ],
+    space: [
+      { label: "NASA missions & basic science boost", amt: 25 },
+      { label: "International partnership programs", amt: 8 },
+      { label: "Launch & ground infrastructure", amt: 7 },
+    ],
+    "tax-rich": [
+      { label: "Higher top income-tax rates (over $400k)", amt: 500 },
+      { label: "Wealth tax on fortunes over $10B", amt: 350 },
+      { label: "IRS enforcement on the wealthiest", amt: 150 },
+    ],
+    "ai-tax": [
+      { label: "Levy on large-scale labor-displacing AI deployment", amt: 120 },
+      { label: "Surcharge on big automation / compute profits", amt: 30 },
+    ],
+    ftt: [
+      { label: "0.1% tax on stock & bond trades", amt: 60 },
+      { label: "Tax on derivatives & high-frequency trading", amt: 20 },
+    ],
+    "carried-interest": [
+      { label: "Tax carried interest as ordinary income, not capital gains", amt: 20 },
+    ],
+    "stepped-up-basis": [
+      { label: "Tax unrealized gains at death above the exemption", amt: 45 },
+      { label: "Close 'buy, borrow, die' (large asset-backed loans)", amt: 15 },
+    ],
+    "like-kind": [
+      { label: "Cap 1031 like-kind deferral above ~$500k/yr", amt: 20 },
+    ],
+    corporate: [
+      { label: "Corporate rate to ~28%", amt: 250 },
+      { label: "15% minimum tax on book profits", amt: 120 },
+      { label: "Global minimum tax (end offshore shifting)", amt: 80 },
+    ],
+    carbon: [
+      { label: "Fee on domestic carbon pollution", amt: 150 },
+      { label: "Border carbon adjustment on imports", amt: 50 },
+    ],
+  },
+
   /* ---------------- Humanity Score breakdown (pie chart) ----------------
      Each dimension carries:
        value  — its weight in the score (all weights sum to 100 = the pie)
