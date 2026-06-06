@@ -1102,15 +1102,195 @@ window.PLATFORM = {
         response: "We will lead in space — not by going it alone, but by bringing our partners with us. The Moon, Mars, the science that protects our planet: these are humanity's goals. America out front, the whole world better for it. That's the kind of leadership worth funding.",
       },
     },
+    {
+      id: "veterans", cat: "care", icon: "🎖️",
+      title: "Keep Faith with Veterans", tagline: "We sent them to serve; we owe them when they come home.",
+      cost: 50, costType: "spend", costNote: "shorter VA waits, mental-health & suicide prevention, benefits backlog, veteran homelessness",
+      lead: "Caring for the people we send to war is part of the cost of war — and for too long we've underpaid it in peacetime. We cut VA wait times, guarantee mental-health care, clear the benefits backlog, and end veteran homelessness. A promise kept, not a slogan at a podium.",
+      plan: [
+        { b: "Cut VA wait times.", t: "Fund the staff and capacity for timely care — and keep the choice to see a community doctor when the VA can't deliver fast." },
+        { b: "Mental health & suicide prevention.", t: "Immediate, no-copay mental-health care for every veteran, with real outreach to those at risk." },
+        { b: "Clear the benefits backlog.", t: "Modernize claims so earned benefits arrive in weeks, not years." },
+        { b: "End veteran homelessness.", t: "Housing-first for every veteran without a home." },
+      ],
+      detail: [
+        { h: "An obligation, not charity", p: "We budget veterans' care as a permanent part of the cost of national defense — so it stops being the thing that gets cut once the war ends." },
+        { h: "Choice when it counts", p: "Strengthen the VA, and keep the option to see a private provider when that's faster — both, not either-or." },
+        { h: "The crisis we ignore", p: "Roughly 22 veterans a day die by suicide. This funds the response at the scale an emergency demands." },
+      ],
+      qa: [
+        { q: "Is this privatizing the VA?", a: "No. We strengthen the VA and keep community care as a backstop, not a replacement — most veterans get excellent care at the VA when it's properly funded." },
+        { q: "Can we afford it?", a: "It's a fraction of what we spend deploying troops. Honoring the promise is part of the price of asking people to serve." },
+      ],
+      aisle: {
+        rep: [{ c: "Skip the bureaucracy — just give vets vouchers for private care.", r: "We expand the choice to see a private doctor when the VA can't deliver fast, while fixing the VA so most get great care close to home. Vets deserve both." }],
+        dem: [{ c: "Will this actually cut wait times?", r: "Yes — it funds the staff, facilities, and modernized claims that cause the delays, with community care as a backstop while the VA catches up." }],
+        ind: [
+          { c: "Why is this never solved?", r: "Because the promise is made in wartime and underfunded in peace. We make veterans' care a permanent line in the defense budget, so it stops being optional." },
+          { c: "What about veteran suicide?", r: "Immediate, no-copay mental-health care and real outreach, funded at emergency scale — because ~22 lost a day is an emergency." },
+        ],
+        response: "A country that can afford to send people to war can afford to take care of them when they come home. This isn't charity — it's the bill that comes with the uniform, and we pay it in full.",
+      },
+    },
+    {
+      id: "public-health", cat: "care", icon: "🦠",
+      title: "Public Health & Pandemic Readiness", tagline: "Stay ready, so the next outbreak is a scare, not a catastrophe.",
+      cost: 35, costType: "spend", costNote: "rebuild local health departments, a national reserve, disease surveillance, global cooperation",
+      lead: "COVID showed what happens when public health is hollowed out: a million Americans dead and trillions lost. We rebuild the local health departments, stockpiles, and disease surveillance that catch the next outbreak early — and work with the world, because a virus doesn't carry a passport.",
+      plan: [
+        { b: "Rebuild public-health departments.", t: "Fund the state and local health workforce that's been gutted for decades." },
+        { b: "Be ready for the next pandemic.", t: "A stocked national reserve, surge manufacturing, and a clear rapid-response playbook." },
+        { b: "Catch it early.", t: "Modern disease surveillance plus fast, fair development of vaccines and treatments." },
+        { b: "Lead globally.", t: "A threat anywhere is a threat everywhere — invest in global health cooperation." },
+      ],
+      detail: [
+        { h: "Prevention is the cheapest care", p: "Every dollar spent on preparedness saves many in a crisis. The capacity that was missing in 2020 cost us trillions." },
+        { h: "A scalpel, not a sledgehammer", p: "Early detection and ready capacity are what let us respond precisely — and make blunt, economy-crushing lockdowns unnecessary." },
+        { h: "Not just pandemics", p: "The same backbone improves chronic-disease prevention, clean water, and food safety every ordinary year." },
+      ],
+      qa: [
+        { q: "Isn't COVID over — why spend now?", a: "Preparedness is insurance: you buy it before the fire, not during. The next outbreak isn't a question of if, but when." },
+        { q: "Is this more lockdowns?", a: "The opposite. Early detection and standing capacity are what make sweeping shutdowns avoidable." },
+      ],
+      aisle: {
+        rep: [{ c: "This is just a bigger federal health bureaucracy.", r: "It mostly funds local and state departments and a supply reserve — the missing capacity that cost trillions in 2020. Preparedness is the cost-saving, conservative move." }],
+        dem: [{ c: "Does it address health equity?", r: "Yes — it rebuilds the local departments serving the hardest-hit communities and makes sure vaccines and treatments actually reach everyone." }],
+        ind: [
+          { c: "Will it prevent another shutdown?", r: "That's the goal — ready capacity lets us respond with a scalpel instead of a sledgehammer." },
+          { c: "Is it worth the cost?", r: "At ~$35B it's a rounding error next to the trillions a botched pandemic costs. The cheapest insurance we can buy." },
+        ],
+        response: "We paid trillions and lost a million Americans because we'd let public health wither. For a sliver of that, we stay ready — so the next one is a scare we handle, not a catastrophe we survive.",
+      },
+    },
+    {
+      id: "mental-health", cat: "care", icon: "🧠",
+      title: "Mental Health & the Addiction Crisis", tagline: "Treat it like the health emergency it is.",
+      cost: 50, costType: "spend", costNote: "988 crisis response, treatment on demand, the overdose crisis, school mental health",
+      lead: "A mental-health and addiction crisis is killing Americans — roughly 100,000 overdose deaths a year, on top of rising despair. We answer it like the medical emergency it is: a real crisis-response system, treatment on demand, and an end to dying on a waitlist.",
+      plan: [
+        { b: "Fund the 988 crisis line & response.", t: "Trained mental-health responders for mental-health emergencies — not police as the default." },
+        { b: "Treatment on demand.", t: "No waitlists for addiction or mental-health treatment, including the medications proven to work." },
+        { b: "Tackle the overdose crisis.", t: "Naloxone everywhere, proven harm reduction, and going hard after the traffickers and supply." },
+        { b: "Reach kids early.", t: "Counselors and real mental-health care in every school." },
+      ],
+      detail: [
+        { h: "Care, not cuffs", p: "Routing crises to clinicians instead of jails and ERs is both more humane and far cheaper — those are the most expensive, least effective options we've got." },
+        { h: "Do what works", p: "Medication-assisted treatment and harm reduction are proven to save lives and connect people to recovery. We scale them." },
+        { h: "Parity, enforced", p: "Insurers must cover mental health like physical health — for real, with teeth." },
+      ],
+      qa: [
+        { q: "Isn't addiction a personal failing?", a: "It's a treatable medical condition. Decades of evidence show treatment works far better — and costs far less — than punishment." },
+        { q: "Doesn't harm reduction enable drug use?", a: "The evidence is the opposite: it saves lives and connects people to treatment without increasing use." },
+      ],
+      aisle: {
+        rep: [{ c: "This is soft on drugs.", r: "It's tough on death. We pair treatment and naloxone with going hard after traffickers and supply. Punishment alone has failed for 50 years; this saves lives and money." }],
+        dem: [{ c: "Will it reach underserved communities?", r: "Yes — the 988 system, school care, and treatment capacity are aimed squarely at the places with the fewest resources and the highest need." }],
+        ind: [
+          { c: "Why does this keep getting worse?", r: "Because we answer a health emergency with jails and waitlists. Treat it as medicine — crisis response, treatment on demand, prevention — and the numbers come down." },
+          { c: "Why not have police handle crises?", r: "We add trained mental-health responders so officers aren't the default for someone in crisis — safer for everyone involved." },
+        ],
+        response: "We're losing more Americans a year to overdoses than to car crashes, and we answer it with waitlists and jail cells. Treat it like the medical emergency it is — care on demand, crisis teams, prevention — and we stop the dying.",
+      },
+    },
+    {
+      id: "infrastructure", cat: "future", icon: "🌉",
+      title: "Rebuild America's Infrastructure", tagline: "Fix the backbone of the country — and build it to last.",
+      cost: 150, costType: "spend", costNote: "roads & bridges, water systems & lead pipes, transit & ports, climate resilience",
+      lead: "Crumbling roads, century-old water pipes, and bottlenecked ports are a hidden tax on everyone. We rebuild the physical backbone of the country — fixing what's broken first, getting the lead out of the water, and building it to withstand the storms that are already here.",
+      plan: [
+        { b: "Fix what's broken.", t: "Repair the worst roads and bridges before chasing new ribbon-cuttings." },
+        { b: "Get the lead out.", t: "Replace every lead water pipe and modernize aging water systems." },
+        { b: "Move people and goods.", t: "Modern transit, ports, and freight that cut congestion and lower prices." },
+        { b: "Build resilient.", t: "Harden every project against floods, heat, and storms, so we don't rebuild it twice." },
+      ],
+      detail: [
+        { h: "A tax you already pay", p: "Bad roads, water-main breaks, and delays cost households thousands a year. Fixing them is effectively a raise." },
+        { h: "Fix-it-first", p: "Maintaining what we have is the highest-return, least-glamorous spending there is — and far cheaper than waiting for it to fail." },
+        { h: "Built here", p: "American materials and well-paid labor, with real oversight to keep costs in line." },
+      ],
+      qa: [
+        { q: "Didn't we just pass an infrastructure bill?", a: "A down payment, not the finish. The backlog is decades deep; this sustains the investment instead of letting it lapse." },
+        { q: "Won't it run over budget?", a: "Fix-it-first, standardized projects, and real oversight keep costs in check — deferring maintenance until things break is the truly expensive path." },
+      ],
+      aisle: {
+        rep: [{ c: "Federal infrastructure spending is wasteful.", r: "Fix-it-first maintenance is the least-wasteful spending there is, built with American labor and materials. The real waste is the pothole, the water-main break, and the bridge we let fail." }],
+        dem: [{ c: "Is it green and union?", r: "Built resilient, with good wages, prioritizing the lead pipes and transit that matter most to working communities." }],
+        ind: [
+          { c: "Will I actually notice?", r: "Yes — shorter commutes, fewer blowouts, clean water from the tap, and lower prices as freight moves faster. It shows up in your week and your wallet." },
+          { c: "Why does it always cost so much?", r: "Because we defer maintenance until things break — the most expensive way to do it. Fix-it-first and steady funding are cheaper over time." },
+        ],
+        response: "You feel our crumbling infrastructure every day — in the pothole, the boil-water notice, the traffic. Rebuilding it isn't a luxury; it's a raise for every family and the foundation for everything else we want to build.",
+      },
+    },
+    {
+      id: "broadband", cat: "future", icon: "📡",
+      title: "Internet for Every American", tagline: "In 2028, broadband is a utility — so we wire the whole country.",
+      cost: 25, costType: "spend", costNote: "fiber to unserved areas, affordability subsidies, devices & digital skills",
+      lead: "Internet is no longer a luxury — it's how you work, learn, see a doctor, and reach your government. We finish the job: affordable, high-speed internet to every home in America, rural and tribal areas included, treated like the essential utility it has become.",
+      plan: [
+        { b: "Connect everyone.", t: "Build fiber to the rural and tribal communities the market skipped for 20 years." },
+        { b: "Make it affordable.", t: "Subsidies so no family is priced off the internet." },
+        { b: "Close the device & skills gap.", t: "Devices and digital-skills training for the people who need them." },
+        { b: "Keep it open.", t: "Net neutrality and real competition, so providers can't gouge or throttle." },
+      ],
+      detail: [
+        { h: "An essential utility", p: "Like electricity a century ago, we wire the whole country — not just the profitable parts — because being offline now means being shut out." },
+        { h: "The cost of disconnection", p: "No internet means lost jobs, missed schooling, and no telehealth. Closing the gap pays for itself in opportunity." },
+        { h: "A public option where needed", p: "Municipal and co-op networks where private ISPs simply refuse to serve — filling the gap, not taking over." },
+      ],
+      qa: [
+        { q: "Didn't we already fund broadband?", a: "Repeatedly, and it repeatedly under-delivered. We finish it with accountability, open networks, and a focus on the truly unserved." },
+        { q: "Is the government becoming an ISP?", a: "Only where private providers refuse to serve. Public and co-op networks fill the gap; private ISPs compete on top." },
+      ],
+      aisle: {
+        rep: [{ c: "Let the market handle broadband.", r: "The market skipped rural and tribal America for two decades. We seed open networks and let private ISPs compete on top — market-friendly where it works, public only where it won't." }],
+        dem: [{ c: "Will it reach tribal & rural communities?", r: "They're the priority — that's where the gap is widest and the market has failed longest." }],
+        ind: [
+          { c: "Why is my internet so expensive and slow?", r: "Because much of the country has one provider and no competition. Open networks fix the price; affordability subsidies fix the rest." },
+          { c: "Is internet really essential?", r: "Try applying for a job, doing homework, or seeing a doctor without it. In 2028 it's as essential as electricity — so we treat it that way." },
+        ],
+        response: "No kid should do homework in a parking lot for the Wi-Fi. We finish wiring America — affordable, high-speed, everywhere — and treat the internet like the essential utility it has become.",
+      },
+    },
+    {
+      id: "supreme-court", cat: "democracy", icon: "🧑‍⚖️",
+      title: "Fix the Supreme Court", tagline: "Term limits, one pick per president, an odd number of seats.",
+      cost: 0, costType: "neutral", costNote: "structural reform — likely a constitutional amendment; no real federal outlay",
+      lead: "A lifetime seat on the most powerful court in the country, handed out by the luck of a death or a retirement, has turned the Supreme Court into a partisan prize. We fix the structure itself: every justice serves a single limited term, every president appoints exactly one, the Court keeps an odd number of seats — and politics stops warping it.",
+      plan: [
+        { b: "Term limits for justices.", t: "No more lifetime appointments — each justice serves a single, fixed term, then rotates to a lower court." },
+        { b: "One pick per president.", t: "Every president appoints exactly one justice, so the Court tracks the country over time instead of the timing of a vacancy." },
+        { b: "An odd number of seats.", t: "Keep an odd number of justices so the Court can never deadlock in a tie." },
+        { b: "Real ethics rules.", t: "A binding code of conduct, with recusal and disclosure that actually mean something." },
+      ],
+      detail: [
+        { h: "Why term limits", p: "Fixed terms make the Court predictable and lower the stakes of any single seat — cooling the scorched-earth confirmation wars and the temptation to time retirements for political advantage." },
+        { h: "Why one per president", p: "Tying appointments to elections, not to actuarial luck, means no president gets a windfall of seats and none is shut out. The Court comes to reflect a generation of voters." },
+        { h: "It takes an amendment", p: "Doing this durably likely requires a constitutional amendment — a high bar, but term limits for justices are popular across the spectrum." },
+      ],
+      qa: [
+        { q: "Isn't this just court-packing?", a: "The opposite. Packing is a one-time grab of extra seats by one side; this is a neutral, permanent rule that binds every president of every party equally." },
+        { q: "Do sitting justices lose their seats?", a: "No — the reform phases in for future appointments and respects current justices, so it's a structural fix, not a purge." },
+      ],
+      aisle: {
+        rep: [{ c: "This is a Democratic power grab at the Court.", r: "It binds every president of every party equally — one appointment each, fixed terms. It takes the windfall away from everyone, which is exactly why those who benefit from the status quo dislike it." }],
+        dem: [{ c: "Why not just add seats now?", r: "A one-time addition invites endless retaliation and an ever-growing Court. Fixed terms and one-pick-per-president is the durable, principled fix that doesn't escalate the war." }],
+        ind: [
+          { c: "Why should a death decide the country's direction?", r: "It shouldn't — that's the whole problem. One appointment per president, with fixed terms, ties the Court to elections instead of to who happens to retire or pass away." },
+          { c: "Can this even be done?", r: "Likely through a constitutional amendment — hard by design — but justice term limits poll well across party lines, which makes it a fight worth leading." },
+        ],
+        response: "A lifetime seat decided by the timing of a funeral is no way to run the highest court in the land. Fixed terms, one appointment per president, an odd number of seats, and real ethics — a Court that answers to the Constitution and the country, not to luck and partisanship.",
+      },
+    },
 
   ],
 
   /* ---------------- The revenue plan + fiscal facts (Budget & Deficit pages) ---------------- */
   funding: [
     { label: "Tax the ultra-rich — wealth tax + higher top rates", amt: 1000, id: "tax-rich", icon: "💰" },
-    { label: "Health savings recaptured — from Universal Healthcare", amt: 700, id: "healthcare", icon: "🩺" },
+    { label: "Health savings recaptured — from Universal Healthcare", amt: 810, id: "healthcare", icon: "🩺" },
     { label: "Corporate tax reform & global minimum tax", amt: 450, id: "corporate", icon: "🏢" },
-    { label: "Economic growth — a wider tax base from a trained, healthier workforce", amt: 400, id: "education", icon: "🌱" },
+    { label: "Economic growth — a wider tax base from a healthier, trained, better-connected workforce and modern infrastructure", amt: 600, id: "education", icon: "🌱" },
     { label: "Carbon fee on big polluters", amt: 200, id: "carbon", icon: "🏭" },
     { label: "The AI tax", amt: 150, id: "ai-tax", icon: "🤖" },
     { label: "The financial-transaction tax", amt: 80, id: "ftt", icon: "📈" },
@@ -1278,6 +1458,38 @@ window.PLATFORM = {
     carbon: [
       { label: "Fee on domestic carbon pollution", amt: 150 },
       { label: "Border carbon adjustment on imports", amt: 50 },
+    ],
+    veterans: [
+      { label: "VA health-care capacity & shorter waits", amt: 25 },
+      { label: "Mental-health & suicide prevention", amt: 12 },
+      { label: "Benefits-backlog modernization", amt: 8 },
+      { label: "Housing & homelessness for veterans", amt: 5 },
+    ],
+    "public-health": [
+      { label: "Rebuild state & local health departments", amt: 12 },
+      { label: "National stockpile & surge capacity", amt: 12 },
+      { label: "Disease surveillance & vaccine readiness", amt: 7 },
+      { label: "Global health cooperation", amt: 4 },
+    ],
+    "mental-health": [
+      { label: "988 crisis line & community crisis teams", amt: 18 },
+      { label: "Treatment on demand (incl. addiction / opioid)", amt: 20 },
+      { label: "School & youth mental health", amt: 8 },
+      { label: "Grow the provider workforce", amt: 4 },
+    ],
+    infrastructure: [
+      { label: "Roads & bridges (fix-it-first)", amt: 60 },
+      { label: "Water systems & lead-pipe replacement", amt: 40 },
+      { label: "Transit, ports & freight", amt: 30 },
+      { label: "Resilience & climate-hardening", amt: 20 },
+    ],
+    broadband: [
+      { label: "Build fiber to unserved rural & tribal areas", amt: 15 },
+      { label: "Affordability subsidies", amt: 6 },
+      { label: "Devices & digital-skills training", amt: 4 },
+    ],
+    "supreme-court": [
+      { label: "A constitutional / structural reform — no federal spending", amt: 0 },
     ],
   },
 
