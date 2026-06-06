@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#061629" />
+  <title>Methodology &amp; Sources — How the Numbers Are Made | Avery 2028</title>
+  <meta name="description" content="How every figure on this site is built: policy costs, the budget and surplus, the Tax Lab income model, the live U.S. Treasury debt data and amortization model, the Humanity Score sources, and the per-policy scorecards." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="canonical" href="https://avery-2028-campaign.pages.dev/methodology.html" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Rob Avery for President 2028" />
+  <meta property="og:title" content="Methodology &amp; Sources | Avery 2028" />
+  <meta property="og:description" content="How every figure on this site is built — costs, the budget, the Tax Lab model, live Treasury debt data, the Humanity Score, and more." />
+  <meta property="og:url" content="https://avery-2028-campaign.pages.dev/methodology.html" />
+  <meta property="og:image" content="https://avery-2028-campaign.pages.dev/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Methodology &amp; Sources | Avery 2028" />
+  <meta name="twitter:description" content="How every number on this site is made — honestly." />
+  <meta name="twitter:image" content="https://avery-2028-campaign.pages.dev/assets/og.png" />
+  <style>
+    .m-section { padding: 26px 0; border-top: 1px solid var(--line); }
+    .m-section:first-of-type { border-top: 0; }
+    .m-section h3 { font-size: 1.35rem; margin-bottom: 8px; }
+    .m-section p { color: var(--ink); margin-bottom: 10px; }
+    .m-section ul { margin: 6px 0 6px 20px; color: var(--ink); }
+    .m-section li { margin-bottom: 5px; }
+    .callout { background: var(--paper); border: 1px solid var(--line); border-left: 4px solid var(--gold); border-radius: 10px; padding: 16px 20px; margin: 4px 0 6px; }
+    .src-list { list-style: none; margin: 0; display: grid; gap: 8px; }
+    .src-list li { padding-left: 0; }
+    .src-list a { font-weight: 600; }
+  </style>
+</head>
+<body data-page="methodology">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal>Show your work</span>
+        <h1 data-reveal>Methodology &amp; Sources</h1>
+        <p data-reveal>A campaign that brags about transparency owes you its math. Here's how every number on this site is built — and exactly where it's solid, where it's illustrative, and where it's a judgment call.</p>
+      </div>
+    </section>
+
+    <section class="section bg-white">
+      <div class="container" style="max-width:820px">
+        <div class="m-section" data-reveal>
+          <div class="callout"><strong>First, the honest disclaimer.</strong> This is a fictional, for-fun parody campaign. The policy figures are simplified, rounded, illustrative estimates for education and entertainment — <em>not</em> official CBO scores. The goal is to be directionally honest and internally consistent, not to be a federal budget.</div>
+        </div>
+
+        <div class="m-section" data-reveal>
+          <h3>Policy costs &amp; the breakdowns</h3>
+          <p>Each policy carries a single headline cost (or revenue) in billions per year, rounded to ballpark figures drawn from public estimates for comparable proposals. Every policy's "Why it costs this" breakdown is stored as line items that <strong>sum exactly to that headline number</strong> — so the parts always add up to the whole.</p>
+        </div>
+
+        <div class="m-section" data-reveal>
+          <h3>The budget &amp; the surplus</h3>
+          <p>The Budget page totals all spending policies and all revenue lines. New revenue (~$3.39T) exceeds new spending (~$3.11T), leaving a <strong>~$278B surplus</strong> on top of a balanced budget. When we add a new spending policy, we either offset it or label it neutral, so the surplus is held honest rather than quietly eroded.</p>
+        </div>
+
+        <div class="m-section" data-reveal>
+          <h3>The Tax Lab</h3>
+          <p>The Tax Lab runs your bracket schedule against a model U.S. income distribution (return counts and average AGI by income band), applies your standard deduction, and sums the tax owed. It's <strong>calibrated once</strong> so that "current law" reproduces actual federal individual-income-tax collections — then your custom plan is scaled by that same factor for an apples-to-apples comparison.</p>
+          <p><strong>What it doesn't model:</strong> behavioral response (people changing how much they work, earn, or shelter), deductions and credits beyond the standard deduction, payroll/corporate/other taxes, or year-to-year economic change. It's a teaching tool for the <em>shape</em> of a tax code, not a scoring engine.</p>
+        </div>
+
+        <div class="m-section" data-reveal>
+          <h3>The Deficit page — live data</h3>
+          <p>The national-debt figure and the average interest rate are pulled <strong>live from the U.S. Treasury</strong> (Fiscal Data API — "Debt to the Penny" and the average interest rate on the public debt), with a hardcoded fallback if the feed is unreachable. The payoff model is a standard amortization: we hold the debt-service budget steady at today's interest payment plus the surplus, so as the debt shrinks the interest bill shrinks and more goes to principal — the payoff accelerates. It assumes a flat interest rate and steady surplus; real rates, growth, and politics would move the date.</p>
+        </div>
+
+        <div class="m-section" data-reveal>
+          <h3>The Humanity Score</h3>
+          <p>The score is a weighted blend of 13 dimensions of national wellbeing (economic output and security, physical and mental health, life expectancy, education, affordability, safety, opportunity, work &amp; leisure, life satisfaction, environment, civic trust). Each dimension lists the specific real-world indicators behind it and the agency that publishes them. The weights sum to 100; the overall score is the weighted average. The dimension scores here are illustrative current readings.</p>
+        </div>
+
+        <div class="m-section" data-reveal>
+          <h3>The per-policy scorecards</h3>
+          <p>Time-to-implement, difficulty, priority, and "odds it happens" are the campaign's <strong>honest self-assessment</strong> — subjective judgment, not measured data. Reforms needing a constitutional amendment read low odds on purpose; popular statutory fixes read higher. They're there to be candid about feasibility, not to predict the future.</p>
+        </div>
+
+        <div class="m-section" data-reveal>
+          <h3>Your privacy</h3>
+          <p>The Tax Lab and "How does this affect me?" run entirely in your browser. <strong>Nothing you enter is stored or sent anywhere.</strong> The only network call the site makes is the public, read-only U.S. Treasury debt feed on the Deficit page.</p>
+        </div>
+
+        <div class="m-section" data-reveal>
+          <h3>Primary data sources</h3>
+          <ul class="src-list">
+            <li>🏦 <a href="https://fiscaldata.treasury.gov/" target="_blank" rel="noopener">U.S. Treasury — Fiscal Data API</a> (debt &amp; interest rates, live)</li>
+            <li>📊 <a href="https://www.cbo.gov/" target="_blank" rel="noopener">Congressional Budget Office</a> (budget &amp; cost baselines)</li>
+            <li>📈 <a href="https://www.bea.gov/" target="_blank" rel="noopener">Bureau of Economic Analysis</a> (GDP, output)</li>
+            <li>👷 <a href="https://www.bls.gov/" target="_blank" rel="noopener">Bureau of Labor Statistics</a> (wages, employment, prices)</li>
+            <li>🧾 <a href="https://www.irs.gov/statistics" target="_blank" rel="noopener">IRS Statistics of Income</a> (income distribution for the Tax Lab)</li>
+            <li>🏥 <a href="https://www.cdc.gov/" target="_blank" rel="noopener">CDC</a> &amp; <a href="https://www.census.gov/" target="_blank" rel="noopener">U.S. Census Bureau</a> (health, demographics, poverty)</li>
+          </ul>
+          <p style="color:var(--muted);font-size:0.92rem;margin-top:12px">Figures are simplified for clarity and may not reflect the latest release. Spot something off? It's open source — corrections welcome.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-navy">
+      <div class="container center" style="max-width:680px">
+        <span class="eyebrow" data-reveal>See it in action</span>
+        <h2 class="section-title" data-reveal>Check the math yourself</h2>
+        <div data-reveal style="margin-top:10px">
+          <a href="tax-lab.html" class="btn btn--gold btn--lg">Open the Tax Lab <span class="arrow">→</span></a>
+          <a href="deficit.html" class="btn btn--ghost-light btn--lg" style="margin-left:8px">The Deficit &amp; Debt</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="scripts/components.js" defer></script>
+</body>
+</html>

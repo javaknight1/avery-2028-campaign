@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#061629" />
+  <title>FAQ — Frequently Asked Questions | Avery 2028</title>
+  <meta name="description" content="Common questions about the Avery 2028 platform: is this real, how is it paid for, will my taxes go up, where the live debt number comes from, is my data saved, and more." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="canonical" href="https://avery-2028-campaign.pages.dev/faq.html" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Rob Avery for President 2028" />
+  <meta property="og:title" content="FAQ — Frequently Asked Questions | Avery 2028" />
+  <meta property="og:description" content="Is this real? How is it paid for? Will my taxes go up? Is my data saved? Straight answers." />
+  <meta property="og:url" content="https://avery-2028-campaign.pages.dev/faq.html" />
+  <meta property="og:image" content="https://avery-2028-campaign.pages.dev/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="FAQ | Avery 2028" />
+  <meta name="twitter:description" content="Straight answers about the platform, the money, and your privacy." />
+  <meta name="twitter:image" content="https://avery-2028-campaign.pages.dev/assets/og.png" />
+  <style>
+    .faq { max-width: 820px; display: grid; gap: 12px; }
+    .faq-item { border: 1px solid var(--line); border-radius: 12px; background: var(--white); box-shadow: var(--shadow-sm); overflow: hidden; }
+    .faq-item summary { list-style: none; cursor: pointer; padding: 18px 22px; font-family: "Oswald"; font-weight: 600; font-size: 1.08rem; color: var(--navy); display: flex; justify-content: space-between; align-items: center; gap: 14px; }
+    .faq-item summary::-webkit-details-marker { display: none; }
+    .faq-item summary::after { content: "+"; font-size: 1.4rem; color: var(--red); flex: none; transition: transform 0.2s ease; }
+    .faq-item[open] summary::after { transform: rotate(45deg); }
+    .faq-item .faq-a { padding: 0 22px 20px; color: var(--ink); }
+    .faq-item .faq-a p { margin-bottom: 10px; }
+    .faq-item .faq-a a { font-weight: 600; }
+  </style>
+</head>
+<body data-page="faq">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal>Straight answers</span>
+        <h1 data-reveal>Frequently Asked Questions</h1>
+        <p data-reveal>The questions people actually ask — about whether this is real, how it's all paid for, and what happens to your data. No spin.</p>
+      </div>
+    </section>
+
+    <section class="section bg-paper">
+      <div class="container">
+        <div class="faq">
+          <details class="faq-item" open><summary>Wait — is this a real campaign?</summary><div class="faq-a"><p>No. This is a <strong>fictional, for-fun parody</strong> website. "Rob Avery" is not a real candidate, there's no real committee or party, and nothing here solicits votes, volunteers, or money. It's a project exploring what a radically transparent, fully-costed platform could look like.</p></div></details>
+
+          <details class="faq-item"><summary>How is all of this paid for?</summary><div class="faq-a"><p>The platform raises more than it spends. New revenue (~$3.39T/yr) beats new spending (~$3.11T/yr), leaving a <strong>~$278B surplus</strong> that goes toward the national debt. You can see every dollar in and out on the <a href="budget.html">Budget page</a>.</p></div></details>
+
+          <details class="faq-item"><summary>Will my taxes go up?</summary><div class="faq-a"><p>For most people, no — and many come out ahead once free healthcare, childcare, and college are counted. The new taxes fall on the <strong>wealthiest households, large corporations, and polluters</strong>. Find your own bottom line on the <a href="affect.html">How does this affect me?</a> page, or design your own brackets in the <a href="tax-lab.html">Tax Lab</a>.</p></div></details>
+
+          <details class="faq-item"><summary>How can you promise all this spending <em>and</em> a surplus?</summary><div class="faq-a"><p>By pairing every spending policy with a way to pay for it — closing loopholes, a billionaire wealth tax, corporate-tax reform, a carbon fee, and recaptured healthcare savings. The revenue is bigger than the spending, so it nets to a surplus rather than a deficit. The full reconciliation is on the <a href="budget.html">Budget</a> and <a href="deficit.html">Deficit</a> pages.</p></div></details>
+
+          <details class="faq-item"><summary>Are these numbers real?</summary><div class="faq-a"><p>They're illustrative — simplified, rounded estimates for education, not official CBO scores. The big exception: the <strong>national debt and interest rate on the Deficit page are pulled live from the U.S. Treasury</strong>. Full details on the <a href="methodology.html">Methodology &amp; Sources</a> page.</p></div></details>
+
+          <details class="faq-item"><summary>Where does the live debt number come from?</summary><div class="faq-a"><p>The U.S. Treasury's public <a href="https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/" target="_blank" rel="noopener">"Debt to the Penny"</a> Fiscal Data API — no login, updated daily. The Deficit page fetches it in your browser and recomputes the payoff against the real figure.</p></div></details>
+
+          <details class="faq-item"><summary>How did you estimate the "odds it happens"?</summary><div class="faq-a"><p>That's an honest self-assessment, not measured data. Reforms that need a constitutional amendment (term limits, Supreme Court changes) get low odds on purpose; popular statutory fixes get higher ones. It's there to be candid about feasibility.</p></div></details>
+
+          <details class="faq-item"><summary>Is my data saved when I use the calculators?</summary><div class="faq-a"><p>No. The Tax Lab and impact calculator run <strong>entirely in your browser</strong> — nothing you type is stored or sent anywhere. If you use a "Share" button, your inputs are encoded into the link <em>you</em> choose to copy; that's it.</p></div></details>
+
+          <details class="faq-item"><summary>Can I share my Tax Lab or impact results?</summary><div class="faq-a"><p>Yes — both have a share button that puts your scenario into the URL, so you can send someone the exact result. There's also a 🔗 copy-link button on every policy.</p></div></details>
+
+          <details class="faq-item"><summary>Is this a left-wing or right-wing platform?</summary><div class="faq-a"><p>It's unapologetically progressive on outcomes, but every policy includes the <strong>most common objection from Republicans, Democrats, and Independents</strong> — with an honest answer to each. Several planks (term limits, a balanced budget that pays down the debt, stock-trading bans, anti-waste transparency) have broad cross-party support.</p></div></details>
+
+          <details class="faq-item"><summary>Who built this, and is it open?</summary><div class="faq-a"><p>It's a personal, for-fun project — a zero-build static site, and the code and data are open on GitHub. Spot a mistake in the math? Corrections are welcome.</p></div></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-navy">
+      <div class="container center" style="max-width:680px">
+        <span class="eyebrow" data-reveal>Dig in</span>
+        <h2 class="section-title" data-reveal>Still curious?</h2>
+        <p class="section-lead" data-reveal>Read the platform, check the math, or see what it would mean for you.</p>
+        <div data-reveal style="margin-top:10px">
+          <a href="issues.html" class="btn btn--gold btn--lg">The Issues <span class="arrow">→</span></a>
+          <a href="methodology.html" class="btn btn--ghost-light btn--lg" style="margin-left:8px">Methodology</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="scripts/components.js" defer></script>
+</body>
+</html>

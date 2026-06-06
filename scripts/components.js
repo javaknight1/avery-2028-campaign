@@ -65,7 +65,8 @@
           <h4>Campaign</h4>
           <a href="index.html">Home</a>
           <a href="about.html">Meet Rob</a>
-          <a href="issues.html">Issues</a>
+          <a href="plan.html">First 100 Days</a>
+          <a href="faq.html">FAQ</a>
           <a href="get-involved.html">Get Involved</a>
         </div>
         <div class="footer-col">
@@ -74,6 +75,7 @@
           <a href="issues.html#cat-revenue">Revenue Policies</a>
           <a href="budget.html">The Budget</a>
           <a href="deficit.html">The Deficit &amp; Debt</a>
+          <a href="methodology.html">Methodology &amp; Sources</a>
         </div>
         <div class="footer-col">
           <h4>Tools</h4>
