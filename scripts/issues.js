@@ -179,6 +179,7 @@
           ${themeChips}
         </div>
         <span class="if-count" id="ifCount"></span>
+        <button type="button" class="if-print" id="ifPrint" title="Print or save the whole platform as a PDF">🖨 Print / Save PDF</button>
       </div>
       <p class="if-noresults" id="ifNoResults" hidden>No policies match — <button type="button" class="if-clear" id="ifClear">clear filters</button>.</p>
     </div>`;
@@ -284,6 +285,8 @@
     themeWrap.addEventListener("click", (e) => { const b = e.target.closest(".if-chip"); if (!b) return; fTheme = b.dataset.theme; setChips(themeWrap, "theme", fTheme); apply(); });
     const clear = document.getElementById("ifClear");
     if (clear) clear.addEventListener("click", () => { search.value = ""; fCat = "all"; fTheme = "all"; setChips(catWrap, "cat", "all"); setChips(themeWrap, "theme", "all"); apply(); });
+    const printBtn = document.getElementById("ifPrint");
+    if (printBtn) printBtn.addEventListener("click", () => window.print());
     apply();
   }
 

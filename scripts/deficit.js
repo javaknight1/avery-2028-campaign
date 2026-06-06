@@ -198,11 +198,11 @@
       const barY = d.dollars >= 0 ? yv : zero, barH = Math.abs(yv - zero);
       const color = d.dollars >= 0 ? "#1f7a4d" : "#c8102e";
       if (d.soon) {
-        bars += `<rect x="${x.toFixed(1)}" y="${barY.toFixed(1)}" width="${bw.toFixed(1)}" height="${barH.toFixed(1)}" rx="3" fill="rgba(31,122,77,0.15)" stroke="#1f7a4d" stroke-width="2" stroke-dasharray="5 4"/>`;
+        bars += `<rect x="${x.toFixed(1)}" y="${barY.toFixed(1)}" width="${bw.toFixed(1)}" height="${barH.toFixed(1)}" rx="3" fill="rgba(31,122,77,0.15)" stroke="#1f7a4d" stroke-width="2" stroke-dasharray="5 4"><title>${esc(d.name)} (${esc(d.years)}): projected ${sMoney(d.dollars)} / yr</title></rect>`;
         bars += `<text x="${cx.toFixed(1)}" y="${(barY - 19).toFixed(1)}" text-anchor="middle" font-size="9" fill="#1f7a4d" font-family="Oswald">${sMoney(d.dollars)}</text>`;
         bars += `<text x="${cx.toFixed(1)}" y="${(barY - 8).toFixed(1)}" text-anchor="middle" font-size="8" fill="#1f7a4d" font-family="Oswald" font-weight="700">SOON</text>`;
       } else {
-        bars += `<rect x="${x.toFixed(1)}" y="${barY.toFixed(1)}" width="${bw.toFixed(1)}" height="${barH.toFixed(1)}" rx="3" fill="${color}"/>`;
+        bars += `<rect x="${x.toFixed(1)}" y="${barY.toFixed(1)}" width="${bw.toFixed(1)}" height="${barH.toFixed(1)}" rx="3" fill="${color}"><title>${esc(d.name)} (${esc(d.years)}): ${sMoney(d.dollars)} / yr</title></rect>`;
         const lblY = d.dollars >= 0 ? barY - 7 : barY + barH + 12;
         bars += `<text x="${cx.toFixed(1)}" y="${lblY.toFixed(1)}" text-anchor="middle" font-size="9" fill="${color}" font-family="Oswald">${sMoney(d.dollars)}</text>`;
       }

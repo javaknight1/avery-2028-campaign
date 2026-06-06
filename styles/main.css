@@ -299,3 +299,21 @@ img { max-width: 100%; display: block; }
 
 /* Track bars: the .fill is a <span> (inline) — make it a block so its width/height apply. */
 .track > .fill { display: block; }
+
+/* ---------- Accessibility ---------- */
+.skip-link { position: absolute; left: -9999px; top: 0; z-index: 2000; background: var(--navy); color: #fff; padding: 10px 16px; border-radius: 0 0 8px 0; font-family: "Oswald"; }
+.skip-link:focus { left: 0; }
+:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; border-radius: 4px; }
+
+/* ---------- Print: a clean, readable platform document ---------- */
+@media print {
+  .gov-bar, .site-header, .scroll-progress, .nav-toggle, .skip-link,
+  .btn, .me-share, .socials { display: none !important; }
+  body { background: #fff !important; color: #000 !important; }
+  a { color: #000 !important; text-decoration: none !important; }
+  .bg-navy, .bg-paper, .bg-white, .hero, .page-hero { background: #fff !important; color: #000 !important; }
+  .section, .page-hero { padding: 14px 0 !important; }
+  .container { width: 100% !important; max-width: none !important; }
+  .site-footer, .footer-legal, .section-lead { color: #000 !important; }
+  .site-footer { border-top: 1px solid #ccc; background: #fff !important; }
+}

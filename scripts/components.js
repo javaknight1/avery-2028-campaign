@@ -26,6 +26,7 @@
 
   /* ---- Header ---- */
   const headerHTML = `
+    <a class="skip-link" href="#main">Skip to content</a>
     <div class="gov-bar">🛈 <strong>PARODY</strong> — a fictional campaign. Not a real candidate, committee, or party. Not affiliated, not endorsed, not soliciting votes or money.</div>
     <header class="site-header" id="siteHeader">
       <nav class="nav" aria-label="Primary">
@@ -99,6 +100,8 @@
   const footerSlot = document.getElementById("site-footer");
   if (headerSlot) headerSlot.outerHTML = headerHTML;
   if (footerSlot) footerSlot.outerHTML = footerHTML.replace("{year}", new Date().getFullYear());
+  const mainEl = document.querySelector("main");
+  if (mainEl && !mainEl.id) { mainEl.id = "main"; mainEl.setAttribute("tabindex", "-1"); }
 
   /* ---- Mobile menu ---- */
   const toggle = document.getElementById("navToggle");
