@@ -593,16 +593,18 @@ window.PLATFORM = {
     {
       id: "ai-tax", cat: "economy", icon: "🤖",
       title: "The AI Tax", tagline: "If a robot takes the job, it should help fund the future.",
-      cost: 150, costType: "revenue", costNote: "tax on automation/AI that displaces labor; funds worker retraining & transition",
-      lead: "AI is going to create staggering wealth — and concentrate it in very few hands while displacing millions of workers. When a company automates a job away, the productivity gain shouldn't flow only to shareholders. An AI tax shares the upside of automation with the workers and communities it disrupts.",
+      cost: 200, costType: "revenue", costNote: "a per-token sales tax on AI use + a levy on automation that displaces labor; funds worker retraining & transition",
+      lead: "AI is going to create staggering wealth — and concentrate it in very few hands while displacing millions of workers. When a company automates a job away, the productivity gain shouldn't flow only to shareholders. We tax AI two ways: a tiny sales tax on every token of AI used, and a levy on large-scale automation that displaces labor — and we send the money to the workers and communities it disrupts.",
       plan: [
-        { b: "Tax automation gains.", t: "A tax on the productivity windfall from large-scale AI and automation that displaces labor." },
+        { b: "A sales tax on every AI token.", t: "A few cents per million tokens — the words AI models read and write. Invisible on any single query, but across billions of queries a day it funds the very transition it helps cause." },
+        { b: "Tax automation gains.", t: "A levy on the productivity windfall from large-scale AI and automation that displaces labor." },
         { b: "Fund the transition.", t: "Direct the revenue to displaced workers — free retraining, trade education, and transition support." },
         { b: "Keep AI accountable.", t: "Pair it with the AI Bill of Rights — the right to know when AI decides about you, and to appeal to a human." },
-        { b: "Don't punish small builders.", t: "Aim it at large-scale labor-displacing deployment, not startups or everyday software." },
+        { b: "Don't punish small builders.", t: "Tier the token tax and aim the automation levy at large-scale deployment, not startups or everyday software." },
       ],
       detail: [
-        { h: "Why tax AI", p: "We tax payroll but not the machines replacing it, which quietly pushes companies to automate purely for the tax break. An AI tax levels that distortion and shares the gains." },
+        { h: "A consumption tax for the AI age", p: "Just as we tax gasoline and goods, a tiny per-token tax on AI usage turns a firehose of automation into a steady stream of revenue for the people it displaces — and it scales automatically as AI use explodes, without anyone having to raise a rate." },
+        { h: "Why also tax automation", p: "We tax payroll but not the machines replacing it, which quietly pushes companies to automate purely for the tax break. Taxing the automation windfall levels that distortion and shares the gains." },
         { h: "Where the money goes", p: "Straight into the things that help people ride the transition — free retraining, trade education, and worker support — so automation lifts everyone, not just shareholders." },
       ],
       qa: [
@@ -1037,18 +1039,19 @@ window.PLATFORM = {
     {
       id: "data-centers", cat: "future", icon: "🖥️",
       title: "Rein In Data Centers", tagline: "Lead in AI without sticking families with the bill.",
-      cost: 5, costType: "spend", costNote: "grid oversight, ratepayer protection, and clean-power requirements for large data centers",
-      lead: "AI data centers are exploding across the country — and quietly driving up your electric bill, straining local grids, and guzzling water, often after winning sweetheart tax deals that never deliver the jobs they promised. We want America to lead in AI. But the people who live next to these warehouses shouldn't subsidize them. We regulate data centers so they pay their own way and run clean.",
+      cost: 5, costType: "spend", costNote: "grid oversight, ratepayer protection, clean-power & siting rules — plus a usage-based water-and-energy tax (counted on the Budget page)",
+      lead: "AI data centers are exploding across the country — and quietly driving up your electric bill, straining local grids, and guzzling water, often after winning sweetheart tax deals that never deliver the jobs they promised. We want America to lead in AI. But the people who live next to these warehouses shouldn't subsidize them. We tax data centers for the water and power they burn, require them to run clean, and keep the biggest ones away from our cities.",
       plan: [
+        { b: "Tax their water and power use.", t: "A tax that scales directly with the electricity and water a data center consumes — the more of the shared grid and water supply it draws down, the more it pays. It raises real revenue and pushes the industry toward efficiency." },
         { b: "Make them pay the true cost.", t: "Large data centers cover the grid capacity and upgrades they require, so their demand doesn't show up as a surcharge on your household bill." },
-        { b: "Power them with new clean energy.", t: "Require big new centers to bring their own clean generation or fund grid build-out, instead of soaking up the existing supply and raising prices for everyone." },
-        { b: "Protect water and communities.", t: "Set water-use and siting standards, and end the tax giveaways that don't deliver real, lasting local jobs." },
+        { b: "Site them away from cities.", t: "Require large data centers to be built away from metropolitan areas and already-strained urban grids — near their own (clean) power and water, where they relieve pressure instead of adding to it." },
+        { b: "Power them with new clean energy.", t: "Require big new centers to bring their own clean generation or fund grid build-out, instead of soaking up existing supply and raising prices for everyone." },
         { b: "Lead in AI, protect workers.", t: "Pair this with the AI Bill of Rights, the AI tax, and free retraining — we win the AI race without sacrificing the workforce or the towns hosting the compute." },
       ],
       detail: [
         { h: "Why your bill is going up", p: "A single large AI campus can use as much power as a small city. When utilities build capacity to serve them and spread the cost across all ratepayers, ordinary households end up subsidizing billion-dollar tech firms." },
-        { h: "The water problem", p: "Many data centers use enormous amounts of water for cooling, straining local supplies — often in already-dry regions. Clear standards keep communities whole." },
-        { h: "Leading responsibly", p: "We don't slow AI down — we make its build-out fair: clean power, honest pricing, and real jobs, so the towns hosting the future actually benefit from it." },
+        { h: "A tax on what they consume", p: "Rather than a flat fee, the tax tracks actual water and electricity use — so a hyper-efficient, clean-cooled campus pays far less than a wasteful one. It's a price on the commons they draw from, and it nudges the whole industry to use less." },
+        { h: "Why site them away from cities", p: "Putting massive compute loads next to dense metros strains the grids and water systems people depend on. Building them in less-populated areas, paired with their own clean power, keeps urban bills and reservoirs out of the crossfire. We weigh the trade-off honestly — some latency-sensitive uses must stay close, so the rule targets the large bulk-compute campuses." },
       ],
       qa: [
         { q: "Won't this push AI and data centers overseas?", a: "The U.S. has the talent, capital, and demand to lead regardless; we're just setting fair rules for power and water. Other countries face the same grid limits — running clean and paying your way is becoming the global norm, not a disadvantage." },
@@ -1290,9 +1293,10 @@ window.PLATFORM = {
     { label: "Tax the ultra-rich — wealth tax + higher top rates", amt: 1000, id: "tax-rich", icon: "💰" },
     { label: "Health savings recaptured — from Universal Healthcare", amt: 810, id: "healthcare", icon: "🩺" },
     { label: "Corporate tax reform & global minimum tax", amt: 450, id: "corporate", icon: "🏢" },
-    { label: "Economic growth — a wider tax base from a healthier, trained, better-connected workforce and modern infrastructure", amt: 600, id: "education", icon: "🌱" },
+    { label: "Economic growth — a wider tax base from a healthier, trained, better-connected workforce and modern infrastructure", amt: 500, id: "education", icon: "🌱" },
     { label: "Carbon fee on big polluters", amt: 200, id: "carbon", icon: "🏭" },
-    { label: "The AI tax", amt: 150, id: "ai-tax", icon: "🤖" },
+    { label: "The AI tax — per-token sales tax + automation levy", amt: 200, id: "ai-tax", icon: "🤖" },
+    { label: "Data-center water & energy tax", amt: 50, id: "data-centers", icon: "💧" },
     { label: "The financial-transaction tax", amt: 80, id: "ftt", icon: "📈" },
     { label: "End stepped-up basis & 'buy, borrow, die'", amt: 60, id: "stepped-up-basis", icon: "🪜" },
     { label: "Close the carried-interest loophole", amt: 20, id: "carried-interest", icon: "🎩" },
@@ -1433,7 +1437,8 @@ window.PLATFORM = {
       { label: "IRS enforcement on the wealthiest", amt: 150 },
     ],
     "ai-tax": [
-      { label: "Levy on large-scale labor-displacing AI deployment", amt: 120 },
+      { label: "Per-token sales tax on AI use", amt: 80 },
+      { label: "Levy on large-scale labor-displacing automation", amt: 90 },
       { label: "Surcharge on big automation / compute profits", amt: 30 },
     ],
     ftt: [
