@@ -58,6 +58,21 @@
       <p class="cb-foot">Adds up to <strong>${sumTxt}</strong> a year.</p></div>`;
   }
 
+  function scorecard(p) {
+    const m = (P.metrics || {})[p.id];
+    if (!m) return "";
+    const DIFF = ["", "Easy", "Moderate", "Involved", "Hard", "Very hard"];
+    const PRIO = ["", "Low", "Modest", "Medium", "High", "Top"];
+    const dots = (n) => `<span class="sc-dots" aria-hidden="true">${[1, 2, 3, 4, 5].map((i) => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}</span>`;
+    const oddsCls = m.odds >= 60 ? "hi" : (m.odds >= 40 ? "mid" : "lo");
+    return `<div class="policy-scorecard" data-reveal title="The campaign's honest, illustrative self-assessment — not a guarantee.">
+      <div class="sc-item"><span class="sc-k">⏱ Time to implement</span><span class="sc-v">${esc(m.time)}</span></div>
+      <div class="sc-item"><span class="sc-k">🛠 Difficulty</span>${dots(m.difficulty)}<span class="sc-sub">${DIFF[m.difficulty]}</span></div>
+      <div class="sc-item"><span class="sc-k">⭐ Priority</span>${dots(m.priority)}<span class="sc-sub">${PRIO[m.priority]}</span></div>
+      <div class="sc-item sc-odds-item"><span class="sc-k">🎲 Odds it happens</span><span class="sc-odds ${oddsCls}">${m.odds}%</span><span class="sc-obar"><span class="sc-ofill ${oddsCls}" style="width:${m.odds}%"></span></span></div>
+    </div>`;
+  }
+
   function aisleCol(cls, name, items) {
     const list = (items || []).map((it) =>
       `<li><p class="concern">${esc(it.c)}</p><p class="rebuttal"><b>Our answer:</b> ${esc(it.r)}</p></li>`).join("");
@@ -79,6 +94,7 @@
           ${costBadge(p)}
         </div>
         <p class="policy-lead" data-reveal>${esc(p.lead)}</p>
+        ${scorecard(p)}
         ${humanity}
         <div class="policy-block" data-reveal><h3>The Plan</h3><ul class="plan-list">${plan}</ul></div>
         ${p.timeline ? timelineBlock(p) : ""}

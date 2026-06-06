@@ -419,3 +419,19 @@
 .if-count { margin-left: auto; font-family: "Oswald"; font-size: 0.82rem; color: var(--muted); white-space: nowrap; }
 .if-noresults { margin: 12px 2px 0; color: var(--muted); }
 .if-clear { background: none; border: 0; color: var(--blue); font: inherit; font-weight: 600; cursor: pointer; text-decoration: underline; padding: 0; }
+
+/* ---------------- Per-policy scorecard (time / difficulty / priority / odds) ---------------- */
+.policy-scorecard { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin: 18px 0 4px; padding: 16px 18px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; }
+.sc-item { display: flex; flex-direction: column; gap: 6px; }
+.sc-k { font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.72rem; color: var(--muted); }
+.sc-v { font-family: "Oswald"; font-weight: 600; font-size: 1.02rem; color: var(--navy); }
+.sc-dots { display: inline-flex; gap: 4px; }
+.sc-dots i { width: 11px; height: 11px; border-radius: 50%; background: var(--line); display: inline-block; }
+.sc-dots i.on { background: var(--navy); }
+.sc-sub { font-size: 0.8rem; color: var(--muted); }
+.sc-odds { font-family: "Oswald"; font-weight: 700; font-size: 1.3rem; line-height: 1; }
+.sc-odds.hi { color: #1f7a4d; } .sc-odds.mid { color: #d99a18; } .sc-odds.lo { color: var(--red); }
+.sc-obar { height: 7px; background: var(--white); border: 1px solid var(--line); border-radius: 99px; overflow: hidden; }
+.sc-ofill { display: block; height: 100%; border-radius: 99px; }
+.sc-ofill.hi { background: #1f7a4d; } .sc-ofill.mid { background: var(--gold); } .sc-ofill.lo { background: var(--red); }
+@media (max-width: 680px) { .policy-scorecard { grid-template-columns: repeat(2, 1fr); } }
