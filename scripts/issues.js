@@ -20,6 +20,15 @@
   const costCell = (p) => p.costType === "neutral" ? { t: "≈ $0", c: "neutral" }
     : (p.costType === "revenue" ? { t: "+" + money(p.cost), c: "rev" } : { t: money(p.cost), c: "spend" });
 
+  const CAB = {}; (P.cabinet || []).forEach((c) => { CAB[c.key] = c; });
+  const ROUTES = {
+    congress: { label: "Act of Congress", needs: ["A majority in the House of Representatives", "60 votes in the Senate to overcome a filibuster", "The President's signature"] },
+    reconciliation: { label: "Act of Congress · budget reconciliation", needs: ["A simple majority in the House", "51 votes in the Senate — tax & spending can move through reconciliation, dodging the filibuster", "The President's signature"] },
+    amendment: { label: "Constitutional amendment", needs: ["Two-thirds of the House", "Two-thirds of the Senate", "Ratified by 38 of the 50 states"] },
+    executive: { label: "Executive action", needs: ["A presidential executive order or directive — possible on Day One", "Agency rulemaking to carry it out", "No Congress required, though Congress can later codify it"] },
+    agency: { label: "Federal rulemaking", needs: ["Action by the lead agency under existing or new authority", "A public notice-and-comment rulemaking", "Holding up to court review"] },
+  };
+
   // For the visual cost meter: scale every bar against the biggest line in the
   // platform, and translate the figure into a per-household equivalent so the
   // jump from billions to trillions is actually conceivable.
@@ -79,6 +88,30 @@
     </div>`;
   }
 
+  function governBlock(p) {
+    const g = (P.governance || {})[p.id];
+    if (!g) return "";
+    const route = ROUTES[g.route] || ROUTES.congress;
+    const owner = CAB[g.owner];
+    const needs = route.needs.map((n) => `<li>${esc(n)}</li>`).join("");
+    const courtLi = g.court ? `<li class="gv-court">⚖️ Expect a Supreme Court challenge — we draft it to survive review.</li>` : "";
+    const ownerHTML = owner ? `<a class="gv-owner" href="cabinet.html#${owner.key}">
+        <span class="gv-avatar"><img src="assets/cabinet/${owner.key}.jpg" alt="${esc(owner.name)}" loading="lazy" width="60" height="60" /></span>
+        <span class="gv-owner-txt"><small>Led by</small><b>${esc(owner.name)}</b><span>${esc(owner.role)}</span></span>
+      </a>` : "";
+    return `<div class="policy-block" data-reveal><h3>How it gets done</h3>
+      <p class="aisle-intro">Who spearheads it, and the specific path it has to travel to become real.</p>
+      <div class="govern-grid">
+        <div class="gv-path">
+          <span class="gv-k">What it takes to pass</span>
+          <div class="gv-route">${esc(route.label)}</div>
+          <ul class="gv-needs">${needs}${courtLi}</ul>
+        </div>
+        ${ownerHTML}
+      </div>
+    </div>`;
+  }
+
   function aisleCol(cls, name, items) {
     const list = (items || []).map((it) =>
       `<li><p class="concern">${esc(it.c)}</p><p class="rebuttal"><b>Our answer:</b> ${esc(it.r)}</p></li>`).join("");
@@ -104,6 +137,7 @@
         ${scorecard(p)}
         ${humanity}
         <div class="policy-block" data-reveal><h3>The Plan</h3><ul class="plan-list">${plan}</ul></div>
+        ${governBlock(p)}
         ${p.timeline ? timelineBlock(p) : ""}
         <div class="policy-block" data-reveal><h3>How it works</h3><div class="detail-grid">${detail}</div></div>
         ${breakdownBlock(p)}

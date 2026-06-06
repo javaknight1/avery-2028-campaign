@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#061629" />
+  <title>The Cabinet — Who Would Lead | Avery 2028</title>
+  <meta name="description" content="The departments that would lead the platform: a cabinet roster (placeholder picks for now), with each secretary's policies they'd spearhead." />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="canonical" href="https://avery-2028-campaign.pages.dev/cabinet.html" />
+  <meta name="robots" content="index,follow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Rob Avery for President 2028" />
+  <meta property="og:title" content="The Cabinet — Who Would Lead | Avery 2028" />
+  <meta property="og:description" content="The departments that would lead the platform — a cabinet roster, with the policies each secretary would spearhead." />
+  <meta property="og:url" content="https://avery-2028-campaign.pages.dev/cabinet.html" />
+  <meta property="og:image" content="https://avery-2028-campaign.pages.dev/assets/og.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Cabinet | Avery 2028" />
+  <meta name="twitter:description" content="The departments that would lead the platform, and the policies each would spearhead." />
+  <meta name="twitter:image" content="https://avery-2028-campaign.pages.dev/assets/og.png" />
+  <style>
+    .cabinet-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(184px, 1fr)); gap: 30px 18px; margin-top: 34px; }
+    .cab-card { text-align: center; display: flex; flex-direction: column; align-items: center; scroll-margin-top: 120px; }
+    .cab-avatar { width: 120px; height: 120px; border-radius: 50%; overflow: hidden; border: 3px solid var(--white); box-shadow: 0 8px 22px rgba(11,37,69,0.18); background: var(--paper); transition: box-shadow 0.2s ease, border-color 0.2s ease; }
+    .cab-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cab-card:hover .cab-avatar { box-shadow: 0 12px 28px rgba(11,37,69,0.26); }
+    .cab-name { font-family: "Oswald"; font-size: 1.08rem; color: var(--navy); margin-top: 14px; line-height: 1.15; }
+    .cab-role { font-size: 0.86rem; color: var(--ink); font-weight: 600; margin-top: 3px; }
+    .cab-dept { font-size: 0.78rem; color: var(--muted); margin-top: 1px; }
+    .cab-leads { margin-top: 9px; }
+    .cab-leads > small { font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.4px; font-size: 0.68rem; color: var(--red); }
+    .cab-none { color: var(--muted) !important; }
+    .cab-tags { display: flex; flex-wrap: wrap; gap: 4px; justify-content: center; margin-top: 6px; }
+    .cab-tags a { font-size: 0.72rem; background: var(--paper); border: 1px solid var(--line); border-radius: 99px; padding: 3px 9px; color: var(--navy); }
+    .cab-tags a:hover { border-color: var(--navy); }
+    .cab-card:target .cab-avatar { border-color: var(--gold); box-shadow: 0 0 0 5px rgba(244,183,64,0.45); }
+  </style>
+</head>
+<body data-page="cabinet">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <span class="eyebrow" data-reveal>The team</span>
+        <h1 data-reveal>The Cabinet</h1>
+        <p data-reveal>A president doesn't govern alone — every policy has a department that owns it. This is the cabinet that would lead the platform, with the planks each secretary spearheads. <strong>The people below are placeholders</strong> (random faces and names) — the <em>structure</em> is the point, not the picks. Real names come later.</p>
+      </div>
+    </section>
+
+    <section class="section bg-white">
+      <div class="container">
+        <div class="cabinet-grid" id="cabinetGrid"></div>
+        <p class="section-lead" data-reveal style="margin-top:30px;font-size:0.95rem;color:var(--muted)">Departments with "portfolio in progress" lead areas the platform hasn't fully written yet — like foreign policy, defense, and agriculture. Honest gaps, on the to-do list.</p>
+      </div>
+    </section>
+
+    <section class="section bg-navy">
+      <div class="container center" style="max-width:680px">
+        <span class="eyebrow" data-reveal>How it flows</span>
+        <h2 class="section-title" data-reveal>Owners, not orphans</h2>
+        <p class="section-lead" data-reveal>Every policy names the department that drives it and the exact path it must travel to pass. See it on each policy under "How it gets done."</p>
+        <div data-reveal style="margin-top:10px">
+          <a href="issues.html" class="btn btn--gold btn--lg">See the Issues <span class="arrow">→</span></a>
+          <a href="plan.html" class="btn btn--ghost-light btn--lg" style="margin-left:8px">The First 100 Days</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="data/policies.js" defer></script>
+  <script src="scripts/components.js" defer></script>
+  <script src="scripts/cabinet.js" defer></script>
+</body>
+</html>

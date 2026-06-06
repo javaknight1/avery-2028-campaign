@@ -476,3 +476,22 @@
 .pt-odds { font-family: "Oswald"; font-weight: 700; }
 .pt-odds.hi { color: #1f7a4d; } .pt-odds.mid { color: #d99a18; } .pt-odds.lo { color: var(--red); }
 @media print { .policy-table-wrap { display: none !important; } }
+
+/* ---------------- "How it gets done" — owner + path to passage ---------------- */
+.govern-grid { display: grid; grid-template-columns: 1fr 248px; gap: 24px; align-items: start; }
+.gv-k { font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.74rem; color: var(--muted); }
+.gv-route { font-family: "Oswald"; font-weight: 600; font-size: 1.18rem; color: var(--navy); margin: 4px 0 12px; }
+.gv-needs { list-style: none; display: grid; gap: 8px; }
+.gv-needs li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; color: var(--ink); font-size: 0.96rem; }
+.gv-needs li::before { content: "→"; color: var(--blue); font-weight: 700; }
+.gv-needs li.gv-court { color: var(--red-dark); font-weight: 600; }
+.gv-needs li.gv-court::before { content: ""; }
+.gv-owner { display: flex; align-items: center; gap: 14px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 14px; text-decoration: none; }
+.gv-owner:hover { border-color: var(--navy); }
+.gv-avatar { width: 60px; height: 60px; border-radius: 50%; overflow: hidden; flex: none; border: 2px solid var(--white); box-shadow: var(--shadow-sm); }
+.gv-avatar img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gv-owner-txt { display: flex; flex-direction: column; min-width: 0; }
+.gv-owner-txt small { font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.4px; font-size: 0.68rem; color: var(--muted); }
+.gv-owner-txt b { font-family: "Oswald"; color: var(--navy); font-size: 1.04rem; }
+.gv-owner-txt span { font-size: 0.82rem; color: var(--muted); }
+@media (max-width: 640px) { .govern-grid { grid-template-columns: 1fr; } }

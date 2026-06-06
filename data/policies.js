@@ -1618,6 +1618,73 @@ window.PLATFORM = {
     "humanity-first":  { time: "1–2 years",               difficulty: 2, priority: 3, odds: 60 },
   },
 
+  // The cabinet — placeholder people for now (random portraits). Each department
+  // is the "owner" that spearheads its policies. See `governance` below.
+  cabinet: [
+    { key: "vp", name: "Marvin Henderson", role: "Vice President", dept: "The White House" },
+    { key: "state", name: "Lucy Allen", role: "Secretary of State", dept: "Department of State" },
+    { key: "treasury", name: "Mason Burton", role: "Secretary of the Treasury", dept: "Department of the Treasury" },
+    { key: "defense", name: "Julia Macdonald", role: "Secretary of Defense", dept: "Department of Defense" },
+    { key: "ag", name: "Ryder Scott", role: "Attorney General", dept: "Department of Justice" },
+    { key: "interior", name: "Theo Lo", role: "Secretary of the Interior", dept: "Department of the Interior" },
+    { key: "agriculture", name: "Delphine Singh", role: "Secretary of Agriculture", dept: "Department of Agriculture" },
+    { key: "commerce", name: "Liam Jones", role: "Secretary of Commerce", dept: "Department of Commerce" },
+    { key: "labor", name: "Rosie Peterson", role: "Secretary of Labor", dept: "Department of Labor" },
+    { key: "hhs", name: "Juliette Johnson", role: "Secretary of Health & Human Services", dept: "Dept. of Health & Human Services" },
+    { key: "hud", name: "Stella Harper", role: "Secretary of Housing & Urban Development", dept: "Dept. of Housing & Urban Development" },
+    { key: "transportation", name: "Kristin Turner", role: "Secretary of Transportation", dept: "Department of Transportation" },
+    { key: "energy", name: "Arnaud Harcourt", role: "Secretary of Energy", dept: "Department of Energy" },
+    { key: "education", name: "Charles Ma", role: "Secretary of Education", dept: "Department of Education" },
+    { key: "va", name: "Vincent Campbell", role: "Secretary of Veterans Affairs", dept: "Department of Veterans Affairs" },
+    { key: "dhs", name: "Kate Johnson", role: "Secretary of Homeland Security", dept: "Department of Homeland Security" },
+    { key: "epa", name: "Jack Tremblay", role: "EPA Administrator", dept: "Environmental Protection Agency" },
+    { key: "omb", name: "Sofia Nguyen", role: "Director of OMB & Govt. Transparency", dept: "Office of Management & Budget" },
+  ],
+
+  // Per-policy governance: who leads it (cabinet key) and the route to passage.
+  // route ∈ congress | reconciliation | amendment | executive | agency.
+  // court:true flags a likely Supreme Court fight.
+  governance: {
+    healthcare:        { owner: "hhs", route: "congress" },
+    education:         { owner: "education", route: "congress" },
+    housing:           { owner: "hud", route: "congress" },
+    childcare:         { owner: "hhs", route: "congress" },
+    "social-security": { owner: "hhs", route: "reconciliation" },
+    veterans:          { owner: "va", route: "congress" },
+    "public-health":   { owner: "hhs", route: "congress" },
+    "mental-health":   { owner: "hhs", route: "congress" },
+    "term-limits":     { owner: "vp", route: "amendment" },
+    "money-politics":  { owner: "ag", route: "amendment" },
+    voting:            { owner: "ag", route: "congress", court: true },
+    rights:            { owner: "ag", route: "congress", court: true },
+    justice:           { owner: "ag", route: "congress" },
+    immigration:       { owner: "dhs", route: "congress" },
+    "supreme-court":   { owner: "ag", route: "amendment" },
+    govtracker:        { owner: "omb", route: "executive" },
+    communities:       { owner: "interior", route: "congress" },
+    "min-wage":        { owner: "labor", route: "congress" },
+    "worker-power":    { owner: "labor", route: "congress" },
+    antitrust:         { owner: "ag", route: "executive" },
+    "tax-rich":        { owner: "treasury", route: "reconciliation", court: true },
+    "ai-tax":          { owner: "treasury", route: "congress" },
+    ftt:               { owner: "treasury", route: "reconciliation" },
+    "carried-interest":{ owner: "treasury", route: "reconciliation" },
+    "stepped-up-basis":{ owner: "treasury", route: "reconciliation" },
+    "like-kind":       { owner: "treasury", route: "reconciliation" },
+    corporate:         { owner: "treasury", route: "reconciliation" },
+    carbon:            { owner: "epa", route: "reconciliation" },
+    energy:            { owner: "energy", route: "congress" },
+    rail:              { owner: "transportation", route: "congress" },
+    infrastructure:    { owner: "transportation", route: "congress" },
+    broadband:         { owner: "commerce", route: "congress" },
+    "data-centers":    { owner: "energy", route: "agency" },
+    space:             { owner: "commerce", route: "congress" },
+    waste:             { owner: "epa", route: "executive" },
+    disaster:          { owner: "dhs", route: "congress" },
+    "gun-safety":      { owner: "ag", route: "congress", court: true },
+    "humanity-first":  { owner: "commerce", route: "executive" },
+  },
+
   /* ---------------- Humanity Score breakdown (pie chart) ----------------
      Each dimension carries:
        value  — its weight in the score (all weights sum to 100 = the pie)

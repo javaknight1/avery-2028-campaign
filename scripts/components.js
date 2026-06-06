@@ -19,9 +19,10 @@
     { key: "issues",  href: "issues.html",       label: "Issues" },
     { key: "budget",  href: "budget.html",       label: "Budget" },
     { key: "deficit", href: "deficit.html",      label: "Deficit" },
-    { key: "affect",  href: "affect.html",       label: "Your Impact" },
+    { key: "cabinet", href: "cabinet.html",      label: "Cabinet" },
+    { key: "affect",  href: "affect.html",       label: "Impact" },
     { key: "tax",     href: "tax-lab.html",      label: "Tax Lab" },
-    { key: "join",    href: "get-involved.html", label: "Get Involved" },
+    { key: "join",    href: "get-involved.html", label: "Join" },
   ];
 
   /* ---- Header ---- */
@@ -66,6 +67,7 @@
           <h4>Campaign</h4>
           <a href="index.html">Home</a>
           <a href="about.html">Meet Rob</a>
+          <a href="cabinet.html">The Cabinet</a>
           <a href="plan.html">First 100 Days</a>
           <a href="faq.html">FAQ</a>
           <a href="get-involved.html">Get Involved</a>
