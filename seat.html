@@ -36,11 +36,21 @@
     .seat-disc { font-size: 0.9rem; margin-bottom: 22px; }
     .muted { color: var(--muted); }
     .seat-cands { display: grid; gap: 16px; }
-    .cand { background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--navy); border-radius: 12px; padding: 18px 22px; box-shadow: var(--shadow-sm); }
-    .cand h4 { font-size: 1.18rem; margin-bottom: 6px; }
+    .cand { display: grid; grid-template-columns: 84px 1fr; gap: 18px; align-items: start; background: var(--white); border: 1px solid var(--line); border-left: 4px solid var(--navy); border-radius: 12px; padding: 18px 22px; box-shadow: var(--shadow-sm); }
+    .cand-av { width: 84px; height: 84px; border-radius: 50%; overflow: hidden; position: relative; background: var(--navy); display: grid; place-items: center; }
+    .cand-av img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .cand-ph { color: #fff; font-family: "Oswald"; font-weight: 600; font-size: 1.5rem; }
+    .cand h4 { font-size: 1.18rem; margin-bottom: 6px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 10px; }
+    .cand-wiki { font-size: 0.78rem; font-weight: 600; color: var(--blue); white-space: nowrap; }
     .cand-bg { color: var(--ink); margin-bottom: 8px; }
     .cand-why { color: var(--muted); }
     .cand-why b { color: var(--navy); }
+    .seat-reqs { margin-top: 30px; background: var(--paper); border: 1px solid var(--line); border-radius: 12px; padding: 20px 24px; }
+    .seat-reqs h3 { font-size: 1.12rem; margin-bottom: 10px; }
+    .seat-reqlist { list-style: none; display: grid; gap: 8px; }
+    .seat-reqlist li { display: grid; grid-template-columns: 18px 1fr; gap: 10px; color: var(--ink); }
+    .seat-reqlist li::before { content: "✓"; color: #1f7a4d; font-weight: 700; }
+    @media (max-width: 520px) { .cand { grid-template-columns: 1fr; } .cand-av { width: 72px; height: 72px; } }
     .seat-self, .seat-tbd { background: var(--white); border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
     .seat-self { display: flex; gap: 18px; align-items: center; }
     .seat-self .seat-self-av { width: 76px; height: 76px; border-radius: 50%; overflow: hidden; flex: none; border: 2px solid var(--white); box-shadow: var(--shadow-sm); }

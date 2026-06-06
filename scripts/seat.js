@@ -1,7 +1,8 @@
 /* =========================================================
-   Seat page — the full job description for one cabinet seat,
-   the policies it owns, and a candidate shortlist.
-   Reads ?seat=<key> from the URL. Uses window.PLATFORM.
+   Seat page — the full job description for one cabinet seat:
+   overview, the policies it owns, responsibilities, day-to-day,
+   what it takes, and a candidate shortlist (photo + link + the
+   case for the fit). Reads ?seat=<key> from the URL.
    ========================================================= */
 (() => {
   "use strict";
@@ -10,6 +11,8 @@
   const esc = (s) => String(s);
   const root = document.getElementById("seatRoot");
   if (!root) return;
+  const CI = P.candidateInfo || {};
+  const REQS = P.seatReqs || {};
 
   const key = new URLSearchParams(location.search).get("seat") || location.hash.replace(/^#/, "");
   const seat = (P.cabinet || []).find((c) => c.key === key);
@@ -28,7 +31,33 @@
 
   const resp = (seat.responsibilities || []).map((r) => `<li>${esc(r)}</li>`).join("");
   const daily = (seat.daily || []).map((r) => `<li>${esc(r)}</li>`).join("");
+  const reqList = REQS[key] || seat.requirements || [];
+  const reqs = reqList.length ? `<div class="seat-reqs">
+      <h3>What it takes</h3>
+      <ul class="seat-reqlist">${reqList.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
+    </div>` : "";
   const headFace = seat.img ? `<img src="${seat.img}" alt="${esc(seat.holder || seat.role)}" />` : (seat.icon || "🏛️");
+
+  function candCard(c) {
+    const info = CI[c.name] || {};
+    const generic = /^A [a-z]/.test(c.name);
+    const img = info.slug ? `assets/cabinet/${info.slug}.jpg` : "";
+    const initials = generic ? "👤" : c.name.split(/\s+/).filter((w) => /[A-Z]/.test(w[0] || "")).slice(0, 2).map((w) => w[0]).join("");
+    const photo = `<span class="cand-av">
+        <span class="cand-ph">${initials}</span>
+        ${img ? `<img src="${img}" alt="${esc(c.name)}" loading="lazy" onerror="this.style.display='none'" />` : ""}
+      </span>`;
+    const wiki = info.wiki ? ` <a class="cand-wiki" href="${info.wiki}" target="_blank" rel="noopener">Wikipedia ↗</a>` : "";
+    const why = info.why || c.why || "";
+    return `<div class="cand">
+      ${photo}
+      <div class="cand-body">
+        <h4>${esc(c.name)}${wiki}</h4>
+        <p class="cand-bg">${esc(c.background || "")}</p>
+        ${why ? `<p class="cand-why"><b>Why this seat:</b> ${esc(why)}</p>` : ""}
+      </div>
+    </div>`;
+  }
 
   let listTitle, shortlist;
   if (seat.self) {
@@ -43,13 +72,8 @@
       <p class="muted" style="margin-top:6px">The Vice President is a running-mate decision Rob is deliberately holding off on. No placeholder — the pick comes later.</p></div>`;
   } else {
     listTitle = "The shortlist";
-    shortlist = `<p class="muted seat-disc">Illustrative suggestions — public figures who'd fit this job <em>if</em> they shared the platform and chose to join the team. Not affiliated with them, and not endorsements.</p>
-      <div class="seat-cands">${(seat.candidates || []).map((c) => `
-        <div class="cand">
-          <h4>${esc(c.name)}</h4>
-          <p class="cand-bg">${esc(c.background)}</p>
-          <p class="cand-why"><b>Why this seat:</b> ${esc(c.why)}</p>
-        </div>`).join("")}</div>`;
+    shortlist = `<p class="muted seat-disc">Illustrative suggestions — public figures who'd fit this job <em>if</em> they shared the platform and chose to join the team, whether or not they've ever served in government — and chosen as people who'd plausibly say yes. Not affiliated with them, and not endorsements.</p>
+      <div class="seat-cands">${(seat.candidates || []).map(candCard).join("")}</div>`;
   }
 
   root.innerHTML = `
@@ -65,18 +89,19 @@
     </section>
 
     <section class="section bg-white">
-      <div class="container" style="max-width:860px">
+      <div class="container" style="max-width:880px">
         <h2 class="seat-h2">What this seat owns</h2>
         ${leadHTML}
         <div class="seat-jd">
           <div><h3>Responsibilities</h3><ul class="seat-list">${resp}</ul></div>
           <div><h3>Day to day</h3><ul class="seat-list">${daily}</ul></div>
         </div>
+        ${reqs}
       </div>
     </section>
 
     <section class="section bg-paper">
-      <div class="container" style="max-width:860px">
+      <div class="container" style="max-width:880px">
         <h2 class="seat-h2">${listTitle}</h2>
         ${shortlist}
       </div>
