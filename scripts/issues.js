@@ -147,18 +147,37 @@
       P.policies.filter((p) => bucket(p) === cat.id && p.cat === t.id).forEach((p) => { html += policyHTML(p); });
     });
   });
-  root.innerHTML = html;
+  const themeChips = THEMES.map((t) => `<button type="button" class="if-chip" data-theme="${t.id}">${esc(t.name)}</button>`).join("");
+  const filterBar = `
+    <div class="issues-filter" id="issuesFilter">
+      <input type="search" class="if-search" id="ifSearch" placeholder="Search ${P.policies.length} policies…" aria-label="Search policies" />
+      <div class="if-row">
+        <div class="if-chips" id="ifCat" role="group" aria-label="Filter by category">
+          <button type="button" class="if-chip active" data-cat="all">All</button>
+          <button type="button" class="if-chip" data-cat="spending">Spending</button>
+          <button type="button" class="if-chip" data-cat="revenue">Revenue</button>
+        </div>
+        <div class="if-chips" id="ifTheme" role="group" aria-label="Filter by theme">
+          <button type="button" class="if-chip active" data-theme="all">All themes</button>
+          ${themeChips}
+        </div>
+        <span class="if-count" id="ifCount"></span>
+      </div>
+      <p class="if-noresults" id="ifNoResults" hidden>No policies match — <button type="button" class="if-clear" id="ifClear">clear filters</button>.</p>
+    </div>`;
+  root.innerHTML = filterBar + html;
 
   /* ---- lightweight TOC sidebar (nested) ---- */
   buildSidebar();
+  wireFilter();
   function buildSidebar() {
     const navItems = P.categories.map((cat) => {
       const themes = themesIn(cat.id).map((t) => {
         const links = P.policies.filter((p) => bucket(p) === cat.id && p.cat === t.id).map((p) =>
           `<a href="#${p.id}" data-rail="${p.id}">${esc(p.title)}</a>`).join("");
-        return `<div class="rail-theme">${esc(t.name)}</div>${links}`;
+        return `<div class="rail-theme" data-railtheme="${cat.id}-${t.id}">${esc(t.name)}</div>${links}`;
       }).join("");
-      return `<a class="rail-sec" href="#cat-${cat.id}">${esc(cat.name)}</a>${themes}`;
+      return `<a class="rail-sec" data-railsec="${cat.id}" href="#cat-${cat.id}">${esc(cat.name)}</a>${themes}`;
     }).join("");
 
     // the <aside id="issueRail"> already lives in the page layout — just fill it
@@ -205,6 +224,50 @@
       }, { rootMargin: "-12% 0px -72% 0px", threshold: 0 });
       policies.forEach((s) => spy.observe(s));
     }
+  }
+
+  /* ---- search + filter ---- */
+  function wireFilter() {
+    const search = document.getElementById("ifSearch");
+    const catWrap = document.getElementById("ifCat");
+    const themeWrap = document.getElementById("ifTheme");
+    const countEl = document.getElementById("ifCount");
+    const noRes = document.getElementById("ifNoResults");
+    if (!search) return;
+    let fCat = "all", fTheme = "all";
+    const show = (el, vis) => { if (el) el.style.display = vis ? "" : "none"; };
+
+    function apply() {
+      const q = search.value.trim().toLowerCase();
+      let shown = 0;
+      P.categories.forEach((c) => {
+        let catVis = false;
+        themesIn(c.id).forEach((t) => {
+          let thVis = false;
+          P.policies.filter((p) => bucket(p) === c.id && p.cat === t.id).forEach((p) => {
+            const hay = (p.title + " " + (p.tagline || "") + " " + (p.lead || "")).toLowerCase();
+            const vis = (fCat === "all" || fCat === c.id) && (fTheme === "all" || fTheme === p.cat) && (!q || hay.includes(q));
+            show(document.getElementById(p.id), vis);
+            show(document.querySelector(`a[data-rail="${p.id}"]`), vis);
+            if (vis) { thVis = true; catVis = true; shown++; }
+          });
+          show(document.getElementById(`theme-${c.id}-${t.id}`), thVis);
+          show(document.querySelector(`[data-railtheme="${c.id}-${t.id}"]`), thVis);
+        });
+        show(document.getElementById(`cat-${c.id}`), catVis);
+        show(document.querySelector(`[data-railsec="${c.id}"]`), catVis);
+      });
+      if (countEl) countEl.textContent = `${shown} of ${P.policies.length}`;
+      if (noRes) noRes.hidden = shown > 0;
+    }
+    const setChips = (wrap, attr, val) => [...wrap.children].forEach((x) => x.classList.toggle("active", x.dataset[attr] === val));
+
+    search.addEventListener("input", apply);
+    catWrap.addEventListener("click", (e) => { const b = e.target.closest(".if-chip"); if (!b) return; fCat = b.dataset.cat; setChips(catWrap, "cat", fCat); apply(); });
+    themeWrap.addEventListener("click", (e) => { const b = e.target.closest(".if-chip"); if (!b) return; fTheme = b.dataset.theme; setChips(themeWrap, "theme", fTheme); apply(); });
+    const clear = document.getElementById("ifClear");
+    if (clear) clear.addEventListener("click", () => { search.value = ""; fCat = "all"; fTheme = "all"; setChips(catWrap, "cat", "all"); setChips(themeWrap, "theme", "all"); apply(); });
+    apply();
   }
 
   /* ---- Q&A accordion ---- */
