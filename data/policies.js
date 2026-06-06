@@ -1201,6 +1201,7 @@ window.PLATFORM = {
       cost: 150, costType: "spend", costNote: "roads & bridges, water systems & lead pipes, transit & ports, climate resilience",
       lead: "Crumbling roads, century-old water pipes, and bottlenecked ports are a hidden tax on everyone. We rebuild the physical backbone of the country — fixing what's broken first, getting the lead out of the water, and building it to withstand the storms that are already here.",
       plan: [
+        { b: "Partner state by state.", t: "Work directly with each state to plan, coordinate, and manage projects — federal funding and standards, state and local delivery — so the money goes where each state actually needs it, not where Washington guesses from afar." },
         { b: "Fix what's broken.", t: "Repair the worst roads and bridges before chasing new ribbon-cuttings." },
         { b: "Get the lead out.", t: "Replace every lead water pipe and modernize aging water systems." },
         { b: "Move people and goods.", t: "Modern transit, ports, and freight that cut congestion and lower prices." },
@@ -1208,6 +1209,7 @@ window.PLATFORM = {
       ],
       detail: [
         { h: "A tax you already pay", p: "Bad roads, water-main breaks, and delays cost households thousands a year. Fixing them is effectively a raise." },
+        { h: "State by state, not top-down", p: "Each state co-owns the plan: we set national standards and put up federal dollars, but states and localities pick the projects and run delivery, with a shared scoreboard so we can see what's getting built and what it costs. Local knowledge plans better than a distant agency." },
         { h: "Fix-it-first", p: "Maintaining what we have is the highest-return, least-glamorous spending there is — and far cheaper than waiting for it to fail." },
         { h: "Built here", p: "American materials and well-paid labor, with real oversight to keep costs in line." },
       ],
@@ -1283,6 +1285,42 @@ window.PLATFORM = {
           { c: "Can this even be done?", r: "Likely through a constitutional amendment — hard by design — but justice term limits poll well across party lines, which makes it a fight worth leading." },
         ],
         response: "A lifetime seat decided by the timing of a funeral is no way to run the highest court in the land. Fixed terms, one appointment per president, an odd number of seats, and real ethics — a Court that answers to the Constitution and the country, not to luck and partisanship.",
+      },
+    },
+    {
+      id: "waste", cat: "future", icon: "♻️",
+      title: "Refocus the EPA on Waste & Recycling", tagline: "Make recycling real, make reuse the default, stop drowning in our own trash.",
+      cost: 0, costType: "neutral", costNote: "refocus the existing EPA + recycling/reuse infrastructure, funded by producer-responsibility fees — the polluter pays",
+      lead: "America is the world's biggest trash producer, and our recycling system is half-broken: most plastic is never recycled, and what we can't bury we ship overseas or watch wash into the ocean. We refocus the EPA around one goal — waste as little as possible. Make producers responsible for what they sell, make reuse the default, and make recycling actually work — paid for by the companies that create the packaging, not the families throwing it away.",
+      plan: [
+        { b: "Refocus the EPA's mission.", t: "Reorient the agency around cutting waste at the source — driving down what we landfill, burn, and dump in the ocean — with recycling and reuse as the default, not an afterthought. We point an agency we already have at the problem instead of building a new one." },
+        { b: "Make producers responsible.", t: "Companies that make the packaging pay to collect and recycle it. That puts the cost on the people who design throwaway products — and rewards the ones who design for reuse." },
+        { b: "Reuse before recycle.", t: "Prioritize reusable and refillable systems over single-use: standardized containers, deposit-return, and a phase-down of the worst single-use plastics. A bottle reused 50 times beats 50 'recyclable' ones that mostly aren't." },
+        { b: "Make recycling & composting actually work.", t: "National standards so a container recyclable in one state is recyclable in all of them, real composting for food waste (our single biggest landfilled material), and an end to exporting our trash overseas." },
+        { b: "Make things last.", t: "Right-to-repair, so electronics and appliances can be fixed instead of tossed — cutting the fastest-growing waste stream there is." },
+        { b: "Protect the oceans.", t: "Stop plastic at the source and fund cleanup of the rivers, coasts, and waters where our waste ends up." },
+      ],
+      detail: [
+        { h: "The polluter pays", p: "Today, cities and taxpayers foot the bill to dispose of packaging that companies chose to make throwaway. Producer responsibility flips that: the fee funds the whole system — keeping it roughly budget-neutral — and gives companies a real reason to use less and design for reuse." },
+        { h: "Reduce and reuse beat recycle", p: "Recycling is the last resort, not the first. We build the deposit-return and refill systems that make reuse easy, so we throw away less in the first place instead of pretending a blue bin fixes everything." },
+        { h: "Why refactor the EPA", p: "We don't need a new agency — we need the one we have to treat waste like the priority it's become. Refocusing the EPA's mission and metrics around waste reduction is faster, cheaper, and more accountable than standing up something new." },
+      ],
+      qa: [
+        { q: "Isn't recycling already a thing — why isn't it working?", a: "Because most packaging was never designed to be recycled, and the companies making it bear none of the cost. We fix both: producers pay, and national standards mean a container recyclable in one place is recyclable everywhere." },
+        { q: "Won't this raise prices on everyday goods?", a: "Producer fees are small per item, and they're offset by ending the taxpayer-funded cleanup we already pay for through city budgets — plus reusable systems save money over time. The cheap throwaway price was never the real price; we just paid it later, in landfills and oceans." },
+      ],
+      aisle: {
+        rep: [
+          { c: "This is more federal red tape on business.", r: "It's the opposite of a subsidy: it makes companies pay for the mess their packaging creates instead of dumping the cost on your town's budget. Build throwaway junk, pay for it; build reusable, save. Producer-responsibility laws already exist in plenty of red and blue states — this is accountability and honest pricing, not red tape." },
+        ],
+        dem: [
+          { c: "Does it tackle plastic and environmental justice?", r: "Yes — it cuts plastic at the source, funds ocean and waterway cleanup, and (paired with our communities plan) keeps new waste facilities from being dumped on the same overburdened neighborhoods again." },
+        ],
+        ind: [
+          { c: "Is recycling even worth it, or is it all a scam?", r: "A lot of today's recycling is theater — which is exactly what we fix. By making producers pay and putting reuse first, we stop pretending and build a system where what you sort actually gets used again." },
+          { c: "Why refactor the EPA instead of making a new agency?", r: "Because a new bureaucracy is slow and expensive. The EPA already exists; we point its mission and metrics at waste reduction — faster, cheaper, and accountable." },
+        ],
+        response: "We built a throwaway economy and called the bill someone else's problem — until it's overflowing our landfills and washing up on our beaches. Refocus the EPA on using less and reusing more, make the companies that profit from the packaging pay to deal with it, and we stop drowning in our own trash.",
       },
     },
 
@@ -1495,6 +1533,10 @@ window.PLATFORM = {
     ],
     "supreme-court": [
       { label: "A constitutional / structural reform — no federal spending", amt: 0 },
+    ],
+    waste: [
+      { label: "Recycling, composting & reuse infrastructure + ocean cleanup", amt: 20 },
+      { label: "Fully offset by producer-responsibility fees on packaging", amt: -20 },
     ],
   },
 
