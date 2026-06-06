@@ -22,7 +22,7 @@
            <div class="cab-tags">${mine.map((p) => `<a href="issues.html#${p.id}">${esc(p.title)}</a>`).join("")}</div></div>`
       : `<div class="cab-leads"><small class="cab-none">Portfolio in progress</small></div>`;
     return `<div class="cab-card" id="${c.key}" data-reveal>
-      <span class="cab-avatar"><img src="assets/cabinet/${c.key}.jpg" alt="${esc(c.name)}" loading="lazy" width="120" height="120" /></span>
+      <span class="cab-avatar"><img src="${c.img || `assets/cabinet/${c.key}.jpg`}" alt="${esc(c.name)}" loading="lazy" width="120" height="120" /></span>
       <b class="cab-name">${esc(c.name)}</b>
       <span class="cab-role">${esc(c.role)}</span>
       <span class="cab-dept">${esc(c.dept)}</span>

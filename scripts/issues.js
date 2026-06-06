@@ -96,7 +96,7 @@
     const needs = route.needs.map((n) => `<li>${esc(n)}</li>`).join("");
     const courtLi = g.court ? `<li class="gv-court">⚖️ Expect a Supreme Court challenge — we draft it to survive review.</li>` : "";
     const ownerHTML = owner ? `<a class="gv-owner" href="cabinet.html#${owner.key}">
-        <span class="gv-avatar"><img src="assets/cabinet/${owner.key}.jpg" alt="${esc(owner.name)}" loading="lazy" width="60" height="60" /></span>
+        <span class="gv-avatar"><img src="${owner.img || `assets/cabinet/${owner.key}.jpg`}" alt="${esc(owner.name)}" loading="lazy" width="60" height="60" /></span>
         <span class="gv-owner-txt"><small>Led by</small><b>${esc(owner.name)}</b><span>${esc(owner.role)}</span></span>
       </a>` : "";
     return `<div class="policy-block" data-reveal><h3>How it gets done</h3>

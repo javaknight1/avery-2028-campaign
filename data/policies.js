@@ -1355,6 +1355,96 @@ window.PLATFORM = {
         response: "You can watch a pizza get made through an app, but you can't watch your government spend $7 trillion. That's backwards. GovTracker is a permanent, public, government-run window into every dollar and decision — because a government that shows its work is a government that behaves.",
       },
     },
+    {
+      id: "foreign-policy", cat: "future", icon: "🕊️",
+      title: "Diplomacy First", tagline: "Lead the world with alliances and wisdom, not just weapons.",
+      cost: 15, costType: "spend", costNote: "rebuild the diplomatic corps, fund conflict prevention & smart development",
+      lead: "America is strongest when it leads — but leadership is more than the world's biggest military. We invest in diplomacy, alliances, and development, because preventing wars is far cheaper than fighting them. We rebuild the State Department, stand with our allies, end the forever wars, and use American power wisely: strength and restraint, not endless war.",
+      plan: [
+        { b: "Fund diplomacy, not just war.", t: "Rebuild the diplomatic corps so we have people in the room before conflicts start, not just troops after they do." },
+        { b: "Stand with our allies.", t: "Strengthen the alliances that multiply our power — and expect partners to carry their fair share." },
+        { b: "End the forever wars.", t: "No more open-ended conflicts without a clear mission, cost, and exit — and Congress, not just the president, decides when America goes to war." },
+        { b: "Smart development, not just aid.", t: "Target development that builds stability and counters rivals without firing a shot." },
+      ],
+      detail: [
+        { h: "Prevention is cheaper than war", p: "A fraction of one year's war spending, invested in diplomacy and development, can prevent the conflicts that cost trillions and thousands of lives." },
+        { h: "Alliances are leverage", p: "Our network of allies is an advantage no rival can match. We invest in it instead of insulting it." },
+        { h: "War powers belong to Congress", p: "We restore the constitutional rule that the people's representatives — not one person — decide when America goes to war." },
+      ],
+      qa: [
+        { q: "Isn't this weakness?", a: "The opposite — it's strength used wisely. We keep the world's best military (see the defense-reform plan) and stop wasting it on wars without end. The strongest armies still lose wars diplomacy could have prevented." },
+        { q: "Why fund other countries?", a: "Targeted development is cheap insurance: it heads off the instability, refugee crises, and conflicts that cost us far more later — and it counters rivals filling the vacuum." },
+      ],
+      aisle: {
+        rep: [{ c: "This is retreat — it emboldens our enemies.", r: "Strength and restraint aren't opposites. We keep the world's most capable military and use diplomacy so we don't have to spend it. Reagan negotiated from strength; so do we. Endless wars with no exit are what actually drain American power." }],
+        dem: [{ c: "Will it really end the forever wars?", r: "Yes — by restoring Congress's war-powers role, requiring a clear mission and exit for any deployment, and funding the diplomacy that prevents wars in the first place." }],
+        ind: [
+          { c: "Haven't we heard 'end the wars' before?", r: "Often, rarely delivered. The difference here is structural: war powers back to Congress, sunset clauses on authorizations, and real money for the diplomacy that makes prevention beat intervention." },
+          { c: "Is $15B even enough to matter?", r: "For diplomacy, yes — the entire State Department budget is a rounding error next to the Pentagon's. A little more, spent preventing wars, saves enormously on fighting them." },
+        ],
+        response: "The strongest thing America can do is lead so wisely that we rarely have to fight. We keep the world's best military — and invest in the diplomacy, alliances, and development that keep it in reserve. Peace through strength and wisdom.",
+      },
+    },
+    {
+      id: "defense-reform", cat: "economy", icon: "🛡️",
+      title: "A Defense That Defends", tagline: "Pass the audit, cut the waste, keep the world's best military.",
+      cost: 50, costType: "revenue", costNote: "savings from passing the Pentagon audit and ending waste & failed weapons programs",
+      lead: "The Pentagon has never passed an audit. It spends more than the next ten countries combined — much of it on cost-overrun weapons the generals didn't ask for — while some troops rely on food stamps. We don't gut defense; we make it accountable. Pass the audit, cut the waste and the boondoggles, and reinvest in the people and capabilities that actually keep us safe.",
+      plan: [
+        { b: "Pass the audit.", t: "The Pentagon must account for every dollar like every other agency — or lose the funding it can't explain." },
+        { b: "Cut the waste, not the muscle.", t: "End cost-overrun weapons programs and contractor gouging; keep the readiness, pay, and modern capabilities that matter." },
+        { b: "Take care of the troops.", t: "A military that relies on food stamps is a scandal — raise junior-enlisted pay and fix military housing." },
+        { b: "Fund the real threats.", t: "Shift toward cyber, space, and modern defense instead of Cold-War relics." },
+      ],
+      detail: [
+        { h: "Bigger isn't safer", p: "We outspend the next ten nations combined. The waste isn't strength — it's a tax on you and a gift to contractors." },
+        { h: "The audit is the lever", p: "An agency that can't pass an audit shouldn't get a blank check. Accountability is how the savings get found." },
+        { h: "Savings, reinvested", p: "Part of the savings goes back to the troops and to real modern threats; the rest helps the bottom line." },
+      ],
+      qa: [
+        { q: "Are you cutting our defense?", a: "No — we keep the world's most capable military. We cut the waste, fraud, and failed programs the Pentagon itself can't account for, and reinvest in readiness and the troops." },
+        { q: "Can you really find $50B?", a: "Failed audits and watchdog reports point to far more than that in waste, improper payments, and overpriced contracts. $50B is conservative." },
+      ],
+      aisle: {
+        rep: [{ c: "Cutting defense makes us weaker.", r: "Passing an audit and ending contractor gouging isn't cutting defense — it's the accountability conservatives demand everywhere else. We keep the muscle, cut the fat, and pay the troops better. A military that can't pass an audit is the real risk." }],
+        dem: [{ c: "Will this actually shrink the bloat?", r: "Yes — tie funding to passing the audit, kill the cost-overrun programs, rein in contractors, and raise junior pay and fix housing. Accountability with a conscience." }],
+        ind: [
+          { c: "Why has no one done this?", r: "Because defense contractors are in nearly every district and the politics are hard. We make the audit non-negotiable and put the savings somewhere visible — the troops and the deficit." },
+          { c: "Is this safe?", r: "Safer. Money wasted on boondoggles is money not spent on readiness, cyber, and the people who serve. Efficiency is strength." },
+        ],
+        response: "The Pentagon spends more than the next ten countries combined and still can't pass an audit — while some of our troops are on food stamps. That's not strength, it's waste. Pass the audit, cut the boondoggles, pay the troops, and we get a defense that actually defends — for less.",
+      },
+    },
+    {
+      id: "family-farms", cat: "economy", icon: "🌾",
+      title: "Family Farms & Food Security", tagline: "Back the people who feed us — not just agribusiness.",
+      cost: 35, costType: "spend", costNote: "redirect support to family farms, strengthen food assistance, build resilient local food systems",
+      lead: "Farm policy mostly flows to giant agribusiness while family farms go under and rural towns hollow out. We flip it: back the family farmers who actually feed us, guarantee every American access to healthy food, and build a food system that's secure, fair, and resilient.",
+      plan: [
+        { b: "Back family farms.", t: "Redirect support from mega-agribusiness to the small and mid-size family farms that anchor rural communities — and to new farmers." },
+        { b: "Food security for all.", t: "No American should go hungry in the richest country on earth — strengthen food assistance and close food deserts." },
+        { b: "Fair markets.", t: "Break up the meatpacking and seed monopolies that squeeze both farmers and shoppers (with our antitrust plan)." },
+        { b: "Resilient & healthy.", t: "Support regenerative practices and local food systems that withstand drought, pests, and price shocks." },
+      ],
+      detail: [
+        { h: "Who farm policy serves", p: "Today most farm subsidies flow to the largest operations. We tilt support back toward family farms, new farmers, and local food." },
+        { h: "Hunger is a choice", p: "In the wealthiest nation on earth, no child should go hungry. Food assistance is cheap, effective, and pays off for a lifetime." },
+        { h: "Food security is national security", p: "A food system run by a few monopolies and vulnerable to shocks is a strategic risk. We make it resilient." },
+      ],
+      qa: [
+        { q: "Isn't this just more subsidies?", a: "It's a redirection — from the biggest agribusinesses toward family farms, new farmers, and local food systems that build rural economies and resilience." },
+        { q: "Why food assistance?", a: "It's one of the highest-return programs there is: kids who don't go hungry do better in school, health, and earnings for life — and it keeps farmers' markets strong." },
+      ],
+      aisle: {
+        rep: [{ c: "Washington shouldn't pick winners in farming.", r: "It already does — and the winners are giant agribusinesses. We level the field for the family farmer, break up the monopolies squeezing them, and cut red tape. That's a fairer market, not a bigger government." }],
+        dem: [{ c: "Does it tackle hunger and food deserts?", r: "Directly — stronger food assistance, support for local food and farmers' markets, and incentives to bring healthy food to the communities that lack it." }],
+        ind: [
+          { c: "Why should city folks care about farm policy?", r: "Because it's your food, your grocery bill, and your country's resilience. A handful of monopolies set prices for both the farmer and you; fixing that helps everyone at the checkout." },
+          { c: "Is rural America an afterthought here?", r: "It's the point. Family farms anchor rural towns; backing them — plus broadband and infrastructure — is how those communities come back." },
+        ],
+        response: "A country this rich shouldn't let its family farmers go bankrupt or its kids go hungry. Back the people who actually feed us, guarantee everyone healthy food, and break the monopolies squeezing both farmer and shopper — that's a food system worthy of America.",
+      },
+    },
 
   ],
 
@@ -1367,6 +1457,7 @@ window.PLATFORM = {
     { label: "Carbon fee on big polluters", amt: 200, id: "carbon", icon: "🏭" },
     { label: "The AI tax — per-token sales tax + automation levy", amt: 200, id: "ai-tax", icon: "🤖" },
     { label: "Data-center water & energy tax", amt: 50, id: "data-centers", icon: "💧" },
+    { label: "Pentagon savings — pass the audit, cut waste", amt: 50, id: "defense-reform", icon: "🛡️" },
     { label: "The financial-transaction tax", amt: 80, id: "ftt", icon: "📈" },
     { label: "End stepped-up basis & 'buy, borrow, die'", amt: 60, id: "stepped-up-basis", icon: "🪜" },
     { label: "Close the carried-interest loophole", amt: 20, id: "carried-interest", icon: "🎩" },
@@ -1573,6 +1664,21 @@ window.PLATFORM = {
     govtracker: [
       { label: "Wiring together data agencies already collect — open-source, within existing budgets", amt: 0 },
     ],
+    "foreign-policy": [
+      { label: "Rebuild the diplomatic corps & State Department", amt: 7 },
+      { label: "Conflict prevention & smart development", amt: 5 },
+      { label: "Alliance & treaty programs", amt: 3 },
+    ],
+    "defense-reform": [
+      { label: "End cost-overrun weapons & failed programs", amt: 25 },
+      { label: "Recover improper payments & contractor overcharges", amt: 15 },
+      { label: "Trim Cold-War-era overhead", amt: 10 },
+    ],
+    "family-farms": [
+      { label: "Support for family & new farmers (redirected from agribusiness)", amt: 15 },
+      { label: "Food assistance & ending food deserts", amt: 14 },
+      { label: "Local food systems & resilience", amt: 6 },
+    ],
   },
 
   // Per-policy honest self-assessment. difficulty/priority are 1–5; odds is the
@@ -1616,11 +1722,15 @@ window.PLATFORM = {
     disaster:          { time: "1–2 years",               difficulty: 2, priority: 3, odds: 60 },
     "gun-safety":      { time: "1–3 years",               difficulty: 4, priority: 3, odds: 35 },
     "humanity-first":  { time: "1–2 years",               difficulty: 2, priority: 3, odds: 60 },
+    "foreign-policy":  { time: "1–3 years",               difficulty: 3, priority: 3, odds: 45 },
+    "defense-reform":  { time: "2–5 years",               difficulty: 4, priority: 3, odds: 30 },
+    "family-farms":    { time: "2–4 years",               difficulty: 3, priority: 3, odds: 45 },
   },
 
   // The cabinet — placeholder people for now (random portraits). Each department
   // is the "owner" that spearheads its policies. See `governance` below.
   cabinet: [
+    { key: "president", name: "Rob Avery", role: "President of the United States", dept: "The White House", img: "assets/rob.svg" },
     { key: "vp", name: "Marvin Henderson", role: "Vice President", dept: "The White House" },
     { key: "state", name: "Lucy Allen", role: "Secretary of State", dept: "Department of State" },
     { key: "treasury", name: "Mason Burton", role: "Secretary of the Treasury", dept: "Department of the Treasury" },
@@ -1659,7 +1769,7 @@ window.PLATFORM = {
     rights:            { owner: "ag", route: "congress", court: true },
     justice:           { owner: "ag", route: "congress" },
     immigration:       { owner: "dhs", route: "congress" },
-    "supreme-court":   { owner: "ag", route: "amendment" },
+    "supreme-court":   { owner: "president", route: "amendment" },
     govtracker:        { owner: "omb", route: "executive" },
     communities:       { owner: "interior", route: "congress" },
     "min-wage":        { owner: "labor", route: "congress" },
@@ -1682,7 +1792,10 @@ window.PLATFORM = {
     waste:             { owner: "epa", route: "executive" },
     disaster:          { owner: "dhs", route: "congress" },
     "gun-safety":      { owner: "ag", route: "congress", court: true },
-    "humanity-first":  { owner: "commerce", route: "executive" },
+    "humanity-first":  { owner: "president", route: "executive" },
+    "foreign-policy":  { owner: "state", route: "congress" },
+    "defense-reform":  { owner: "defense", route: "congress" },
+    "family-farms":    { owner: "agriculture", route: "congress" },
   },
 
   /* ---------------- Humanity Score breakdown (pie chart) ----------------
