@@ -19,10 +19,9 @@
     { key: "issues",  href: "issues.html",       label: "Issues" },
     { key: "budget",  href: "budget.html",       label: "Budget" },
     { key: "deficit", href: "deficit.html",      label: "Deficit" },
-    { key: "govtracker", href: "govtracker.html", label: "GovTracker" },
     { key: "affect",  href: "affect.html",       label: "Your Impact" },
     { key: "tax",     href: "tax-lab.html",      label: "Tax Lab" },
-    { key: "join",    href: "get-involved.html", label: "Join" },
+    { key: "join",    href: "get-involved.html", label: "Get Involved" },
   ];
 
   /* ---- Header ---- */
@@ -78,9 +77,9 @@
         </div>
         <div class="footer-col">
           <h4>Tools</h4>
-          <a href="govtracker.html">GovTracker (live)</a>
           <a href="tax-lab.html">Tax Lab</a>
           <a href="affect.html">How it affects you</a>
+          <a href="get-involved.html#volunteer">Volunteer</a>
           <a href="get-involved.html#donate">Donate</a>
         </div>
       </div>

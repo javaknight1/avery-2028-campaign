@@ -274,7 +274,7 @@ img { max-width: 100%; display: block; }
   .footer-top { grid-template-columns: 1fr 1fr; }
 }
 /* nav collapses to a drawer a bit sooner so every top-level page fits on desktop */
-@media (max-width: 1160px) {
+@media (max-width: 1080px) {
   .nav-toggle { display: flex; }
   .nav-links {
     position: fixed; inset: 0 0 0 auto; width: min(330px, 84vw); flex-direction: column;

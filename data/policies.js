@@ -1323,6 +1323,38 @@ window.PLATFORM = {
         response: "We built a throwaway economy and called the bill someone else's problem — until it's overflowing our landfills and washing up on our beaches. Refocus the EPA on using less and reusing more, make the companies that profit from the packaging pay to deal with it, and we stop drowning in our own trash.",
       },
     },
+    {
+      id: "govtracker", cat: "democracy", icon: "📊",
+      title: "GovTracker — A Government You Can Watch", tagline: "One official, public, live dashboard for the entire federal government.",
+      cost: 0, costType: "neutral", costNote: "built and run within existing agencies; open-source keeps the cost negligible",
+      lead: "You can track a $5 package across the country in real time, but you can't see where trillions of your tax dollars go. As president, we'll build GovTracker: one official, government-hosted website — open to everyone — that shows the whole federal government live. Every dollar, every vote, every contract, and a running read on whether people are actually better off.",
+      plan: [
+        { b: "Every dollar, in real time.", t: "A ticking national-debt and deficit clock, plus federal spending and revenue broken down like your banking app — built on the same live U.S. Treasury data this campaign already cites." },
+        { b: "Every contract and grant.", t: "Searchable down to the line item, so waste and favoritism have nowhere to hide." },
+        { b: "Every vote and bill, in plain English.", t: "How your representatives voted and what the bill actually does — no law degree required." },
+        { b: "The Humanity Score, live.", t: "A monthly, public read on health, security, opportunity, and trust — the scoreboard for whether government is working." },
+        { b: "Open by default.", t: "A free public API, FOIA-by-default, and open-source code, so journalists, researchers, and citizens can build on it." },
+        { b: "States can opt in.", t: "Any state can publish to the same open standard, so transparency spreads without waiting on Washington." },
+      ],
+      detail: [
+        { h: "Why the government should host it", p: "Transparency shouldn't depend on a campaign, a nonprofit, or a billionaire's goodwill. It belongs to the public — so it's run by the public's government: official, permanent, and nonpartisan." },
+        { h: "Cheap to build, priceless to have", p: "It's mostly wiring together data the government already collects across clunky, scattered sites. Open-source and existing agency staff keep the cost negligible against what sunlight saves in waste and fraud." },
+        { h: "Follow the money", p: "Lobbying and campaign cash linked to the votes they shaped — so you can see influence, not just spending." },
+      ],
+      qa: [
+        { q: "Doesn't a lot of this data already exist?", a: "Yes — scattered across dozens of clunky federal sites (USAspending, Congress.gov, Treasury, and more). GovTracker puts it in one place, in plain language, updated live, and free to reuse." },
+        { q: "Won't agencies resist showing their work?", a: "Some will — which is exactly the point. Sunlight changes behavior. We make openness the default and secrecy the narrow exception that has to be justified." },
+      ],
+      aisle: {
+        rep: [{ c: "This is just another costly government website.", r: "It mostly wires together data taxpayers already paid to collect, built open-source within existing agencies. For a rounding error it's the strongest anti-waste, anti-fraud tool we could build — the accountability conservatives have wanted for decades." }],
+        dem: [{ c: "Will it actually drive accountability?", r: "Yes — public, searchable, real-time data is how watchdogs and journalists catch waste and favoritism. What gets measured and seen gets fixed." }],
+        ind: [
+          { c: "Why doesn't this already exist?", r: "Because the people it would expose have little reason to build it, and the data is scattered across clunky portals almost by design. GovTracker makes it one clean, public, live picture." },
+          { c: "Is it just a dashboard, or does it change anything?", r: "Visibility changes behavior. A government that has to show its work in real time spends more carefully — and you no longer have to take anyone's word for it." },
+        ],
+        response: "You can watch a pizza get made through an app, but you can't watch your government spend $7 trillion. That's backwards. GovTracker is a permanent, public, government-run window into every dollar and decision — because a government that shows its work is a government that behaves.",
+      },
+    },
 
   ],
 
@@ -1537,6 +1569,9 @@ window.PLATFORM = {
     waste: [
       { label: "Recycling, composting & reuse infrastructure + ocean cleanup", amt: 20 },
       { label: "Fully offset by producer-responsibility fees on packaging", amt: -20 },
+    ],
+    govtracker: [
+      { label: "Wiring together data agencies already collect — open-source, within existing budgets", amt: 0 },
     ],
   },
 
