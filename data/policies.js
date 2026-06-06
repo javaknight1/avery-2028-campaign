@@ -1729,26 +1729,188 @@ window.PLATFORM = {
 
   // The cabinet — placeholder people for now (random portraits). Each department
   // is the "owner" that spearheads its policies. See `governance` below.
+  // Each entry is a SEAT (a job description), not a fixed person. `candidates`
+  // is an illustrative shortlist — public figures who'd fit the JD *if* they
+  // shared the platform and joined the team. Not affiliated; not endorsements.
   cabinet: [
-    { key: "president", name: "Rob Avery", role: "President of the United States", dept: "The White House", img: "assets/rob.svg" },
-    { key: "vp", name: "Marvin Henderson", role: "Vice President", dept: "The White House" },
-    { key: "state", name: "Lucy Allen", role: "Secretary of State", dept: "Department of State" },
-    { key: "treasury", name: "Mason Burton", role: "Secretary of the Treasury", dept: "Department of the Treasury" },
-    { key: "defense", name: "Julia Macdonald", role: "Secretary of Defense", dept: "Department of Defense" },
-    { key: "ag", name: "Ryder Scott", role: "Attorney General", dept: "Department of Justice" },
-    { key: "interior", name: "Theo Lo", role: "Secretary of the Interior", dept: "Department of the Interior" },
-    { key: "agriculture", name: "Delphine Singh", role: "Secretary of Agriculture", dept: "Department of Agriculture" },
-    { key: "commerce", name: "Liam Jones", role: "Secretary of Commerce", dept: "Department of Commerce" },
-    { key: "labor", name: "Rosie Peterson", role: "Secretary of Labor", dept: "Department of Labor" },
-    { key: "hhs", name: "Juliette Johnson", role: "Secretary of Health & Human Services", dept: "Dept. of Health & Human Services" },
-    { key: "hud", name: "Stella Harper", role: "Secretary of Housing & Urban Development", dept: "Dept. of Housing & Urban Development" },
-    { key: "transportation", name: "Kristin Turner", role: "Secretary of Transportation", dept: "Department of Transportation" },
-    { key: "energy", name: "Arnaud Harcourt", role: "Secretary of Energy", dept: "Department of Energy" },
-    { key: "education", name: "Charles Ma", role: "Secretary of Education", dept: "Department of Education" },
-    { key: "va", name: "Vincent Campbell", role: "Secretary of Veterans Affairs", dept: "Department of Veterans Affairs" },
-    { key: "dhs", name: "Kate Johnson", role: "Secretary of Homeland Security", dept: "Department of Homeland Security" },
-    { key: "epa", name: "Jack Tremblay", role: "EPA Administrator", dept: "Environmental Protection Agency" },
-    { key: "omb", name: "Sofia Nguyen", role: "Director of OMB & Govt. Transparency", dept: "Office of Management & Budget" },
+    { key: "president", role: "President of the United States", dept: "The White House", icon: "🇺🇸", self: true, holder: "Rob Avery", img: "assets/rob.svg",
+      mission: "Set the agenda, pick the team, and answer to the country for results.",
+      responsibilities: ["Own the Humanity Score — the scoreboard every policy is judged against.", "Lead the constitutional fights, including Supreme Court reform.", "Appoint and hold accountable the cabinet below.", "Report honestly to the public, on a clock."],
+      daily: ["Set priorities and break ties across the cabinet.", "Make the final call on the hardest trade-offs.", "Take the case to Congress and the country."] },
+
+    { key: "vp", role: "Vice President", dept: "The White House", icon: "🤝", tbd: true,
+      mission: "Governing partner, Senate tie-breaker, and successor-in-waiting.",
+      responsibilities: ["Be a true governing partner, not a figurehead.", "Break ties in the Senate to move the agenda.", "Champion priority reforms like congressional term limits.", "Be ready to lead on day one."],
+      daily: ["Work the Senate and Congress.", "Lead assigned initiatives end-to-end.", "Represent the administration at home and abroad."] },
+
+    { key: "state", role: "Secretary of State", dept: "Department of State", icon: "🕊️",
+      mission: "Lead with diplomacy and alliances — and end the forever wars.",
+      responsibilities: ["Run U.S. foreign policy and rebuild the diplomatic corps.", "Strengthen alliances and negotiate from strength.", "Wind down open-ended wars; restore Congress's war-powers role.", "Direct development that prevents conflict before it starts."],
+      daily: ["Brief the President on global crises and openings.", "Meet counterparts and lead negotiations.", "Run embassies and the State Department workforce."],
+      candidates: [
+        { name: "William J. Burns", background: "Career ambassador and former CIA Director — among the most respected American diplomats of his generation.", why: "Unflappable, globally trusted, and a master of negotiating from strength instead of bluster." },
+        { name: "Fiona Hill", background: "Russia and Europe scholar who served on the National Security Council and testified with rare candor.", why: "Fearless, incorruptible, and credible across the political spectrum." },
+        { name: "Ben Rhodes", background: "Former deputy national security advisor and foreign-policy author.", why: "Pairs a diplomacy-first strategy with the ability to explain it to the public." },
+      ] },
+
+    { key: "treasury", role: "Secretary of the Treasury", dept: "Department of the Treasury", icon: "💰",
+      mission: "Make the tax code fair and fund the agenda without deficits.",
+      responsibilities: ["Design and pass progressive tax reform — the wealth tax, top rates, and closing loopholes.", "Run the IRS and rebuild enforcement on the wealthiest filers and corporations.", "Manage the debt and steer toward a lasting surplus.", "Safeguard financial stability."],
+      daily: ["Advise the President on revenue, debt, and markets.", "Work Congress on tax and reconciliation bills.", "Oversee Treasury, the IRS, and the financial agencies."],
+      candidates: [
+        { name: "Gabriel Zucman", background: "Economist (Berkeley) who co-designed the modern wealth tax and pioneered measuring hidden wealth.", why: "If the billionaire tax is the flagship, he is literally its architect." },
+        { name: "Lily Batchelder", background: "NYU tax-law professor and former Treasury official.", why: "Knows how to actually draft progressive tax reform and move it through Congress." },
+        { name: "Natasha Sarin", background: "Economist specializing in tax compliance and IRS capacity.", why: "The 'collect what's legally owed' hire — closing the tax gap is her expertise." },
+      ] },
+
+    { key: "defense", role: "Secretary of Defense", dept: "Department of Defense", icon: "🛡️",
+      mission: "A defense that defends — accountable, modern, and lean.",
+      responsibilities: ["Pass the Pentagon's first clean audit.", "Cut waste and failed weapons programs while protecting readiness.", "Raise junior-enlisted pay and fix military housing.", "Reorient toward cyber, space, and real threats."],
+      daily: ["Command the department and advise the President on security.", "Hold contractors and programs to account.", "Care for service members and their families."],
+      candidates: [
+        { name: "Mandy Smithberger", background: "Spent a career exposing Pentagon waste and overspending (Project On Government Oversight).", why: "Built precisely for the 'pass the audit, cut the boondoggles' mandate." },
+        { name: "William Hartung", background: "Defense-budget analyst who can tell muscle from boondoggle.", why: "Knows where the waste hides and how to reinvest the savings in readiness." },
+        { name: "A reform-minded retired flag officer", background: "A respected general or admiral known for integrity over careerism.", why: "Adds operational credibility to a reform agenda the brass will resist." },
+      ] },
+
+    { key: "ag", role: "Attorney General", dept: "Department of Justice", icon: "⚖️",
+      mission: "Equal justice, clean elections, and fair markets.",
+      responsibilities: ["Protect voting rights and civil rights.", "Revive antitrust enforcement against monopolies.", "Pursue corruption and enforce the elected-official stock-trading ban.", "Reform the justice system and reduce gun violence."],
+      daily: ["Run the Department of Justice independently.", "Set litigation and enforcement priorities.", "Defend the rule of law."],
+      candidates: [
+        { name: "Vanita Gupta", background: "Led DOJ's Civil Rights Division and served as Associate Attorney General.", why: "A proven coalition-builder with deep DOJ chops on rights and policing." },
+        { name: "Zephyr Teachout", background: "Law professor and author on anti-corruption and antitrust.", why: "The ideal lead for the money-in-politics and monopoly fights." },
+        { name: "Kristen Clarke", background: "Civil-rights litigator who ran DOJ's Civil Rights Division.", why: "Voting rights and equal protection are her life's work." },
+      ] },
+
+    { key: "interior", role: "Secretary of the Interior", dept: "Department of the Interior", icon: "🏔️",
+      mission: "Honor our obligations to Native nations and steward public lands.",
+      responsibilities: ["Fully fund the Indian Health Service and honor treaty obligations.", "Invest in reservation infrastructure and community equity.", "Advance Puerto Rico and Native Hawaiian investment.", "Manage public lands and conservation."],
+      daily: ["Lead Interior and the Bureau of Indian Affairs.", "Consult tribal nations as sovereign partners.", "Balance conservation and use on public lands."],
+      candidates: [
+        { name: "Deb Haaland", background: "First Native American Interior Secretary and a member of the Pueblo of Laguna.", why: "The precedent and the credibility for a Native-investment-first Interior." },
+        { name: "A sitting tribal-nation leader", background: "A current chairperson or president of a federally recognized tribe.", why: "Puts the communities the plank serves directly in the driver's seat." },
+        { name: "Jonathan Jarvis", background: "Former director of the National Park Service.", why: "Steady, respected steward for the public-lands side of the job." },
+      ] },
+
+    { key: "agriculture", role: "Secretary of Agriculture", dept: "Department of Agriculture", icon: "🌾",
+      mission: "Back family farms and guarantee food security.",
+      responsibilities: ["Redirect support from agribusiness to family and new farmers.", "Strengthen food assistance and close food deserts.", "Break up agriculture monopolies (with DOJ).", "Build resilient, healthy local food systems."],
+      daily: ["Lead USDA's farm and nutrition programs.", "Engage farmers, ranchers, and rural communities.", "Coordinate food safety and supply resilience."],
+      candidates: [
+        { name: "Austin Frerick", background: "Agricultural-economy expert who wrote the book on farm monopolies (“Barons”).", why: "Squarely on-mission: break up Big Ag and back the family farmer." },
+        { name: "Ricardo Salvador", background: "Led the food-and-environment program at the Union of Concerned Scientists.", why: "A leading voice for sustainable, equitable food systems." },
+        { name: "Marion Nestle", background: "The dean of American food and nutrition policy.", why: "Unmatched authority for the food-security and healthy-food half of the job." },
+      ] },
+
+    { key: "commerce", role: "Secretary of Commerce", dept: "Department of Commerce", icon: "📡",
+      mission: "Wire the whole country and lead in science and space.",
+      responsibilities: ["Deliver affordable broadband to every home.", "Lead civil space investment and international partnerships.", "Support innovation and a fair digital economy.", "Run the Census and core economic statistics."],
+      daily: ["Lead Commerce, NOAA, and related agencies.", "Coordinate the broadband build-out with states.", "Engage industry and researchers."],
+      candidates: [
+        { name: "Susan Crawford", background: "Law professor and the country's clearest thinker on broadband as a public utility.", why: "Exactly the vision the 'internet for every American' plank needs." },
+        { name: "Gigi Sohn", background: "Telecom-reform and net-neutrality advocate who knows the FCC inside out.", why: "A relentless fighter for affordable, open networks." },
+        { name: "Tom Wheeler", background: "Former FCC chairman.", why: "Proven at moving big, contested telecom policy to the finish line." },
+      ] },
+
+    { key: "labor", role: "Secretary of Labor", dept: "Department of Labor", icon: "👷",
+      mission: "Raise wages and rebuild worker power.",
+      responsibilities: ["Enact and enforce a $15 minimum wage.", "Strengthen the right to organize.", "Enforce wage, hour, and workplace-safety law.", "Fund retraining for the AI transition."],
+      daily: ["Lead the Department of Labor and OSHA.", "Work with unions and employers.", "Direct wage-and-hour enforcement."],
+      candidates: [
+        { name: "Sara Nelson", background: "President of the flight attendants' union and the most prominent labor leader in America.", why: "A movement-builder and an operator — equal parts inspiration and execution." },
+        { name: "David Weil", background: "Labor economist and former Wage and Hour Administrator (“The Fissured Workplace”).", why: "The country's expert on actually enforcing wage and hour law." },
+        { name: "Liz Shuler", background: "President of the AFL-CIO.", why: "Convenes all of organized labor behind the agenda." },
+      ] },
+
+    { key: "hhs", role: "Secretary of Health & Human Services", dept: "Dept. of Health & Human Services", icon: "🏥",
+      mission: "Health and care as a right — cradle to retirement.",
+      responsibilities: ["Stand up universal healthcare on a careful, phased timeline.", "Deliver universal childcare and paid family leave.", "Protect and expand Social Security.", "Lead public health, pandemic readiness, and the mental-health and addiction response."],
+      daily: ["Lead HHS, CMS, CDC, FDA, and NIH.", "Manage the healthcare transition with no gaps in care.", "Advise the President on public-health threats."],
+      candidates: [
+        { name: "Don Berwick", background: "Ran Medicare & Medicaid; world authority on health-system quality and a single-payer ally.", why: "No one understands how to actually run — and transform — public health coverage better." },
+        { name: "Atul Gawande", background: "Surgeon, writer, and former head of global health at USAID.", why: "A rare clinical + operational + communication trifecta for the biggest build on the board." },
+        { name: "Abdul El-Sayed", background: "Epidemiologist and universal-care champion who has run a public health department.", why: "Combines the policy vision with hands-on health-department experience." },
+      ] },
+
+    { key: "hud", role: "Secretary of Housing & Urban Development", dept: "Dept. of Housing & Urban Development", icon: "🏠",
+      mission: "A safe, affordable home for everyone.",
+      responsibilities: ["Build social and affordable housing at scale.", "Expand rental assistance.", "End homelessness with a housing-first approach.", "Implement primary-residence relief and the second-home surtax."],
+      daily: ["Lead HUD.", "Partner with cities and states on housing supply.", "Direct vouchers and homelessness programs."],
+      candidates: [
+        { name: "Matthew Desmond", background: "Sociologist and Pulitzer-winning author of “Evicted.”", why: "The moral and empirical authority on housing and poverty in America." },
+        { name: "Diane Yentel", background: "Led the National Low Income Housing Coalition.", why: "Knows the levers of affordable-housing policy cold." },
+      ] },
+
+    { key: "transportation", role: "Secretary of Transportation", dept: "Department of Transportation", icon: "🚄",
+      mission: "Move people and goods — fast, safe, and fixed-first.",
+      responsibilities: ["Build high-speed rail.", "Fix roads, bridges, and water systems first.", "Modernize transit, ports, and freight.", "Coordinate infrastructure with each state."],
+      daily: ["Lead DOT and its modal agencies.", "Run major capital programs and safety.", "Partner with states and localities on delivery."],
+      candidates: [
+        { name: "Janette Sadik-Khan", background: "Transformed New York City's streets and transit as transportation commissioner.", why: "A proven big-system builder who ships projects, not press releases." },
+        { name: "Beth Osborne", background: "Director of Transportation for America and former DOT official.", why: "The fix-it-first and transit gospel, with the policy fluency to match." },
+        { name: "Phillip Washington", background: "Ran major transit agencies and a large airport.", why: "Operational scale — exactly what a high-speed-rail program demands." },
+      ] },
+
+    { key: "energy", role: "Secretary of Energy", dept: "Department of Energy", icon: "⚡",
+      mission: "A clean, reliable, affordable grid.",
+      responsibilities: ["Modernize the grid and accelerate clean-energy deployment.", "Run home rebates and the clean-energy jobs guarantee.", "Oversee data centers' energy and water footprint.", "Maintain energy security and the national labs."],
+      daily: ["Lead DOE and the national labs.", "Finance and speed clean deployment.", "Coordinate with utilities and states."],
+      candidates: [
+        { name: "Jigar Shah", background: "Clean-energy financier who ran DOE's Loan Programs Office.", why: "The deployment-at-scale expert the grid build-out is crying out for." },
+        { name: "Saul Griffith", background: "Engineer and founder of Rewiring America (“electrify everything”).", why: "The technical visionary for an all-electric, clean grid." },
+        { name: "Ernest Moniz", background: "Physicist and former Energy Secretary.", why: "Gravitas plus deep grid, nuclear, and labs experience." },
+      ] },
+
+    { key: "education", role: "Secretary of Education", dept: "Department of Education", icon: "🎓",
+      mission: "World-class public education, pre-K through college.",
+      responsibilities: ["Launch universal pre-K and after-school.", "Make community and technical college free.", "Lift teacher pay and modernize K-12.", "Expand dual enrollment and apprenticeships."],
+      daily: ["Lead the Department of Education.", "Partner with states and districts.", "Direct student-aid and college-access programs."],
+      candidates: [
+        { name: "Linda Darling-Hammond", background: "One of the most cited education researchers in the country; led California's state board.", why: "Combines evidence, equity, and the experience of running a big system." },
+        { name: "Diane Ravitch", background: "Education historian and fierce defender of public schools.", why: "A powerful voice against privatization and for public education." },
+        { name: "A community-college system chancellor", background: "A leader who has scaled access and completion at a large two-year system.", why: "The free-college build needs someone who has actually run open-access higher ed." },
+      ] },
+
+    { key: "va", role: "Secretary of Veterans Affairs", dept: "Department of Veterans Affairs", icon: "🎖️",
+      mission: "Keep faith with those who served.",
+      responsibilities: ["Cut VA wait times and modernize claims.", "Guarantee mental-health care and suicide prevention.", "End veteran homelessness.", "Keep the community-care option when the VA can't deliver fast."],
+      daily: ["Lead the VA and its hospital system.", "Advocate for veterans across the whole government.", "Manage benefits delivery."],
+      candidates: [
+        { name: "Jon Stewart", background: "Drove the PACT Act for sick veterans through Congress; relentless veterans' advocate.", why: "Unmatched at making the VA deliver — and at making the country watch." },
+        { name: "Paul Rieckhoff", background: "Combat veteran and founder of Iraq and Afghanistan Veterans of America.", why: "A veteran-organization operator who knows the system's failures firsthand." },
+        { name: "A turnaround VA hospital CEO", background: "An executive who has fixed a failing VA medical center.", why: "Proven executional spine for the agency's hardest problem: delivery." },
+      ] },
+
+    { key: "dhs", role: "Secretary of Homeland Security", dept: "Department of Homeland Security", icon: "🛂",
+      mission: "Secure and humane — at the border and in disasters.",
+      responsibilities: ["Run a humane, orderly immigration system; expand courts and processing.", "Lead FEMA and disaster readiness and response.", "Protect critical infrastructure and cybersecurity.", "Help integrate new Americans."],
+      daily: ["Lead DHS, FEMA, and the immigration agencies.", "Coordinate disaster response with states.", "Balance security with rights."],
+      candidates: [
+        { name: "Craig Fugate", background: "The gold-standard FEMA administrator under President Obama.", why: "Disaster competence personified — and the bar for getting the response right." },
+        { name: "Cecilia Muñoz", background: "Veteran immigration-policy leader and former White House Domestic Policy Council director.", why: "Deep, humane expertise on a humane, orderly immigration system." },
+        { name: "Roberta Jacobson", background: "Career diplomat who handled the border portfolio at the White House.", why: "Serious, steady hand on the hardest part of the job." },
+      ] },
+
+    { key: "epa", role: "EPA Administrator", dept: "Environmental Protection Agency", icon: "♻️",
+      mission: "Clean air and water, less waste, a livable climate.",
+      responsibilities: ["Implement the carbon fee and border carbon adjustment.", "Refocus the agency on recycling, reuse, and producer responsibility.", "Protect air, water, and overburdened communities.", "Drive ocean and waterway cleanup."],
+      daily: ["Lead the EPA.", "Set and enforce environmental standards.", "Center environmental justice in every decision."],
+      candidates: [
+        { name: "Gina McCarthy", background: "Former EPA Administrator and the first White House National Climate Advisor.", why: "Knows how to move the agency and the whole government on climate." },
+        { name: "Mustafa Santiago Ali", background: "Founding leader of the EPA's environmental-justice work.", why: "The conscience and expertise for fair siting and frontline communities." },
+        { name: "A circular-economy expert", background: "A leader in extended-producer-responsibility and zero-waste systems.", why: "The waste-and-recycling refocus needs a true circular-economy specialist." },
+      ] },
+
+    { key: "omb", role: "Director of OMB & Government Transparency", dept: "Office of Management & Budget", icon: "📊",
+      mission: "Make government deliver — and show its work.",
+      responsibilities: ["Build and run GovTracker — the live public dashboard.", "Assemble and manage the federal budget toward the surplus.", "Drive open-by-default transparency and FOIA reform.", "Fix government technology and delivery."],
+      daily: ["Lead OMB.", "Oversee the budget and agency performance.", "Push agencies on delivery, data, and openness."],
+      candidates: [
+        { name: "Jennifer Pahlka", background: "Founder of Code for America and author of “Recoding America.”", why: "The single best fit for 'make government deliver and show its work.'" },
+        { name: "Mikey Dickerson", background: "Founding administrator of the U.S. Digital Service.", why: "Rescues broken government technology at scale." },
+        { name: "Danielle Brian", background: "Longtime executive director of the Project On Government Oversight.", why: "Decades of transparency and watchdog credibility for the GovTracker mandate." },
+      ] },
   ],
 
   // Per-policy governance: who leads it (cabinet key) and the route to passage.

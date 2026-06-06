@@ -95,9 +95,12 @@
     const owner = CAB[g.owner];
     const needs = route.needs.map((n) => `<li>${esc(n)}</li>`).join("");
     const courtLi = g.court ? `<li class="gv-court">⚖️ Expect a Supreme Court challenge — we draft it to survive review.</li>` : "";
-    const ownerHTML = owner ? `<a class="gv-owner" href="cabinet.html#${owner.key}">
-        <span class="gv-avatar"><img src="${owner.img || `assets/cabinet/${owner.key}.jpg`}" alt="${esc(owner.name)}" loading="lazy" width="60" height="60" /></span>
-        <span class="gv-owner-txt"><small>Led by</small><b>${esc(owner.name)}</b><span>${esc(owner.role)}</span></span>
+    const ownerFace = owner && owner.img
+      ? `<img src="${owner.img}" alt="${esc(owner.role)}" loading="lazy" width="60" height="60" />`
+      : (owner ? `<span class="gv-emoji">${owner.icon || "🏛️"}</span>` : "");
+    const ownerHTML = owner ? `<a class="gv-owner" href="seat.html?seat=${owner.key}">
+        <span class="gv-avatar">${ownerFace}</span>
+        <span class="gv-owner-txt"><small>Led by</small><b>${esc(owner.role)}</b><span>${esc(owner.dept)}</span></span>
       </a>` : "";
     return `<div class="policy-block" data-reveal><h3>How it gets done</h3>
       <p class="aisle-intro">Who spearheads it, and the specific path it has to travel to become real.</p>
