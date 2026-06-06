@@ -90,7 +90,8 @@
       <div class="container">
         <div class="policy-head" data-reveal>
           <span class="policy-icon">${p.icon}</span>
-          <div class="policy-headings"><h2>${esc(p.title)}</h2><p class="tagline">${esc(p.tagline)}</p></div>
+          <div class="policy-headings"><h2>${esc(p.title)}</h2><p class="tagline">${esc(p.tagline)}</p>
+            <button class="policy-share" type="button" data-share="${p.id}" aria-label="Copy a link to this policy">🔗 Copy link</button></div>
           ${costBadge(p)}
         </div>
         <p class="policy-lead" data-reveal>${esc(p.lead)}</p>
@@ -293,6 +294,16 @@
     const item = q.closest(".qa-item");
     const open = item.classList.toggle("open");
     q.setAttribute("aria-expanded", String(open));
+  });
+
+  /* ---- per-policy copy link ---- */
+  root.addEventListener("click", (e) => {
+    const sb = e.target.closest(".policy-share");
+    if (!sb) return;
+    const url = location.origin + location.pathname + "#" + sb.dataset.share;
+    const done = () => { sb.classList.add("copied"); const o = sb.textContent; sb.textContent = "✓ Link copied!"; setTimeout(() => { sb.textContent = o; sb.classList.remove("copied"); }, 1600); };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, () => prompt("Copy this link:", url));
+    else prompt("Copy this link:", url);
   });
 
   /* ---- reveal injected nodes ---- */

@@ -265,9 +265,52 @@
     setPlan(p.brackets, p.ded);
   });
 
+  /* ---------- shareable URL state ---------- */
+  function planToHash() {
+    const { sorted } = readDOM();
+    const b = sorted.map((x) => `${Math.round(x.min)}-${x.rate}`).join("_");
+    return `#d=${parseNum(dedInput.value)}&b=${b}`;
+  }
+  function hashToPlan() {
+    const h = location.hash.replace(/^#/, "");
+    if (!h.includes("b=")) return null;
+    const params = new URLSearchParams(h);
+    const raw = params.get("b");
+    if (!raw) return null;
+    const brackets = raw.split("_").map((pair) => {
+      const [min, rate] = pair.split("-");
+      return { min: parseNum(min), rate: clamp(parseFloat(rate) || 0, 0, 100) };
+    }).filter((x) => !isNaN(x.min));
+    if (!brackets.length) return null;
+    brackets.sort((a, b) => a.min - b.min);
+    brackets[0].min = 0;
+    return { brackets, ded: params.has("d") ? parseNum(params.get("d")) : 14600 };
+  }
+
   /* ---------- init ---------- */
   renderPresets();
-  setPlan(PRESETS[0].brackets, PRESETS[0].ded);
+  const shared = hashToPlan();
+  if (shared) { setPlan(shared.brackets, shared.ded); clearActivePreset(); }
+  else setPlan(PRESETS[0].brackets, PRESETS[0].ded);
   lastYou = CURRENT_REVENUE; // start the big-number animation from current
   recompute();
+
+  // "Share this plan" button (injected next to Reset)
+  const resetBtn = $("#resetBtn");
+  if (resetBtn) {
+    const shareBtn = document.createElement("button");
+    shareBtn.type = "button";
+    shareBtn.id = "shareBtn";
+    shareBtn.className = resetBtn.className;
+    shareBtn.textContent = "🔗 Share this plan";
+    resetBtn.after(shareBtn);
+    shareBtn.addEventListener("click", () => {
+      const hash = planToHash();
+      history.replaceState(null, "", location.pathname + hash);
+      const url = location.origin + location.pathname + hash;
+      const done = () => { shareBtn.textContent = "✓ Link copied!"; setTimeout(() => { shareBtn.textContent = "🔗 Share this plan"; }, 1700); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, () => prompt("Copy this link:", url));
+      else prompt("Copy this link:", url);
+    });
+  }
 })();

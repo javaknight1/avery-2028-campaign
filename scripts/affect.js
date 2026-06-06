@@ -157,12 +157,59 @@
     $("wrap-extra").classList.toggle("me-hidden", h !== "ownmulti");
   }
 
+  /* ---- shareable URL state ---- */
+  const FIELD_IDS = ["af-filing", "af-income", "af-kids", "af-health", "af-childcare", "af-debt", "af-housing", "af-homeval", "af-extrahomes", "af-college", "af-wage", "af-networth"];
+  function serialize() {
+    const params = new URLSearchParams();
+    FIELD_IDS.forEach((id) => {
+      const el = $(id); if (!el) return;
+      const key = id.slice(3);
+      if (el.type === "checkbox") { if (el.checked) params.set(key, "1"); }
+      else if (el.value !== "") params.set(key, el.value);
+    });
+    if (MODE && MODE !== "all") params.set("mode", MODE);
+    return "#" + params.toString();
+  }
+  function restore() {
+    const h = location.hash.replace(/^#/, "");
+    if (!h || h.indexOf("=") < 0) return;
+    const params = new URLSearchParams(h);
+    FIELD_IDS.forEach((id) => {
+      const el = $(id); if (!el) return;
+      const key = id.slice(3);
+      if (el.type === "checkbox") el.checked = params.get(key) === "1";
+      else if (params.has(key)) el.value = params.get(key);
+    });
+    if (params.get("mode") === "direct") {
+      MODE = "direct";
+      const t = $("meToggle");
+      if (t) t.querySelectorAll(".me-tg").forEach((x) => x.classList.toggle("active", x.dataset.mode === "direct"));
+    }
+  }
+
   const form = $("meForm");
   if (form) {
     form.addEventListener("input", () => { syncFields(); render(); });
     form.addEventListener("change", () => { syncFields(); render(); });
+    restore();
     syncFields();
     render();
+
+    const note = $("afNote");
+    if (note) {
+      const share = document.createElement("button");
+      share.type = "button";
+      share.className = "me-share";
+      share.textContent = "🔗 Copy my results link";
+      note.after(share);
+      share.addEventListener("click", () => {
+        const hash = serialize();
+        history.replaceState(null, "", location.pathname + hash);
+        const url = location.origin + location.pathname + hash;
+        const done = () => { share.textContent = "✓ Link copied!"; setTimeout(() => { share.textContent = "🔗 Copy my results link"; }, 1700); };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, () => prompt("Copy this link:", url));
+        else prompt("Copy this link:", url);
+      });
+    }
   }
 })();
-/* TEMP TEST */ setTimeout(() => { try { const a=document.getElementById("afNet").textContent; document.querySelector('.me-tg[data-mode="direct"]').click(); const b=document.getElementById("afNet").textContent; const act=document.querySelector('.me-tg[data-mode="direct"]').classList.contains("active"); document.title="TEST "+a+" -> "+b+" active="+act; } catch(e){ document.title="TEST ERR "+e.message; } }, 250);
