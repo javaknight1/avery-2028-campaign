@@ -14,6 +14,12 @@
   const bucket = (p) => (p.costType === "revenue" ? "revenue" : "spending");
   const THEMES = P.themes || [{ id: "care", name: "Care" }];
 
+  const LINK_ICON = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 13a5 5 0 0 0 7.07 0l2-2a5 5 0 0 0-7.07-7.07l-1.5 1.5"/><path d="M14 11a5 5 0 0 0-7.07 0l-2 2a5 5 0 0 0 7.07 7.07l1.5-1.5"/></svg>`;
+  const CHECK_ICON = `<svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>`;
+  const miniDots = (n) => `<span class="sc-dots tdots" aria-hidden="true">${[1, 2, 3, 4, 5].map((i) => `<i class="${i <= n ? "on" : ""}"></i>`).join("")}</span>`;
+  const costCell = (p) => p.costType === "neutral" ? { t: "≈ $0", c: "neutral" }
+    : (p.costType === "revenue" ? { t: "+" + money(p.cost), c: "rev" } : { t: money(p.cost), c: "spend" });
+
   // For the visual cost meter: scale every bar against the biggest line in the
   // platform, and translate the figure into a per-household equivalent so the
   // jump from billions to trillions is actually conceivable.
@@ -91,7 +97,7 @@
         <div class="policy-head" data-reveal>
           <span class="policy-icon">${p.icon}</span>
           <div class="policy-headings"><h2>${esc(p.title)}</h2><p class="tagline">${esc(p.tagline)}</p>
-            <button class="policy-share" type="button" data-share="${p.id}" aria-label="Copy a link to this policy">🔗 Copy link</button></div>
+            <button class="policy-share" type="button" data-share="${p.id}" title="Copy a link to this policy" aria-label="Copy a link to this policy">${LINK_ICON}</button></div>
           ${costBadge(p)}
         </div>
         <p class="policy-lead" data-reveal>${esc(p.lead)}</p>
@@ -164,6 +170,33 @@
       P.policies.filter((p) => bucket(p) === cat.id && p.cat === t.id).forEach((p) => { html += policyHTML(p); });
     });
   });
+  function buildTable() {
+    const DIFF = ["", "Easy", "Moderate", "Involved", "Hard", "Very hard"];
+    const PRIO = ["", "Low", "Modest", "Medium", "High", "Top"];
+    const rows = P.policies.map((p) => {
+      const m = (P.metrics || {})[p.id] || {};
+      const cc = costCell(p);
+      const oddsCls = m.odds >= 60 ? "hi" : (m.odds >= 40 ? "mid" : "lo");
+      return `<tr data-prow="${p.id}">
+        <td class="pt-title"><a href="#${p.id}"><span class="pt-ic">${p.icon}</span>${esc(p.title)}</a></td>
+        <td class="num pt-${cc.c}">${cc.t}</td>
+        <td class="pt-time">${m.time ? esc(m.time) : "—"}</td>
+        <td class="pt-dot">${m.difficulty ? `${miniDots(m.difficulty)}<small>${DIFF[m.difficulty]}</small>` : "—"}</td>
+        <td class="pt-dot">${m.priority ? `${miniDots(m.priority)}<small>${PRIO[m.priority]}</small>` : "—"}</td>
+        <td class="num">${m.odds != null ? `<span class="pt-odds ${oddsCls}">${m.odds}%</span>` : "—"}</td>
+      </tr>`;
+    }).join("");
+    return `<details class="policy-table-wrap" id="policyTableWrap" open>
+      <summary><span class="ptw-ic">📋</span> Table view — all ${P.policies.length} policies at a glance</summary>
+      <div class="ptable-scroll">
+        <table class="policy-table-view">
+          <thead><tr><th>Policy</th><th class="num">Cost / revenue</th><th>Timeline</th><th>Difficulty</th><th>Priority</th><th class="num">Odds</th></tr></thead>
+          <tbody>${rows}</tbody>
+        </table>
+      </div>
+    </details>`;
+  }
+
   const themeChips = THEMES.map((t) => `<button type="button" class="if-chip" data-theme="${t.id}">${esc(t.name)}</button>`).join("");
   const filterBar = `
     <div class="issues-filter" id="issuesFilter">
@@ -183,7 +216,7 @@
       </div>
       <p class="if-noresults" id="ifNoResults" hidden>No policies match — <button type="button" class="if-clear" id="ifClear">clear filters</button>.</p>
     </div>`;
-  root.innerHTML = filterBar + html;
+  root.innerHTML = filterBar + buildTable() + html;
 
   /* ---- lightweight TOC sidebar (nested) ---- */
   buildSidebar();
@@ -267,6 +300,7 @@
             const vis = (fCat === "all" || fCat === c.id) && (fTheme === "all" || fTheme === p.cat) && (!q || hay.includes(q));
             show(document.getElementById(p.id), vis);
             show(document.querySelector(`a[data-rail="${p.id}"]`), vis);
+            show(document.querySelector(`tr[data-prow="${p.id}"]`), vis);
             if (vis) { thVis = true; catVis = true; shown++; }
           });
           show(document.getElementById(`theme-${c.id}-${t.id}`), thVis);
@@ -304,7 +338,7 @@
     const sb = e.target.closest(".policy-share");
     if (!sb) return;
     const url = location.origin + location.pathname + "#" + sb.dataset.share;
-    const done = () => { sb.classList.add("copied"); const o = sb.textContent; sb.textContent = "✓ Link copied!"; setTimeout(() => { sb.textContent = o; sb.classList.remove("copied"); }, 1600); };
+    const done = () => { sb.classList.add("copied"); sb.innerHTML = CHECK_ICON; sb.title = "Copied!"; setTimeout(() => { sb.classList.remove("copied"); sb.innerHTML = LINK_ICON; sb.title = "Copy a link to this policy"; }, 1500); };
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, () => prompt("Copy this link:", url));
     else prompt("Copy this link:", url);
   });

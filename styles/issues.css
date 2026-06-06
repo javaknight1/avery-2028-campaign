@@ -447,3 +447,32 @@
   .qa-a { grid-template-rows: 1fr !important; }       /* expand all answers when printing */
   .qa-item .pm { display: none !important; }
 }
+
+/* ---------------- Copy-link icon button (override the pill) ---------------- */
+.policy-share { width: 32px; height: 32px; padding: 0; display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; }
+.policy-share svg { display: block; }
+
+/* ---------------- Policy table view ---------------- */
+.policy-table-wrap { border: 1px solid var(--line); border-radius: 12px; background: var(--white); margin-bottom: 26px; box-shadow: var(--shadow-sm); overflow: hidden; }
+.policy-table-wrap > summary { list-style: none; cursor: pointer; padding: 14px 18px; font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.5px; font-size: 0.92rem; color: var(--navy); display: flex; align-items: center; gap: 10px; }
+.policy-table-wrap > summary::-webkit-details-marker { display: none; }
+.policy-table-wrap > summary::after { content: "+"; margin-left: auto; font-size: 1.3rem; color: var(--red); }
+.policy-table-wrap[open] > summary::after { content: "−"; }
+.ptable-scroll { overflow-x: auto; }
+.policy-table-view { width: 100%; border-collapse: collapse; font-size: 0.92rem; }
+.policy-table-view th { text-align: left; font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.4px; font-size: 0.72rem; color: var(--muted); padding: 10px 14px; border-top: 1px solid var(--line); background: var(--paper); white-space: nowrap; }
+.policy-table-view th.num, .policy-table-view td.num { text-align: right; }
+.policy-table-view td { padding: 10px 14px; border-top: 1px solid var(--line); vertical-align: middle; }
+.policy-table-view tbody tr:hover td { background: var(--paper); }
+.pt-title a { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); font-weight: 600; }
+.pt-ic { font-size: 1.05rem; }
+.pt-time { color: var(--muted); white-space: nowrap; }
+.pt-spend { color: var(--red); font-family: "Oswald"; font-weight: 600; white-space: nowrap; }
+.pt-rev { color: #1f7a4d; font-family: "Oswald"; font-weight: 600; white-space: nowrap; }
+.pt-neutral { color: var(--muted); font-family: "Oswald"; font-weight: 600; }
+.pt-dot { white-space: nowrap; }
+.pt-dot small { display: block; color: var(--muted); font-size: 0.74rem; margin-top: 2px; }
+.sc-dots.tdots i { width: 8px; height: 8px; }
+.pt-odds { font-family: "Oswald"; font-weight: 700; }
+.pt-odds.hi { color: #1f7a4d; } .pt-odds.mid { color: #d99a18; } .pt-odds.lo { color: var(--red); }
+@media print { .policy-table-wrap { display: none !important; } }
