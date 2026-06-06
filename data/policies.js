@@ -250,7 +250,7 @@ window.PLATFORM = {
       lead: "Congress shouldn't be a career you hold for forty years. We push a constitutional amendment for term limits so power keeps changing hands and representatives stay connected to the people they serve.",
       plan: [
         { b: "12 years in each chamber.", t: "A cap of roughly six terms in the House and two in the Senate, via constitutional amendment." },
-        { b: "Ban congressional stock trading.", t: "Members and their families can't trade individual stocks while in office — no profiting from insider knowledge." },
+        { b: "Ban elected officials from trading stocks.", t: "Members of Congress, the President, and senior officials — and their families — may not trade individual stocks in office. The only thing they may hold is a strict, approved set of broad, diversified index funds (or a blind trust), so they can never profit from the decisions they make." },
         { b: "Cooling-off before lobbying.", t: "A multi-year ban on cashing out into lobbying the moment you leave office." },
         { b: "A salary tied to the people they serve.", t: "A member of Congress earns the average cost of living in the district or state they represent — so their pay tracks their constituents' reality, not a Washington bubble, giving them a direct stake in everyone's cost of living." },
       ],
@@ -271,7 +271,7 @@ window.PLATFORM = {
         ],
         ind: [
           { c: "Nice idea, but it'll never pass.", r: "It needs a constitutional amendment — hard by design — but it's one of the few reforms a supermajority of every party already wants. That's exactly the kind of fight worth leading." },
-          { c: "Does the stock-trading ban have teeth?", r: "Yes — it covers members and their families, with real penalties. No more legislating on an industry while quietly trading its stock." },
+          { c: "Does the stock-trading ban have teeth?", r: "Yes — it bars members, the President, senior officials, and their families from individual stocks, allowing only broad diversified index funds or a blind trust, with real penalties. No more legislating on an industry while quietly trading its stock." },
         ],
         response: "This is one of the few ideas a supermajority of Americans agree on. The people who'll resist it most are the ones it limits — which tells you exactly why it's needed.",
       },
@@ -285,7 +285,7 @@ window.PLATFORM = {
         { b: "Overturn Citizens United.", t: "A constitutional amendment making clear that money isn't speech and corporations aren't people." },
         { b: "Public small-donor matching.", t: "Match small contributions at a high ratio so a candidate funded by $20 donors can compete with one funded by mega-donors." },
         { b: "Real transparency.", t: "End dark money — every dollar of political spending disclosed, fast and in full." },
-        { b: "Close the revolving door.", t: "Tougher lobbying limits and the congressional stock-trading ban from the term-limits plank." },
+        { b: "Close the revolving door.", t: "Tougher lobbying limits and the elected-official stock-trading ban (only diversified index funds or a blind trust) from the term-limits plank." },
       ],
       detail: [
         { h: "Why matching works", p: "When small donations are matched many-to-one, candidates spend their time with ordinary constituents instead of dialing billionaires — and more regular people can run and win." },
