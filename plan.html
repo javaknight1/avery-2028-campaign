@@ -31,10 +31,10 @@
     .phase:first-of-type { border-top: 0; }
     .phase-when { font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.6px; color: var(--red); font-weight: 600; font-size: 0.95rem; }
     .phase h3 { font-size: 1.3rem; margin-bottom: 10px; }
-    .do-list { list-style: none; display: grid; gap: 10px; }
-    .do-list li { display: grid; grid-template-columns: 22px 1fr; gap: 12px; align-items: start; }
-    .do-list li::before { content: "✓"; color: #1f7a4d; font-weight: 700; }
-    .do-list a { font-weight: 600; }
+    .do-list { list-style: none; display: grid; gap: 11px; }
+    .do-list li { position: relative; padding-left: 30px; line-height: 1.5; }
+    .do-list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: #1f7a4d; font-weight: 700; }
+    .do-list a { font-weight: 600; white-space: nowrap; }
     .scoreboard { background: var(--navy-deep); color: #eaf1fb; border-radius: var(--r); padding: 28px 30px; }
     .scoreboard h3 { color: #fff; }
     @media (max-width: 640px) { .phase { grid-template-columns: 1fr; gap: 6px; } }
