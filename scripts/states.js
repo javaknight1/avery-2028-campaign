@@ -49,7 +49,9 @@
       const r = byCode[l.id];
       const cls = r ? (r.visited ? "st on" : "st") : "st st-na";
       const tip = r ? `${l.name} — ${r.visited ? "visited " + fmt(r.date) : "planned " + fmt(r.date)}` : l.name;
-      return `<path d="${l.path}" class="${cls}" data-code="${l.id}"><title>${esc(tip)}</title></path>`;
+      // This map draws Hawaii as a vertical chain; rotate it about its centre so it reads upright.
+      const tf = l.id === "hi" ? ' transform="rotate(-60 599 622)"' : "";
+      return `<path d="${l.path}" class="${cls}" data-code="${l.id}"${tf}><title>${esc(tip)}</title></path>`;
     }).join("");
     mapEl.innerHTML = `<svg viewBox="${M.viewBox}" class="us-map" role="img" aria-label="Map of the 50-state campaign tour; ${visitedCount} of 50 states visited so far">${paths}</svg>`;
     mapEl.addEventListener("click", (e) => {
