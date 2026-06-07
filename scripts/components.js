@@ -13,17 +13,28 @@
       stroke-linecap="round" stroke-linejoin="round" fill="none"/>
     <circle cx="16" cy="4.4" r="1.5" fill="#c8102e"/></svg>`;
 
+  // Grouped nav: each top-level item is a dropdown of related pages.
   const NAV = [
-    { key: "home",    href: "index.html",        label: "Home" },
-    { key: "about",   href: "about.html",        label: "Meet Rob" },
-    { key: "issues",  href: "issues.html",       label: "Issues" },
-    { key: "budget",  href: "budget.html",       label: "Budget" },
-    { key: "deficit", href: "deficit.html",      label: "Deficit" },
-    { key: "cabinet", href: "cabinet.html",      label: "Cabinet" },
-    { key: "affect",  href: "affect.html",       label: "Impact" },
-    { key: "tax",     href: "tax-lab.html",      label: "Tax Lab" },
-    { key: "join",    href: "get-involved.html", label: "Join" },
+    { label: "Platform", children: [
+      { key: "issues",      href: "issues.html",      label: "Issues" },
+      { key: "budget",      href: "budget.html",      label: "The Budget" },
+      { key: "deficit",     href: "deficit.html",     label: "The Deficit & Debt" },
+      { key: "cabinet",     href: "cabinet.html",     label: "The Cabinet" },
+      { key: "plan",        href: "plan.html",        label: "First 100 Days" },
+      { key: "methodology", href: "methodology.html", label: "Methodology" },
+    ] },
+    { label: "Campaign", children: [
+      { key: "about",   href: "about.html",   label: "Meet Rob" },
+      { key: "primary", href: "primary.html", label: "The Primary" },
+      { key: "states",  href: "states.html",  label: "50-State Tour" },
+      { key: "faq",     href: "faq.html",     label: "FAQ" },
+    ] },
+    { label: "Tools", children: [
+      { key: "tax",    href: "tax-lab.html", label: "Tax Lab" },
+      { key: "affect", href: "affect.html",  label: "How it affects you" },
+    ] },
   ];
+  const CARET = `<svg class="nav-caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
   /* ---- Header ---- */
   const headerHTML = `
@@ -36,7 +47,15 @@
           <span class="brand-text"><b>Avery</b><span>President 2028</span></span>
         </a>
         <div class="nav-links" id="navLinks">
-          ${NAV.map(n => `<a href="${n.href}" data-key="${n.key}"${n.key === page ? ' class="active"' : ''}>${n.label}</a>`).join("")}
+          ${NAV.map((g, i) => {
+            const activeGroup = g.children.some(c => c.key === page);
+            return `<div class="nav-group${activeGroup ? " active" : ""}">
+              <button class="nav-grp-btn" aria-expanded="false" aria-haspopup="true" aria-controls="navmenu-${i}">${g.label}${CARET}</button>
+              <div class="nav-menu" id="navmenu-${i}">
+                ${g.children.map(c => `<a href="${c.href}" data-key="${c.key}"${c.key === page ? ' class="active"' : ''}>${c.label}</a>`).join("")}
+              </div>
+            </div>`;
+          }).join("")}
           <span class="nav-cta"><a href="get-involved.html#donate">Donate</a></span>
         </div>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
@@ -67,6 +86,7 @@
           <h4>Campaign</h4>
           <a href="index.html">Home</a>
           <a href="about.html">Meet Rob</a>
+          <a href="primary.html">The Primary</a>
           <a href="cabinet.html">The Cabinet</a>
           <a href="states.html">50-State Tour</a>
           <a href="plan.html">First 100 Days</a>
@@ -109,15 +129,29 @@
   /* ---- Mobile menu ---- */
   const toggle = document.getElementById("navToggle");
   const links = document.getElementById("navLinks");
+  const groups = [...document.querySelectorAll(".nav-group")];
+  const closeGroups = () => groups.forEach((g) => { g.classList.remove("open"); const b = g.querySelector(".nav-grp-btn"); if (b) b.setAttribute("aria-expanded", "false"); });
+  groups.forEach((g) => {
+    const btn = g.querySelector(".nav-grp-btn");
+    if (!btn) return;
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const willOpen = !g.classList.contains("open");
+      closeGroups();
+      if (willOpen) { g.classList.add("open"); btn.setAttribute("aria-expanded", "true"); }
+    });
+  });
   if (toggle && links) {
-    const close = () => { toggle.classList.remove("open"); links.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); };
+    const close = () => { toggle.classList.remove("open"); links.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); closeGroups(); };
     toggle.addEventListener("click", () => {
       const open = toggle.classList.toggle("open");
       links.classList.toggle("open", open);
       toggle.setAttribute("aria-expanded", String(open));
+      if (!open) closeGroups();
     });
-    links.addEventListener("click", (e) => { if (e.target.tagName === "A") close(); });
+    links.addEventListener("click", (e) => { if (e.target.closest("a")) close(); });
     addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+    document.addEventListener("click", (e) => { if (!e.target.closest(".nav-group")) closeGroups(); });
   }
 
   /* ---- Scroll: header shadow + progress bar ---- */
