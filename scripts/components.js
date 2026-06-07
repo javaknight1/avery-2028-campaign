@@ -68,6 +68,7 @@
           <a href="index.html">Home</a>
           <a href="about.html">Meet Rob</a>
           <a href="cabinet.html">The Cabinet</a>
+          <a href="states.html">50-State Tour</a>
           <a href="plan.html">First 100 Days</a>
           <a href="faq.html">FAQ</a>
           <a href="get-involved.html">Get Involved</a>
