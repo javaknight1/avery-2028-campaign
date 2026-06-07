@@ -2032,6 +2032,136 @@ window.PLATFORM = {
     "Danielle Brian": { why: "She ran the Project On Government Oversight for decades, building the country's premier nonpartisan watchdog. Her instincts for rooting out waste and forcing openness are exactly what the GovTracker mandate needs." },
   },
 
+  // The First 100 Days, as a sprint plan: each phase → the departments involved
+  // → that department's specific deliverables for the phase. Owners are cabinet keys.
+  firstHundredDays: [
+    {
+      when: "Day One", title: "Sign, direct, and set the clock",
+      blurb: "Executive actions a president can take alone — the first afternoon, no Congress required.",
+      teams: [
+        { key: "president", items: [
+          "Sign the ethics order: no individual-stock trading by appointees, public financial disclosures, assets in a blind trust — starting with me.",
+          "Direct every agency to publish in plain language and operate FOIA-by-default.",
+          "Convene the full cabinet and lock in each department's 100-day targets.",
+        ] },
+        { key: "omb", items: [
+          "Stand up GovTracker v1 and the live national-debt clock.",
+          "Order every agency to begin publishing budget-vs-actual spending.",
+        ] },
+        { key: "ag", items: [
+          "Direct DOJ to revive antitrust enforcement and reopen voting-rights protection.",
+          "Issue guidance enforcing the elected-official stock-trading ban.",
+        ] },
+        { key: "treasury", items: [
+          "Order the IRS to refocus enforcement on the wealthiest filers and the tax gap.",
+          "Begin drafting the full revenue package for reconciliation.",
+        ] },
+        { key: "epa", items: [
+          "Refocus the agency on recycling, reuse, and producer responsibility.",
+          "Re-anchor federal climate and clean-energy standards.",
+        ] },
+        { key: "defense", items: [
+          "Order the Pentagon to prepare for a clean audit; freeze cost-overrun programs pending review.",
+        ] },
+        { key: "state", items: [
+          "Order a review to wind down open-ended deployments; reaffirm our alliances.",
+        ] },
+      ],
+    },
+    {
+      when: "Week 1", title: "The first bills to Congress",
+      blurb: "Send the popular, high-odds reforms first — and stand up the teams that will run the big builds.",
+      teams: [
+        { key: "labor", items: [
+          "Introduce the $15 federal minimum wage.",
+          "Begin ramping up wage, hour, and workplace-safety enforcement.",
+        ] },
+        { key: "hhs", items: [
+          "Introduce universal childcare and 12 weeks of paid family leave.",
+          "Convene the Universal Healthcare phased-rollout task force.",
+          "Stand up the pandemic-readiness posture and protect the public-health workforce.",
+        ] },
+        { key: "treasury", items: [
+          "Send the quick loophole-closers — carried interest and like-kind — for fast passage.",
+        ] },
+        { key: "va", items: [
+          "Send the fully-fund-the-VA bill and launch the wait-time strike team.",
+        ] },
+      ],
+    },
+    {
+      when: "Days 1–30", title: "Open the big builds",
+      blurb: "Kick off the multi-year programs and get the money moving.",
+      teams: [
+        { key: "treasury", items: [
+          "Move the full revenue plan into budget reconciliation: corporate reform, the billionaire tax, the financial-transaction tax, and the carbon fee.",
+        ] },
+        { key: "hhs", items: [
+          "Begin Universal Healthcare Phase 1 and the addiction & 988 crisis response.",
+          "Launch universal pre-K planning with the Education department.",
+        ] },
+        { key: "transportation", items: [
+          "Open the state-by-state infrastructure partnership.",
+          "Select the first high-speed-rail corridors.",
+        ] },
+        { key: "energy", items: [
+          "Launch grid modernization, home heat-pump rebates, and the clean-energy jobs guarantee.",
+        ] },
+        { key: "education", items: [
+          "Begin the free community- and technical-college rollout and the teacher pay floor.",
+        ] },
+        { key: "hud", items: [
+          "Start social-housing construction and expand housing vouchers.",
+        ] },
+      ],
+    },
+    {
+      when: "Days 31–60", title: "Reach every community",
+      blurb: "Carry the agenda into communities, to the border, and into the Pentagon's books.",
+      teams: [
+        { key: "interior", items: [
+          "Fully fund the Indian Health Service; launch baby bonds and reservation-infrastructure projects.",
+        ] },
+        { key: "agriculture", items: [
+          "Redirect farm support toward family farms; expand food assistance and close food deserts.",
+        ] },
+        { key: "commerce", items: [
+          "Begin the broadband build-out to unserved rural and tribal areas; restore net neutrality.",
+        ] },
+        { key: "dhs", items: [
+          "Expand immigration courts and humane processing; fund FEMA pre-disaster mitigation.",
+        ] },
+        { key: "defense", items: [
+          "Begin the audit, cut the first wave of boondoggles, and raise junior-enlisted pay.",
+        ] },
+        { key: "energy", items: [
+          "Stand up data-center regulation and the water-and-energy usage tax.",
+        ] },
+      ],
+    },
+    {
+      when: "Days 61–100", title: "Pass it — and start the long fights",
+      blurb: "Land the revenue package, bank the surplus, and introduce the reforms that take years.",
+      teams: [
+        { key: "treasury", items: [
+          "Pass the reconciliation revenue package (51 votes) and start paying down the debt with the surplus.",
+        ] },
+        { key: "hhs", items: [
+          "Pass universal childcare and paid leave; move Healthcare into Phase 2.",
+        ] },
+        { key: "president", items: [
+          "Introduce the constitutional reforms — congressional term limits and the Supreme Court fixes — knowing they're multi-year fights.",
+        ] },
+        { key: "ag", items: [
+          "Send the money-in-politics package and the voting-rights bill.",
+        ] },
+        { key: "state", items: [
+          "Submit war-powers reform and bank the first diplomacy-first wins.",
+        ] },
+      ],
+    },
+  ],
+
   /* ---------------- Humanity Score breakdown (pie chart) ----------------
      Each dimension carries:
        value  — its weight in the score (all weights sum to 100 = the pie)

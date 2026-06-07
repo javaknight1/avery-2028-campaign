@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#061629" />
   <title>The First 100 Days — A Day-One Plan | Avery 2028</title>
-  <meta name="description" content="What an Avery administration does on Day One — and across the first 100 days: the executive actions, the first bills sent to Congress, and a public scoreboard to hold us to it." />
+  <meta name="description" content="A sprint plan for the first 100 days: each phase, the cabinet departments involved, and the specific deliverables each one owns — from Day-One executive actions to a Day-100 public scoreboard." />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,28 +16,42 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Rob Avery for President 2028" />
   <meta property="og:title" content="The First 100 Days — A Day-One Plan | Avery 2028" />
-  <meta property="og:description" content="The executive actions on Day One, the first bills to Congress, and a public scoreboard — a concrete first-100-days plan." />
+  <meta property="og:description" content="A sprint plan for the first 100 days: each phase, the departments involved, and the specific deliverables each one owns." />
   <meta property="og:url" content="https://avery-2028-campaign.pages.dev/plan.html" />
   <meta property="og:image" content="https://avery-2028-campaign.pages.dev/assets/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:locale" content="en_US" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="The First 100 Days — A Day-One Plan | Avery 2028" />
-  <meta name="twitter:description" content="Executive actions on Day One, the first bills to Congress, and a public scoreboard." />
+  <meta name="twitter:title" content="The First 100 Days | Avery 2028" />
+  <meta name="twitter:description" content="A sprint plan: each phase, the departments, and their specific deliverables." />
   <meta name="twitter:image" content="https://avery-2028-campaign.pages.dev/assets/og.png" />
   <style>
-    .phase { display: grid; grid-template-columns: 150px 1fr; gap: 8px 26px; padding: 26px 0; border-top: 1px solid var(--line); }
-    .phase:first-of-type { border-top: 0; }
-    .phase-when { font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.6px; color: var(--red); font-weight: 600; font-size: 0.95rem; }
-    .phase h3 { font-size: 1.3rem; margin-bottom: 10px; }
-    .do-list { list-style: none; display: grid; gap: 11px; }
-    .do-list li { position: relative; padding-left: 30px; line-height: 1.5; }
-    .do-list li::before { content: "✓"; position: absolute; left: 0; top: 0; color: #1f7a4d; font-weight: 700; }
-    .do-list a { font-weight: 600; white-space: nowrap; }
-    .scoreboard { background: var(--navy-deep); color: #eaf1fb; border-radius: var(--r); padding: 28px 30px; }
+    .fhd-phase { display: grid; grid-template-columns: 132px 1fr; gap: 12px 30px; padding: 30px 0; border-top: 1px solid var(--line); }
+    .fhd-phase:first-child { border-top: 0; padding-top: 4px; }
+    .fhd-when span { position: sticky; top: 78px; display: inline-block; font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.6px; color: var(--red); font-weight: 700; font-size: 1.05rem; }
+    .fhd-title { font-size: 1.35rem; margin-bottom: 4px; }
+    .fhd-blurb { color: var(--muted); margin-bottom: 20px; }
+    .fhd-teams { display: grid; gap: 18px; }
+    .fhd-team { display: grid; grid-template-columns: 210px 1fr; gap: 20px; align-items: start; padding-bottom: 18px; border-bottom: 1px dashed var(--line); }
+    .fhd-team:last-child { border-bottom: 0; padding-bottom: 0; }
+    .fhd-member { display: flex; align-items: center; gap: 11px; text-decoration: none; }
+    .fhd-av { width: 40px; height: 40px; border-radius: 50%; overflow: hidden; flex: none; background: var(--navy); display: grid; place-items: center; }
+    .fhd-av img { width: 100%; height: 100%; object-fit: cover; }
+    .fhd-emoji { font-size: 1.15rem; }
+    .fhd-role { font-family: "Oswald"; font-size: 0.95rem; color: var(--navy); line-height: 1.18; }
+    .fhd-member:hover .fhd-role { color: var(--red); }
+    .fhd-items { list-style: none; display: grid; gap: 8px; }
+    .fhd-items li { position: relative; padding-left: 24px; color: var(--ink); line-height: 1.5; }
+    .fhd-items li::before { content: "→"; position: absolute; left: 0; top: 0; color: var(--blue); font-weight: 700; }
+    .scoreboard { background: var(--navy-deep); color: #eaf1fb; border-radius: var(--r); padding: 28px 30px; margin-top: 40px; }
     .scoreboard h3 { color: #fff; }
-    @media (max-width: 640px) { .phase { grid-template-columns: 1fr; gap: 6px; } }
+    .scoreboard a { color: var(--gold); font-weight: 600; }
+    @media (max-width: 760px) {
+      .fhd-phase { grid-template-columns: 1fr; gap: 8px; }
+      .fhd-when span { position: static; }
+      .fhd-team { grid-template-columns: 1fr; gap: 10px; }
+    }
   </style>
 </head>
 <body data-page="plan">
@@ -48,61 +62,16 @@
       <div class="container">
         <span class="eyebrow" data-reveal>On a clock</span>
         <h1 data-reveal>The First 100 Days</h1>
-        <p data-reveal>A campaign should tell you exactly what it will do, and when. Here's the plan: what we sign on Day One, the first bills we send to Congress, and a public scoreboard so you can hold us to every line.</p>
+        <p data-reveal>Not a vibe — a sprint plan. Each phase below lists the departments on point and the specific deliverables each one owns, from the executive orders we sign on Day One to a signed, public scoreboard on Day 100. Tap any department to see its full job and team.</p>
       </div>
     </section>
 
     <section class="section bg-white">
-      <div class="container" style="max-width:880px">
-        <div class="phase" data-reveal>
-          <div class="phase-when">Day One</div>
-          <div>
-            <h3>What we sign the first afternoon</h3>
-            <p style="color:var(--muted);margin-bottom:14px">Things a president can do alone — no Congress required.</p>
-            <ul class="do-list">
-              <li>Order an <strong>ethics reset</strong> across the executive branch: no individual-stock trading by senior appointees — diversified index funds or a blind trust only. <a href="issues.html#term-limits">↗</a></li>
-              <li>Direct the Treasury and IRS to <strong>go after the tax gap</strong> and enforce the law on the wealthiest filers. <a href="issues.html#tax-rich">↗</a></li>
-              <li>Kick off <strong>GovTracker</strong> — the public, live dashboard of federal spending and outcomes. <a href="issues.html#govtracker">↗</a></li>
-              <li>Refocus the <strong>EPA</strong> on waste, recycling, and reuse, and re-anchor federal climate and clean-energy policy. <a href="issues.html#waste">↗</a></li>
-              <li>Stand up a real <strong>pandemic-readiness</strong> posture and protect the public-health workforce. <a href="issues.html#public-health">↗</a></li>
-              <li>Direct agencies to <strong>publish in plain language</strong> — FOIA-by-default, no more 600-page mysteries.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="phase" data-reveal>
-          <div class="phase-when">Week 1</div>
-          <div>
-            <h3>The first bills to Congress</h3>
-            <p style="color:var(--muted);margin-bottom:14px">Sent immediately — starting with the popular, high-odds reforms.</p>
-            <ul class="do-list">
-              <li>A <strong>$15 minimum wage</strong>. <a href="issues.html#min-wage">↗</a></li>
-              <li><strong>Universal childcare &amp; paid family leave.</strong> <a href="issues.html#childcare">↗</a></li>
-              <li>Close the <strong>carried-interest</strong> and <strong>like-kind</strong> loopholes. <a href="issues.html#carried-interest">↗</a></li>
-              <li>Fully fund the <strong>VA</strong> and end veteran homelessness. <a href="issues.html#veterans">↗</a></li>
-              <li>The <strong>988 / mental-health &amp; addiction</strong> response. <a href="issues.html#mental-health">↗</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="phase" data-reveal>
-          <div class="phase-when">Days 1–100</div>
-          <div>
-            <h3>The big builds, introduced and underway</h3>
-            <p style="color:var(--muted);margin-bottom:14px">Longer fights we start immediately and see through.</p>
-            <ul class="do-list">
-              <li>Begin the <strong>phased rollout of Universal Healthcare</strong>. <a href="issues.html#healthcare">↗</a></li>
-              <li>Launch <strong>education reform</strong> — pre-K, free trade &amp; community college. <a href="issues.html#education">↗</a></li>
-              <li>Send the <strong>full revenue plan</strong> — corporate reform, the billionaire tax, the carbon fee. <a href="budget.html">↗</a></li>
-              <li>Open the <strong>infrastructure</strong> partnership with all 50 states. <a href="issues.html#infrastructure">↗</a></li>
-              <li>Introduce the constitutional reforms — <strong>term limits</strong> and <strong>Supreme Court</strong> fixes — knowing they're long fights. <a href="issues.html#supreme-court">↗</a></li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="scoreboard" data-reveal style="margin-top:36px">
+      <div class="container" style="max-width:920px">
+        <div id="planRoot"></div>
+        <div class="scoreboard" data-reveal>
           <h3>Day 100: the public scoreboard</h3>
-          <p>At 100 days we publish a signed, public scorecard — every promise above, marked done, in progress, or blocked, with the reason. No spin. You can check our work on <a href="issues.html#govtracker" style="color:var(--gold)">GovTracker</a> and the <a href="deficit.html" style="color:var(--gold)">live debt page</a> any day you like.</p>
+          <p>At 100 days we publish a signed, public scorecard — every deliverable above marked <strong>done</strong>, <strong>in progress</strong>, or <strong>blocked</strong>, with the reason. No spin. You can check our work on <a href="issues.html#govtracker">GovTracker</a> and the <a href="deficit.html">live debt page</a> any day you like.</p>
         </div>
       </div>
     </section>
@@ -111,16 +80,18 @@
       <div class="container center" style="max-width:680px">
         <span class="eyebrow" data-reveal>The whole plan</span>
         <h2 class="section-title" data-reveal>Every policy, fully costed</h2>
-        <p class="section-lead" data-reveal>The 100-day plan is the start. See all 38 policies — each with its price, its odds, and the honest case for and against.</p>
+        <p class="section-lead" data-reveal>The 100-day plan is the start. See all the policies — each with its price, its odds, and the honest case for and against.</p>
         <div data-reveal style="margin-top:10px">
           <a href="issues.html" class="btn btn--gold btn--lg">See the Issues <span class="arrow">→</span></a>
-          <a href="get-involved.html" class="btn btn--ghost-light btn--lg" style="margin-left:8px">Get Involved</a>
+          <a href="cabinet.html" class="btn btn--ghost-light btn--lg" style="margin-left:8px">The Cabinet</a>
         </div>
       </div>
     </section>
   </main>
 
   <div id="site-footer"></div>
+  <script src="data/policies.js" defer></script>
   <script src="scripts/components.js" defer></script>
+  <script src="scripts/plan.js" defer></script>
 </body>
 </html>
