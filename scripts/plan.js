@@ -11,6 +11,12 @@
   const root = document.getElementById("planRoot");
   if (!root || !P.firstHundredDays) return;
   const CAB = {}; (P.cabinet || []).forEach((c) => { CAB[c.key] = c; });
+  const POL = {}; (P.policies || []).forEach((p) => { POL[p.id] = p; });
+  const item = (i) => {
+    const text = typeof i === "string" ? esc(i) : (i.t || "");   // i.t may contain trusted <strong>
+    const link = (i && i.pid) ? ` <a class="fhd-link" href="issues.html#${i.pid}" title="${esc((POL[i.pid] || {}).title || "See the policy")}">↗</a>` : "";
+    return `<li>${text}${link}</li>`;
+  };
 
   root.innerHTML = P.firstHundredDays.map((ph) => `
     <div class="fhd-phase" data-reveal>
@@ -26,7 +32,7 @@
               <a class="fhd-member" href="seat.html?seat=${t.key}">
                 <span class="fhd-av">${face}</span><span class="fhd-role">${esc(c.role)}</span>
               </a>
-              <ul class="fhd-items">${t.items.map((i) => `<li>${esc(i)}</li>`).join("")}</ul>
+              <ul class="fhd-items">${t.items.map(item).join("")}</ul>
             </div>`;
           }).join("")}
         </div>

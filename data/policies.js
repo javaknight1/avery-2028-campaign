@@ -2040,31 +2040,31 @@ window.PLATFORM = {
       blurb: "Executive actions a president can take alone — the first afternoon, no Congress required.",
       teams: [
         { key: "president", items: [
-          "Sign the ethics order: no individual-stock trading by appointees, public financial disclosures, assets in a blind trust — starting with me.",
-          "Direct every agency to publish in plain language and operate FOIA-by-default.",
-          "Convene the full cabinet and lock in each department's 100-day targets.",
+          { t: "Sign the <strong>ethics order</strong>: no individual-stock trading by appointees, public disclosures, assets in a blind trust — <strong>starting with me</strong>.", pid: "term-limits" },
+          { t: "Direct every agency to publish in <strong>plain language</strong> and operate <strong>FOIA-by-default</strong>.", pid: "govtracker" },
+          { t: "Convene the full cabinet and lock in each department's <strong>100-day targets</strong>." },
         ] },
         { key: "omb", items: [
-          "Stand up GovTracker v1 and the live national-debt clock.",
-          "Order every agency to begin publishing budget-vs-actual spending.",
+          { t: "Stand up <strong>GovTracker</strong> v1 and the live <strong>national-debt clock</strong>.", pid: "govtracker" },
+          { t: "Order every agency to begin publishing <strong>budget-vs-actual</strong> spending.", pid: "govtracker" },
         ] },
         { key: "ag", items: [
-          "Direct DOJ to revive antitrust enforcement and reopen voting-rights protection.",
-          "Issue guidance enforcing the elected-official stock-trading ban.",
+          { t: "Revive <strong>antitrust enforcement</strong> and reopen <strong>voting-rights</strong> protection.", pid: "antitrust" },
+          { t: "Issue guidance enforcing the <strong>elected-official stock-trading ban</strong>.", pid: "term-limits" },
         ] },
         { key: "treasury", items: [
-          "Order the IRS to refocus enforcement on the wealthiest filers and the tax gap.",
-          "Begin drafting the full revenue package for reconciliation.",
+          { t: "Order the IRS to refocus enforcement on the <strong>wealthiest filers</strong> and the <strong>tax gap</strong>.", pid: "tax-rich" },
+          { t: "Begin drafting the full <strong>revenue package</strong> for reconciliation.", pid: "corporate" },
         ] },
         { key: "epa", items: [
-          "Refocus the agency on recycling, reuse, and producer responsibility.",
-          "Re-anchor federal climate and clean-energy standards.",
+          { t: "Refocus the agency on <strong>recycling, reuse, and producer responsibility</strong>.", pid: "waste" },
+          { t: "Re-anchor federal <strong>climate and clean-energy</strong> standards.", pid: "carbon" },
         ] },
         { key: "defense", items: [
-          "Order the Pentagon to prepare for a clean audit; freeze cost-overrun programs pending review.",
+          { t: "Order the Pentagon to prepare for a <strong>clean audit</strong>; freeze cost-overrun programs pending review.", pid: "defense-reform" },
         ] },
         { key: "state", items: [
-          "Order a review to wind down open-ended deployments; reaffirm our alliances.",
+          { t: "Order a review to <strong>wind down open-ended deployments</strong>; reaffirm our alliances.", pid: "foreign-policy" },
         ] },
       ],
     },
@@ -2073,19 +2073,19 @@ window.PLATFORM = {
       blurb: "Send the popular, high-odds reforms first — and stand up the teams that will run the big builds.",
       teams: [
         { key: "labor", items: [
-          "Introduce the $15 federal minimum wage.",
-          "Begin ramping up wage, hour, and workplace-safety enforcement.",
+          { t: "Introduce the <strong>$15</strong> federal minimum wage.", pid: "min-wage" },
+          { t: "Begin ramping up <strong>wage, hour, and safety</strong> enforcement.", pid: "worker-power" },
         ] },
         { key: "hhs", items: [
-          "Introduce universal childcare and 12 weeks of paid family leave.",
-          "Convene the Universal Healthcare phased-rollout task force.",
-          "Stand up the pandemic-readiness posture and protect the public-health workforce.",
+          { t: "Introduce <strong>universal childcare</strong> and <strong>12 weeks</strong> of paid family leave.", pid: "childcare" },
+          { t: "Convene the <strong>Universal Healthcare</strong> phased-rollout task force.", pid: "healthcare" },
+          { t: "Stand up the <strong>pandemic-readiness</strong> posture and protect the public-health workforce.", pid: "public-health" },
         ] },
         { key: "treasury", items: [
-          "Send the quick loophole-closers — carried interest and like-kind — for fast passage.",
+          { t: "Send the quick loophole-closers — <strong>carried interest</strong> and <strong>like-kind</strong> — for fast passage.", pid: "carried-interest" },
         ] },
         { key: "va", items: [
-          "Send the fully-fund-the-VA bill and launch the wait-time strike team.",
+          { t: "Send the <strong>fully-fund-the-VA</strong> bill and launch the <strong>wait-time strike team</strong>.", pid: "veterans" },
         ] },
       ],
     },
@@ -2094,24 +2094,24 @@ window.PLATFORM = {
       blurb: "Kick off the multi-year programs and get the money moving.",
       teams: [
         { key: "treasury", items: [
-          "Move the full revenue plan into budget reconciliation: corporate reform, the billionaire tax, the financial-transaction tax, and the carbon fee.",
+          { t: "Move the full revenue plan into <strong>budget reconciliation</strong>: corporate reform, the <strong>billionaire tax</strong>, the financial-transaction tax, and the carbon fee.", pid: "tax-rich" },
         ] },
         { key: "hhs", items: [
-          "Begin Universal Healthcare Phase 1 and the addiction & 988 crisis response.",
-          "Launch universal pre-K planning with the Education department.",
+          { t: "Begin <strong>Universal Healthcare Phase 1</strong> and the addiction & <strong>988</strong> crisis response.", pid: "healthcare" },
+          { t: "Launch <strong>universal pre-K</strong> planning with the Education department.", pid: "education" },
         ] },
         { key: "transportation", items: [
-          "Open the state-by-state infrastructure partnership.",
-          "Select the first high-speed-rail corridors.",
+          { t: "Open the <strong>state-by-state</strong> infrastructure partnership.", pid: "infrastructure" },
+          { t: "Select the first <strong>high-speed-rail</strong> corridors.", pid: "rail" },
         ] },
         { key: "energy", items: [
-          "Launch grid modernization, home heat-pump rebates, and the clean-energy jobs guarantee.",
+          { t: "Launch <strong>grid modernization</strong>, home heat-pump rebates, and the <strong>clean-energy jobs guarantee</strong>.", pid: "energy" },
         ] },
         { key: "education", items: [
-          "Begin the free community- and technical-college rollout and the teacher pay floor.",
+          { t: "Begin the <strong>free community- and technical-college</strong> rollout and the teacher pay floor.", pid: "education" },
         ] },
         { key: "hud", items: [
-          "Start social-housing construction and expand housing vouchers.",
+          { t: "Start <strong>social-housing</strong> construction and expand housing vouchers.", pid: "housing" },
         ] },
       ],
     },
@@ -2120,22 +2120,22 @@ window.PLATFORM = {
       blurb: "Carry the agenda into communities, to the border, and into the Pentagon's books.",
       teams: [
         { key: "interior", items: [
-          "Fully fund the Indian Health Service; launch baby bonds and reservation-infrastructure projects.",
+          { t: "Fully fund the <strong>Indian Health Service</strong>; launch <strong>baby bonds</strong> and reservation-infrastructure projects.", pid: "communities" },
         ] },
         { key: "agriculture", items: [
-          "Redirect farm support toward family farms; expand food assistance and close food deserts.",
+          { t: "Redirect farm support toward <strong>family farms</strong>; expand food assistance and close <strong>food deserts</strong>.", pid: "family-farms" },
         ] },
         { key: "commerce", items: [
-          "Begin the broadband build-out to unserved rural and tribal areas; restore net neutrality.",
+          { t: "Begin the <strong>broadband build-out</strong> to unserved rural and tribal areas; restore <strong>net neutrality</strong>.", pid: "broadband" },
         ] },
         { key: "dhs", items: [
-          "Expand immigration courts and humane processing; fund FEMA pre-disaster mitigation.",
+          { t: "Expand <strong>immigration courts</strong> and humane processing; fund <strong>FEMA pre-disaster mitigation</strong>.", pid: "immigration" },
         ] },
         { key: "defense", items: [
-          "Begin the audit, cut the first wave of boondoggles, and raise junior-enlisted pay.",
+          { t: "Begin the <strong>audit</strong>, cut the first wave of boondoggles, and <strong>raise junior-enlisted pay</strong>.", pid: "defense-reform" },
         ] },
         { key: "energy", items: [
-          "Stand up data-center regulation and the water-and-energy usage tax.",
+          { t: "Stand up <strong>data-center regulation</strong> and the water-and-energy usage tax.", pid: "data-centers" },
         ] },
       ],
     },
@@ -2144,19 +2144,19 @@ window.PLATFORM = {
       blurb: "Land the revenue package, bank the surplus, and introduce the reforms that take years.",
       teams: [
         { key: "treasury", items: [
-          "Pass the reconciliation revenue package (51 votes) and start paying down the debt with the surplus.",
+          { t: "Pass the reconciliation revenue package (<strong>51 votes</strong>) and start <strong>paying down the debt</strong> with the surplus.", pid: "tax-rich" },
         ] },
         { key: "hhs", items: [
-          "Pass universal childcare and paid leave; move Healthcare into Phase 2.",
+          { t: "Pass <strong>universal childcare</strong> and paid leave; move Healthcare into <strong>Phase 2</strong>.", pid: "childcare" },
         ] },
         { key: "president", items: [
-          "Introduce the constitutional reforms — congressional term limits and the Supreme Court fixes — knowing they're multi-year fights.",
+          { t: "Introduce the constitutional reforms — <strong>congressional term limits</strong> and the <strong>Supreme Court fixes</strong> — knowing they're multi-year fights.", pid: "supreme-court" },
         ] },
         { key: "ag", items: [
-          "Send the money-in-politics package and the voting-rights bill.",
+          { t: "Send the <strong>money-in-politics</strong> package and the <strong>voting-rights</strong> bill.", pid: "money-politics" },
         ] },
         { key: "state", items: [
-          "Submit war-powers reform and bank the first diplomacy-first wins.",
+          { t: "Submit <strong>war-powers reform</strong> and bank the first diplomacy-first wins.", pid: "foreign-policy" },
         ] },
       ],
     },
