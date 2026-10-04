@@ -233,10 +233,10 @@
     return `<details class="policy-table-wrap" id="policyTableWrap" open>
       <summary><span class="ptw-ic">📋</span> Table view — all ${P.policies.length} policies at a glance</summary>
       <div class="ptable-scroll">
-        <table class="policy-table-view">
+        <div class="table-scroll"><table class="policy-table-view">
           <thead><tr><th>Policy</th><th class="num">Cost / revenue</th><th>Timeline</th><th>Difficulty</th><th>Priority</th><th class="num">Odds</th></tr></thead>
           <tbody>${rows}</tbody>
-        </table>
+        </table></div>
       </div>
     </details>`;
   }
@@ -484,7 +484,7 @@
 
     const mEl = document.getElementById("humanityMetrics");
     if (mEl) {
-      mEl.innerHTML = `<table class="hm-table">
+      mEl.innerHTML = `<div class="table-scroll"><table class="hm-table">
         <thead><tr><th>Dimension</th><th class="hm-num">Weight</th><th class="hm-num">Now</th><th>What we measure — current value (source)</th></tr></thead>
         <tbody>${slices.map((s) => `<tr>
           <td class="hm-dim"><span class="hm-dot" style="background:${s.color}"></span>${esc(s.label)}</td>
@@ -493,7 +493,7 @@
           <td><ul class="hm-metrics">${s.metrics.map((m) =>
             `<li><b>${esc(m.name)}</b> — ${esc(m.value)} <span class="hm-src">${esc(m.source)}</span></li>`).join("")}</ul></td>
         </tr>`).join("")}</tbody>
-      </table>
+      </table></div>
       <p class="hm-note">Weights set how much each dimension counts toward the score; the “Now” column is America's current standing on that dimension (0–100), and the overall score is their weighted average. Figures are recent, rounded, and illustrative — sourced from the agencies named, and published transparently so anyone can audit the math.</p>`;
     }
   }

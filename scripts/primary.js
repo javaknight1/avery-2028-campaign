@@ -33,9 +33,9 @@
       <td class="cal-del">${c.delegates ? "~" + c.delegates.toLocaleString() : "—"}</td>
       <td class="cal-target">${esc(c.target)}</td>
     </tr>`).join("");
-    $("primCal").innerHTML = `<table class="caltable">
+    $("primCal").innerHTML = `<div class="table-scroll"><table class="caltable">
       <thead><tr><th>Date</th><th>Contest</th><th>Type</th><th>Delegates</th><th>Our goal</th></tr></thead>
-      <tbody>${rows}</tbody></table>`;
+      <tbody>${rows}</tbody></table></div>`;
   }
 
   // Ballot access

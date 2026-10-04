@@ -284,7 +284,7 @@ img { max-width: 100%; display: block; }
 .bg-navy .stat-label { color: #b9c8de; }
 
 /* ---------- Cards ---------- */
-.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 22px; }
+.card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 22px; }
 .card {
   background: var(--white); border: 1px solid var(--line); border-radius: var(--r);
   padding: 28px; box-shadow: var(--shadow-sm); transition: transform 0.25s var(--ease), box-shadow 0.25s ease, border-color 0.25s ease;
@@ -472,7 +472,7 @@ img { max-width: 100%; display: block; }
    is itself a summary of the platform. */
 .index-grid {
   list-style: none; display: grid; gap: 1px;
-  grid-template-columns: repeat(auto-fit, minmax(460px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(460px, 100%), 1fr));
   background: var(--line); border: 1px solid var(--line); border-radius: 14px; overflow: hidden;
 }
 .index-grid a {
@@ -522,4 +522,28 @@ img { max-width: 100%; display: block; }
   font-family: "Oswald"; font-weight: 600; letter-spacing: 1px;
   color: #cfe0f7; background: var(--navy); border-radius: inherit;
   font-variant-numeric: tabular-nums;
+}
+
+
+/* Wide data tables stay dense and keep every column; on a narrow screen they
+   scroll inside their own box rather than forcing the page sideways.
+   A right-edge fade shows there is more to see. */
+.table-scroll {
+  overflow-x: auto; -webkit-overflow-scrolling: touch;
+  overscroll-behavior-x: contain; scrollbar-width: thin;
+}
+@media (max-width: 860px) {
+  .table-scroll {
+    -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent 100%);
+    mask-image: linear-gradient(to right, #000 calc(100% - 26px), transparent 100%);
+  }
+  /* once scrolled to the end there is nothing more to hint at */
+  .table-scroll:has(> table:only-child) { scroll-snap-type: none; }
+  .table-scroll table { min-width: 560px; }
+}
+
+/* The portrait aura bleeds sideways by design; on the About page that pushed
+   the document wider than the viewport. Keep the bleed vertical on phones. */
+@media (max-width: 860px) {
+  .about-photo::before { inset: -10% 0 -4%; }
 }

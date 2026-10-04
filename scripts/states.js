@@ -76,8 +76,8 @@
       <td class="sc-city">${esc(r.city)}</td>
       <td class="sc-status">${r.visited ? '<span class="sc-done">✓ Visited</span>' : '<span class="sc-up">Upcoming</span>'}</td>
     </tr>`).join("");
-    schEl.innerHTML = `<table class="sched">
+    schEl.innerHTML = `<div class="table-scroll"><table class="sched">
       <thead><tr><th>#</th><th>Date</th><th>State</th><th>Stop</th><th>Status</th></tr></thead>
-      <tbody>${rows}</tbody></table>`;
+      <tbody>${rows}</tbody></table></div>`;
   }
 })();

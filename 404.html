@@ -3,38 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#061629" />
+  <!-- This page is served for ANY unknown path, so the URL in the bar may be
+       /some/deep/path. Without a base, the shared nav's relative links would
+       resolve against that path instead of the site root. -->
+  <base href="/" />
   <title>Page not found — Avery for President 2028</title>
-  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    :root{ --navy:#0b2545; --navy-deep:#061629; --red:#c8102e; --gold:#f4b740; }
-    *{ margin:0; box-sizing:border-box; }
-    body{ min-height:100svh; display:grid; place-items:center; text-align:center; padding:24px;
-      background:var(--navy-deep); color:#fff; font-family:"Source Sans 3",system-ui,sans-serif; overflow:hidden; }
-    .glow{ position:fixed; inset:0; z-index:0; opacity:.5;
-      background:radial-gradient(800px 400px at 80% -10%,rgba(42,109,244,.35),transparent 60%),
-                 radial-gradient(700px 400px at 10% 110%,rgba(200,16,46,.3),transparent 60%); }
-    .wrap{ position:relative; z-index:1; }
-    h1{ font-family:"Oswald"; font-weight:700; font-size:clamp(5rem,22vw,11rem); line-height:1;
-      color:var(--gold); letter-spacing:2px; animation:pop .6s cubic-bezier(.22,1,.36,1); }
-    p{ color:#c3d2e8; font-size:1.15rem; margin:6px 0 28px; }
-    a{ display:inline-block; padding:14px 28px; border-radius:8px; font-family:"Oswald"; text-transform:uppercase;
-      letter-spacing:1px; color:#fff; background:var(--red); text-decoration:none;
-      box-shadow:0 10px 28px rgba(200,16,46,.35); transition:transform .2s ease; }
-    a:hover{ transform:translateY(-3px); }
-    @keyframes pop{ from{ opacity:0; transform:scale(.85);} }
-  </style>
-  <meta name="robots" content="noindex" />
   <meta name="description" content="That page doesn't exist. Head back to the Rob Avery 2028 platform, budget, or Tax Lab." />
   <meta name="robots" content="noindex,follow" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <style>
+    /* A dead end should still offer the way out: the shared nav above, and
+       the three pages people actually arrive looking for, right here. */
+    .nf { position: relative; isolation: isolate; background: var(--navy-deep); color: #fff;
+          padding: clamp(56px, 11vw, 110px) 0; overflow: hidden; }
+    .nf::before { content: ""; position: absolute; inset: 0; z-index: -1; opacity: 0.5;
+      background: radial-gradient(800px 400px at 80% -10%, rgba(42,109,244,0.35), transparent 60%),
+                  radial-gradient(700px 400px at 10% 110%, rgba(200,16,46,0.3), transparent 60%); }
+    .nf-code { font-family: "Oswald"; font-weight: 700; font-size: clamp(4.5rem, 17vw, 9rem);
+      line-height: 0.9; color: var(--gold); letter-spacing: 2px; }
+    .nf h1 { font-size: clamp(1.5rem, 5vw, 2.3rem); margin: 14px 0 10px; color: #fff; }
+    .nf p { color: #c3d2e8; font-size: 1.08rem; max-width: 46ch; }
+    .nf-links { list-style: none; display: grid; gap: 10px; margin: 30px 0 0;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); max-width: 760px; }
+    .nf-links a { display: block; padding: 15px 18px; border-radius: 11px; text-decoration: none;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.14);
+      transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s var(--ease); }
+    .nf-links a:hover { background: rgba(255,255,255,0.11); border-color: rgba(255,255,255,0.3); transform: translateY(-2px); }
+    .nf-links b { display: block; font-family: "Oswald"; text-transform: uppercase; letter-spacing: 0.6px;
+      font-size: 0.97rem; color: #fff; }
+    .nf-links span { display: block; font-size: 0.86rem; color: #a9bcd6; margin-top: 3px; }
+    @media (max-width: 560px) { .nf-links { grid-template-columns: 1fr; } }
+  </style>
 </head>
-<body>
-  <div class="glow"></div>
-  <div class="wrap">
-    <h1>404</h1>
-    <p>This page took a detour. The future's back this way.</p>
-    <a href="/">← Return to the campaign</a>
-  </div>
+<body data-page="404">
+  <div id="site-header"></div>
+
+  <main>
+    <section class="nf">
+      <div class="container">
+        <span class="nf-code">404</span>
+        <h1>This page took a detour</h1>
+        <p>That address isn't part of the campaign. The nav above has everything — or start with the pages people usually want:</p>
+        <ul class="nf-links">
+          <li><a href="issues"><b>The Issues</b><span>All 41 policies, each with a price tag</span></a></li>
+          <li><a href="budget"><b>The Budget</b><span>Every dollar in and out, and the surplus</span></a></li>
+          <li><a href="tax-lab"><b>The Tax Lab</b><span>Build your own federal tax brackets</span></a></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <div id="site-footer"></div>
+  <script src="scripts/components.js" defer></script>
 </body>
 </html>
