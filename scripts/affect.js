@@ -10,25 +10,13 @@
   const fmt = (n) => "$" + Math.round(Math.abs(n)).toLocaleString("en-US");
   const signed = (n) => (n >= 0 ? "+" : "−") + fmt(n);
 
-  /* ---- income-tax schedules (single-filer; doubled for married) ---- */
-  const CURRENT = [
-    { min: 0, rate: 10 }, { min: 11600, rate: 12 }, { min: 47150, rate: 22 },
-    { min: 100525, rate: 24 }, { min: 191950, rate: 32 }, { min: 243725, rate: 35 }, { min: 609350, rate: 37 },
-  ];
-  const AVERY = [
-    { min: 0, rate: 10 }, { min: 11600, rate: 12 }, { min: 47150, rate: 22 }, { min: 100525, rate: 24 },
-    { min: 191950, rate: 32 }, { min: 400000, rate: 42 }, { min: 1000000, rate: 45 }, { min: 5000000, rate: 50 },
-  ];
-  const scale = (br, k) => br.map((b) => ({ min: b.min * k, rate: b.rate }));
-  function taxFor(income, br) {
-    let t = 0;
-    for (let i = 0; i < br.length; i++) {
-      if (income <= br[i].min) break;
-      const hi = i + 1 < br.length ? br[i + 1].min : Infinity;
-      t += (Math.min(income, hi) - br[i].min) * br[i].rate / 100;
-    }
-    return t;
-  }
+  /* ---- income-tax schedules (single-filer; doubled for married) ----
+     Shared with the homepage widget via data/tax-brackets.js. */
+  const TB = window.TAXBRACKETS;
+  const CURRENT = TB.CURRENT;
+  const AVERY = TB.AVERY;
+  const scale = TB.scale;
+  const taxFor = TB.taxFor;
 
   const PRIMARY_HOME_BREAK = 1800;   // illustrative annual property-tax relief on your primary residence
   const SECOND_HOME_RATE = 0.01;     // surtax per additional home, on value

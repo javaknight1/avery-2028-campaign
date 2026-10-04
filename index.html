@@ -61,6 +61,59 @@
       </div>
     </section>
 
+    <!-- START HERE — a visitor should get an answer out of this site before
+         they are asked to read anything. Three live tools, answering on load. -->
+    <section class="section--tight starthere" id="startHere">
+      <div class="container">
+        <div class="sh-head">
+          <h2>Most campaign sites ask you to believe them.</h2>
+          <p>This one hands you the maths. Three tools, already running — no sign-up, nothing stored.</p>
+        </div>
+
+        <div class="sh-grid">
+          <!-- 1. your own number -->
+          <div class="sh-tool sh-tool--calc">
+            <span class="sh-kicker">Your household</span>
+            <label class="sh-label" for="shIncome">What happens to your federal income tax?</label>
+            <div class="sh-input">
+              <span class="sh-cur">$</span>
+              <input id="shIncome" type="text" inputmode="numeric" autocomplete="off"
+                     value="75,000" aria-label="Your household income" />
+              <select id="shFiling" aria-label="Filing status">
+                <option value="single">Single</option>
+                <option value="married">Married</option>
+              </select>
+            </div>
+            <output id="shOut" class="sh-out" aria-live="polite"></output>
+            <a class="sh-more" href="affect">Add healthcare, childcare and housing →</a>
+          </div>
+
+          <!-- 2. the debt, live -->
+          <div class="sh-tool sh-tool--debt">
+            <span class="sh-kicker">Right now</span>
+            <span class="sh-debt" id="shDebt" aria-live="off">$36,000,000,000,000</span>
+            <p class="sh-debt-sub">National debt, climbing as you watch. A <strong>$278B</strong> annual
+              surplus clears it in <strong id="shYears">145 years</strong>.</p>
+            <p class="sh-note" id="shDebtNote">Connecting to the U.S. Treasury…</p>
+          </div>
+
+          <!-- 3. the tax model -->
+          <div class="sh-tool sh-tool--lab">
+            <span class="sh-kicker">The tax model</span>
+            <label class="sh-label">What would a flat tax actually raise?</label>
+            <div class="sh-segs" role="group" aria-label="Tax schedule">
+              <button type="button" data-lab="current" aria-pressed="true">Current law</button>
+              <button type="button" data-lab="flat20" aria-pressed="false">Flat 20%</button>
+              <button type="button" data-lab="flat15" aria-pressed="false">Flat 15%</button>
+            </div>
+            <div class="sh-labbar"><i id="shLabBar"></i></div>
+            <output id="shLabOut" class="sh-labout" aria-live="polite"></output>
+            <a class="sh-more" href="tax-lab">Build your own brackets →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- THE CLAIM — the one sentence the whole site has to earn -->
     <section class="section--tight claim-band">
       <div class="container claim">
@@ -136,7 +189,7 @@
             <span class="idx-meta">surplus</span>
           </a></li>
           <li><a href="deficit">
-            <span class="idx-fig">$36T</span>
+            <span class="idx-fig">$40T</span>
             <span class="idx-main"><strong>The debt clock</strong>
               <span>The national debt live from the U.S. Treasury — and how long a steady surplus takes to pay it down.</span></span>
             <span class="idx-meta">live</span>
@@ -231,6 +284,8 @@
   </main>
 
   <div id="site-footer"></div>
+  <script src="data/tax-brackets.js" defer></script>
   <script src="scripts/components.js" defer></script>
+  <script src="scripts/home.js" defer></script>
 </body>
 </html>

@@ -1464,7 +1464,7 @@ window.PLATFORM = {
     { label: "Cap the like-kind (1031) loophole", amt: 20, id: "like-kind", icon: "🔁" },
   ],
   // Illustrative current fiscal facts ($B unless noted).
-  fiscal: { deficitToday: 1800, debtToday: 36000, interestRate: 0.03 },
+  fiscal: { deficitToday: 1800, debtToday: 40260, interestRate: 0.03 },
 
   // Average annual federal deficit (−) or surplus (+) by president, in BILLIONS
   // of nominal dollars (illustrative, ~last 50 years). `key` → portrait file.

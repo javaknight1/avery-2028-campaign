@@ -61,6 +61,8 @@ const checks = [
   ["revenue sources",     `>${P.funding.length}<`,            html, "index.html"],
   ["spending policies",   `>${spendPolicies.length}<`,        html, "index.html"],
   ["cabinet seats",       `>${P.cabinet.length}<`,            html, "index.html"],
+  ["debt headline",       `$${Math.round(P.fiscal.debtToday / 1000)}T`, html, "index.html"],
+  ["debt payoff years",   `${Math.ceil(P.fiscal.debtToday / SURPLUS)} years`, html, "index.html"],
   ["current-law revenue", T(CURRENT),                         html, "index.html"],
   ["flat 20% revenue",    T(FLAT20),                          html, "index.html"],
   ["flat 15% revenue",    T(FLAT15),                          html, "index.html"],
