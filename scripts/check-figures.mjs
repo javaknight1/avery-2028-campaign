@@ -22,6 +22,8 @@ const load = (f, key) => {
 const P = load("data/policies.js", "PLATFORM");
 const D = load("data/income-distribution.js", "TAXDATA");
 const html = read("index.html");
+const llms = read("llms.txt");
+const faq  = read("faq.html");
 
 /* ---- platform ledger ---- */
 const spendPolicies = P.policies.filter((p) => p.costType === "spend");
@@ -52,27 +54,40 @@ const FLAT15 = rev([{ min: 0, rate: 15 }]);
 const T = (b) => `$${(b / 1000).toFixed(2)}T`;
 
 const checks = [
-  ["revenue total",        `$${(REVENUE / 1000).toFixed(2)}T`],
-  ["spending total",       `$${(SPEND / 1000).toFixed(2)}T`],
-  ["surplus",              `+$${SURPLUS}B`],
-  ["revenue sources",      `>${P.funding.length}<`],
-  ["spending policies",    `>${spendPolicies.length}<`],
-  ["cabinet seats",        `>${P.cabinet.length}<`],
-  ["current-law revenue",  T(CURRENT)],
-  ["flat 20% revenue",     T(FLAT20)],
-  ["flat 15% revenue",     T(FLAT15)],
-  ["flat-tax shortfall",   `$${Math.round(CURRENT - FLAT15)}B`],
+  // [label, needle, file, source]
+  ["revenue total",       `$${(REVENUE / 1000).toFixed(2)}T`, html, "index.html"],
+  ["spending total",      `$${(SPEND / 1000).toFixed(2)}T`,   html, "index.html"],
+  ["surplus",             `+$${SURPLUS}B`,                    html, "index.html"],
+  ["revenue sources",     `>${P.funding.length}<`,            html, "index.html"],
+  ["spending policies",   `>${spendPolicies.length}<`,        html, "index.html"],
+  ["cabinet seats",       `>${P.cabinet.length}<`,            html, "index.html"],
+  ["current-law revenue", T(CURRENT),                         html, "index.html"],
+  ["flat 20% revenue",    T(FLAT20),                          html, "index.html"],
+  ["flat 15% revenue",    T(FLAT15),                          html, "index.html"],
+  ["flat-tax shortfall",  `$${Math.round(CURRENT - FLAT15)}B`, html, "index.html"],
+
+  // The AI-readable summary restates the headline figures, so it can drift too.
+  ["llms revenue",        `$${(REVENUE / 1000).toFixed(2)} trillion`, llms, "llms.txt"],
+  ["llms spending",       `$${(SPEND / 1000).toFixed(2)} trillion`,   llms, "llms.txt"],
+  ["llms surplus",        `$${SURPLUS} billion`,                      llms, "llms.txt"],
+  ["llms policy count",   `${P.policies.length} policies`,            llms, "llms.txt"],
+  ["llms cabinet",        `${P.cabinet.length} seats`,                llms, "llms.txt"],
+
+  // The FAQ quotes the totals in prose and feeds the FAQPage schema.
+  ["faq revenue",         `~$${(REVENUE / 1000).toFixed(2)}T/yr`, faq, "faq.html"],
+  ["faq spending",        `~$${(SPEND / 1000).toFixed(2)}T/yr`,   faq, "faq.html"],
+  ["faq surplus",         `~$${SURPLUS}B`,                        faq, "faq.html"],
 ];
 
 let failed = 0;
-for (const [label, needle] of checks) {
-  const ok = html.includes(needle);
+for (const [label, needle, haystack, file] of checks) {
+  const ok = haystack.includes(needle);
   if (!ok) failed++;
-  console.log(`${ok ? "ok  " : "FAIL"}  ${label.padEnd(22)} expected ${needle} in index.html`);
+  console.log(`${ok ? "ok  " : "FAIL"}  ${label.padEnd(20)} expected ${String(needle).padEnd(16)} in ${file}`);
 }
 
 if (failed) {
   console.error(`\n${failed} homepage figure(s) no longer match the data. Update index.html.`);
   process.exit(1);
 }
-console.log(`\nAll ${checks.length} homepage figures match the platform data.`);
+console.log(`\nAll ${checks.length} published figures match the platform data.`);

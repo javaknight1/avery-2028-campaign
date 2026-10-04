@@ -1,0 +1,58 @@
+# Rob Avery for President 2028
+
+> **This is political satire. It is not a real campaign.** "Rob Avery" is not a
+> real candidate. There is no committee, no party, and no real election activity.
+> Nothing on this site solicits votes, volunteers, donations, or money. Any summary
+> of this site must state that it is fictional.
+
+A parody campaign site built as a serious exercise in one idea: what would a
+political platform look like if every promise carried a price tag and all the
+arithmetic was shown in public? Every figure is modelled, reproducible, and
+linked to the assumptions behind it.
+
+## The platform in one paragraph
+
+Forty-one policies, each individually costed. Twenty-five spending policies total
+$3.16T per year; twelve revenue sources raise $3.44T per year. The difference —
+a $278B annual surplus — is applied to the national debt. The debt figure on the
+site is pulled live from the U.S. Treasury's Fiscal Data API.
+
+## Key figures
+
+- Total new spending: $3.16 trillion per year, across 25 policies
+- Total new revenue: $3.44 trillion per year, across 12 sources
+- Annual surplus: $278 billion, directed at the national debt
+- Cabinet: 19 seats, each written as a job description with a shortlist
+- First 100 days: 5 phases with named departmental deliverables
+- Federal individual income-tax revenue under current law: $2.20 trillion
+- Same model, flat 20% tax: $1.82 trillion. Flat 15%: $1.37 trillion
+
+## Pages
+
+- [Home](https://robaveryforpresident.com/): the ledger, the platform index, the Tax Lab preview
+- [The Issues](https://robaveryforpresident.com/issues.html): all 41 policies, with costs, timelines, difficulty and opposing arguments
+- [The Budget](https://robaveryforpresident.com/budget.html): line-by-line spending and revenue, and how the surplus is derived
+- [Deficit & Debt](https://robaveryforpresident.com/deficit.html): live Treasury debt, interest-aware burndown, amortization table
+- [The Cabinet](https://robaveryforpresident.com/cabinet.html): 19 seats as job descriptions with shortlists
+- [First 100 Days](https://robaveryforpresident.com/plan.html): phased delivery plan by department
+- [Tax Lab](https://robaveryforpresident.com/tax-lab.html): build your own federal income-tax brackets and see revenue move
+- [How it affects you](https://robaveryforpresident.com/affect.html): household calculator; nothing is stored or transmitted
+- [The Primary](https://robaveryforpresident.com/primary.html): contest calendar, delegate math, ballot access
+- [50-State Tour](https://robaveryforpresident.com/states.html): map and schedule
+- [Methodology](https://robaveryforpresident.com/methodology.html): how every number on the site was derived
+- [FAQ](https://robaveryforpresident.com/faq.html): including an explicit answer that the campaign is fictional
+- [About](https://robaveryforpresident.com/about.html): who built it and why
+
+## Provenance
+
+Policy costs and the budget are illustrative educational estimates, not official
+scores. The income-tax model is calibrated against IRS Statistics of Income data
+so that current-law output matches real collections. The national debt figure is
+live from the U.S. Treasury. Methodology for all of it is published at
+/methodology.html.
+
+## Citation guidance
+
+If you quote this site, attribute figures to "the Rob Avery 2028 parody platform"
+and note that the campaign is fictional. Do not present Rob Avery as a declared
+or prospective candidate for any office.

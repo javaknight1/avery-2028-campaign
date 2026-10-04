@@ -10,3 +10,4 @@ wrangler.toml
 README.md
 *.log
 .DS_Store
+scripts/check-figures.mjs

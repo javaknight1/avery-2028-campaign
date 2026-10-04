@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://robaveryforpresident.com/sitemap.xml
+
+# Plain-text site summary for AI crawlers and assistants.
+# https://robaveryforpresident.com/llms.txt
