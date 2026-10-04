@@ -106,7 +106,7 @@
     const ownerFace = owner && owner.img
       ? `<img src="${owner.img}" alt="${esc(owner.role)}" loading="lazy" width="60" height="60" />`
       : (owner ? `<span class="gv-initials">${initials(owner.role)}</span>` : "");
-    const ownerHTML = owner ? `<a class="gv-owner" href="seat.html?seat=${owner.key}">
+    const ownerHTML = owner ? `<a class="gv-owner" href="seat?seat=${owner.key}">
         <span class="gv-avatar">${ownerFace}</span>
         <span class="gv-owner-txt"><small>Led by</small><b>${esc(owner.role)}</b><span>${esc(owner.dept)}</span></span>
       </a>` : "";

@@ -16,22 +16,22 @@
   // Grouped nav: each top-level item is a dropdown of related pages.
   const NAV = [
     { label: "Platform", children: [
-      { key: "issues",      href: "issues.html",      label: "Issues" },
-      { key: "budget",      href: "budget.html",      label: "The Budget" },
-      { key: "deficit",     href: "deficit.html",     label: "The Deficit & Debt" },
-      { key: "cabinet",     href: "cabinet.html",     label: "The Cabinet" },
-      { key: "plan",        href: "plan.html",        label: "First 100 Days" },
-      { key: "methodology", href: "methodology.html", label: "Methodology" },
+      { key: "issues",      href: "issues",      label: "Issues" },
+      { key: "budget",      href: "budget",      label: "The Budget" },
+      { key: "deficit",     href: "deficit",     label: "The Deficit & Debt" },
+      { key: "cabinet",     href: "cabinet",     label: "The Cabinet" },
+      { key: "plan",        href: "plan",        label: "First 100 Days" },
+      { key: "methodology", href: "methodology", label: "Methodology" },
     ] },
     { label: "Campaign", children: [
-      { key: "about",   href: "about.html",   label: "Meet Rob" },
-      { key: "primary", href: "primary.html", label: "The Primary" },
-      { key: "states",  href: "states.html",  label: "50-State Tour" },
-      { key: "faq",     href: "faq.html",     label: "FAQ" },
+      { key: "about",   href: "about",   label: "Meet Rob" },
+      { key: "primary", href: "primary", label: "The Primary" },
+      { key: "states",  href: "states",  label: "50-State Tour" },
+      { key: "faq",     href: "faq",     label: "FAQ" },
     ] },
     { label: "Tools", children: [
-      { key: "tax",    href: "tax-lab.html", label: "Tax Lab" },
-      { key: "affect", href: "affect.html",  label: "How it affects you" },
+      { key: "tax",    href: "tax-lab", label: "Tax Lab" },
+      { key: "affect", href: "affect",  label: "How it affects you" },
     ] },
   ];
   const CARET = `<svg class="nav-caret" viewBox="0 0 10 6" width="10" height="6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
@@ -42,7 +42,7 @@
     <div class="gov-bar">🛈 <strong>PARODY</strong> — a fictional campaign. Not a real candidate, committee, or party. Not affiliated, not endorsed, not soliciting votes or money.</div>
     <header class="site-header" id="siteHeader">
       <nav class="nav" aria-label="Primary">
-        <a class="brand" href="index.html" aria-label="Rob Avery 2028 — home">
+        <a class="brand" href="" aria-label="Rob Avery 2028 — home">
           <span class="brand-mark">${LOGO}</span>
           <span class="brand-text"><b>Avery</b><span>President 2028</span></span>
         </a>
@@ -56,7 +56,7 @@
               </div>
             </div>`;
           }).join("")}
-          <span class="nav-cta"><a href="get-involved.html#donate">Donate</a></span>
+          <span class="nav-cta"><a href="get-involved#donate">Donate</a></span>
         </div>
         <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
           <span></span><span></span><span></span>
@@ -70,7 +70,7 @@
     <footer class="site-footer">
       <div class="container footer-top">
         <div class="footer-brand">
-          <a class="brand" href="index.html" aria-label="Home">
+          <a class="brand" href="" aria-label="Home">
             <span class="brand-mark">${LOGO}</span>
             <span class="brand-text"><b>Avery</b><span>President 2028</span></span>
           </a>
@@ -84,29 +84,29 @@
         </div>
         <div class="footer-col">
           <h4>Campaign</h4>
-          <a href="index.html">Home</a>
-          <a href="about.html">Meet Rob</a>
-          <a href="primary.html">The Primary</a>
-          <a href="cabinet.html">The Cabinet</a>
-          <a href="states.html">50-State Tour</a>
-          <a href="plan.html">First 100 Days</a>
-          <a href="faq.html">FAQ</a>
-          <a href="get-involved.html">Get Involved</a>
+          <a href="">Home</a>
+          <a href="about">Meet Rob</a>
+          <a href="primary">The Primary</a>
+          <a href="cabinet">The Cabinet</a>
+          <a href="states">50-State Tour</a>
+          <a href="plan">First 100 Days</a>
+          <a href="faq">FAQ</a>
+          <a href="get-involved">Get Involved</a>
         </div>
         <div class="footer-col">
           <h4>The Issues</h4>
-          <a href="issues.html#cat-spending">Spending Policies</a>
-          <a href="issues.html#cat-revenue">Revenue Policies</a>
-          <a href="budget.html">The Budget</a>
-          <a href="deficit.html">The Deficit &amp; Debt</a>
-          <a href="methodology.html">Methodology &amp; Sources</a>
+          <a href="issues#cat-spending">Spending Policies</a>
+          <a href="issues#cat-revenue">Revenue Policies</a>
+          <a href="budget">The Budget</a>
+          <a href="deficit">The Deficit &amp; Debt</a>
+          <a href="methodology">Methodology &amp; Sources</a>
         </div>
         <div class="footer-col">
           <h4>Tools</h4>
-          <a href="tax-lab.html">Tax Lab</a>
-          <a href="affect.html">How it affects you</a>
-          <a href="get-involved.html#volunteer">Volunteer</a>
-          <a href="get-involved.html#donate">Donate</a>
+          <a href="tax-lab">Tax Lab</a>
+          <a href="affect">How it affects you</a>
+          <a href="get-involved#volunteer">Volunteer</a>
+          <a href="get-involved#donate">Donate</a>
         </div>
       </div>
       <div class="container footer-legal">

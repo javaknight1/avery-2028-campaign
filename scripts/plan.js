@@ -22,7 +22,7 @@
   const POL = {}; (P.policies || []).forEach((p) => { POL[p.id] = p; });
   const item = (i) => {
     const text = typeof i === "string" ? esc(i) : (i.t || "");   // i.t may contain trusted <strong>
-    const link = (i && i.pid) ? ` <a class="fhd-link" href="issues.html#${i.pid}" title="${esc((POL[i.pid] || {}).title || "See the policy")}">↗</a>` : "";
+    const link = (i && i.pid) ? ` <a class="fhd-link" href="issues#${i.pid}" title="${esc((POL[i.pid] || {}).title || "See the policy")}">↗</a>` : "";
     return `<li>${text}${link}</li>`;
   };
 
@@ -37,7 +37,7 @@
             const c = CAB[t.key] || { role: t.key };
             const face = c.img ? `<img src="${c.img}" alt="${esc(c.role)}" loading="lazy" />` : `<span class="fhd-initials">${initials(c.role)}</span>`;
             return `<div class="fhd-team">
-              <a class="fhd-member" href="seat.html?seat=${t.key}">
+              <a class="fhd-member" href="seat?seat=${t.key}">
                 <span class="fhd-av">${face}</span><span class="fhd-role">${esc(c.role)}</span>
               </a>
               <ul class="fhd-items">${t.items.map(item).join("")}</ul>

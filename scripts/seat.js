@@ -25,7 +25,7 @@
   const key = new URLSearchParams(location.search).get("seat") || location.hash.replace(/^#/, "");
   const seat = (P.cabinet || []).find((c) => c.key === key);
   if (!seat) {
-    root.innerHTML = `<section class="page-hero"><div class="container"><h1>Seat not found</h1><p><a href="cabinet.html" style="color:var(--gold)">← Back to the Cabinet</a></p></div></section>`;
+    root.innerHTML = `<section class="page-hero"><div class="container"><h1>Seat not found</h1><p><a href="cabinet" style="color:var(--gold)">← Back to the Cabinet</a></p></div></section>`;
     return;
   }
   document.title = `${seat.role} — The Cabinet | Avery 2028`;
@@ -34,7 +34,7 @@
     .filter(([id, g]) => g.owner === key)
     .map(([id]) => P.policies.find((p) => p.id === id)).filter(Boolean);
   const leadHTML = leads.length
-    ? `<div class="seat-leads">${leads.map((p) => `<a class="seat-pill" href="issues.html#${p.id}">${esc(p.title)}</a>`).join("")}</div>`
+    ? `<div class="seat-leads">${leads.map((p) => `<a class="seat-pill" href="issues#${p.id}">${esc(p.title)}</a>`).join("")}</div>`
     : `<p class="muted">A cross-cutting role that supports the whole agenda rather than owning specific line items.</p>`;
 
   const resp = (seat.responsibilities || []).map((r) => `<li>${esc(r)}</li>`).join("");
@@ -87,7 +87,7 @@
   root.innerHTML = `
     <section class="page-hero">
       <div class="container">
-        <a class="seat-back" href="cabinet.html">← The Cabinet</a>
+        <a class="seat-back" href="cabinet">← The Cabinet</a>
         <div class="seat-head">
           <span class="seat-emoji">${headFace}</span>
           <div><span class="eyebrow" style="margin-bottom:6px">${esc(seat.dept)}</span><h1 style="margin:0">${esc(seat.role)}</h1></div>
@@ -120,8 +120,8 @@
         <span class="eyebrow">The whole team</span>
         <h2 class="section-title">See every seat</h2>
         <div style="margin-top:10px">
-          <a href="cabinet.html" class="btn btn--gold btn--lg">Back to the Cabinet <span class="arrow">→</span></a>
-          <a href="issues.html" class="btn btn--ghost-light btn--lg" style="margin-left:8px">The Issues</a>
+          <a href="cabinet" class="btn btn--gold btn--lg">Back to the Cabinet <span class="arrow">→</span></a>
+          <a href="issues" class="btn btn--ghost-light btn--lg" style="margin-left:8px">The Issues</a>
         </div>
       </div>
     </section>`;

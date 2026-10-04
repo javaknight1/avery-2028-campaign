@@ -14,7 +14,7 @@
       : p.costType === "neutral" ? `<span class="neutral">≈ $0</span>`
         : `<span class="spend">${money(p.cost)}</span>`;
   // a funding line: emoji + (link to its policy)
-  const fline = (f) => `${f.id ? `<a href="issues.html#${f.id}">${esc(f.label)}</a>` : esc(f.label)}`;
+  const fline = (f) => `${f.id ? `<a href="issues#${f.id}">${esc(f.label)}</a>` : esc(f.label)}`;
 
   const FUNDING = P.funding;
   const TOTAL_REVENUE = FUNDING.reduce((s, f) => s + f.amt, 0);
@@ -29,7 +29,7 @@
     const el = document.getElementById("budgetSummary");
     if (!el) return;
     const benefitRows = P.policies.filter((p) => p.costType !== "revenue").map((p) =>
-      `<tr><td class="sum-policy"><a href="issues.html#${p.id}">${esc(p.title)}</a></td>
+      `<tr><td class="sum-policy"><a href="issues#${p.id}">${esc(p.title)}</a></td>
         <td class="sum-cost">${costShort(p)}</td></tr>`).join("");
     const taxRows = FUNDING.map((f) =>
       `<tr><td class="sum-policy">${fline(f)}</td>
@@ -72,7 +72,7 @@
     el.innerHTML = `
       <div class="center" style="max-width:680px">
         <p class="section-lead" data-reveal style="margin-inline:auto">That <strong>+${money(SURPLUS)}/yr surplus</strong> goes straight at the national debt. See exactly how fast it pays off — with an interest-aware burndown chart, an amortization table, and how we stack up against past presidents.</p>
-        <a href="deficit.html" class="btn btn--navy btn--lg" data-reveal>The Deficit &amp; Debt <span class="arrow">→</span></a>
+        <a href="deficit" class="btn btn--navy btn--lg" data-reveal>The Deficit &amp; Debt <span class="arrow">→</span></a>
       </div>`;
   })();
 
