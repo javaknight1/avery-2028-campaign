@@ -29,7 +29,7 @@ window.PLATFORM = {
     /* ---------------- CARE & OPPORTUNITY ---------------- */
     {
       id: "healthcare", cat: "care", icon: "🩺",
-      title: "Universal Healthcare", tagline: "Health care is a right, not a bill.",
+      title: "Universal Healthcare", tagline: "Comprehensive coverage from birth, with no premiums or deductibles.",
       cost: 1400, costType: "spend", costNote: "net new federal — replaces most premiums, copays & deductibles; total U.S. health spending falls",
       lead: "Every American gets comprehensive coverage from birth — doctor visits, hospital care, mental health, dental, vision, prescriptions, and long-term care — with no premiums, no deductibles, and no surprise bills. You keep your doctors; you lose the paperwork and the fear. It isn't flipped on overnight — it phases in over a single term so nobody loses care during the switch.",
       timeline: [
@@ -93,7 +93,7 @@ window.PLATFORM = {
     },
     {
       id: "education", cat: "care", icon: "🎓",
-      title: "Education Overhaul (K–12 & Beyond)", tagline: "Every kid leaves high school with a plan — and a head start on it.",
+      title: "Education Overhaul (K–12 & Beyond)", tagline: "Rebuilt from kindergarten up, so students finish school with a funded next step.",
       cost: 180, costType: "spend", costNote: "incl. universal pre-K, teacher pay floor, K–12 modernization, free trade & community college",
       lead: "We rebuild education from kindergarten up around one goal: by the time a student finishes high school, they've either started a career or have a funded, concrete plan to. College isn't the only road — and as AI changes the return on a four-year degree, it shouldn't be.",
       plan: [
@@ -133,7 +133,7 @@ window.PLATFORM = {
     },
     {
       id: "housing", cat: "care", icon: "🏠",
-      title: "Housing for Everyone", tagline: "A safe, affordable home within reach of every American.",
+      title: "Housing for Everyone", tagline: "Build millions of homes and attack the cost that breaks the most budgets.",
       cost: 150, costType: "spend", costNote: "social housing + vouchers + a primary-home tax break (partly offset by a surtax on additional homes)",
       lead: "Housing is the bill that breaks the most families. We attack it from every side: build millions of homes, make rent affordable, end homelessness, and flip a market where some people can't afford a single home while others collect several. A home should be shelter first and an investment second.",
       plan: [
@@ -173,7 +173,7 @@ window.PLATFORM = {
     },
     {
       id: "childcare", cat: "care", icon: "🍼",
-      title: "Universal Childcare & Paid Leave", tagline: "Raising kids shouldn't cost a second mortgage.",
+      title: "Universal Childcare & Paid Leave", tagline: "Capped as a share of income, and free for lower-income families.",
       cost: 300, costType: "spend", costNote: "capped/free childcare + 12 weeks guaranteed paid family & medical leave",
       lead: "In much of the country, childcare costs more than rent or college. We cap it, make it free for lower-income families, and guarantee paid leave so no parent has to choose between a paycheck and a newborn.",
       plan: [
@@ -208,7 +208,7 @@ window.PLATFORM = {
     },
     {
       id: "social-security", cat: "care", icon: "👵",
-      title: "Expand & Protect Social Security", tagline: "Strengthen the promise — and make the rich pay in like everyone else.",
+      title: "Expand & Protect Social Security", tagline: "Close the funding gap in the country's most effective anti-poverty program.",
       cost: 150, costType: "neutral", costNote: "benefit increase fully funded by lifting the payroll-tax cap on high incomes",
       lead: "Social Security is the most successful anti-poverty program in American history, and it's underfunded for the future. We raise benefits, protect them from cuts, and pay for it by ending the loophole that lets high earners stop contributing partway through the year.",
       plan: [
@@ -245,7 +245,7 @@ window.PLATFORM = {
     /* ---------------- DEMOCRACY & RIGHTS ---------------- */
     {
       id: "term-limits", cat: "democracy", icon: "⏳",
-      title: "Term Limits for Congress", tagline: "Public service, not a lifetime career.",
+      title: "Term Limits for Congress", tagline: "A constitutional amendment capping how long anyone serves in Congress.",
       cost: 0, costType: "neutral", costNote: "constitutional amendment — negligible cost",
       lead: "Congress shouldn't be a career you hold for forty years. We push a constitutional amendment for term limits so power keeps changing hands and representatives stay connected to the people they serve.",
       plan: [
@@ -278,7 +278,7 @@ window.PLATFORM = {
     },
     {
       id: "money-politics", cat: "democracy", icon: "🏛️",
-      title: "Get Money Out of Politics", tagline: "A democracy of voters, not donors.",
+      title: "Get Money Out of Politics", tagline: "Limit what a handful of billionaires can spend to drown out everyone else.",
       cost: 10, costType: "spend", costNote: "small-donor public matching fund",
       lead: "When a handful of billionaires and corporations can drown out everyone else, it isn't really one-person-one-vote anymore. We overturn Citizens United, empower small donors, and end the legalized influence-peddling that makes people distrust the whole system.",
       plan: [
@@ -312,7 +312,7 @@ window.PLATFORM = {
     },
     {
       id: "voting", cat: "democracy", icon: "🗳️",
-      title: "Voting & Democracy Reform", tagline: "Make it easy to vote and hard to cheat the map.",
+      title: "Voting & Democracy Reform", tagline: "Automatic registration, and voting that is simple, secure and fair.",
       cost: 6, costType: "spend", costNote: "election infrastructure & administration grants",
       lead: "A strong democracy makes voting simple, secure, and fair. We register every eligible citizen automatically, make Election Day a holiday, end the partisan gerrymanders that let politicians pick their voters, and finally give the people of D.C. the representation they pay for.",
       plan: [
@@ -349,7 +349,7 @@ window.PLATFORM = {
     },
     {
       id: "rights", cat: "democracy", icon: "⚖️",
-      title: "Reproductive & LGBTQ+ Rights", tagline: "Your freedom over your own life and body.",
+      title: "Reproductive & LGBTQ+ Rights", tagline: "Keep the government out of your most personal decisions.",
       cost: 2, costType: "spend", costNote: "mostly legislative; modest funding for clinics & enforcement",
       lead: "Freedom means the government doesn't get to decide your most personal choices — who you love, who you are, or what happens to your own body. We codify those rights into federal law so they don't depend on which way a court is leaning this year.",
       plan: [
@@ -383,7 +383,7 @@ window.PLATFORM = {
     },
     {
       id: "justice", cat: "democracy", icon: "🤝",
-      title: "Justice Reform", tagline: "Safety and fairness — we can have both.",
+      title: "Justice Reform", tagline: "Hold police to high standards and treat people fairly in court.",
       cost: 15, costType: "spend", costNote: "reentry, public defense, mental-health response, record expungement",
       lead: "A justice system should protect people and treat them fairly. We hold police to high standards, end the cash-bail system that jails people for being poor, legalize cannabis and clear the records it created, and invest in what actually prevents crime.",
       plan: [
@@ -417,7 +417,7 @@ window.PLATFORM = {
     },
     {
       id: "immigration", cat: "democracy", icon: "🗽",
-      title: "Immigration Reform", tagline: "Secure, humane, and finally functional.",
+      title: "Immigration Reform", tagline: "Repair a system that fails families, employers and the border alike.",
       cost: 25, costType: "spend", costNote: "system modernization & processing; largely offset by new taxpayers over time",
       lead: "Our immigration system is broken in every direction — cruel to families, frustrating for employers, and impossible to navigate. We fix it: a real path to citizenship, modern legal immigration, an orderly border, and an end to a status quo that serves no one.",
       plan: [
@@ -451,7 +451,7 @@ window.PLATFORM = {
     },
     {
       id: "communities", cat: "democracy", icon: "🪶",
-      title: "Restoration & Community Investment", tagline: "Keep our promises to the people this country has wronged.",
+      title: "Restoration & Community Investment", tagline: "Make good on specific promises the country made and then broke.",
       cost: 120, costType: "spend", costNote: "baby bonds, honored treaty & trust obligations, IHS funding, and community investment",
       lead: "America has made real promises to people it then failed — and in some cases actively harmed. We don't fix that with a speech. We fix it with investment: honoring treaties, closing wealth gaps, and putting real resources into the Black, Native American, Native Hawaiian, Puerto Rican, and other communities this country has mistreated — designed with those communities, not handed down to them.",
       plan: [
@@ -490,7 +490,7 @@ window.PLATFORM = {
     /* ---------------- ECONOMY & WORKERS ---------------- */
     {
       id: "min-wage", cat: "economy", icon: "💪",
-      title: "$15 Minimum Wage", tagline: "A full-time job should keep you out of poverty.",
+      title: "$15 Minimum Wage", tagline: "Raise the federal floor, stuck at $7.25 since 2009.",
       cost: 0, costType: "neutral", costNote: "no federal outlay; phased in, then indexed to inflation",
       lead: "The federal minimum wage has been stuck at $7.25 since 2009 — poverty pay for full-time work. We raise it to $15 and index it to inflation so it never erodes into meaninglessness again.",
       plan: [
@@ -523,7 +523,7 @@ window.PLATFORM = {
     },
     {
       id: "worker-power", cat: "economy", icon: "🛠️",
-      title: "Worker Power", tagline: "Give workers real leverage again.",
+      title: "Worker Power", tagline: "Pass the PRO Act and make organizing a union realistic again.",
       cost: 1, costType: "neutral", costNote: "mostly regulatory; enforcement funding",
       lead: "For decades, the deck has been stacked against workers trying to organize. We pass the PRO Act, make it easy to join a union, and enable sectoral bargaining so an entire industry's workers can set fair standards together.",
       plan: [
@@ -556,7 +556,7 @@ window.PLATFORM = {
     },
     {
       id: "tax-rich", cat: "economy", icon: "💰",
-      title: "Tax the Ultra-Rich", tagline: "The biggest winners should pay their fair share.",
+      title: "Tax the Ultra-Rich", tagline: "Tax extreme wealth, so a billionaire can't pay a lower rate than a nurse.",
       cost: 1000, costType: "revenue", costNote: "wealth tax over $10B + higher income-tax rates over $400k (specific loopholes are closed by their own policies below)",
       lead: "It's not fair that a billionaire can pay a lower effective tax rate than a nurse. We tax extreme wealth, raise rates at the very top, and close the loopholes that let the richest avoid tax the rest of us pay automatically — funding the platform and rebalancing an economy tilted toward the top.",
       plan: [
@@ -592,7 +592,7 @@ window.PLATFORM = {
     },
     {
       id: "ai-tax", cat: "economy", icon: "🤖",
-      title: "The AI Tax", tagline: "If a robot takes the job, it should help fund the future.",
+      title: "The AI Tax", tagline: "Tax the wealth AI concentrates, and fund what it displaces.",
       cost: 200, costType: "revenue", costNote: "a per-token sales tax on AI use + a levy on automation that displaces labor; funds worker retraining & transition",
       lead: "AI is going to create staggering wealth — and concentrate it in very few hands while displacing millions of workers. When a company automates a job away, the productivity gain shouldn't flow only to shareholders. We tax AI two ways: a tiny sales tax on every token of AI used, and a levy on large-scale automation that displaces labor — and we send the money to the workers and communities it disrupts.",
       plan: [
@@ -627,7 +627,7 @@ window.PLATFORM = {
     },
     {
       id: "ftt", cat: "economy", icon: "📈",
-      title: "Financial Transaction Tax", tagline: "A tiny tax on Wall Street, a big deal for Main Street.",
+      title: "Financial Transaction Tax", tagline: "A fraction-of-a-percent tax on financial trades.",
       cost: 80, costType: "revenue", costNote: "small per-trade tax on financial transactions",
       lead: "A microscopic tax on financial trades — the kind Bernie Sanders has long championed — barely touches ordinary investors but reins in the high-frequency churn that adds risk without value, and raises real money for the things people need.",
       plan: [
@@ -661,7 +661,7 @@ window.PLATFORM = {
     /* ---- Loopholes, each closed by name ---- */
     {
       id: "carried-interest", cat: "economy", icon: "🎩",
-      title: "Close the Carried-Interest Loophole", tagline: "Pay for managing money is income — tax it like income.",
+      title: "Close the Carried-Interest Loophole", tagline: "Tax fund managers' performance pay as the income it is.",
       cost: 20, costType: "revenue", costNote: "tax carried interest as ordinary income, not capital gains",
       lead: "Private-equity and hedge-fund managers are paid a slice of their clients' profits — 'carried interest' — for managing other people's money. Through a quirk of the tax code, that paycheck is taxed as long-term capital gains (about 20%) instead of ordinary income (up to 37%). It's the most famous loophole in America, defended by almost no one, and still open.",
       plan: [
@@ -694,7 +694,7 @@ window.PLATFORM = {
     },
     {
       id: "stepped-up-basis", cat: "economy", icon: "🪜",
-      title: "End Stepped-Up Basis & 'Buy, Borrow, Die'", tagline: "The trick that lets fortunes go untaxed for generations.",
+      title: "End Stepped-Up Basis & 'Buy, Borrow, Die'", tagline: "Close the loophole that lets large fortunes pass untaxed.",
       cost: 60, costType: "revenue", costNote: "tax unrealized gains at death above a large exemption; close the borrowing loophole",
       lead: "Here's how the very wealthy legally avoid income tax for life: buy assets that grow, borrow against them tax-free to spend (loans aren't income), and die — at which point 'stepped-up basis' resets the assets' value for heirs, erasing every dollar of lifetime gains. The gains are never taxed, by anyone. We close the loop, while fully protecting ordinary families.",
       plan: [
@@ -728,7 +728,7 @@ window.PLATFORM = {
     },
     {
       id: "like-kind", cat: "economy", icon: "🔁",
-      title: "Cap the Like-Kind (1031) Loophole", tagline: "Stop letting real-estate gains defer forever.",
+      title: "Cap the Like-Kind (1031) Loophole", tagline: "End the exchange that lets real-estate gains defer indefinitely.",
       cost: 20, costType: "revenue", costNote: "cap 'like-kind exchange' deferral so property gains can't roll untaxed indefinitely",
       lead: "A 'like-kind exchange' (Section 1031) lets a real-estate investor sell a property, roll the gain into another property, and defer the capital-gains tax — then do it again, and again, forever. Stack it with stepped-up basis at death and the gains are never taxed at all. Built a century ago for farmers swapping a horse for a plow, it's now a giant shelter for real-estate fortunes.",
       plan: [
@@ -761,7 +761,7 @@ window.PLATFORM = {
     },
     {
       id: "corporate", cat: "economy", icon: "🏢",
-      title: "Corporate Tax Reform", tagline: "No trillion-dollar company should pay $0.",
+      title: "Corporate Tax Reform", tagline: "A floor under what the most profitable companies pay.",
       cost: 450, costType: "revenue", costNote: "moderate rate increase + a 15% minimum on book profits + a global minimum tax",
       lead: "Some of the most profitable corporations on earth pay little or no federal income tax, using deductions, credits, and offshore accounting to zero out their bill. We set a fair corporate rate, a minimum tax so no giant company pays nothing, and a global minimum that ends the race to tax havens.",
       plan: [
@@ -795,7 +795,7 @@ window.PLATFORM = {
     },
     {
       id: "carbon", cat: "economy", icon: "🏭",
-      title: "Carbon Fee on Big Polluters", tagline: "Make pollution pay — and send the money back.",
+      title: "Carbon Fee on Big Polluters", tagline: "Charge for pollution and rebate the revenue to households.",
       cost: 200, costType: "revenue", costNote: "a rising fee on carbon pollution with a border adjustment; part returned to families",
       lead: "Right now, polluting the air is free, and everyone else pays for the damage in health and climate costs. A carbon fee charges big emitters for that pollution, steadily cuts emissions, and raises revenue — and a border adjustment means imports pay too, protecting American manufacturers. Part comes back to families so household budgets are held harmless.",
       plan: [
@@ -831,7 +831,7 @@ window.PLATFORM = {
     /* ---------------- BUILDING THE FUTURE ---------------- */
     {
       id: "energy", cat: "future", icon: "⚡",
-      title: "Energy Independence & Green New Deal", tagline: "Cheap, clean, American-made power — and the jobs to build it.",
+      title: "Energy Independence & Green New Deal", tagline: "Energy independence as national security and a lower power bill.",
       cost: 300, costType: "spend", costNote: "clean-energy buildout, grid modernization, and a clean-energy jobs guarantee",
       lead: "Forget the politics of climate for a second: energy independence is national security and a household budget issue. When we make our own clean power, a war in the Middle East can't spike your gas bill, and we put millions of Americans to work building the grid of the future.",
       plan: [
@@ -867,7 +867,7 @@ window.PLATFORM = {
     },
     {
       id: "rail", cat: "future", icon: "🚄",
-      title: "National High-Speed Rail", tagline: "Cross the country fast, cheap, and without the airport.",
+      title: "National High-Speed Rail", tagline: "Coast-to-coast rail that beats flying once you count the airport.",
       cost: 200, costType: "spend", costNote: "10-year capital program (~$2T total); transformative long-term returns",
       lead: "Imagine boarding a train in D.C. and stepping off in San Francisco — faster than flying once you count security and delays, cheaper, roomier, and far more relaxing. A Japan-style high-speed rail network connects our cities, revives small towns along the line, frees millions from car dependence, and draws tourists and their money from around the world.",
       plan: [
@@ -903,7 +903,7 @@ window.PLATFORM = {
     },
     {
       id: "humanity-first", cat: "future", icon: "❤️‍🩹", component: "humanity",
-      title: "Humanity First", tagline: "Measure how people are actually doing — not just how companies are.",
+      title: "Humanity First", tagline: "A second national measure: how people are actually doing.",
       cost: 2, costType: "spend", costNote: "a modern statistical agency to measure and publish the Humanity Score",
       lead: "We run the country on one number — GDP — but GDP only tells you how the economy is doing, which mostly means how companies are doing. It says nothing about whether people are healthy, secure, or hopeful. We create a Humanity Score: a single, FICO-style measure of the actual human experience in America, published alongside GDP and used to steer policy toward what really matters.",
       plan: [
@@ -937,7 +937,7 @@ window.PLATFORM = {
     },
     {
       id: "gun-safety", cat: "future", icon: "🛡️",
-      title: "Gun Safety", tagline: "Protect kids and communities — and the Second Amendment.",
+      title: "Gun Safety", tagline: "Background checks and age limits that leave lawful ownership intact.",
       cost: 5, costType: "spend", costNote: "background-check system, community violence prevention, research",
       lead: "You can respect the right to own a firearm and still believe a teenager shouldn't be able to buy a weapon of war more easily than a beer. We pass commonsense safety laws that the vast majority of Americans — including most gun owners — already support.",
       plan: [
@@ -970,7 +970,7 @@ window.PLATFORM = {
     },
     {
       id: "antitrust", cat: "future", icon: "🧱",
-      title: "Antitrust & Big Tech Accountability", tagline: "Competition you can feel — lower prices, more choices.",
+      title: "Antitrust & Big Tech Accountability", tagline: "Break up the concentration that shows up as higher prices.",
       cost: 2, costType: "spend", costNote: "stronger enforcement at the antitrust agencies",
       lead: "A handful of giant companies now dominate the things you use every day, and it shows up as higher prices, worse service, and fewer choices. We enforce the antitrust laws already on the books, rein in Big Tech, and make markets competitive again.",
       plan: [
@@ -1003,7 +1003,7 @@ window.PLATFORM = {
     },
     {
       id: "disaster", cat: "future", icon: "🌀",
-      title: "Disaster Resilience & Relief", tagline: "When the worst happens, we show up — fast, and for everyone.",
+      title: "Disaster Resilience & Relief", tagline: "Get help to the least-resourced places first.",
       cost: 40, costType: "spend", costNote: "larger pre-funded national reserve + pre-disaster mitigation; saves far more than it costs",
       lead: "Hurricanes, wildfires, and floods are hitting harder and more often, and too often the slowest, weakest response lands on the people with the least. We build a bigger national emergency reserve, fund prevention before disaster strikes, and make a clear promise: we prioritize those in greatest need, every time.",
       plan: [
@@ -1038,7 +1038,7 @@ window.PLATFORM = {
     },
     {
       id: "data-centers", cat: "future", icon: "🖥️",
-      title: "Rein In Data Centers", tagline: "Lead in AI without sticking families with the bill.",
+      title: "Rein In Data Centers", tagline: "Make AI data centers pay for the grid capacity they consume.",
       cost: 5, costType: "spend", costNote: "grid oversight, ratepayer protection, clean-power & siting rules — plus a usage-based water-and-energy tax (counted on the Budget page)",
       lead: "AI data centers are exploding across the country — and quietly driving up your electric bill, straining local grids, and guzzling water, often after winning sweetheart tax deals that never deliver the jobs they promised. We want America to lead in AI. But the people who live next to these warehouses shouldn't subsidize them. We tax data centers for the water and power they burn, require them to run clean, and keep the biggest ones away from our cities.",
       plan: [
@@ -1073,7 +1073,7 @@ window.PLATFORM = {
     },
     {
       id: "space", cat: "future", icon: "🚀",
-      title: "Invest in Space — for Humanity", tagline: "Lead the next frontier, and lift everyone with it.",
+      title: "Invest in Space — for Humanity", tagline: "Public investment in space, with the returns shared broadly.",
       cost: 40, costType: "spend", costNote: "boost NASA and basic space science; fund international partnerships",
       lead: "Space is the next great frontier for science, security, and human inspiration — and it should lift all of humanity, not plant one flag. We invest in NASA and a thriving space sector, and we lead by partnering with our allies to explore together. It's not about America winning. It's about humanity winning — with America out front.",
       plan: [
@@ -1107,7 +1107,7 @@ window.PLATFORM = {
     },
     {
       id: "veterans", cat: "care", icon: "🎖️",
-      title: "Keep Faith with Veterans", tagline: "We sent them to serve; we owe them when they come home.",
+      title: "Keep Faith with Veterans", tagline: "Fund veterans' care as part of the cost of war.",
       cost: 50, costType: "spend", costNote: "shorter VA waits, mental-health & suicide prevention, benefits backlog, veteran homelessness",
       lead: "Caring for the people we send to war is part of the cost of war — and for too long we've underpaid it in peacetime. We cut VA wait times, guarantee mental-health care, clear the benefits backlog, and end veteran homelessness. A promise kept, not a slogan at a podium.",
       plan: [
@@ -1137,7 +1137,7 @@ window.PLATFORM = {
     },
     {
       id: "public-health", cat: "care", icon: "🦠",
-      title: "Public Health & Pandemic Readiness", tagline: "Stay ready, so the next outbreak is a scare, not a catastrophe.",
+      title: "Public Health & Pandemic Readiness", tagline: "Rebuild the public-health capacity COVID proved we had hollowed out.",
       cost: 35, costType: "spend", costNote: "rebuild local health departments, a national reserve, disease surveillance, global cooperation",
       lead: "COVID showed what happens when public health is hollowed out: a million Americans dead and trillions lost. We rebuild the local health departments, stockpiles, and disease surveillance that catch the next outbreak early — and work with the world, because a virus doesn't carry a passport.",
       plan: [
@@ -1167,7 +1167,7 @@ window.PLATFORM = {
     },
     {
       id: "mental-health", cat: "care", icon: "🧠",
-      title: "Mental Health & the Addiction Crisis", tagline: "Treat it like the health emergency it is.",
+      title: "Mental Health & the Addiction Crisis", tagline: "Treat addiction and mental illness at the scale of the crisis.",
       cost: 50, costType: "spend", costNote: "988 crisis response, treatment on demand, the overdose crisis, school mental health",
       lead: "A mental-health and addiction crisis is killing Americans — roughly 100,000 overdose deaths a year, on top of rising despair. We answer it like the medical emergency it is: a real crisis-response system, treatment on demand, and an end to dying on a waitlist.",
       plan: [
@@ -1197,7 +1197,7 @@ window.PLATFORM = {
     },
     {
       id: "infrastructure", cat: "future", icon: "🌉",
-      title: "Rebuild America's Infrastructure", tagline: "Fix the backbone of the country — and build it to last.",
+      title: "Rebuild America's Infrastructure", tagline: "Rebuild roads, water pipes and ports, and build them to last.",
       cost: 150, costType: "spend", costNote: "roads & bridges, water systems & lead pipes, transit & ports, climate resilience",
       lead: "Crumbling roads, century-old water pipes, and bottlenecked ports are a hidden tax on everyone. We rebuild the physical backbone of the country — fixing what's broken first, getting the lead out of the water, and building it to withstand the storms that are already here.",
       plan: [
@@ -1229,7 +1229,7 @@ window.PLATFORM = {
     },
     {
       id: "broadband", cat: "future", icon: "📡",
-      title: "Internet for Every American", tagline: "In 2028, broadband is a utility — so we wire the whole country.",
+      title: "Internet for Every American", tagline: "Wire the whole country; internet is infrastructure now.",
       cost: 25, costType: "spend", costNote: "fiber to unserved areas, affordability subsidies, devices & digital skills",
       lead: "Internet is no longer a luxury — it's how you work, learn, see a doctor, and reach your government. We finish the job: affordable, high-speed internet to every home in America, rural and tribal areas included, treated like the essential utility it has become.",
       plan: [
@@ -1289,7 +1289,7 @@ window.PLATFORM = {
     },
     {
       id: "waste", cat: "future", icon: "♻️",
-      title: "Refocus the EPA on Waste & Recycling", tagline: "Make recycling real, make reuse the default, stop drowning in our own trash.",
+      title: "Refocus the EPA on Waste & Recycling", tagline: "Fix a recycling system in which most plastic is never recycled.",
       cost: 0, costType: "neutral", costNote: "refocus the existing EPA + recycling/reuse infrastructure, funded by producer-responsibility fees — the polluter pays",
       lead: "America is the world's biggest trash producer, and our recycling system is half-broken: most plastic is never recycled, and what we can't bury we ship overseas or watch wash into the ocean. We refocus the EPA around one goal — waste as little as possible. Make producers responsible for what they sell, make reuse the default, and make recycling actually work — paid for by the companies that create the packaging, not the families throwing it away.",
       plan: [
@@ -1357,7 +1357,7 @@ window.PLATFORM = {
     },
     {
       id: "foreign-policy", cat: "future", icon: "🕊️",
-      title: "Diplomacy First", tagline: "Lead the world with alliances and wisdom, not just weapons.",
+      title: "Diplomacy First", tagline: "Invest in alliances and diplomacy alongside military strength.",
       cost: 15, costType: "spend", costNote: "rebuild the diplomatic corps, fund conflict prevention & smart development",
       lead: "America is strongest when it leads — but leadership is more than the world's biggest military. We invest in diplomacy, alliances, and development, because preventing wars is far cheaper than fighting them. We rebuild the State Department, stand with our allies, end the forever wars, and use American power wisely: strength and restraint, not endless war.",
       plan: [
@@ -1387,7 +1387,7 @@ window.PLATFORM = {
     },
     {
       id: "defense-reform", cat: "economy", icon: "🛡️",
-      title: "A Defense That Defends", tagline: "Pass the audit, cut the waste, keep the world's best military.",
+      title: "A Defense That Defends", tagline: "Make the Pentagon pass an audit, and cut what the audit finds.",
       cost: 50, costType: "revenue", costNote: "savings from passing the Pentagon audit and ending waste & failed weapons programs",
       lead: "The Pentagon has never passed an audit. It spends more than the next ten countries combined — much of it on cost-overrun weapons the generals didn't ask for — while some troops rely on food stamps. We don't gut defense; we make it accountable. Pass the audit, cut the waste and the boondoggles, and reinvest in the people and capabilities that actually keep us safe.",
       plan: [
@@ -1417,7 +1417,7 @@ window.PLATFORM = {
     },
     {
       id: "family-farms", cat: "economy", icon: "🌾",
-      title: "Family Farms & Food Security", tagline: "Back the people who feed us — not just agribusiness.",
+      title: "Family Farms & Food Security", tagline: "Shift farm support from agribusiness towards family farms.",
       cost: 35, costType: "spend", costNote: "redirect support to family farms, strengthen food assistance, build resilient local food systems",
       lead: "Farm policy mostly flows to giant agribusiness while family farms go under and rural towns hollow out. We flip it: back the family farmers who actually feed us, guarantee every American access to healthy food, and build a food system that's secure, fair, and resilient.",
       plan: [

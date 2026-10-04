@@ -42,7 +42,7 @@
     <div class="gov-bar">🛈 <strong>PARODY</strong> — a fictional campaign. Not a real candidate, committee, or party. Not affiliated, not endorsed, not soliciting votes or money.</div>
     <header class="site-header" id="siteHeader">
       <nav class="nav" aria-label="Primary">
-        <a class="brand" href="" aria-label="Rob Avery 2028 — home">
+        <a class="brand" href="/" aria-label="Rob Avery 2028 — home">
           <span class="brand-mark">${LOGO}</span>
           <span class="brand-text"><b>Avery</b><span>President 2028</span></span>
         </a>
@@ -70,11 +70,11 @@
     <footer class="site-footer">
       <div class="container footer-top">
         <div class="footer-brand">
-          <a class="brand" href="" aria-label="Home">
+          <a class="brand" href="/" aria-label="Home">
             <span class="brand-mark">${LOGO}</span>
             <span class="brand-text"><b>Avery</b><span>President 2028</span></span>
           </a>
-          <p>A Future Worth Building. A serious plan, written in plain language, on a clock.</p>
+          <p>A Future Worth Building. Every policy costed, every figure checkable.</p>
           <div class="socials" aria-label="Social (non-functional, parody)">
             <a href="#" aria-label="X">𝕏</a>
             <a href="#" aria-label="Instagram">◎</a>
@@ -84,7 +84,7 @@
         </div>
         <div class="footer-col">
           <h4>Campaign</h4>
-          <a href="">Home</a>
+          <a href="/">Home</a>
           <a href="about">Meet Rob</a>
           <a href="primary">The Primary</a>
           <a href="cabinet">The Cabinet</a>
