@@ -61,157 +61,168 @@
       </div>
     </section>
 
-    <!-- MESSAGE / QUOTE -->
-    <section class="section--tight quote-band">
-      <div class="container">
-        <blockquote data-reveal>
+    <!-- THE CLAIM — the one sentence the whole site has to earn -->
+    <section class="section--tight claim-band">
+      <div class="container claim">
+        <blockquote>
           "I don't want to manage the decline. I want to build the next thing —
           and I want you in the room when we do."
         </blockquote>
-        <cite data-reveal>— Rob Avery</cite>
+        <cite>— Rob Avery</cite>
       </div>
     </section>
 
-    <!-- TOP ISSUES -->
+    <!-- THE LEDGER — the single number the platform lives or dies on.
+         Figures below are the authoritative totals from data/policies.js;
+         `npm run check` fails the build if the HTML drifts from the data. -->
+    <section class="section bg-navy ledger-section">
+      <div class="container">
+        <div class="sec-head sec-head--wide">
+          <h2 class="section-title">It adds up, or it doesn't count</h2>
+          <p class="section-lead">Forty-one policies, every one costed. Revenue on one side, spending on the
+          other, and the gap between them is the whole argument.</p>
+        </div>
+
+        <div class="ledger" data-reveal>
+          <div class="ledger-row ledger-row--rev">
+            <span class="ledger-label">Revenue raised</span>
+            <span class="ledger-bar"><i style="--w:100%"></i></span>
+            <span class="ledger-val">$3.44T<small>/yr · 12 sources</small></span>
+          </div>
+          <div class="ledger-row ledger-row--spend">
+            <span class="ledger-label">Spending</span>
+            <span class="ledger-bar"><i style="--w:91.9%"></i></span>
+            <span class="ledger-val">$3.16T<small>/yr · 25 policies</small></span>
+          </div>
+          <div class="ledger-row ledger-row--net">
+            <span class="ledger-label">Left over</span>
+            <span class="ledger-bar"><i style="--w:8.1%"></i></span>
+            <span class="ledger-val">+$278B<small>/yr → straight at the debt</small></span>
+          </div>
+        </div>
+        <p class="ledger-note">
+          Bars are to scale. <a href="budget.html">Read the line-by-line budget</a> or
+          <a href="methodology.html">check how every figure was derived</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- THE INDEX — one dense entry point to everything, each row carrying
+         the number that makes it worth clicking. Replaces two identical card grids. -->
     <section class="section bg-paper">
       <div class="container">
-        <div class="center" style="max-width:700px">
-          <span class="eyebrow" data-reveal>Where Rob Stands</span>
-          <h2 class="section-title" data-reveal>Every policy, two simple buckets</h2>
-          <p class="section-lead" data-reveal>Every plank in plain language, with a price tag attached — grouped into what we <strong>spend</strong> and how we raise the <strong>revenue</strong> to pay for it (with a surplus left over for the deficit).</p>
+        <div class="sec-head">
+          <h2 class="section-title">The whole platform, in one place</h2>
+          <p class="section-lead">Nothing here is a slogan you can't check. Every row opens the receipts.</p>
         </div>
-        <div class="card-grid" style="margin-top:46px">
-          <a class="card" href="issues.html#cat-spending" data-reveal>
-            <span class="ic">🏛️</span>
-            <h3>Spending Policies</h3>
-            <p>Universal healthcare, housing for all, education, veterans, infrastructure, energy, rail, and more — each with a price.</p>
-            <span class="more">See what we'd build →</span>
-          </a>
-          <a class="card" href="issues.html#cat-revenue" data-reveal>
-            <span class="ic">💰</span>
-            <h3>Revenue Policies</h3>
-            <p>Tax the ultra-rich, a corporate overhaul, an AI tax, a carbon fee, closed loopholes — how we pay, and then some.</p>
-            <span class="more">See how we pay →</span>
-          </a>
-          <a class="card" href="budget.html" data-reveal>
-            <span class="ic">💸</span>
-            <h3>The Honest Budget</h3>
-            <p>Every dollar in and out. We raise <em>more</em> than we spend, so the plan runs a surplus instead of a deficit.</p>
-            <span class="more">See the math →</span>
-          </a>
-          <a class="card" href="deficit.html" data-reveal>
-            <span class="ic">📉</span>
-            <h3>The Deficit &amp; Debt</h3>
-            <p>The national debt, <strong>live from the U.S. Treasury</strong> — and how a steady surplus pays it down.</p>
-            <span class="more">Watch it burn down →</span>
-          </a>
-        </div>
+
+        <ul class="index-grid" data-reveal>
+          <li><a href="issues.html#cat-spending">
+            <span class="idx-fig">25</span>
+            <span class="idx-main"><strong>Spending policies</strong>
+              <span>Healthcare, housing, education, veterans, energy, rail — each with a price tag attached.</span></span>
+            <span class="idx-meta">$3.16T/yr</span>
+          </a></li>
+          <li><a href="issues.html#cat-revenue">
+            <span class="idx-fig">12</span>
+            <span class="idx-main"><strong>Revenue sources</strong>
+              <span>A wealth tax, a corporate overhaul, an AI tax, a carbon fee, and the loopholes we'd close.</span></span>
+            <span class="idx-meta">+$3.44T/yr</span>
+          </a></li>
+          <li><a href="budget.html">
+            <span class="idx-fig">+$278B</span>
+            <span class="idx-main"><strong>The honest budget</strong>
+              <span>Every dollar in and out, side by side. The plan runs a surplus, not a deficit.</span></span>
+            <span class="idx-meta">surplus</span>
+          </a></li>
+          <li><a href="deficit.html">
+            <span class="idx-fig">$36T</span>
+            <span class="idx-main"><strong>The debt clock</strong>
+              <span>The national debt live from the U.S. Treasury — and how long a steady surplus takes to pay it down.</span></span>
+            <span class="idx-meta">live</span>
+          </a></li>
+          <li><a href="cabinet.html">
+            <span class="idx-fig">19</span>
+            <span class="idx-main"><strong>The cabinet</strong>
+              <span>Every seat written as a job description, with a shortlist of who could actually fill it.</span></span>
+            <span class="idx-meta">seats</span>
+          </a></li>
+          <li><a href="plan.html">
+            <span class="idx-fig">100</span>
+            <span class="idx-main"><strong>The first 100 days</strong>
+              <span>Five phases, each with the department on point and the deliverable it owes you.</span></span>
+            <span class="idx-meta">days</span>
+          </a></li>
+          <li><a href="affect.html">
+            <span class="idx-fig">You</span>
+            <span class="idx-main"><strong>What it costs you</strong>
+              <span>Put in your household numbers and get the gains, the costs, and the bottom line.</span></span>
+            <span class="idx-meta">calculator</span>
+          </a></li>
+          <li><a href="issues.html#humanity-first">
+            <span class="idx-fig">1</span>
+            <span class="idx-main"><strong>The Humanity Score</strong>
+              <span>One scoreboard every policy answers to. Are people actually better off — not just GDP?</span></span>
+            <span class="idx-meta">scoreboard</span>
+          </a></li>
+        </ul>
       </div>
     </section>
 
-    <!-- HOW IT GETS DONE -->
+    <!-- TAX LAB — the numbers below are computed by the same engine the Tax Lab
+         itself runs (scripts/tax.js + data/income-distribution.js), not illustrations. -->
     <section class="section bg-white">
-      <div class="container">
-        <div class="center" style="max-width:700px">
-          <span class="eyebrow" data-reveal>More than a wish list</span>
-          <h2 class="section-title" data-reveal>How it would actually get done</h2>
-          <p class="section-lead" data-reveal>A platform is only as real as the plan to deliver it — the team, the timeline, the scoreboard, and what it means for you.</p>
-        </div>
-        <div class="card-grid" style="margin-top:46px">
-          <a class="card" href="cabinet.html" data-reveal>
-            <span class="ic">👥</span>
-            <h3>The Cabinet</h3>
-            <p>The team that would run it — every seat a job description, with a shortlist of who could fill it.</p>
-            <span class="more">Meet the team →</span>
-          </a>
-          <a class="card" href="plan.html" data-reveal>
-            <span class="ic">⏱️</span>
-            <h3>The First 100 Days</h3>
-            <p>A sprint plan: each phase, the department on point, and its specific deliverables.</p>
-            <span class="more">See the plan →</span>
-          </a>
-          <a class="card" href="issues.html#humanity-first" data-reveal>
-            <span class="ic">❤️‍🩹</span>
-            <h3>The Humanity Score</h3>
-            <p>Are Americans actually better off? The live scoreboard every policy answers to — not just GDP.</p>
-            <span class="more">See the score →</span>
-          </a>
-          <a class="card" href="affect.html" data-reveal>
-            <span class="ic">🧮</span>
-            <h3>How it affects you</h3>
-            <p>A calculator for what the whole platform would mean for your household — gains, costs, bottom line.</p>
-            <span class="more">Check your impact →</span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- STATS -->
-    <section class="section bg-navy">
-      <div class="container">
-        <div class="center" style="max-width:620px">
-          <span class="eyebrow" data-reveal>The Goal</span>
-          <h2 class="section-title" data-reveal>One focused term</h2>
-        </div>
-        <div class="stats" style="margin-top:46px">
-          <div data-reveal><span class="stat-num" data-count="330" data-suffix="M">0</span><span class="stat-label">Americans covered by universal healthcare</span></div>
-          <div data-reveal><span class="stat-num" data-count="5" data-suffix="M">0</span><span class="stat-label">new homes, plus rent you can actually afford</span></div>
-          <div data-reveal><span class="stat-num" data-count="0" data-prefix="$">0</span><span class="stat-label">tuition for trade &amp; community college</span></div>
-          <div data-reveal><span class="stat-num" data-count="278" data-prefix="+$" data-suffix="B">0</span><span class="stat-label">annual surplus — sent straight to the deficit</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- 50-STATE PROMISE -->
-    <section class="section bg-white">
-      <div class="container">
-        <div class="center" style="max-width:780px">
-          <span class="eyebrow" data-reveal>America first — not left or right</span>
-          <h2 class="section-title" data-reveal>The 50-State Promise</h2>
-          <p class="section-lead" data-reveal style="margin-inline:auto">The consultants say to camp out in a handful of "purple" states. I won't. I'm running to be <em>every</em> American's president — so I'll campaign in <strong>all 50 states</strong>: red, blue, and everything in between. My loyalty isn't to a party, and it isn't to me. It's to the American people, the Constitution, and the American Dream.</p>
-        </div>
-        <div class="pledge-grid" data-reveal>
-          <span class="pledge-state">AL</span><span class="pledge-state">AK</span><span class="pledge-state">AZ</span><span class="pledge-state">AR</span><span class="pledge-state">CA</span><span class="pledge-state">CO</span><span class="pledge-state">CT</span><span class="pledge-state">DE</span><span class="pledge-state">FL</span><span class="pledge-state">GA</span><span class="pledge-state">HI</span><span class="pledge-state">ID</span><span class="pledge-state">IL</span><span class="pledge-state">IN</span><span class="pledge-state">IA</span><span class="pledge-state">KS</span><span class="pledge-state">KY</span><span class="pledge-state">LA</span><span class="pledge-state">ME</span><span class="pledge-state">MD</span><span class="pledge-state">MA</span><span class="pledge-state">MI</span><span class="pledge-state">MN</span><span class="pledge-state">MS</span><span class="pledge-state">MO</span><span class="pledge-state">MT</span><span class="pledge-state">NE</span><span class="pledge-state">NV</span><span class="pledge-state">NH</span><span class="pledge-state">NJ</span><span class="pledge-state">NM</span><span class="pledge-state">NY</span><span class="pledge-state">NC</span><span class="pledge-state">ND</span><span class="pledge-state">OH</span><span class="pledge-state">OK</span><span class="pledge-state">OR</span><span class="pledge-state">PA</span><span class="pledge-state">RI</span><span class="pledge-state">SC</span><span class="pledge-state">SD</span><span class="pledge-state">TN</span><span class="pledge-state">TX</span><span class="pledge-state">UT</span><span class="pledge-state">VT</span><span class="pledge-state">VA</span><span class="pledge-state">WA</span><span class="pledge-state">WV</span><span class="pledge-state">WI</span><span class="pledge-state">WY</span>
-        </div>
-        <p class="pledge-note" data-reveal>One country. Fifty states. Zero written off.</p>
-        <div class="center" data-reveal style="margin-top:24px">
-          <a href="states.html" class="btn btn--lg">See the tour map &amp; schedule <span class="arrow">→</span></a>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAX LAB FEATURE -->
-    <section class="section bg-paper">
       <div class="container">
         <div class="feature" data-reveal>
           <div>
-            <span class="eyebrow" style="color:var(--gold)">New · Interactive</span>
-            <h2 class="section-title">Don't just read the tax plan.<br>Build your own.</h2>
+            <h2 class="section-title">Don't take the tax plan on faith.<br>Rebuild it yourself.</h2>
             <p>
-              Politicians set the brackets and hand you the bill. The <strong>Tax Lab</strong>
-              flips it: design your own federal income-tax brackets, watch the estimated
-              revenue update live, and compare it head-to-head with current law.
+              Politicians set the brackets and hand you the bill. The <strong>Tax Lab</strong> hands you
+              the brackets: drag them, add them, delete them, and watch federal revenue move against
+              current law in real time — on the same IRS-shaped income distribution the rest of this
+              site is costed on.
             </p>
-            <a href="tax-lab.html" class="btn btn--gold btn--lg">Open the Tax Lab <span class="arrow">→</span></a>
+            <p class="feature-proof">
+              Worth knowing before you start: the flat tax everyone argues for leaves
+              <strong>$833B a year</strong> on the table.
+            </p>
+            <a href="tax-lab.html" class="btn btn--gold btn--lg">Open the Tax Lab</a>
           </div>
-          <div class="feature-visual" aria-hidden="true">
-            <div class="feature-bar"><i>You</i><span class="track"><span class="fill" style="width:86%"></span></span><span>$2.4T</span></div>
-            <div class="feature-bar"><i>Current</i><span class="track"><span class="fill" style="width:78%;animation-delay:.15s"></span></span><span>$2.2T</span></div>
-            <div class="feature-bar"><i>Flat 15%</i><span class="track"><span class="fill" style="width:60%;animation-delay:.3s"></span></span><span>$1.7T</span></div>
+          <div class="feature-visual">
+            <div class="feature-bar"><i>Current law</i><span class="track"><span class="fill" style="--w:100%"></span></span><b>$2.20T</b></div>
+            <div class="feature-bar"><i>Flat 20%</i><span class="track"><span class="fill" style="--w:82.9%;animation-delay:.12s"></span></span><b>$1.82T</b></div>
+            <div class="feature-bar"><i>Flat 15%</i><span class="track"><span class="fill" style="--w:62.1%;animation-delay:.24s"></span></span><b>$1.37T</b></div>
+            <p class="feature-cap">Federal individual income-tax revenue, computed from this site's own model.</p>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- 50-STATE PROMISE — the grid is the promise, so every state is a real link. -->
+    <section class="section bg-paper">
+      <div class="container">
+        <div class="sec-head sec-head--wide">
+          <h2 class="section-title">The 50-State Promise</h2>
+          <p class="section-lead">The consultants say camp out in seven purple states. I won't. My loyalty isn't to
+          a party and it isn't to me — it's to the American people, the Constitution, and the American Dream.
+          So: all fifty, red and blue alike.</p>
+        </div>
+        <div class="pledge-grid" data-reveal>
+          <a class="pledge-state" href="states.html#AL">AL</a><a class="pledge-state" href="states.html#AK">AK</a><a class="pledge-state" href="states.html#AZ">AZ</a><a class="pledge-state" href="states.html#AR">AR</a><a class="pledge-state" href="states.html#CA">CA</a><a class="pledge-state" href="states.html#CO">CO</a><a class="pledge-state" href="states.html#CT">CT</a><a class="pledge-state" href="states.html#DE">DE</a><a class="pledge-state" href="states.html#FL">FL</a><a class="pledge-state" href="states.html#GA">GA</a><a class="pledge-state" href="states.html#HI">HI</a><a class="pledge-state" href="states.html#ID">ID</a><a class="pledge-state" href="states.html#IL">IL</a><a class="pledge-state" href="states.html#IN">IN</a><a class="pledge-state" href="states.html#IA">IA</a><a class="pledge-state" href="states.html#KS">KS</a><a class="pledge-state" href="states.html#KY">KY</a><a class="pledge-state" href="states.html#LA">LA</a><a class="pledge-state" href="states.html#ME">ME</a><a class="pledge-state" href="states.html#MD">MD</a><a class="pledge-state" href="states.html#MA">MA</a><a class="pledge-state" href="states.html#MI">MI</a><a class="pledge-state" href="states.html#MN">MN</a><a class="pledge-state" href="states.html#MS">MS</a><a class="pledge-state" href="states.html#MO">MO</a><a class="pledge-state" href="states.html#MT">MT</a><a class="pledge-state" href="states.html#NE">NE</a><a class="pledge-state" href="states.html#NV">NV</a><a class="pledge-state" href="states.html#NH">NH</a><a class="pledge-state" href="states.html#NJ">NJ</a><a class="pledge-state" href="states.html#NM">NM</a><a class="pledge-state" href="states.html#NY">NY</a><a class="pledge-state" href="states.html#NC">NC</a><a class="pledge-state" href="states.html#ND">ND</a><a class="pledge-state" href="states.html#OH">OH</a><a class="pledge-state" href="states.html#OK">OK</a><a class="pledge-state" href="states.html#OR">OR</a><a class="pledge-state" href="states.html#PA">PA</a><a class="pledge-state" href="states.html#RI">RI</a><a class="pledge-state" href="states.html#SC">SC</a><a class="pledge-state" href="states.html#SD">SD</a><a class="pledge-state" href="states.html#TN">TN</a><a class="pledge-state" href="states.html#TX">TX</a><a class="pledge-state" href="states.html#UT">UT</a><a class="pledge-state" href="states.html#VT">VT</a><a class="pledge-state" href="states.html#VA">VA</a><a class="pledge-state" href="states.html#WA">WA</a><a class="pledge-state" href="states.html#WV">WV</a><a class="pledge-state" href="states.html#WI">WI</a><a class="pledge-state" href="states.html#WY">WY</a>
+        </div>
+        <p class="pledge-note">One country. Fifty states. Zero written off. <a href="states.html">See the tour map and schedule</a>.</p>
       </div>
     </section>
 
     <!-- SIGNUP -->
-    <section class="section bg-paper" style="padding-top:0">
+    <section class="section bg-white">
       <div class="container">
         <div class="signup" data-reveal>
-          <h2 class="section-title">Join the movement</h2>
-          <p>Add your name for the occasional update — just the plan and how to help. No spam, no doom.</p>
+          <h2>Add your name</h2>
+          <p>The occasional update — what changed in the plan, and how to help. No spam, no doom.</p>
           <form class="signup-form" data-signup novalidate>
             <input type="email" name="email" placeholder="Your email address" aria-label="Email address" required />
-            <button type="submit" class="btn btn--gold">I'm In <span class="arrow">→</span></button>
+            <button type="submit" class="btn btn--gold">I'm In</button>
             <p class="form-note" role="status" aria-live="polite" style="flex-basis:100%"></p>
           </form>
         </div>

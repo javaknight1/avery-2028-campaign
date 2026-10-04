@@ -7,6 +7,14 @@
    ========================================================= */
 (() => {
   "use strict";
+  // Typographic fallback when a seat has no photograph: the role's initials.
+  // An avatar slot should identify the person or office, not decorate the row.
+  const STOP = new Set(["of","the","and","for","to","a","on","&"]);
+  const initials = (s, max = 3) =>
+    String(s || "").split(/[\s-]+/).filter((w) => w && !STOP.has(w.toLowerCase()))
+      .map((w) => w[0]).join("").slice(0, max).toUpperCase();
+
+
   const P = window.PLATFORM;
   if (!P) return;
   const esc = (s) => String(s);
@@ -97,7 +105,7 @@
     const courtLi = g.court ? `<li class="gv-court">⚖️ Expect a Supreme Court challenge — we draft it to survive review.</li>` : "";
     const ownerFace = owner && owner.img
       ? `<img src="${owner.img}" alt="${esc(owner.role)}" loading="lazy" width="60" height="60" />`
-      : (owner ? `<span class="gv-emoji">${owner.icon || "🏛️"}</span>` : "");
+      : (owner ? `<span class="gv-initials">${initials(owner.role)}</span>` : "");
     const ownerHTML = owner ? `<a class="gv-owner" href="seat.html?seat=${owner.key}">
         <span class="gv-avatar">${ownerFace}</span>
         <span class="gv-owner-txt"><small>Led by</small><b>${esc(owner.role)}</b><span>${esc(owner.dept)}</span></span>
@@ -131,7 +139,6 @@
     return `<section class="policy" id="${p.id}" data-cat="${bucket(p)}">
       <div class="container">
         <div class="policy-head" data-reveal>
-          <span class="policy-icon">${p.icon}</span>
           <div class="policy-headings"><h2>${esc(p.title)}</h2><p class="tagline">${esc(p.tagline)}</p>
             <button class="policy-share" type="button" data-share="${p.id}" title="Copy a link to this policy" aria-label="Copy a link to this policy">${LINK_ICON}</button></div>
           ${costBadge(p)}
@@ -215,7 +222,7 @@
       const cc = costCell(p);
       const oddsCls = m.odds >= 60 ? "hi" : (m.odds >= 40 ? "mid" : "lo");
       return `<tr data-prow="${p.id}">
-        <td class="pt-title"><a href="#${p.id}"><span class="pt-ic">${p.icon}</span>${esc(p.title)}</a></td>
+        <td class="pt-title"><a href="#${p.id}">${esc(p.title)}</a></td>
         <td class="num pt-${cc.c}">${cc.t}</td>
         <td class="pt-time">${m.time ? esc(m.time) : "—"}</td>
         <td class="pt-dot">${m.difficulty ? `${miniDots(m.difficulty)}<small>${DIFF[m.difficulty]}</small>` : "—"}</td>

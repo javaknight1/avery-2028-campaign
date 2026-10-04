@@ -14,7 +14,7 @@
       : p.costType === "neutral" ? `<span class="neutral">≈ $0</span>`
         : `<span class="spend">${money(p.cost)}</span>`;
   // a funding line: emoji + (link to its policy)
-  const fline = (f) => `${f.icon ? f.icon + " " : ""}${f.id ? `<a href="issues.html#${f.id}">${esc(f.label)}</a>` : esc(f.label)}`;
+  const fline = (f) => `${f.id ? `<a href="issues.html#${f.id}">${esc(f.label)}</a>` : esc(f.label)}`;
 
   const FUNDING = P.funding;
   const TOTAL_REVENUE = FUNDING.reduce((s, f) => s + f.amt, 0);
@@ -29,7 +29,7 @@
     const el = document.getElementById("budgetSummary");
     if (!el) return;
     const benefitRows = P.policies.filter((p) => p.costType !== "revenue").map((p) =>
-      `<tr><td class="sum-policy"><a href="issues.html#${p.id}"><span class="sum-ic">${p.icon}</span> ${esc(p.title)}</a></td>
+      `<tr><td class="sum-policy"><a href="issues.html#${p.id}">${esc(p.title)}</a></td>
         <td class="sum-cost">${costShort(p)}</td></tr>`).join("");
     const taxRows = FUNDING.map((f) =>
       `<tr><td class="sum-policy">${fline(f)}</td>

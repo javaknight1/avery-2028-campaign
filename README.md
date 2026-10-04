@@ -94,6 +94,8 @@ No frameworks, no build step — HTML, CSS, and vanilla JS.
 
 ```bash
 npm run dev          # serves at http://localhost:5173
+npm run check        # verifies the homepage's hard-coded figures still
+                     # match data/policies.js and the Tax Lab model
 ```
 
 (or `python3 -m http.server 5173`). Use a server rather than opening files

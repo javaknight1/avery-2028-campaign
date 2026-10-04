@@ -6,6 +6,14 @@
    ========================================================= */
 (() => {
   "use strict";
+  // Typographic fallback when a seat has no photograph: the role's initials.
+  // An avatar slot should identify the person or office, not decorate the row.
+  const STOP = new Set(["of","the","and","for","to","a","on","&"]);
+  const initials = (s, max = 3) =>
+    String(s || "").split(/[\s-]+/).filter((w) => w && !STOP.has(w.toLowerCase()))
+      .map((w) => w[0]).join("").slice(0, max).toUpperCase();
+
+
   const P = window.PLATFORM;
   if (!P) return;
   const esc = (s) => String(s);
@@ -19,7 +27,7 @@
     const n = (leads[c.key] || []).length;
     const face = c.img
       ? `<img src="${c.img}" alt="${esc(c.holder || c.role)}" loading="lazy" width="120" height="120" />`
-      : `<span class="cab-emoji">${c.icon || "🏛️"}</span>`;
+      : `<span class="cab-initials">${initials(c.role)}</span>`;
     const sub = c.self ? `<span class="cab-sub cab-you">${esc(c.holder)} · that's you</span>`
       : c.tbd ? `<span class="cab-sub cab-tbd">Pick: TBD</span>`
         : `<span class="cab-sub cab-pick">${(c.candidates || []).length} shortlisted</span>`;

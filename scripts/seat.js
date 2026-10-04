@@ -6,6 +6,14 @@
    ========================================================= */
 (() => {
   "use strict";
+  // Typographic fallback when a seat has no photograph: the role's initials.
+  // An avatar slot should identify the person or office, not decorate the row.
+  const STOP = new Set(["of","the","and","for","to","a","on","&"]);
+  const initials = (s, max = 3) =>
+    String(s || "").split(/[\s-]+/).filter((w) => w && !STOP.has(w.toLowerCase()))
+      .map((w) => w[0]).join("").slice(0, max).toUpperCase();
+
+
   const P = window.PLATFORM;
   if (!P) return;
   const esc = (s) => String(s);
@@ -26,7 +34,7 @@
     .filter(([id, g]) => g.owner === key)
     .map(([id]) => P.policies.find((p) => p.id === id)).filter(Boolean);
   const leadHTML = leads.length
-    ? `<div class="seat-leads">${leads.map((p) => `<a class="seat-pill" href="issues.html#${p.id}">${p.icon} ${esc(p.title)}</a>`).join("")}</div>`
+    ? `<div class="seat-leads">${leads.map((p) => `<a class="seat-pill" href="issues.html#${p.id}">${esc(p.title)}</a>`).join("")}</div>`
     : `<p class="muted">A cross-cutting role that supports the whole agenda rather than owning specific line items.</p>`;
 
   const resp = (seat.responsibilities || []).map((r) => `<li>${esc(r)}</li>`).join("");
@@ -36,7 +44,7 @@
       <h3>What it takes</h3>
       <ul class="seat-reqlist">${reqList.map((r) => `<li>${esc(r)}</li>`).join("")}</ul>
     </div>` : "";
-  const headFace = seat.img ? `<img src="${seat.img}" alt="${esc(seat.holder || seat.role)}" />` : (seat.icon || "🏛️");
+  const headFace = seat.img ? `<img src="${seat.img}" alt="${esc(seat.holder || seat.role)}" />` : `<span class="seat-initials">${initials(seat.role)}</span>`;
 
   function candCard(c) {
     const info = CI[c.name] || {};

@@ -5,6 +5,14 @@
    ========================================================= */
 (() => {
   "use strict";
+  // Typographic fallback when a seat has no photograph: the role's initials.
+  // An avatar slot should identify the person or office, not decorate the row.
+  const STOP = new Set(["of","the","and","for","to","a","on","&"]);
+  const initials = (s, max = 3) =>
+    String(s || "").split(/[\s-]+/).filter((w) => w && !STOP.has(w.toLowerCase()))
+      .map((w) => w[0]).join("").slice(0, max).toUpperCase();
+
+
   const P = window.PLATFORM;
   if (!P) return;
   const esc = (s) => String(s);
@@ -27,7 +35,7 @@
         <div class="fhd-teams">
           ${ph.teams.map((t) => {
             const c = CAB[t.key] || { role: t.key };
-            const face = c.img ? `<img src="${c.img}" alt="${esc(c.role)}" loading="lazy" />` : `<span class="fhd-emoji">${c.icon || "🏛️"}</span>`;
+            const face = c.img ? `<img src="${c.img}" alt="${esc(c.role)}" loading="lazy" />` : `<span class="fhd-initials">${initials(c.role)}</span>`;
             return `<div class="fhd-team">
               <a class="fhd-member" href="seat.html?seat=${t.key}">
                 <span class="fhd-av">${face}</span><span class="fhd-role">${esc(c.role)}</span>
