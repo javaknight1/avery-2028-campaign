@@ -206,7 +206,7 @@
         const lblY = d.dollars >= 0 ? barY - 7 : barY + barH + 12;
         bars += `<text x="${cx.toFixed(1)}" y="${lblY.toFixed(1)}" text-anchor="middle" font-size="9" fill="${color}" font-family="Oswald">${sMoney(d.dollars)}</text>`;
       }
-      const img = d.key === "avery" ? "assets/rob.svg" : `assets/presidents/${d.key}.jpg`;
+      const img = d.key === "avery" ? "assets/rob.jpg" : `assets/presidents/${d.key}.jpg`;
       defs += `<clipPath id="pc${i}"><circle cx="${cx.toFixed(1)}" cy="${fy}" r="15"/></clipPath>`;
       bars += `<image href="${img}" x="${(cx - 15).toFixed(1)}" y="${fy - 15}" width="30" height="30" clip-path="url(#pc${i})" preserveAspectRatio="xMidYMid slice"/>`;
       bars += `<circle cx="${cx.toFixed(1)}" cy="${fy}" r="15" fill="none" stroke="${ring(d.party)}" stroke-width="2"/>`;

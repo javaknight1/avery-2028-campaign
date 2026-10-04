@@ -130,7 +130,7 @@ npm run deploy          # wrangler deploy
 - **Colors / fonts:** CSS variables at the top of `styles/main.css`.
 - **Policy content:** `issues.html` (each `<section class="policy">`).
 - **Tax model & data:** `data/income-distribution.js`.
-- **Candidate photo:** replace `assets/rob.svg` with a real image (update the
+- **Candidate photo:** `assets/rob.webp` + `assets/rob.jpg` (update the
   `<img src>` on `index.html` and `about.html`).
 - **Nav / footer:** edit once in `scripts/components.js`.
 

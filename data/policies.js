@@ -1733,7 +1733,7 @@ window.PLATFORM = {
   // is an illustrative shortlist — public figures who'd fit the JD *if* they
   // shared the platform and joined the team. Not affiliated; not endorsements.
   cabinet: [
-    { key: "president", role: "President of the United States", dept: "The White House", icon: "🇺🇸", self: true, holder: "Rob Avery", img: "assets/rob.svg",
+    { key: "president", role: "President of the United States", dept: "The White House", icon: "🇺🇸", self: true, holder: "Rob Avery", img: "assets/rob.jpg",
       mission: "Set the agenda, pick the team, and answer to the country for results.",
       responsibilities: ["Own the Humanity Score — the scoreboard every policy is judged against.", "Lead the constitutional fights, including Supreme Court reform.", "Appoint and hold accountable the cabinet below.", "Report honestly to the public, on a clock."],
       daily: ["Set priorities and break ties across the cabinet.", "Make the final call on the hardest trade-offs.", "Take the case to Congress and the country."] },
